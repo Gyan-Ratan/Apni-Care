@@ -1,19 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".upload_prescription">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    tools:context=".upload_prescription"
+    android:orientation="vertical">
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="300sp"
+        android:src="@drawable/_5487"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Upload"
-        android:id="@+id/upload"/>
+        android:layout_margin="20dp"
+        android:text="Upload Prescription"
+        android:padding="12sp"
+        android:id="@+id/upload"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15sp"
+        android:background="#D9D9D9"/>
 
-</FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Any prescription you upload is validated before processing the order."
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="19sp"
+        android:padding="10dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="What is a valid prescription?"
+        android:layout_marginTop="10sp"
+        android:textSize="17dp"
+        android:paddingHorizontal="10dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Why we need a prescription?"
+        android:layout_marginTop="10sp"
+        android:textSize="17dp"
+        android:paddingHorizontal="10dp"/>
+
+
+</LinearLayout>
