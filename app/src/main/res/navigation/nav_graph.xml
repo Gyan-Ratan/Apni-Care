@@ -16,12 +16,25 @@
         <action
             android:id="@+id/action_homepage_to_account_page"
             app:destination="@id/account_page" />
+        <action
+            android:id="@+id/action_homepage_to_health_records_page"
+            app:destination="@id/health_records_page" />
     </fragment>
     <fragment
         android:id="@+id/account_page"
         android:name="com.example.apnicare.account_page"
         android:label="fragment_account_page"
-        tools:layout="@layout/fragment_account_page" />
+        tools:layout="@layout/fragment_account_page" >
+        <action
+            android:id="@+id/action_account_page_to_your_orders"
+            app:destination="@id/your_orders" />
+        <action
+            android:id="@+id/action_account_page_to_address_book"
+            app:destination="@id/address_book" />
+        <action
+            android:id="@+id/action_account_page_to_family_members"
+            app:destination="@id/family_members" />
+    </fragment>
     <fragment
         android:id="@+id/upload_prescription"
         android:name="com.example.apnicare.upload_prescription"
@@ -45,4 +58,48 @@
         android:name="com.example.apnicare.why_prescription_2"
         android:label="fragment_why_prescription_2"
         tools:layout="@layout/fragment_why_prescription_2" />
+    <fragment
+        android:id="@+id/health_records_page"
+        android:name="com.example.apnicare.health_records_page"
+        android:label="fragment_health_records_page"
+        tools:layout="@layout/fragment_health_records_page" />
+    <fragment
+        android:id="@+id/your_orders"
+        android:name="com.example.apnicare.your_orders"
+        android:label="fragment_your_orders"
+        tools:layout="@layout/fragment_your_orders" >
+        <action
+            android:id="@+id/action_your_orders_to_account_page"
+            app:destination="@id/account_page" />
+    </fragment>
+    <fragment
+        android:id="@+id/address_book"
+        android:name="com.example.apnicare.address_book"
+        android:label="fragment_address_book"
+        tools:layout="@layout/fragment_address_book" >
+        <action
+            android:id="@+id/action_address_book_to_edit_address"
+            app:destination="@id/edit_address" />
+        <action
+            android:id="@+id/action_address_book_to_account_page"
+            app:destination="@id/account_page" />
+    </fragment>
+    <fragment
+        android:id="@+id/edit_address"
+        android:name="com.example.apnicare.edit_address"
+        android:label="fragment_edit_address"
+        tools:layout="@layout/fragment_edit_address" >
+        <action
+            android:id="@+id/action_edit_address_to_address_book"
+            app:destination="@id/address_book" />
+    </fragment>
+    <fragment
+        android:id="@+id/family_members"
+        android:name="com.example.apnicare.family_members"
+        android:label="fragment_family_members"
+        tools:layout="@layout/fragment_family_members" >
+        <action
+            android:id="@+id/action_family_members_to_account_page"
+            app:destination="@id/account_page" />
+    </fragment>
 </navigation>
