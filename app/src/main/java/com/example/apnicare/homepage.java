@@ -19,6 +19,7 @@ public class homepage extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_homepage, container, false);
+
         upbtn=view.findViewById(R.id.homeupload);
         upbtn.setOnClickListener(new View.OnClickListener() {
             @Override

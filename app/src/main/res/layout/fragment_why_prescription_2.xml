@@ -1,14 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".why_prescription_2">
-
-    <!-- TODO: Update blank fragment layout -->
+    android:layout_height="wrap_content">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_margin="10sp"
+        android:text="Valid Prescription Guide"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="26sp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginTop="0dp"
+        android:layout_height="2sp"
+        android:background="@color/black"/>
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="20sp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Provide right medicines"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18sp"
+
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Prescriptions are comlex documents. It
+is the top priority that the same medicines
+are dispensedthat are written in the
+prescription.\n\nMedicines come in various strengths and
+combinations. There is a reason why
+certain strengths are given depending on
+your severity of illness, age, weight and
+other factors"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width= "match_parent"
+        android:layout_height="wrap_content"
+        android:text="Okay"
+        android:layout_margin="20sp"/>
+
+</LinearLayout>

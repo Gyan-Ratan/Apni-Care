@@ -3,12 +3,189 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".account_page">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Account page" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="15sp"
+                android:layout_marginBottom="15sp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/text_dashboard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="Himanshu Verma"
+                            android:textColor="#000000"
+                            android:textFontWeight="2000"
+                            android:textSize="34sp"
+                            android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="50sp"
+                            tools:srcCompat="@tools:sample/avatars"
+                            android:textAlignment="textEnd"
+                            android:layout_margin="10dp"
+                            />
+
+                    </LinearLayout>
+
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2sp"
+                        android:background="#4D000000"
+
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10sp"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginBottom="10sp"
+                        android:text="Male-20"
+
+                        android:textSize="28sp" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2sp"
+                        android:background="#4D000000"
+
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginBottom="10sp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Edit"
+                            android:textSize="22sp"
+                            android:layout_marginLeft="10sp"/>
+                        "
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="textEnd"
+                            android:text="9084000392"
+                            android:textSize="24sp"
+                            android:paddingRight="10sp"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical"-->
+
+            <!--                >-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Family Members"
+                android:drawableLeft="@drawable/ic_baseline_family_restroom_24"
+                android:drawablePadding="20dp"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:layout_margin="10sp"
+                android:textColor="@color/black"
+
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your orders"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:layout_margin="10sp"
+                android:drawableLeft="@drawable/ic_baseline_library_books_24"
+                android:drawablePadding="20dp"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Address book"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:layout_margin="10sp"
+                android:drawableLeft="@drawable/ic_baseline_location_on_24"
+                android:drawablePadding="20dp"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Settings"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:layout_margin="10sp"
+                android:drawableLeft="@drawable/ic_baseline_settings_24"
+                android:drawablePadding="20dp"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Need help?"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:layout_margin="10sp"
+                android:drawableLeft="@drawable/ic_baseline_help_24"
+                android:drawablePadding="20dp"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Logout"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:layout_margin="10sp"
+                android:drawableLeft="@drawable/ic_baseline_login_24"
+                android:drawablePadding="20dp"
+                android:textColor="@color/black"
+                />
+            <!--            </LinearLayout>-->
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
 
 </FrameLayout>
