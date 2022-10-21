@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">ApniCare</string>
+    <!-- TODO: Remove or change this placeholder text -->
+      <string name="pres_desc1">A valid prescription should contain doctor, patient, medicine details and the doctor’s signature.</string>
+    <string name="pres_title1">What is a valid prescription?</string>
+    <string name="presc_desc2">Doctor’s name, the practicing hopital, registered number
+should be present on the prescription</string>
+    <string name="presc_title2">Doctor’s name and details</string>
+    <string name="presc_desc3">Patient details such as patient’s name, age, date of
+consultation should be present on the prescription</string>
+    <string name="presc_title3">Patients details</string>
+    <string name="presc_desc4">Medicine details such as  medicine name, strength, duration
+should be mentioned on the prescription</string>
+    <string name="presc_title4">Medicine’s name and dosage</string>
+    <string name="presc_desc5">Signature and/or stamp of the doctor is necessary for the
+prescription to be valid</string>
+    <string name="presc_title5">Doctor’s signature and stamp</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="hello_blank_fragment">fragment</string>
 </resources>

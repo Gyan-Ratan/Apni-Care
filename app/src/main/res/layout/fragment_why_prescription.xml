@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10sp"
+        android:text="Valid Prescription Guide"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="26sp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginTop="0dp"
+        android:layout_height="2sp"
+        android:background="@color/black"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="fill_parent"
+        android:layout_height="550dp"
+        android:id="@+id/Sliderpager"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        android:gravity="center"
+
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:id="@+id/backbtn"
+            android:layout_marginHorizontal="20sp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:id="@+id/nextbtn"
+            android:layout_marginHorizontal="20sp"
+
+            />
+
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginTop="0dp"
+        android:layout_height="2sp"
+        android:background="@color/black"/>
+    <Button
+        android:id="@+id/skip"
+        android:layout_width= "match_parent"
+        android:layout_height="wrap_content"
+        android:text="Okay , I understand"
+        android:layout_margin="20sp"/>
+
+</LinearLayout>
