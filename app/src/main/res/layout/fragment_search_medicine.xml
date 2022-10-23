@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".search_medicine"
+    android:padding="20dp">
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="4dp"
+
+        android:background="@drawable/searchview"
+        android:elevation="6dp"
+        android:iconifiedByDefault="false"
+        android:padding="5dp"
+        android:queryBackground="@android:color/transparent"
+        android:queryHint="Search here"
+        />
+
+</FrameLayout>
