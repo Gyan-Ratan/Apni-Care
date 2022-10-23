@@ -9,14 +9,15 @@
         android:layout_width="match_parent"
         android:layout_height="300sp"
         android:src="@drawable/_5487"/>
+
     <Button
+        android:id="@+id/upload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="Upload Prescription"
         android:padding="12sp"
-        android:id="@+id/upload"
-        />
+        android:text="Upload Prescription" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="15sp"

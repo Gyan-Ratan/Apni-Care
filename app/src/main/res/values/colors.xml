@@ -7,5 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="cartbackround">#00FFFFFF</color>
+    <color name="transparent">#00000000</color>
+
+    //onboarding colors
+    <color name="background">#F0F4F3</color>
+    <color name="buttontext">#50C2C9</color>
+    <color name="skipbtn">#2879FF</color>
+
+    //indicator color
+    <color name="inactive">#CFD8DD</color>
+    <color name="active">#FEC107</color>
 </resources>
