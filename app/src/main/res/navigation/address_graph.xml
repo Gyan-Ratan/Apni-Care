@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/address_graph"
+    app:startDestination="@id/address_book">
+    <fragment
+        android:id="@+id/address_book"
+        android:name="com.example.apnicare.address_book"
+        android:label="fragment_address_book"
+        tools:layout="@layout/fragment_address_book" >
+        <action
+            android:id="@+id/action_address_book_to_edit_address"
+            app:destination="@id/edit_address" />
+    </fragment>
+    <fragment
+        android:id="@+id/edit_address"
+        android:name="com.example.apnicare.edit_address"
+        android:label="fragment_edit_address"
+        tools:layout="@layout/fragment_edit_address" >
+        <action
+            android:id="@+id/action_edit_address_to_address_book"
+            app:destination="@id/address_book" />
+    </fragment>
+</navigation>

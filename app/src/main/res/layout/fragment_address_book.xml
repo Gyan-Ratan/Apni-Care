@@ -10,5 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/hello_blank_fragment" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit address"
+        android:id="@+id/editadd"/>
 
 </FrameLayout>

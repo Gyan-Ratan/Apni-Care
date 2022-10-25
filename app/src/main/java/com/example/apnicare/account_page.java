@@ -1,5 +1,6 @@
 package com.example.apnicare;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -49,8 +50,8 @@ public class account_page extends Fragment {
         family.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(account_page.this)
-                        .navigate(R.id.action_account_page_to_family_members);
+                Intent intent = new Intent(getActivity(), address_edit.class);
+                startActivity(intent);
             }
         });
 
