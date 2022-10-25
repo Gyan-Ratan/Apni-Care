@@ -1,14 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".health_records_page">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".health_records_page"
+    android:orientation="vertical"
+    android:padding="50dp"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:layout_gravity="center">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Hey,  "
+            android:textSize="34dp" />
+
+        <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/teal_200"
+        android:drawableRight="@drawable/ic_baseline_navigate_next_24"
+        android:text="Gyan Ratan"
+        android:textSize="22dp"
+        />
+
+    </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_baseline_navigate_next_24"
+            android:padding="15dp"
+            android:text="Clinical Documents"
+            android:textAlignment="textStart"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_baseline_navigate_next_24"
+            android:padding="15dp"
+            android:text="Doctor Consultation"
+            android:textAlignment="textStart" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_baseline_navigate_next_24"
+            android:padding="15dp"
+            android:text="Test Repost"
+            android:textAlignment="textStart" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_baseline_navigate_next_24"
+            android:padding="15dp"
+            android:text="Hospitalisation"
+            android:textAlignment="textStart" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_baseline_navigate_next_24"
+            android:padding="15dp"
+            android:text="Health Conditions"
+            android:textAlignment="textStart" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_baseline_navigate_next_24"
+            android:padding="15dp"
+            android:text="vaccination reports"
+            android:textAlignment="textStart" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_baseline_navigate_next_24"
+            android:padding="15dp"
+            android:text="Bills"
+            android:textAlignment="textStart" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_baseline_navigate_next_24"
+            android:padding="15dp"
+            android:text="Insurance"
+            android:textAlignment="textStart" />
+
+
+
+</LinearLayout>
