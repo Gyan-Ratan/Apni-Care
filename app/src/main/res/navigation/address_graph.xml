@@ -6,7 +6,7 @@
     app:startDestination="@id/address_book">
     <fragment
         android:id="@+id/address_book"
-        android:name="com.example.apnicare.address_book"
+        android:name="com.example.apnicare.address_page.address_book"
         android:label="fragment_address_book"
         tools:layout="@layout/fragment_address_book" >
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/edit_address"
-        android:name="com.example.apnicare.edit_address"
+        android:name="com.example.apnicare.address_page.edit_address"
         android:label="fragment_edit_address"
         tools:layout="@layout/fragment_edit_address" >
         <action

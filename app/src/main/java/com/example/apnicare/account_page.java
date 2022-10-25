@@ -1,6 +1,7 @@
 package com.example.apnicare;
 
 import android.content.Intent;
+import android.location.Address;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,6 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.apnicare.address_page.AddressActivity;
 
 
 public class account_page extends Fragment {
@@ -50,7 +53,7 @@ public class account_page extends Fragment {
         family.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), address_edit.class);
+                Intent intent = new Intent(getActivity(), AddressActivity.class);
                 startActivity(intent);
             }
         });
