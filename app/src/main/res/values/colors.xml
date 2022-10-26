@@ -17,4 +17,5 @@
     //indicator color
     <color name="inactive">#CFD8DD</color>
     <color name="active">#FEC107</color>
+    <color name="addressbar">#84D8E2</color>
 </resources>

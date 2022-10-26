@@ -46,4 +46,13 @@ prescription to be valid</string>
     <string name="skip">Skip</string>
     <string name="introimg">introscreenimage</string>
 
+    //
+    <string name="Howwouldyouliketoproceed"> How would you like to proceed ?</string>
+    <string name="OrderEverythingasperprescription">Order Everything as per prescription</string>
+    <string name="Callforthedetails">Call for the details</string>
+    <string name="AttachedPrescription">Attached Prescription</string>
+    <string name="Placerequest">Place request</string>
+    <string name="deliveringto">Delivering to </string>
+    <string name="address">123/78 ambaan nagar, muzaffarnagar</string>
+
 </resources>
