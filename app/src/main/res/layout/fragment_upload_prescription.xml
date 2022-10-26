@@ -33,6 +33,7 @@
         android:textSize="19sp"
         android:padding="10dp"/>
     <TextView
+        android:id="@+id/why_prescription_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="What is a valid prescription?"
@@ -40,6 +41,7 @@
         android:textSize="17dp"
         android:paddingHorizontal="10dp" />
     <TextView
+        android:id="@+id/why_prescription_2_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Why we need a prescription?"

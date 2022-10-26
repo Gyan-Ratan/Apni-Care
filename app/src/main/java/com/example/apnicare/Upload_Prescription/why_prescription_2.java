@@ -28,7 +28,7 @@ public class why_prescription_2 extends BottomSheetDialogFragment {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(why_prescription_2.this)
-                        .navigate(R.id.action_why_prescription_2_to_upload_options);
+                        .navigate(R.id.action_why_prescription_2_to_upload_prescription);
             }
         });
         return view;

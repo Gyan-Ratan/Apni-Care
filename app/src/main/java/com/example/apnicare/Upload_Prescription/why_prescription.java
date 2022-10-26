@@ -61,7 +61,7 @@ public class why_prescription extends BottomSheetDialogFragment {
                 else {
 
                     NavHostFragment.findNavController(why_prescription.this)
-                            .navigate(R.id.action_why_prescription_to_why_prescription_2);
+                            .navigate(R.id.action_why_prescription_to_upload_prescription);
 
                 }
 
@@ -72,7 +72,7 @@ public class why_prescription extends BottomSheetDialogFragment {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(why_prescription.this)
-                        .navigate(R.id.action_why_prescription_to_why_prescription_2);
+                        .navigate(R.id.action_why_prescription_to_upload_prescription);
 
 //                finish();
 

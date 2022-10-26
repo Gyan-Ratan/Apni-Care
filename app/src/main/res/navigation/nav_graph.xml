@@ -22,6 +22,12 @@
         <action
             android:id="@+id/action_upload_prescription_to_why_prescription"
             app:destination="@id/why_prescription" />
+        <action
+            android:id="@+id/action_upload_prescription_to_why_prescription_2"
+            app:destination="@id/why_prescription_2" />
+        <action
+            android:id="@+id/action_upload_prescription_to_upload_options"
+            app:destination="@id/upload_options" />
     </fragment>
     <dialog
         android:id="@+id/why_prescription"
@@ -29,8 +35,8 @@
         android:label="fragment_why_prescription"
         tools:layout="@layout/fragment_why_prescription" >
         <action
-            android:id="@+id/action_why_prescription_to_why_prescription_2"
-            app:destination="@id/why_prescription_2" />
+            android:id="@+id/action_why_prescription_to_upload_prescription"
+            app:destination="@id/upload_prescription" />
     </dialog>
     <dialog
         android:id="@+id/why_prescription_2"
@@ -38,8 +44,8 @@
         android:label="fragment_why_prescription_2"
         tools:layout="@layout/fragment_why_prescription_2" >
         <action
-            android:id="@+id/action_why_prescription_2_to_upload_options"
-            app:destination="@id/upload_options" />
+            android:id="@+id/action_why_prescription_2_to_upload_prescription"
+            app:destination="@id/upload_prescription" />
     </dialog>
     <fragment
         android:id="@+id/health_records_page"
@@ -63,7 +69,7 @@
         tools:layout="@layout/fragment_search_medicine" />
     <dialog
         android:id="@+id/upload_options"
-        android:name="com.example.apnicare.Upload_Prescription.upload_options_prescription "
+        android:name="com.example.apnicare.Upload_Prescription.upload_options_prescription"
         android:label="fragment_search_medicine"
         tools:layout="@layout/fragment_upload_options_prescription" />
 </navigation>

@@ -30,7 +30,7 @@ public class account_page extends Fragment {
         order=view.findViewById(R.id.account_orders);
         family=view.findViewById(R.id.account_family);
         addresspage=view.findViewById(R.id.account_addressbook);
-       
+
         addresspage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
