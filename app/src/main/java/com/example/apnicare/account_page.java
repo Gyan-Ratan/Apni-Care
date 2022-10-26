@@ -20,7 +20,7 @@ import com.example.apnicare.address_page.AddressActivity;
 
 public class account_page extends Fragment {
 
-    TextView order,family;
+    TextView order,family,addresspage;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,28 +29,9 @@ public class account_page extends Fragment {
         View view= inflater.inflate(R.layout.fragment_account_page, container, false);
         order=view.findViewById(R.id.account_orders);
         family=view.findViewById(R.id.account_family);
-        order.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                NavHostFragment.findNavController(account_page.this)
-//                        .navigate(R.id.action_account_page_to_your_orders);
-                Fragment childFragment = new your_orders();
-//                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-//                transaction.replace(R.id.accountpag, childFragment).commit();
-                FragmentManager fragmentManager = getParentFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.setReorderingAllowed(true);
-
-// Replace whatever is in the fragment_container view with this fragment
-                transaction.replace(R.id.accountpag,childFragment, null);
-
-// Commit the transaction
-                transaction.commit();
-
-
-            }
-        });
-        family.setOnClickListener(new View.OnClickListener() {
+        addresspage=view.findViewById(R.id.account_addressbook);
+       
+        addresspage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), AddressActivity.class);

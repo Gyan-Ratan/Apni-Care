@@ -29,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.accountbutton:
                     replace(new account_page());
                     break;
-                case R.id.bottomPrescription:
-                    replace(new upload_prescription());
-                    break;
+//                case R.id.bottomPrescription:
+//                    replace(new upload_prescription());
+//                    break;
                 case R.id.healthrecordbutton:
                     replace(new health_records_page());
                     break;

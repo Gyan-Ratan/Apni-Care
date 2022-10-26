@@ -1,4 +1,4 @@
-package com.example.apnicare;
+package com.example.apnicare.Upload_Prescription;
 
 import android.os.Bundle;
 
@@ -8,12 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.apnicare.R;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link why_prescription_2#newInstance} factory method to
+ * Use the {@link upload_options_prescription#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class why_prescription_2 extends Fragment {
+public class upload_options_prescription extends BottomSheetDialogFragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +27,7 @@ public class why_prescription_2 extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public why_prescription_2() {
+    public upload_options_prescription() {
         // Required empty public constructor
     }
 
@@ -34,11 +37,11 @@ public class why_prescription_2 extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment why_prescription_2.
+     * @return A new instance of fragment upload_options_prescription.
      */
     // TODO: Rename and change types and number of parameters
-    public static why_prescription_2 newInstance(String param1, String param2) {
-        why_prescription_2 fragment = new why_prescription_2();
+    public static upload_options_prescription newInstance(String param1, String param2) {
+        upload_options_prescription fragment = new upload_options_prescription();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +62,6 @@ public class why_prescription_2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_why_prescription_2, container, false);
+        return inflater.inflate(R.layout.fragment_upload_options_prescription, container, false);
     }
 }

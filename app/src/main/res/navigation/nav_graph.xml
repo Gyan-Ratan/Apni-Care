@@ -13,9 +13,6 @@
         <action
             android:id="@+id/action_homepage_to_upload_prescription"
             app:destination="@id/upload_prescription" />
-        <action
-            android:id="@+id/action_homepage_to_my_cart"
-            app:destination="@id/my_cart" />
     </fragment>
     <fragment
         android:id="@+id/upload_prescription"
@@ -26,20 +23,24 @@
             android:id="@+id/action_upload_prescription_to_why_prescription"
             app:destination="@id/why_prescription" />
     </fragment>
-    <fragment
+    <dialog
         android:id="@+id/why_prescription"
-        android:name="com.example.apnicare.why_prescription"
+        android:name="com.example.apnicare.Upload_Prescription.why_prescription"
         android:label="fragment_why_prescription"
         tools:layout="@layout/fragment_why_prescription" >
         <action
             android:id="@+id/action_why_prescription_to_why_prescription_2"
             app:destination="@id/why_prescription_2" />
-    </fragment>
-    <fragment
+    </dialog>
+    <dialog
         android:id="@+id/why_prescription_2"
-        android:name="com.example.apnicare.why_prescription_2"
+        android:name="com.example.apnicare.Upload_Prescription.why_prescription_2"
         android:label="fragment_why_prescription_2"
-        tools:layout="@layout/fragment_why_prescription_2" />
+        tools:layout="@layout/fragment_why_prescription_2" >
+        <action
+            android:id="@+id/action_why_prescription_2_to_upload_options"
+            app:destination="@id/upload_options" />
+    </dialog>
     <fragment
         android:id="@+id/health_records_page"
         android:name="com.example.apnicare.health_records_page"
@@ -56,13 +57,13 @@
         android:label="fragment_family_members"
         tools:layout="@layout/fragment_family_members" />
     <fragment
-        android:id="@+id/my_cart"
-        android:name="com.example.apnicare.my_cart"
-        android:label="fragment_my_cart"
-        tools:layout="@layout/fragment_my_cart" />
-    <fragment
         android:id="@+id/search_medicine"
         android:name="com.example.apnicare.search_medicine"
         android:label="fragment_search_medicine"
         tools:layout="@layout/fragment_search_medicine" />
+    <dialog
+        android:id="@+id/upload_options"
+        android:name="com.example.apnicare.Upload_Prescription.upload_options_prescription "
+        android:label="fragment_search_medicine"
+        tools:layout="@layout/fragment_upload_options_prescription" />
 </navigation>

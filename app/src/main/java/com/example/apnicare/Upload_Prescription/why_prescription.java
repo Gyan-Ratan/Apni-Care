@@ -1,7 +1,6 @@
-package com.example.apnicare;
+package com.example.apnicare.Upload_Prescription;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -18,8 +17,12 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.apnicare.R;
+import com.example.apnicare.ViewPagerAdapt;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-public class why_prescription extends Fragment {
+
+public class why_prescription extends BottomSheetDialogFragment {
 
     Button btnupload;
     TextView[] dots;
@@ -70,6 +73,7 @@ public class why_prescription extends Fragment {
             public void onClick(View view) {
                 NavHostFragment.findNavController(why_prescription.this)
                         .navigate(R.id.action_why_prescription_to_why_prescription_2);
+
 //                finish();
 
 

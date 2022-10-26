@@ -13,6 +13,13 @@
         android:theme="@style/Theme.ApniCare"
         tools:targetApi="31">
         <activity
+            android:name=".myCart.CartActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".address_page.AddressActivity"
             android:exported="false">
             <meta-data
@@ -33,7 +40,7 @@
                 android:value="" />
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".IntroActivity"></activity>
+        <activity android:name=".IntroActivity" />
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.example.apnicare;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+
+import com.example.apnicare.address_page.AddressActivity;
+import com.example.apnicare.myCart.CartActivity;
 
 
 public class homepage extends Fragment {
@@ -33,8 +37,8 @@ public class homepage extends Fragment {
         cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(homepage.this)
-                        .navigate(R.id.action_homepage_to_my_cart);
+                Intent intent = new Intent(getActivity(), CartActivity.class);
+                startActivity(intent);
             }
         });
         return view;
