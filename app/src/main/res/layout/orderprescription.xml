@@ -35,7 +35,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/back"
-                android:layout_width="45dp"
+                android:layout_width="40dp"
                 android:layout_height="65dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="@android:string/untitled" />
