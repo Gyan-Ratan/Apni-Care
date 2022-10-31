@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/your_orders_graph"
+    app:startDestination="@id/your_orders">
+
+    <fragment
+        android:id="@+id/your_orders"
+        android:name="com.example.apnicare.YourOrders.your_orders"
+        android:label="fragment_your_orders"
+        tools:layout="@layout/fragment_your_orders" />
+</navigation>
