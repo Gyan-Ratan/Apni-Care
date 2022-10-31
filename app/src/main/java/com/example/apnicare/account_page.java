@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.apnicare.YourOrders.YourOrdersActivity;
 import com.example.apnicare.address_page.AddressActivity;
 
 
@@ -38,7 +39,13 @@ public class account_page extends Fragment {
                 startActivity(intent);
             }
         });
-
+        order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), YourOrdersActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
 
     }

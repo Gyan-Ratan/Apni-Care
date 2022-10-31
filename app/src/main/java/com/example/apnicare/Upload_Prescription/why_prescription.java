@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -23,12 +24,12 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 
 public class why_prescription extends BottomSheetDialogFragment {
-
+    ImageButton backbtn ,nextbtn;
     Button btnupload;
     TextView[] dots;
     ViewPager msliderviewpager;
     LinearLayout mDotLayout;
-    Button backbtn ,nextbtn,skip;
+    Button skip;
     ViewPagerAdapt viewPagerAdapt;
     @SuppressLint("MissingInflatedId")
     @Override

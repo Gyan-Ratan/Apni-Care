@@ -7,12 +7,12 @@
     android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="10sp"
         android:text="Valid Prescription Guide"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:textSize="26sp"/>
+        android:textSize="18sp"/>
     <View
         android:layout_width="match_parent"
         android:layout_marginTop="0dp"
@@ -20,9 +20,9 @@
         android:background="@color/black"/>
 
     <androidx.viewpager.widget.ViewPager
-        android:layout_width="fill_parent"
-        android:layout_height="550dp"
-        android:id="@+id/Sliderpager"/>
+        android:id="@+id/Sliderpager"
+        android:layout_width="match_parent"
+        android:layout_height="500dp" />
 
 
 
@@ -35,18 +35,26 @@
 
         >
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Back"
             android:id="@+id/backbtn"
-            android:layout_marginHorizontal="20sp"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Next"
+            android:layout_marginHorizontal="20sp"
+            android:src="@drawable/ic_baseline_navigate_before_24"
+            android:background="@color/transparent"
+            android:scaleX="2"
+            android:scaleY="2"
+            />
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:id="@+id/nextbtn"
             android:layout_marginHorizontal="20sp"
+            android:src="@drawable/ic_baseline_navigate_next_24"
+            android:background="@color/transparent"
+            android:scaleX="2"
+            android:scaleY="2"
+
 
             />
 
@@ -56,12 +64,14 @@
         android:layout_width="match_parent"
         android:layout_marginTop="0dp"
         android:layout_height="2sp"
+        android:layout_marginVertical="10sp"
         android:background="@color/black"/>
     <Button
         android:id="@+id/skip"
         android:layout_width= "match_parent"
         android:layout_height="wrap_content"
         android:text="Okay , I understand"
-        android:layout_margin="20sp"/>
+        android:layout_marginHorizontal="20sp"
+        />
 
 </LinearLayout>

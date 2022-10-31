@@ -13,6 +13,13 @@
         android:theme="@style/Theme.ApniCare"
         tools:targetApi="31">
         <activity
+            android:name=".YourOrders.YourOrdersActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".myCart.CartActivity"
             android:exported="false">
             <meta-data
