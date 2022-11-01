@@ -5,10 +5,9 @@
         android:type="linear"
         android:angle="0"
         android:startColor="#12B8CE"
-        android:endColor="#ffffff">
-
+        android:centerColor="#15D7CD"
+        android:endColor="#CDDADC">
     </gradient>
-
     <corners
         android:radius="50dp"/>
 
