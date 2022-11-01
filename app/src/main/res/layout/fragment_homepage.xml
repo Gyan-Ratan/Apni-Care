@@ -17,21 +17,44 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+
+            android:layout_marginStart="16dp"
             android:layout_marginTop="100dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/searchview"
             android:elevation="6dp"
             android:iconifiedByDefault="false"
-            android:padding="4dp"
-            android:queryHint="Search here"
-            app:layout_constraintBottom_toTopOf="@+id/view"
+            android:padding="5dp"
+            android:queryBackground="@android:color/transparent"
+            android:queryHint="Search"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/cartimagebutton"
+            android:layout_width="48dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/transparent"
+            android:contentDescription="@string/cart"
+            android:elevation="5dp"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/shopping_cart_24" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/app_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
-
-        </SearchView>
+            app:srcCompat="@drawable/apni_care_logo" />
 
         <View
             android:id="@+id/view"
@@ -67,20 +90,18 @@
             android:layout_alignBottom="@id/view"
             android:layout_alignParentStart="true"
             android:layout_marginStart="16dp"
-            android:layout_marginBottom="68dp"
             android:text="@string/orderbyprescription"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/view"
-            app:layout_constraintStart_toStartOf="@id/view" />
+            app:layout_constraintStart_toStartOf="@id/view"
+            app:layout_constraintTop_toTopOf="@+id/view" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="196dp"
             android:layout_height="55dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="0dp"
             android:text="@string/orderprescription"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="@+id/view"
@@ -88,35 +109,10 @@
             app:layout_constraintStart_toStartOf="@+id/view"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-        <ImageButton
-            android:id="@+id/cartimagebutton"
-            android:layout_width="48dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@color/transparent"
-            android:contentDescription="@string/cart"
-            android:elevation="5dp"
-            android:minHeight="48dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/shopping_cart_24" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:contentDescription="@string/app_name"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/apni_care_logo" />
-
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="101dp"
-            android:layout_height="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
             android:layout_marginTop="32dp"
             android:text="@string/username"
@@ -161,7 +157,7 @@
 
                             android:elevation="15dp"
                             android:foreground="@drawable/rectangle_1215"
-                            app:cardCornerRadius="5dp"
+                            app:cardCornerRadius="15dp"
                             app:cardElevation="8sp">
 
                         </androidx.cardview.widget.CardView>
@@ -188,7 +184,7 @@
 
                             android:elevation="15dp"
                             android:foreground="@drawable/rectangle_1202"
-                            app:cardCornerRadius="5dp"
+                            app:cardCornerRadius="15dp"
                             app:cardElevation="8sp">
 
                         </androidx.cardview.widget.CardView>
@@ -215,7 +211,7 @@
 
                             android:elevation="15dp"
                             android:foreground="@drawable/rectangle_1214"
-                            app:cardCornerRadius="5dp"
+                            app:cardCornerRadius="15dp"
                             app:cardElevation="8sp">
 
                         </androidx.cardview.widget.CardView>
@@ -251,7 +247,7 @@
 
                             android:elevation="15dp"
                             android:foreground="@drawable/rectangle_1210"
-                            app:cardCornerRadius="5dp"
+                            app:cardCornerRadius="15dp"
                             app:cardElevation="8sp">
 
                         </androidx.cardview.widget.CardView>
@@ -278,7 +274,7 @@
 
                             android:elevation="15dp"
                             android:foreground="@drawable/rectangle_1209"
-                            app:cardCornerRadius="5dp"
+                            app:cardCornerRadius="15dp"
                             app:cardElevation="8sp">
 
 
@@ -305,7 +301,7 @@
                             android:layout_margin="5sp"
                             android:elevation="15dp"
                             android:foregroundGravity="center"
-                            app:cardCornerRadius="5dp"
+                            app:cardCornerRadius="15dp"
                             app:cardElevation="8sp" />
 
                         <TextView
@@ -325,26 +321,29 @@
 
         </androidx.cardview.widget.CardView>
 
+
         <View
             android:id="@+id/coursel"
             android:layout_width="match_parent"
             android:layout_height="250dp"
 
+            android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
             android:background="@android:color/holo_orange_light"
-            app:layout_constraintEnd_toStartOf="parent"
-            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/card1" />
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
             app:layout_constraintEnd_toStartOf="parent"
             app:layout_constraintStart_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/coursel"
 
-            >
+            app:layout_constraintTop_toBottomOf="@+id/coursel">
 
             <LinearLayout
                 android:layout_width="match_parent"

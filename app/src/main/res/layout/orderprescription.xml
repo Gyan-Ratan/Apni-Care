@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="67dp"
             android:autofillHints=""
-            android:background="@color/addressbar"
+            android:background="@drawable/shape"
             android:drawableStart="@drawable/arrow_back"
             android:drawableEnd="@drawable/location"
             android:drawablePadding="10dp"
