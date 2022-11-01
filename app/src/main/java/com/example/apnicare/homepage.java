@@ -5,15 +5,20 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.apnicare.address_page.AddressActivity;
 import com.example.apnicare.myCart.CartActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class homepage extends Fragment {
@@ -27,6 +32,8 @@ public class homepage extends Fragment {
         View view= inflater.inflate(R.layout.fragment_homepage, container, false);
         cart=view.findViewById(R.id.cartimagebutton);
         upbtn=view.findViewById(R.id.homeupload);
+        ImageSlider imageSlider = view.findViewById(R.id.coursel);
+
         upbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,6 +48,14 @@ public class homepage extends Fragment {
                 startActivity(intent);
             }
         });
+
+        //carousel
+        ArrayList<SlideModel> mList = new ArrayList<>();
+        mList.add(new SlideModel(R.drawable._6174, ScaleTypes.FIT));
+        mList.add(new SlideModel(R.drawable._23456,ScaleTypes.FIT));
+        mList.add(new SlideModel(R.drawable.carousels,ScaleTypes.FIT));
+        mList.add(new SlideModel(R.drawable._014596,ScaleTypes.FIT));
+        imageSlider.setImageList(mList,ScaleTypes.FIT);
         return view;
     }
 }
