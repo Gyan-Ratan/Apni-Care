@@ -51,10 +51,10 @@ public class homepage extends Fragment {
 
         //carousel
         ArrayList<SlideModel> mList = new ArrayList<>();
-        mList.add(new SlideModel(R.drawable._6174, ScaleTypes.FIT));
+        mList.add(new SlideModel(R.drawable._5487, ScaleTypes.FIT));
         mList.add(new SlideModel(R.drawable._23456,ScaleTypes.FIT));
-        mList.add(new SlideModel(R.drawable.carousels,ScaleTypes.FIT));
         mList.add(new SlideModel(R.drawable._014596,ScaleTypes.FIT));
+        mList.add(new SlideModel(R.drawable.carousels,ScaleTypes.FIT));
         imageSlider.setImageList(mList,ScaleTypes.FIT);
         return view;
     }
