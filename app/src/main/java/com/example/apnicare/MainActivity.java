@@ -23,20 +23,20 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationItemView=findViewById(R.id.bottomNavigationView);
         bottomNavigationItemView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
-                case R.id.homescreenbutton:
+                case R.id.Home:
                     replace(new homepage());
 
                     break;
-                case R.id.accountbutton:
+                case R.id.User:
                     replace(new account_page());
                     break;
 //                case R.id.bottomPrescription:
 //                    replace(new upload_prescription());
 //                    break;
-                case R.id.healthrecordbutton:
+                case R.id.report:
                     replace(new health_records_page());
                     break;
-                case R.id.homesearchbottom:
+                case R.id.Search:
                     replace(new search_medicine());
                     break;
 
