@@ -37,7 +37,7 @@ public class homepage extends Fragment {
         upbtn=view.findViewById(R.id.homeupload);
         usernumber=view.findViewById(R.id.home_user_phn);
         sharedPrefManager=new SharedPrefManager(getContext());
-        usernumber.setText(sharedPrefManager.getData().getAccess_token());
+        usernumber.setText(sharedPrefManager.getData().getPhone());
         ImageSlider imageSlider = view.findViewById(R.id.coursel);
 
         upbtn.setOnClickListener(new View.OnClickListener() {

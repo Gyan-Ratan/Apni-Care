@@ -20,6 +20,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText num;
     Button btn;
     SharedPrefManager sharedPrefManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,8 +59,9 @@ public class LoginActivity extends AppCompatActivity {
                 RegisterResponse registerResponse=response.body();
                 if(response.isSuccessful()){
 
-                    Toast.makeText(LoginActivity.this,"login succes",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(LoginActivity.this,"login succes",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LoginActivity.this, enter_otp_Activity.class);
+                    intent.putExtra("Phone", number);
                     startActivity(intent);
                 }
             }
@@ -75,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
         if(sharedPrefManager.isLoggedIn()){
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
     }

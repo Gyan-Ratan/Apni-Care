@@ -22,6 +22,7 @@ public class SharedPrefManager {
         editor.putString("access_token", data.getAccess_token());
         editor.putString("phone", data.getPhone());
         editor.putInt("otp", data.getOtp());
+        editor.putString("refresh_token", data.getRefresh_token());
         editor.putBoolean("logged",true);
         editor.apply();
 
@@ -35,7 +36,9 @@ public class SharedPrefManager {
         sharedPreferences=context.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         return new Data(sharedPreferences.getString("access_token",null),
                 sharedPreferences.getString("phone",null),
-                sharedPreferences.getInt("otp",-1));
+                sharedPreferences.getInt("otp",-1),
+                sharedPreferences.getString("refresh_token",null));
+
     }
     void logOut(){
         sharedPreferences=context.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);

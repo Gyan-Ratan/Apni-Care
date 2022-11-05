@@ -17,16 +17,20 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class enter_otp_Activity extends AppCompatActivity {
-    EditText phn,otp;
+    EditText otp;
     Button btn2;
     SharedPrefManager sharedPrefManager;
+
+    String phn_number;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_otp);
-        phn=findViewById(R.id.editTextPhone2);
+
         otp=findViewById(R.id.editTextNumberPassword);
         btn2=findViewById(R.id.button2);
+        Intent intent=getIntent();
+        phn_number=intent.getStringExtra("Phone");
         sharedPrefManager=new SharedPrefManager(getApplicationContext());
 
         btn2.setOnClickListener(new View.OnClickListener() {
@@ -37,20 +41,20 @@ public class enter_otp_Activity extends AppCompatActivity {
         });
     }
     private void userLogin() {
-        String number=phn.getText().toString();
+        String number=phn_number;
         int otp1= Integer.parseInt(otp.getText().toString());
-        if(number.isEmpty()){
-            phn.requestFocus();
-            phn.setError("please enter number");
-            Toast.makeText(enter_otp_Activity.this,"enter correct number",Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(!Patterns.PHONE.matcher(number).matches()){
-            phn.requestFocus();
-            phn.setError("please enter a valid number");
-            Toast.makeText(enter_otp_Activity.this,"enter correct number",Toast.LENGTH_SHORT).show();
-            return;
-        }
+//        if(number.isEmpty()){
+//            phn.requestFocus();
+//            phn.setError("please enter number");
+//            Toast.makeText(enter_otp_Activity.this,"enter correct number",Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        if(!Patterns.PHONE.matcher(number).matches()){
+//            phn.requestFocus();
+//            phn.setError("please enter a valid number");
+//            Toast.makeText(enter_otp_Activity.this,"enter correct number",Toast.LENGTH_SHORT).show();
+//            return;
+//        }
         Call<LoginResponse> call= RetrofitClient.getInstance().getApi().login(number,otp1);
         call.enqueue(new Callback<LoginResponse>() {
             @Override
