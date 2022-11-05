@@ -57,6 +57,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/apni_care_logo" />
 
+
         <View
             android:id="@+id/view"
             android:layout_width="0dp"
@@ -64,7 +65,6 @@
             android:layout_marginTop="190dp"
             android:background="@color/teal_200"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -118,206 +118,199 @@
             android:layout_marginStart="100dp"
             android:layout_marginTop="32dp"
             android:fontFamily="@font/ibm_bold"
+            android:inputType="textPersonName"
             android:text="@string/username"
             android:textColor="@android:color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.cardview.widget.CardView
+        <LinearLayout
             android:id="@+id/card1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:layout_marginTop="20dp"
-            app:cardElevation="0dp"
+            android:gravity="center"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/view">
+            app:layout_constraintTop_toBottomOf="@+id/view">
 
-            <LinearLayout
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="120dp"
+                            android:layout_height="130dp"
+                            android:layout_margin="5sp"
+
+                            android:foreground="@drawable/rectangle_1202"
+                            app:cardCornerRadius="15dp"
+                            app:cardElevation="8sp">
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:text="@string/doctor"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
 
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="120dp"
-                                android:layout_height="130dp"
-                                android:layout_margin="5sp"
-
-                                android:foreground="@drawable/rectangle_1202"
-                                app:cardCornerRadius="15dp"
-                                app:cardElevation="8sp">
-
-                            </androidx.cardview.widget.CardView>
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/doctor"
-                                android:textAlignment="center"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="120dp"
-                                android:layout_height="130dp"
-                                android:layout_margin="5sp"
-
-                                android:foreground="@drawable/rectangle_1214"
-                                app:cardCornerRadius="15dp"
-                                app:cardElevation="8sp">
-
-                            </androidx.cardview.widget.CardView>
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/health_care"
-                                android:textAlignment="center"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="120dp"
-                                android:layout_height="130dp"
-                                android:layout_margin="5sp"
-
-                                android:foreground="@drawable/rectangle_1215"
-                                app:cardCornerRadius="15dp"
-                                app:cardElevation="8sp">
-
-                            </androidx.cardview.widget.CardView>
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/medicine"
-                                android:textAlignment="center"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
                     </LinearLayout>
-                </HorizontalScrollView>
 
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="120dp"
+                            android:layout_height="130dp"
+                            android:layout_margin="5sp"
+
+                            android:foreground="@drawable/rectangle_1214"
+                            app:cardCornerRadius="15dp"
+                            app:cardElevation="8sp">
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/health_care"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="120dp"
+                            android:layout_height="130dp"
+                            android:layout_margin="5sp"
+
+                            android:foreground="@drawable/rectangle_1215"
+                            app:cardCornerRadius="15dp"
+                            app:cardElevation="8sp">
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/medicine"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="120dp"
+                            android:layout_height="130dp"
+                            android:layout_margin="5sp"
+
+                            android:foreground="@drawable/rectangle_1210"
+                            app:cardCornerRadius="15dp"
+                            app:cardElevation="8sp">
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:text="@string/lab_test"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
 
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="120dp"
-                                android:layout_height="130dp"
-                                android:layout_margin="5sp"
-
-                                android:foreground="@drawable/rectangle_1210"
-                                app:cardCornerRadius="15dp"
-                                app:cardElevation="8sp">
-
-                            </androidx.cardview.widget.CardView>
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/lab_test"
-                                android:textAlignment="center"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="120dp"
-                                android:layout_height="130dp"
-                                android:layout_margin="5sp"
-
-                                android:foreground="@drawable/rectangle_1209"
-                                app:cardCornerRadius="15dp"
-                                app:cardElevation="8sp">
-
-
-                            </androidx.cardview.widget.CardView>
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/order"
-                                android:textAlignment="center"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="120dp"
-                                android:layout_height="130dp"
-                                android:layout_margin="5sp"
-                                android:foregroundGravity="center"
-                                app:cardCornerRadius="15dp"
-                                app:cardElevation="8sp" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@android:string/untitled"
-                                android:textAlignment="center"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
                     </LinearLayout>
-                </HorizontalScrollView>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="120dp"
+                            android:layout_height="130dp"
+                            android:layout_margin="5sp"
+
+                            android:foreground="@drawable/rectangle_1209"
+                            app:cardCornerRadius="15dp"
+                            app:cardElevation="8sp">
 
 
-            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
 
-        </androidx.cardview.widget.CardView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/order"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="120dp"
+                            android:layout_height="130dp"
+                            android:layout_margin="5sp"
+                            android:foregroundGravity="center"
+                            app:cardCornerRadius="15dp"
+                            app:cardElevation="8sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@android:string/untitled"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+
+        </LinearLayout>
 
 
         <com.denzcoskun.imageslider.ImageSlider
@@ -330,14 +323,14 @@
             android:elevation="10dp"
             app:iss_auto_cycle="true"
             app:iss_corner_radius="10"
-            app:iss_delay="0"
+            app:iss_delay="2"
             app:iss_period="1050"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/card1" />
+            app:layout_constraintTop_toBottomOf="@id/card1" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
+            android:id="@+id/categories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
@@ -348,7 +341,7 @@
             android:padding="20dp"
             app:cardCornerRadius="15dp"
             app:cardElevation="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/products"
             app:layout_constraintEnd_toStartOf="parent"
             app:layout_constraintStart_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/coursel">
@@ -366,12 +359,12 @@
                     android:fontFamily="@font/ibm_bold"
                     android:padding="20dp"
                     android:text="@string/popular_categories"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
                     android:textColor="@android:color/black" />
 
                 <HorizontalScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="179dp">
+                    android:layout_height="180dp">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -450,7 +443,7 @@
 
                 <HorizontalScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="173dp">
+                    android:layout_height="180dp">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -529,7 +522,7 @@
 
                 <HorizontalScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="179dp">
+                    android:layout_height="180dp">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -608,6 +601,112 @@
 
 
             </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+
+            android:id="@+id/products"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/categories">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ibm_semibold"
+                    android:text="@string/products"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/imageButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent"
+                    android:minWidth="48dp"
+                    android:src="@drawable/ic_round_arrow_forward_ios_24"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <HorizontalScrollView
+                    android:id="@+id/hsv"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textView6"
+                    app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="113dp"
+                                android:layout_height="120dp"
+                                android:layout_margin="5sp"
+                                android:backgroundTint="@color/teal_200"
+                                app:cardCornerRadius="15dp"
+                                app:cardElevation="8sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="Himalaya Mentat Syrup - 200ml"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="110dp"
+                                android:layout_height="120dp"
+                                android:layout_margin="5sp"
+                                android:backgroundTint="@color/teal_200"
+                                app:cardCornerRadius="15dp"
+                                app:cardElevation="8sp" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="Himalaya Bresol Tablets - 60'S"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 

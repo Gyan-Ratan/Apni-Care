@@ -5,5 +5,7 @@
         <item>@font/poppins_bold</item>
         <item>@font/poppins_light</item>
         <item>@font/poppins_medium</item>
+        <item>@font/work_sans_bold</item>
+        <item>@font/work_sans_semibold</item>
     </array>
 </resources>
