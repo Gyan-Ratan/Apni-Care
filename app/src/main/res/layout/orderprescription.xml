@@ -133,16 +133,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatingActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                app:backgroundTint="@color/transparent"
+                app:borderWidth="0dp"
+                app:elevation="0dp"
+                app:fabSize="mini"
+                app:layout_constraintEnd_toEndOf="@id/attach"
+                app:layout_constraintTop_toTopOf="@id/attach"
+                app:pressedTranslationZ="0dp"
+                app:rippleColor="@android:color/transparent"
+                app:srcCompat="@drawable/arrow_down" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/attach"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@android:color/white"
+                android:background="@android:color/transparent"
                 android:text="@string/AttachedPrescription"
                 android:textAlignment="viewStart"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@android:color/black"
-                app:elevation="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -151,7 +165,9 @@
                 android:id="@+id/attachView"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="-8dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
                 android:visibility="visible"
                 app:contentPadding="10dp"
@@ -167,16 +183,6 @@
                     app:srcCompat="@drawable/ic_launcher_background" />
 
             </androidx.cardview.widget.CardView>
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                app:fabSize="mini"
-                app:layout_constraintEnd_toEndOf="@id/attach"
-                app:layout_constraintTop_toTopOf="@id/attach"
-                app:srcCompat="@drawable/btnarrowdown" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
