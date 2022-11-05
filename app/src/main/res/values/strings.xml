@@ -34,7 +34,7 @@ prescription to be valid</string>
     //Headings
     <string name="heading_one">Quick &amp; easy ordering process</string>
     <string name="heading_two">Instant support &amp; replay</string>
-    <string name="heading_three">Easy &amp; multi soultions payment</string>
+    <string name="heading_three">Easy &amp; multi solutions payment</string>
     <string name="heading_fourth">Order from nearest, and get it fastest</string>
 
     //Description
@@ -46,7 +46,7 @@ prescription to be valid</string>
     <string name="skip">Skip</string>
     <string name="introimg">introscreenimage</string>
 
-    //
+    //medical prescription
     <string name="Howwouldyouliketoproceed"> How would you like to proceed ?</string>
     <string name="OrderEverythingasperprescription">Order Everything as per prescription</string>
     <string name="Callforthedetails">Call for the details</string>
@@ -54,5 +54,22 @@ prescription to be valid</string>
     <string name="Placerequest">Place request</string>
     <string name="deliveringto">Delivering to </string>
     <string name="address">123/78 ambaan nagar, muzaffarnagar</string>
+
+    //homepage
+    <string name="popular_categories">Popular Categories</string>
+    <string name="Vitaminsandsupplements">Vitamins and supplements</string>
+    <string name="Healthcaredevices">Healthcare devices</string>
+    <string name="ayurveda">Ayurveda</string>
+    <string name="order">Order</string>
+    <string name="lab_test">Lab Test</string>
+    <string name="medicine">Medicine</string>
+    <string name="doctor">Doctor</string>
+    <string name="Painreleif">Pain releif</string>
+    <string name="Sexualwellness">Sexual wellness</string>
+    <string name="skincare">Skin care</string>
+    <string name="Homeopathy">Homeopathy</string>
+    <string name="health_care">Health care</string>
+    <string name="Nutritionaldrinks">Nutritional drinks</string>
+    <string name="products">Products</string>
 
 </resources>

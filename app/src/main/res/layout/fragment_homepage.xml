@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".homepage">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <SearchView
             android:id="@+id/searchView"
@@ -17,76 +18,19 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+
+            android:layout_marginStart="16dp"
             android:layout_marginTop="100dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/searchview"
             android:elevation="6dp"
             android:iconifiedByDefault="false"
-            android:padding="4dp"
-            android:queryHint="Search here"
-            app:layout_constraintBottom_toTopOf="@+id/view"
+            android:padding="5dp"
+            android:queryBackground="@android:color/transparent"
+            android:queryHint="Search"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
-
-        </SearchView>
-
-        <View
-            android:id="@+id/view"
-            android:layout_width="0dp"
-            android:layout_height="109dp"
-            android:layout_marginTop="190dp"
-            android:background="@color/teal_200"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/homeupload"
-            android:layout_width="126dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="16dp"
-            android:backgroundTint="@color/teal_700"
-            android:elevation="10dp"
-            android:text="@string/ordericon"
-            android:textColor="@color/white"
-            app:cornerRadius="20dp"
-            app:layout_constraintEnd_toEndOf="@+id/view"
-            app:layout_constraintTop_toTopOf="@+id/view"
-            tools:ignore="TextContrastCheck"
-            android:textSize="12sp"/>
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="150dp"
-            android:layout_height="27dp"
-            android:layout_alignBottom="@id/view"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="68dp"
-            android:text="@string/orderbyprescription"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/view"
-            app:layout_constraintStart_toStartOf="@id/view" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="196dp"
-            android:layout_height="55dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="0dp"
-            android:text="@string/orderprescription"
-            android:textColor="#000000"
-            app:layout_constraintEnd_toEndOf="@+id/view"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/view"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <ImageButton
             android:id="@+id/cartimagebutton"
@@ -94,7 +38,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:background="@color/transparent"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/cart"
             android:elevation="5dp"
             android:minHeight="48dp"
@@ -113,491 +57,656 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/apni_care_logo" />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="101dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="32dp"
-            android:text="@string/username"
-            android:textStyle="bold"
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="109dp"
+            android:layout_marginTop="190dp"
+            android:background="@color/teal_200"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.cardview.widget.CardView
+        <Button
+            android:id="@+id/homeupload"
+            android:layout_width="126dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/teal_700"
+            android:elevation="10dp"
+            android:text="@string/ordericon"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            app:cornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintTop_toTopOf="@+id/view"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="150dp"
+            android:layout_height="27dp"
+            android:layout_alignBottom="@id/view"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/orderbyprescription"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/view"
+            app:layout_constraintTop_toTopOf="@+id/view" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="196dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/orderprescription"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/ibm_bold"
+            android:inputType="textPersonName"
+            android:text="@string/username"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
             android:id="@+id/card1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:layout_marginTop="20dp"
-            app:cardElevation="0dp"
+            android:gravity="center"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/view">
+            app:layout_constraintTop_toBottomOf="@+id/view">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="120dp"
+                            android:layout_height="130dp"
+                            android:layout_margin="5sp"
+
+                            android:foreground="@drawable/rectangle_1202"
+                            app:cardCornerRadius="15dp"
+                            app:cardElevation="8sp">
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/doctor"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="120dp"
+                            android:layout_height="130dp"
+                            android:layout_margin="5sp"
+
+                            android:foreground="@drawable/rectangle_1214"
+                            app:cardCornerRadius="15dp"
+                            app:cardElevation="8sp">
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/health_care"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="120dp"
+                            android:layout_height="130dp"
+                            android:layout_margin="5sp"
+
+                            android:foreground="@drawable/rectangle_1215"
+                            app:cardCornerRadius="15dp"
+                            app:cardElevation="8sp">
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/medicine"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="120dp"
+                            android:layout_height="130dp"
+                            android:layout_margin="5sp"
+
+                            android:foreground="@drawable/rectangle_1210"
+                            app:cardCornerRadius="15dp"
+                            app:cardElevation="8sp">
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lab_test"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="120dp"
+                            android:layout_height="130dp"
+                            android:layout_margin="5sp"
+
+                            android:foreground="@drawable/rectangle_1209"
+                            app:cardCornerRadius="15dp"
+                            app:cardElevation="8sp">
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/order"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="120dp"
+                            android:layout_height="130dp"
+                            android:layout_margin="5sp"
+                            android:foregroundGravity="center"
+                            app:cardCornerRadius="15dp"
+                            app:cardElevation="8sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@android:string/untitled"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+
+        </LinearLayout>
+
+
+        <com.denzcoskun.imageslider.ImageSlider
+            android:id="@+id/coursel"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:elevation="10dp"
+            app:iss_auto_cycle="true"
+            app:iss_corner_radius="10"
+            app:iss_delay="2"
+            app:iss_period="1050"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card1" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/categories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:padding="20dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="15dp"
+            app:layout_constraintBottom_toTopOf="@id/products"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/coursel">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                >
+                android:padding="2dp">
 
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:padding="5sp">
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ibm_bold"
+                    android:padding="20dp"
+                    android:text="@string/popular_categories"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                    android:textColor="@android:color/black" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="120dp"
-                            android:layout_height="130dp"
-                            android:layout_margin="5sp"
-
-                            android:elevation="15dp"
-                            android:foreground="@drawable/rectangle_1215"
-                            app:cardCornerRadius="5dp"
-                            app:cardElevation="8sp">
-
-                        </androidx.cardview.widget.CardView>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Medicine"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="120dp"
-                            android:layout_height="130dp"
-                            android:layout_margin="5sp"
-
-                            android:elevation="15dp"
-                            android:foreground="@drawable/rectangle_1202"
-                            app:cardCornerRadius="5dp"
-                            app:cardElevation="8sp">
-
-                        </androidx.cardview.widget.CardView>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Doctor"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="120dp"
-                            android:layout_height="130dp"
-                            android:layout_margin="5sp"
-
-                            android:elevation="15dp"
-                            android:foreground="@drawable/rectangle_1214"
-                            app:cardCornerRadius="5dp"
-                            app:cardElevation="8sp">
-
-                        </androidx.cardview.widget.CardView>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Health care"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
+                <HorizontalScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:padding="5sp">
+                    android:layout_height="180dp">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_height="match_parent">
 
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="120dp"
-                            android:layout_height="130dp"
-                            android:layout_margin="5sp"
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
 
-                            android:elevation="15dp"
-                            android:foreground="@drawable/rectangle_1210"
-                            app:cardCornerRadius="5dp"
-                            app:cardElevation="8sp">
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="110dp"
+                                android:layout_height="120dp"
+                                android:layout_margin="5sp"
+                                android:foreground="@mipmap/ic_launcher_round"
+                                app:cardCornerRadius="15dp"
+                                app:cardElevation="8sp" />
 
-                        </androidx.cardview.widget.CardView>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/Vitaminsandsupplements"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Lab Test"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
+                        </LinearLayout>
 
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="110dp"
+                                android:layout_height="120dp"
+                                android:layout_margin="5sp"
+                                android:backgroundTint="@color/teal_200"
+                                app:cardCornerRadius="15dp"
+                                app:cardElevation="8sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/ayurveda"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="110dp"
+                                android:layout_height="120dp"
+                                android:layout_margin="5sp"
+                                android:backgroundTint="@color/teal_200"
+                                app:cardCornerRadius="15dp"
+                                app:cardElevation="8sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/Healthcaredevices"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
                     </LinearLayout>
+                </HorizontalScrollView>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_height="match_parent">
 
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="120dp"
-                            android:layout_height="130dp"
-                            android:layout_margin="5sp"
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
 
-                            android:elevation="15dp"
-                            android:foreground="@drawable/rectangle_1209"
-                            app:cardCornerRadius="5dp"
-                            app:cardElevation="8sp">
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="110dp"
+                                android:layout_height="120dp"
+                                android:layout_margin="5sp"
+                                android:backgroundTint="@color/teal_200"
+                                app:cardCornerRadius="15dp"
+                                app:cardElevation="8sp" />
 
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/Nutritionaldrinks"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp" />
 
-                        </androidx.cardview.widget.CardView>
+                        </LinearLayout>
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Order"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
 
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="110dp"
+                                android:layout_height="120dp"
+                                android:layout_margin="5sp"
+                                android:backgroundTint="@color/teal_200"
+                                app:cardCornerRadius="15dp"
+                                app:cardElevation="8sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/skincare"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="110dp"
+                                android:layout_height="120dp"
+                                android:layout_margin="5sp"
+                                android:backgroundTint="@color/teal_200"
+                                app:cardCornerRadius="15dp"
+                                app:cardElevation="8sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/Homeopathy"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
                     </LinearLayout>
+                </HorizontalScrollView>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_height="match_parent">
 
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="120dp"
-                            android:layout_height="130dp"
-                            android:layout_margin="5sp"
-                            android:elevation="15dp"
-                            android:foregroundGravity="center"
-                            app:cardCornerRadius="5dp"
-                            app:cardElevation="8sp" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Doctor"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="110dp"
+                                android:layout_height="120dp"
+                                android:layout_margin="5sp"
+                                android:backgroundTint="@color/teal_200"
+                                app:cardCornerRadius="15dp"
+                                app:cardElevation="8sp" />
 
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/ayurveda"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="110dp"
+                                android:layout_height="120dp"
+                                android:layout_margin="5sp"
+                                android:backgroundTint="@color/teal_200"
+                                app:cardCornerRadius="15dp"
+                                app:cardElevation="8sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/Painreleif"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="110dp"
+                                android:layout_height="120dp"
+                                android:layout_margin="5sp"
+                                android:backgroundTint="@color/teal_200"
+                                app:cardCornerRadius="15dp"
+                                app:cardElevation="8sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/Sexualwellness"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
                     </LinearLayout>
-
-                </LinearLayout>
+                </HorizontalScrollView>
 
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
-        <View
-            android:id="@+id/coursel"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-
-            android:layout_marginTop="20dp"
-            android:background="@android:color/holo_orange_light"
-            app:layout_constraintEnd_toStartOf="parent"
-            app:layout_constraintStart_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/card1" />
-
         <androidx.cardview.widget.CardView
+
+            android:id="@+id/products"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            app:layout_constraintEnd_toStartOf="parent"
-            app:layout_constraintStart_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/coursel"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/categories">
 
-            >
-
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical"
-
-                >
+                android:layout_height="wrap_content"
+                android:padding="20dp">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="20dp"
-                    android:text="Categories"
-                    android:textSize="24dp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/ibm_semibold"
+                    android:text="@string/products"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <ImageButton
+                    android:id="@+id/imageButton3"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:padding="5sp">
+                    android:background="@color/transparent"
+                    android:minWidth="48dp"
+                    android:src="@drawable/ic_round_arrow_forward_ios_24"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="120dp"
-                            android:layout_height="130dp"
-                            android:layout_margin="5sp"
-                            android:backgroundTint="@color/teal_200"
-                            android:elevation="15dp"
-                            app:cardElevation="8sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Doctor"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="120dp"
-                            android:layout_height="130dp"
-                            android:layout_margin="5sp"
-                            android:backgroundTint="@color/teal_200"
-                            android:elevation="15dp"
-                            app:cardElevation="8sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Doctor"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="120dp"
-                            android:layout_height="130dp"
-                            android:layout_margin="5sp"
-                            android:backgroundTint="@color/teal_200"
-                            android:elevation="15dp"
-                            app:cardElevation="8sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Doctor"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
+                <HorizontalScrollView
+                    android:id="@+id/hsv"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:padding="5sp">
+                    android:layout_height="200dp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textView6"
+                    app:layout_constraintTop_toBottomOf="@+id/textView6">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_height="match_parent">
 
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="120dp"
-                            android:layout_height="130dp"
-                            android:layout_margin="5sp"
-                            android:backgroundTint="@color/teal_200"
-                            android:elevation="15dp"
-                            app:cardElevation="8sp" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Doctor"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="113dp"
+                                android:layout_height="120dp"
+                                android:layout_margin="5sp"
+                                android:backgroundTint="@color/teal_200"
+                                app:cardCornerRadius="15dp"
+                                app:cardElevation="8sp" />
 
-                    </LinearLayout>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="Himalaya Mentat Syrup - 200ml"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        </LinearLayout>
 
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="120dp"
-                            android:layout_height="130dp"
-                            android:layout_margin="5sp"
-                            android:backgroundTint="@color/teal_200"
-                            android:elevation="15dp"
-                            app:cardElevation="8sp" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Doctor"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="110dp"
+                                android:layout_height="120dp"
+                                android:layout_margin="5sp"
+                                android:backgroundTint="@color/teal_200"
+                                app:cardCornerRadius="15dp"
+                                app:cardElevation="8sp" />
 
-                    </LinearLayout>
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="Himalaya Bresol Tablets - 60'S"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="120dp"
-                            android:layout_height="130dp"
-                            android:layout_margin="5sp"
-                            android:backgroundTint="@color/teal_200"
-                            android:elevation="15dp"
-                            app:cardElevation="8sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Doctor"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
+                        </LinearLayout>
 
                     </LinearLayout>
+                </HorizontalScrollView>
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:padding="5sp">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="120dp"
-                            android:layout_height="130dp"
-                            android:layout_margin="5sp"
-                            android:backgroundTint="@color/teal_200"
-                            android:elevation="15dp"
-                            app:cardElevation="8sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Doctor"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="120dp"
-                            android:layout_height="130dp"
-                            android:layout_margin="5sp"
-                            android:backgroundTint="@color/teal_200"
-                            android:elevation="15dp"
-                            app:cardElevation="8sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Doctor"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="120dp"
-                            android:layout_height="130dp"
-                            android:layout_margin="5sp"
-                            android:backgroundTint="@color/teal_200"
-                            android:elevation="15dp"
-                            app:cardElevation="8sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Doctor"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
