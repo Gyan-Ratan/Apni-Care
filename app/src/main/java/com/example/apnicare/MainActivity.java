@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bottomNavigationItemView=findViewById(R.id.bottomNavigation);
+        bottomNavigationItemView=findViewById(R.id.bottomNavigationView);
         bottomNavigationItemView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.homescreenbutton:
