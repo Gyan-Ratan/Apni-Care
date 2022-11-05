@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
@@ -24,6 +25,8 @@ import java.util.List;
 public class homepage extends Fragment {
     Button upbtn;
     ImageButton cart;
+    TextView usernumber;
+    SharedPrefManager sharedPrefManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,6 +35,9 @@ public class homepage extends Fragment {
         View view= inflater.inflate(R.layout.fragment_homepage, container, false);
         cart=view.findViewById(R.id.cartimagebutton);
         upbtn=view.findViewById(R.id.homeupload);
+        usernumber=view.findViewById(R.id.home_user_phn);
+        sharedPrefManager=new SharedPrefManager(getContext());
+        usernumber.setText(sharedPrefManager.getData().getAccess_token());
         ImageSlider imageSlider = view.findViewById(R.id.coursel);
 
         upbtn.setOnClickListener(new View.OnClickListener() {
