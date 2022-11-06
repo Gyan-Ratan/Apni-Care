@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,36 +49,49 @@
         android:textStyle="bold"
         android:textColor="@color/black"
         android:textSize="20dp"/>
-
-    <com.google.android.material.textfield.TextInputLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/inputphn"
-        android:layout_below="@id/phoneno"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="16dp"
-        app:boxCornerRadiusBottomEnd="30dp"
-        app:boxCornerRadiusBottomStart="30dp"
-        app:boxCornerRadiusTopEnd="30dp"
-        app:boxCornerRadiusTopStart="30dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Enter mobile number" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:text="+91- "
+            android:textSize="26dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+        <EditText
+            android:inputType="phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:maxLength="10"
+            android:hint="1234567890"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:id="@+id/Phone_Number"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/grey"
+        android:layout_marginHorizontal="100dp"/>
+
+   
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/inputphn"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center" 
+
         android:backgroundTint="@color/teal_200"
         android:text="Request OTP"
         app:cornerRadius="20dp" />
 
 
-</RelativeLayout>
+</LinearLayout>
