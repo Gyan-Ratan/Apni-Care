@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        num=findViewById(R.id.editTextPhone);
+        num=findViewById(R.id.Phone_Number);
         btn=findViewById(R.id.button);
         sharedPrefManager=new SharedPrefManager(getApplicationContext());
         btn.setOnClickListener(new View.OnClickListener() {
