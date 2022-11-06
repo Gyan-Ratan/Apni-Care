@@ -43,11 +43,13 @@ public class enter_otp_Activity extends AppCompatActivity {
         phn_number_otp.setText(phn_number);
         sharedPrefManager=new SharedPrefManager(getApplicationContext());
         setUpOtpInputs();
-        otp= otp1.getText().toString()+otp2.getText().toString()+otp3.getText().toString()+otp4.getText().toString();
+
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                otp= otp1.getText().toString()+otp2.getText().toString()+otp3.getText().toString()+otp4.getText().toString();
                 userLogin();
+
             }
         });
     }
@@ -129,7 +131,7 @@ public class enter_otp_Activity extends AppCompatActivity {
 
     private void userLogin() {
         String number=phn_number;
-        int ot=2456;
+        int ot=Integer.parseInt(otp);
 
         Call<LoginResponse> call= RetrofitClient.getInstance().getApi().login(number,ot);
         call.enqueue(new Callback<LoginResponse>() {
