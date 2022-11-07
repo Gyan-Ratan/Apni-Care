@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
@@ -33,7 +34,7 @@ public class why_prescription extends BottomSheetDialogFragment {
     ViewPagerAdapt viewPagerAdapt;
     @SuppressLint("MissingInflatedId")
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_why_prescription, container, false);
@@ -76,11 +77,10 @@ public class why_prescription extends BottomSheetDialogFragment {
                         .navigate(R.id.action_why_prescription_to_upload_prescription);
 
 //                finish();
-
-
             }
         });
 
+        mDotLayout=view.findViewById(R.id.dots);
         msliderviewpager = view.findViewById(R.id.Sliderpager);
         viewPagerAdapt = new ViewPagerAdapt(getContext());
         msliderviewpager.setAdapter(viewPagerAdapt);
@@ -98,7 +98,7 @@ public class why_prescription extends BottomSheetDialogFragment {
             dots[i] = new TextView(getContext());
             dots[i].setText(Html.fromHtml("&#8226"));
             dots[i].setTextSize(35);
-            dots[i].setTextColor(getResources().getColor(R.color.purple_200,getContext().getTheme()));
+            dots[i].setTextColor(getResources().getColor(R.color.inactive,getContext().getTheme()));
             mDotLayout.addView(dots[i]);
 
         }

@@ -4,24 +4,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 
 import com.example.apnicare.R;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 public class YourOrdersActivity extends AppCompatActivity {
+    Orderviewpager viewPagerFragmentAdapter;
+    TabLayout tabLayout;
+    ViewPager2 viewPager2;
+    private String[] titles= new String[]{"Delivered","Pending","Confirmed"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_your_orders);
 
-        replace(new your_orders());
+        tabLayout=findViewById(R.id.tabLayout);
+        viewPager2=findViewById(R.id.orderviewpager);
+        viewPagerFragmentAdapter=new Orderviewpager(this);
+        viewPager2.setAdapter(viewPagerFragmentAdapter);
+        new TabLayoutMediator(tabLayout,viewPager2,((tab, position) -> tab.setText(titles[position]))).attach();
+
     }
-    private void replace(Fragment fragment){
-        FragmentManager fragmentManager=getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentYourOrders,fragment);
-        fragmentTransaction.commit();
-    }
+
 }

@@ -57,13 +57,16 @@ public class ViewPagerAdapt extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         LayoutInflater layoutInflater=(LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view=layoutInflater.inflate(R.layout.pres_layout,container,false);
+
         ImageView slidetitleimage=(ImageView) view.findViewById(R.id.presimage);
         TextView sliderheading=(TextView) view.findViewById(R.id.texttitle);
         TextView sliderDesc=(TextView)  view.findViewById(R.id.textdesc);
+
         slidetitleimage.setImageResource(images[position]);
         sliderheading.setText(heading[position]);
         sliderDesc.setText(desc[position]);
         container.addView(view);
+
         return view;
     }
 

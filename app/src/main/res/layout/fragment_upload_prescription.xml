@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".upload_prescription"
     android:orientation="vertical">
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="300sp"
-        android:src="@drawable/_5487"/>
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/medical_prescription" />
 
     <Button
         android:id="@+id/upload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:backgroundTint="@color/teal_500"
         android:padding="12sp"
-        android:text="Upload Prescription" />
+        android:text="Upload Prescription"
+        app:cornerRadius="20dp" />
 
     <View
         android:layout_width="match_parent"
@@ -32,22 +37,24 @@
         android:textStyle="bold"
         android:textSize="19sp"
         android:padding="10dp"/>
+
     <TextView
         android:id="@+id/why_prescription_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="What is a valid prescription?"
         android:layout_marginTop="10sp"
-        android:textSize="17dp"
-        android:paddingHorizontal="10dp" />
+        android:paddingHorizontal="10dp"
+        android:text="What is a valid prescription?"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
     <TextView
         android:id="@+id/why_prescription_2_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Why we need a prescription?"
         android:layout_marginTop="10sp"
-        android:textSize="17dp"
-        android:paddingHorizontal="10dp"/>
+        android:paddingHorizontal="10dp"
+        android:text="Why we need a prescription?"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
 
 </LinearLayout>

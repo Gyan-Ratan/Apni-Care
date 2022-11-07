@@ -12,10 +12,10 @@ import com.example.apnicare.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link your_orders#newInstance} factory method to
+ * Use the {@link Confirmedorder#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class your_orders extends Fragment {
+public class Confirmedorder extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class your_orders extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public your_orders() {
+    public Confirmedorder() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class your_orders extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment your_orders.
+     * @return A new instance of fragment Confirmedorder.
      */
     // TODO: Rename and change types and number of parameters
-    public static your_orders newInstance(String param1, String param2) {
-        your_orders fragment = new your_orders();
+    public static Confirmedorder newInstance(String param1, String param2) {
+        Confirmedorder fragment = new Confirmedorder();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class your_orders extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_your_orders, container, false);
+        return inflater.inflate(R.layout.fragment_confirmedorder, container, false);
     }
 }
