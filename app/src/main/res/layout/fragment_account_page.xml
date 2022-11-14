@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15sp"
@@ -33,25 +33,22 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/apni_care_logo" />
 
                     <TextView
                         android:id="@+id/text_dashboard"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:text="Himanshu Verma"
-                        android:textColor="#000000"
-                        android:textFontWeight="2000"
-                        android:textSize="34sp"
-                        android:textStyle="bold" />
-
-                    <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="50sp"
-                        android:layout_margin="10dp"
-                        android:textAlignment="textEnd"
-                        tools:srcCompat="@tools:sample/avatars" />
+                        android:layout_height="match_parent"
+                        android:gravity="bottom|end"
+                        android:text="Himanshu Verma"
+                        android:textAppearance="?attr/textAppearanceHeadline5"
+                        android:textFontWeight="2000" />
 
                 </LinearLayout>
 
@@ -67,11 +64,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
+                    android:fontFamily="@font/ibm_semibold"
 
                     android:gravity="end"
                     android:padding="10dp"
-                    android:text="Male-20"
+                    android:text="Male"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@android:color/black" />
 
@@ -115,7 +112,7 @@
                 </RelativeLayout>
 
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
         <!--            <LinearLayout-->
         <!--                android:layout_width="match_parent"-->
@@ -144,38 +141,40 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
-            android:drawableLeft="@drawable/ic_baseline_family_restroom_24"
             android:drawablePadding="20dp"
+            android:fontFamily="@font/work_sans_semibold"
+
             android:text="Family Members"
             android:textColor="@color/black"
-            android:textSize="26sp"
+            android:textSize="20sp"
             android:textStyle="bold"
-
-            />
+            app:drawableLeftCompat="@drawable/ic_baseline_family_restroom_24" />
 
         <TextView
             android:id="@+id/account_orders"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
-            android:drawableLeft="@drawable/ic_baseline_library_books_24"
             android:drawablePadding="20dp"
+            android:fontFamily="@font/work_sans_semibold"
             android:text="Your orders"
             android:textColor="@color/black"
-            android:textSize="26sp"
-            android:textStyle="bold" />
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:drawableLeftCompat="@drawable/ic_baseline_library_books_24" />
 
         <TextView
             android:id="@+id/account_addressbook"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
-            android:drawableLeft="@drawable/ic_baseline_location_on_24"
             android:drawablePadding="20dp"
+            android:fontFamily="@font/work_sans_semibold"
             android:text="Address book"
             android:textColor="@color/black"
-            android:textSize="26sp"
-            android:textStyle="bold" />
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:drawableLeftCompat="@drawable/ic_baseline_location_on_24" />
 
         <View
             android:id="@+id/divider4"
@@ -190,31 +189,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
-            android:drawableLeft="@drawable/ic_baseline_settings_24"
             android:drawablePadding="20dp"
+            android:fontFamily="@font/work_sans_semibold"
             android:text="Settings"
             android:textColor="@color/black"
-            android:textSize="26sp"
-            android:textStyle="bold" />
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:drawableLeftCompat="@drawable/ic_baseline_settings_24" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
-            android:drawableLeft="@drawable/ic_baseline_help_24"
             android:drawablePadding="20dp"
+            android:fontFamily="@font/work_sans_semibold"
             android:text="Need help?"
             android:textColor="@color/black"
-            android:textSize="26sp"
-            android:textStyle="bold" />
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:drawableLeftCompat="@drawable/ic_baseline_help_24" />
 
         <View
             android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="?android:attr/listDivider"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
+            android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -222,12 +223,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
-            android:drawableLeft="@drawable/ic_baseline_login_24"
             android:drawablePadding="20dp"
+            android:fontFamily="@font/work_sans_semibold"
             android:text="Logout"
             android:textColor="@color/black"
-            android:textSize="26sp"
-            android:textStyle="bold" />
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:drawableLeftCompat="@drawable/ic_baseline_login_24" />
 
     </LinearLayout>
 

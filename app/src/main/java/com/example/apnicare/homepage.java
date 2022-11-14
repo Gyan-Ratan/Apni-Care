@@ -5,6 +5,9 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +18,6 @@ import android.widget.TextView;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
-import com.example.apnicare.address_page.AddressActivity;
 import com.example.apnicare.myCart.CartActivity;
 
 import java.util.ArrayList;
@@ -27,6 +29,13 @@ public class homepage extends Fragment {
     ImageButton cart;
     TextView usernumber;
     SharedPrefManager sharedPrefManager;
+    List<Categoriesdata> lstcate ;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -62,6 +71,20 @@ public class homepage extends Fragment {
         mList.add(new SlideModel(R.drawable._014596,ScaleTypes.FIT));
         mList.add(new SlideModel(R.drawable.carousels,ScaleTypes.FIT));
         imageSlider.setImageList(mList,ScaleTypes.FIT);
+
+        lstcate = new ArrayList<>();
+        lstcate.add(new Categoriesdata("Order", R.drawable.rectangle_1209));
+        lstcate.add(new Categoriesdata("Consult Doctor", R.drawable.rectangle_1202));
+        lstcate.add(new Categoriesdata("Lab Test", R.drawable.rectangle_1210));
+        lstcate.add(new Categoriesdata("Medicine", R.drawable.rectangle_1215));
+        lstcate.add(new Categoriesdata("Health Products", R.drawable.rectangle_1214));
+
+        RecyclerView myrv = view.findViewById(R.id.recyclerview_id);
+        PopularcategoriesRecyclerViewAdapter myAdapter = new PopularcategoriesRecyclerViewAdapter(getActivity(),lstcate);
+        myrv.setLayoutManager(new GridLayoutManager(getActivity(),3));
+        myrv.setAdapter(myAdapter);
+
+
         return view;
     }
 }

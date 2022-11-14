@@ -71,5 +71,6 @@ prescription to be valid</string>
     <string name="health_care">Health care</string>
     <string name="Nutritionaldrinks">Nutritional drinks</string>
     <string name="products">Products</string>
+    <string name="prefix">₹</string>
 
 </resources>
