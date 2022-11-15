@@ -16,11 +16,19 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/fab_transformation_sheet_behavior"
+        android:src="@drawable/bottomnav_shoppingcart"
+        app:layout_anchor="@id/bottomAppBar" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="bottom"
         android:background="@drawable/bottomnav_transparent_bg"
         app:menu="@menu/bottom_nav_menu"
         tools:layout_gravity="bottom" />
@@ -30,17 +38,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:menu="@menu/bottom_nav_menu"
         app:fabCradleMargin="5dp"
         app:fabCradleRoundedCornerRadius="8dp"
         app:fabCradleVerticalOffset="0dp" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="TODO"
-        android:src="@drawable/bottomnav_shoppingcart"
-        app:layout_anchor="@id/bottomAppBar" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

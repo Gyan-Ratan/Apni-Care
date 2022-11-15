@@ -19,6 +19,7 @@ import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.apnicare.myCart.CartActivity;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,6 +88,8 @@ public class homepage extends Fragment {
         PopularcategoriesRecyclerViewAdapter myAdapter = new PopularcategoriesRecyclerViewAdapter(getActivity(),lstcate);
         myrv.setLayoutManager(new GridLayoutManager(getActivity(),3));
         myrv.setAdapter(myAdapter);
+
+
 
 
         return view;

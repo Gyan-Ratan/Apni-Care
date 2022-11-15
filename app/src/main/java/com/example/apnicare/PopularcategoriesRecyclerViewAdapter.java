@@ -44,6 +44,8 @@ public class PopularcategoriesRecyclerViewAdapter extends RecyclerView.Adapter<P
             @Override
             public void onClick(View v) {
 
+
+
                 Intent intent = new Intent(mContext,Product_card.class);
 
                 // passing data to the book activity

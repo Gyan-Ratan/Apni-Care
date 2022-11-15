@@ -15,10 +15,10 @@
         android:icon="@drawable/ic_baseline_search_24"
         android:title="Search"
         tools:ignore="HardcodedText"/>
-   <item
+    <item
         android:id="@+id/placeholder"
-       android:title=""
-       />
+        android:enabled="false"
+        android:title="" />
     <item
         android:id="@+id/report"
         android:icon="@drawable/ic_baseline_find_in_page_24"
