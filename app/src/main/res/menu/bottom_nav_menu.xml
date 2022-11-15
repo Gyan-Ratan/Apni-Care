@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:tools="http://schemas.android.com/tools"
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
-
 
     <item
 
@@ -14,7 +14,8 @@
         android:id="@+id/Search"
         android:icon="@drawable/ic_baseline_search_24"
         android:title="Search"
-        tools:ignore="HardcodedText"/>
+        tools:ignore="HardcodedText"
+        app:actionViewClass="android.widget.SearchView" />
     <item
         android:id="@+id/placeholder"
         android:enabled="false"
@@ -23,10 +24,10 @@
         android:id="@+id/report"
         android:icon="@drawable/ic_baseline_find_in_page_24"
         android:title="Report"
-        tools:ignore="HardcodedText"/>
+        tools:ignore="HardcodedText" />
     <item
         android:id="@+id/User"
         android:icon="@drawable/ic_baseline_person_outline_24"
         android:title="User"
-        tools:ignore="HardcodedText"/>
+        tools:ignore="HardcodedText" />
 </menu>
