@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -22,7 +23,24 @@ public class Product_card extends Fragment {
     Button button ,minusbtn;
     LinearLayout linearLayout;
     TextInputLayout quantitynumber;
+    private static final String Title = "title";
+    private String mTitle;
 
+    public static Fragment newInstance(String title) {
+        Fragment fragment =new Product_card();
+        Bundle args = new Bundle();
+        args.putString(Title,title);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mTitle = getArguments().getString(Title);
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,28 +48,9 @@ public class Product_card extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_product_card, container, false);
 
-        button= view.findViewById(R.id.button5);
-        linearLayout=view.findViewById(R.id.quantitybtn);
-        minusbtn =view.findViewById(R.id.minusbtn);
-        //quantitynumber = view.findViewById(R.id.quantitynumber);
+        TextView textView = view.findViewById(R.id.text);
+        textView.setText(mTitle);
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(button.getVisibility()==View.VISIBLE){
-                    TransitionManager.beginDelayedTransition(linearLayout, new AutoTransition());
-                    linearLayout.setVisibility(View.VISIBLE);
-                    button.setVisibility(View.GONE);
-                }
-                else if (minusbtn.getVisibility() == View.VISIBLE ){
-                    minusbtn.setOnClickListener(this::onClick);
-                    TransitionManager.beginDelayedTransition(linearLayout, new AutoTransition());
-                    linearLayout.setVisibility(View.VISIBLE);
-                    minusbtn.setVisibility(View.GONE);
-                }
-
-            }
-        });
         return view;
     }
 

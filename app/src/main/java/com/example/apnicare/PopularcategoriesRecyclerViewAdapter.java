@@ -52,7 +52,7 @@ public class PopularcategoriesRecyclerViewAdapter extends RecyclerView.Adapter<P
                 //intent.putExtra("Title",mData.get(holder.getAdapterPosition()).getTitle());
                 // intent.putExtra("Thumbnail",mData.get(holder.getAdapterPosition()).getThumbnail());
                 // start the activity
-                mContext.startActivity(intent);
+                //mContext.startActivity(intent);
 
             }
         });
@@ -78,7 +78,6 @@ public class PopularcategoriesRecyclerViewAdapter extends RecyclerView.Adapter<P
             tv_cate_title = (TextView) itemView.findViewById(R.id.cate_title_id2) ;
             img_cate_thumbnail = (ImageView) itemView.findViewById(R.id.cate_img_id2);
             cardView = (CardView) itemView.findViewById(R.id.cardview_id);
-
 
         }
     }

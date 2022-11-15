@@ -2,9 +2,17 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragout_product_card"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Product_card">
+
+    <TextView
+        android:id="@+id/tixt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:textAppearance="?attr/textAppearanceHeadline6" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,6 +41,7 @@
 
                 <!-- Title, secondary and supporting text -->
                 <TextView
+                    android:id="@+id/text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Title"
@@ -60,7 +69,6 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button5"
                     style="?attr/materialButtonOutlinedStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -154,7 +162,7 @@
                     android:textColor="@android:color/black"
                     app:prefixText="@string/prefix"
                     app:prefixTextAppearance="@style/TextAppearance.AppCompat.Medium"
-                    app:prefixTextColor="@android:color/black"/>
+                    app:prefixTextColor="@android:color/black" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button6"
