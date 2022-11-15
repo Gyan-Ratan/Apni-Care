@@ -15,11 +15,11 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardview_id"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
-            app:cardCornerRadius="15dp"
+            app:cardCornerRadius="10dp"
             app:cardElevation="4dp">
 
             <ImageView
@@ -34,6 +34,7 @@
             android:id="@+id/cate_title_id2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:gravity="center"
             android:text="Book Title"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
