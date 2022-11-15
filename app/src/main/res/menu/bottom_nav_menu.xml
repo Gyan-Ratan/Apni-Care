@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+
     <item
+
         android:id="@+id/Home"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Home"
@@ -11,10 +15,10 @@
         android:icon="@drawable/ic_baseline_search_24"
         android:title="Search"
         tools:ignore="HardcodedText"/>
-<!--    <item-->
-<!--        android:id="@+id/placeholder"-->
-<!--        android:title=""-->
-<!--        />-->
+   <item
+        android:id="@+id/placeholder"
+       android:title=""
+       />
     <item
         android:id="@+id/report"
         android:icon="@drawable/ic_baseline_find_in_page_24"

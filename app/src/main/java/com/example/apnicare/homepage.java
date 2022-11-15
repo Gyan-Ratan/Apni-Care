@@ -36,6 +36,10 @@ public class homepage extends Fragment {
         super.onCreate(savedInstanceState);
 
     }
+    public static homepage newInstance() {
+        homepage fragment = new homepage();
+        return fragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

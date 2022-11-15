@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationItemView;
     private Long backPressedTime;
     private Toast backToast;
-    List<Categoriesdata> lstBook ;
 
 
     @Override
@@ -46,8 +45,6 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.Search:
                     replace(new search_medicine());
                     break;
-
-
             }
             return true;
 
