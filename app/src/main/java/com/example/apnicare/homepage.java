@@ -32,6 +32,7 @@ public class homepage extends Fragment {
     TextView usernumber;
     SharedPrefManager sharedPrefManager;
     List<Categoriesdata> lstcate ;
+    private List<Categoriesdata> lstpcate = new ArrayList<>() ;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -89,11 +90,31 @@ public class homepage extends Fragment {
         lstcate.add(new Categoriesdata("Medicine", R.drawable.rectangle_1215));
         lstcate.add(new Categoriesdata("Health Products", R.drawable.rectangle_1214));
 
+        bulidlistPCdata();
+        initRecyclerView(view);
+
         RecyclerView myrv = view.findViewById(R.id.recyclerview_id);
         PopularcategoriesRecyclerViewAdapter myAdapter = new PopularcategoriesRecyclerViewAdapter(getActivity(),lstcate);
         myrv.setLayoutManager(new GridLayoutManager(getActivity(),3));
         myrv.setAdapter(myAdapter);
 
         return view;
+    }
+    private void bulidlistPCdata(){
+        lstpcate.add(new Categoriesdata("Vitamins and Supplements", R.drawable.rectangle_1209));
+        lstpcate.add(new Categoriesdata("Ayurveda", R.drawable.rectangle_1202));
+        lstpcate.add(new Categoriesdata("Healthcare Devices", R.drawable.rectangle_1210));
+        lstpcate.add(new Categoriesdata("Nutritional Drinks", R.drawable.rectangle_1215));
+        lstpcate.add(new Categoriesdata("Skin care", R.drawable.rectangle_1214));
+        lstpcate.add(new Categoriesdata("Homeopathy", R.drawable.ic_launcher_background));
+        lstpcate.add(new Categoriesdata("Diabetes Care", R.drawable.ic_launcher_background));
+        lstpcate.add(new Categoriesdata("Pain Relief", R.drawable.ic_launcher_background));
+        lstpcate.add(new Categoriesdata("Sexual Wellness", R.drawable.ic_launcher_background));
+    }
+    private void initRecyclerView(View view){
+        RecyclerView myrv = view.findViewById(R.id.recyclerview_id1);
+        PopularcategoriesRecyclerViewAdapter myAdapter = new PopularcategoriesRecyclerViewAdapter(getActivity(),lstpcate);
+        myrv.setLayoutManager(new GridLayoutManager(getActivity(),3));
+        myrv.setAdapter(myAdapter);
     }
 }
