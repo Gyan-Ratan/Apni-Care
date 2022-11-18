@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace 'com.example.apnicare'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.apnicare"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -45,7 +45,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.8.0-alpha02'
     implementation 'com.google.code.gson:gson:2.10'
 
-    implementation 'com.google.android.material:material:1.8.0-alpha01'   // used in bottom Nav bar
+    implementation 'com.google.android.material:material:1.8.0-alpha02'   // used in bottom Nav bar
 //    API DEPENDENCIES
     implementation 'com.google.code.gson:gson:2.10'
 // Stashed changes

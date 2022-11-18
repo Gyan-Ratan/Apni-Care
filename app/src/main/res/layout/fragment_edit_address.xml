@@ -1,142 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:layout_editor_absoluteX="1dp"
-    tools:layout_editor_absoluteY="1dp"
-    android:fillViewport="true">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    <LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="18dp"
-        android:orientation="vertical"
-        android:padding="2dp">
+        android:background="@drawable/shape"
+        android:fitsSystemWindows="true">
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Recipient's Name"
-            app:boxStrokeColor="@color/teal_200"
-            app:hintTextColor="@color/teal_200">
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/recipientsname"
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/arrow_back"
+                app:tint="@android:color/white" />
+
+            <TextView
+                android:id="@+id/textView7"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_regular"
-                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2" />
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:fontFamily="@font/work_sans_semibold"
+                android:gravity="center|start"
+                android:text="New Address"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
 
-        </com.google.android.material.textfield.TextInputLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Pin Code"
-            app:boxStrokeColor="@color/teal_200"
-            app:hintTextColor="@color/teal_200">
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="1dp"
+            android:fillViewport="true">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/pincode"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_regular"
-                android:inputType="number"
-                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2" />
+                android:layout_height="match_parent">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="18dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="16dp"
+                    android:orientation="vertical"
+                    android:padding="2dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Address Line 1"
-            app:boxStrokeColor="@color/teal_200"
-            app:hintTextColor="@color/teal_200">
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Recipient's Name"
+                        app:boxStrokeColor="@color/teal_200"
+                        app:hintTextColor="@color/teal_200">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/addressLine1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_regular"
-                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2" />
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/recipientsname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_regular"
+                            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Address Line 2"
-            app:boxStrokeColor="@color/teal_200"
-            app:hintTextColor="@color/teal_200">
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Pin Code"
+                        app:boxStrokeColor="@color/teal_200"
+                        app:hintTextColor="@color/teal_200">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/addressLine2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_regular"
-                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2" />
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/pincode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_regular"
+                            android:inputType="number"
+                            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Address Line 3"
-            app:boxStrokeColor="@color/teal_200"
-            app:hintTextColor="@color/teal_200">
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Address Line 1"
+                        app:boxStrokeColor="@color/teal_200"
+                        app:hintTextColor="@color/teal_200">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/addressLine3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_regular"
-                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2" />
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/addressLine1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_regular"
+                            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Phone Number"
-            app:boxStrokeColor="@color/teal_200"
-            app:hintTextColor="@color/teal_200"
-            app:prefixText="+91"
-            app:prefixTextAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2">
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Address Line 2"
+                        app:boxStrokeColor="@color/teal_200"
+                        app:hintTextColor="@color/teal_200">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/phoneNumber"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_regular"
-                android:inputType="phone"
-                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2" />
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/addressLine2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_regular"
+                            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="240dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="50dp"
-            android:fontFamily="@font/ibm_regular"
-            android:text="Save"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            app:backgroundTint="@color/teal_200"
-            app:cornerRadius="20dp" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Address Line 3"
+                        app:boxStrokeColor="@color/teal_200"
+                        app:hintTextColor="@color/teal_200">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/addressLine3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_regular"
+                            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Phone Number"
+                        app:boxStrokeColor="@color/teal_200"
+                        app:hintTextColor="@color/teal_200"
+                        app:prefixText="+91"
+                        app:prefixTextAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/phoneNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_regular"
+                            android:inputType="phone"
+                            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
-    </LinearLayout>
-</ScrollView>
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </ScrollView>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/ibm_regular"
+        android:text="Save"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:backgroundTint="@color/teal_200"
+        app:cornerRadius="20dp" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

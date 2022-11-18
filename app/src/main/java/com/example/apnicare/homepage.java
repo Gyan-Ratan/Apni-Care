@@ -2,13 +2,6 @@ package com.example.apnicare;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.fragment.NavHostFragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +9,15 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.apnicare.myCart.CartActivity;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +29,7 @@ public class homepage extends Fragment {
     TextView usernumber;
     SharedPrefManager sharedPrefManager;
     List<Categoriesdata> lstcate ;
-    private List<Categoriesdata> lstpcate = new ArrayList<>() ;
+    private final List<Categoriesdata> lstpcate = new ArrayList<>() ;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -100,6 +97,7 @@ public class homepage extends Fragment {
 
         return view;
     }
+    //popular categories data
     private void bulidlistPCdata(){
         lstpcate.add(new Categoriesdata("Vitamins and Supplements", R.drawable.rectangle_1209));
         lstpcate.add(new Categoriesdata("Ayurveda", R.drawable.rectangle_1202));
@@ -111,6 +109,7 @@ public class homepage extends Fragment {
         lstpcate.add(new Categoriesdata("Pain Relief", R.drawable.ic_launcher_background));
         lstpcate.add(new Categoriesdata("Sexual Wellness", R.drawable.ic_launcher_background));
     }
+    // popular gridview layout
     private void initRecyclerView(View view){
         RecyclerView myrv = view.findViewById(R.id.recyclerview_id1);
         PopularcategoriesRecyclerViewAdapter myAdapter = new PopularcategoriesRecyclerViewAdapter(getActivity(),lstpcate);
