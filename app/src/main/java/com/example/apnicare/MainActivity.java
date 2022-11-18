@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationItemView;
     private Long backPressedTime;
     private Toast backToast;
+    String ROOT_FRAGMENT="root_fragment";
 
 
     @Override
@@ -27,53 +28,64 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNavigationItemView=findViewById(R.id.bottomNavigationView);
+        replace(new homepage(),true);
         bottomNavigationItemView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.Home:
-                    replace(new homepage());
+                    replace(new homepage(),true);
 
                     break;
                 case R.id.User:
-                    replace(new account_page());
+                    replace(new account_page(),false);
                     break;
 //                case R.id.bottomPrescription:
 //                    replace(new upload_prescription());
 //                    break;
                 case R.id.report:
-                    replace(new health_records_page());
+                    replace(new health_records_page(),false);
                     break;
                 case R.id.Search:
-                    replace(new search_medicine());
+                    replace(new search_medicine(),false);
                     break;
             }
             return true;
 
         });
+        bottomNavigationItemView.setSelectedItemId(R.id.Home);
 
     }
 
 
 
-    @Override
-    public void onBackPressed() {
-        //super.onBackPressed();
+//    @Override
+//    public void onBackPressed() {
+//        //super.onBackPressed();
+//
+//        if( backPressedTime+2000 > System.currentTimeMillis()){
+//            backToast.cancel();
+//            super.onBackPressed();
+//            return;
+//        }
+//        else{
+//            backToast = Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
+//            backToast.show();
+//        }
+//            backPressedTime = System.currentTimeMillis();
+//    }
 
-        if( backPressedTime+2000 > System.currentTimeMillis()){
-            backToast.cancel();
-            super.onBackPressed();
-            return;
-        }
-        else{
-            backToast = Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
-            backToast.show();
-        }
-            backPressedTime = System.currentTimeMillis();
-    }
-
-    public void replace(Fragment fragment){
+    public void replace(Fragment fragment,boolean x){
         FragmentManager fragmentManager=getSupportFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentContainerView,fragment);
+//        if (x){
+//            fragmentTransaction.add(R.id.mainpage,fragment);
+//
+//        }
+//        else {
+//            fragmentTransaction.replace(R.id.mainpage, fragment);
+//
+//        }
+//        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.replace(R.id.mainpage, fragment);
         fragmentTransaction.commit();
     }
 

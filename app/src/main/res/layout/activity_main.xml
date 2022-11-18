@@ -8,23 +8,20 @@
     tools:context=".MainActivity"
     android:id="@+id/main_activity">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="100dp"
-        android:clipToPadding="false">
+<!--    <androidx.core.widget.NestedScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:paddingBottom="100dp"-->
+<!--        android:clipToPadding="false">-->
 
         <!-- Scrollable content -->
-        <androidx.fragment.app.FragmentContainerView
+       <FrameLayout
+           android:id="@+id/mainpage"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           />
 
-            android:id="@+id/fragmentContainerView"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="match_parent"
-            android:layout_height="772dp"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/nav_graph" />
-
-    </androidx.core.widget.NestedScrollView>
+<!--    </androidx.core.widget.NestedScrollView>-->
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
