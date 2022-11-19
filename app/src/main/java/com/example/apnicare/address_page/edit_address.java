@@ -7,60 +7,74 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import com.example.apnicare.ModelResponses.Address.AddressResponse;
+import com.example.apnicare.ModelResponses.EditAddress.EditAddressResponse;
 import com.example.apnicare.R;
+import com.example.apnicare.RetrofitClient;
+import com.example.apnicare.SharedPrefManager;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link edit_address#newInstance} factory method to
- * create an instance of this fragment.
- */
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
 public class edit_address extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public edit_address() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment edit_address.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static edit_address newInstance(String param1, String param2) {
-        edit_address fragment = new edit_address();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    EditText name,address1,address2,phone,pincode,city,state;
+    Button save;
+    SharedPrefManager sharedPrefManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_edit_address, container, false);
+        View view= inflater.inflate(R.layout.fragment_edit_address, container, false);
+        name=view.findViewById(R.id.recipientsname);
+        sharedPrefManager=new SharedPrefManager(getContext());
+
+        address1=view.findViewById(R.id.addressLine1);
+        address2=view.findViewById(R.id.addressLine2);
+        pincode=view.findViewById(R.id.pincode);
+        phone=view.findViewById(R.id.phoneNumber);
+        save=view.findViewById(R.id.saveaddress);
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addAddress();
+            }
+        });
+
+        return view;
+
+
+    }
+
+    private void addAddress() {
+        String name1=name.getText().toString();
+        String phone1=phone.getText().toString();
+        String address11=address1.getText().toString();
+        String address21=address2.getText().toString();
+        String pincode1=pincode.getText().toString();
+
+        Call<EditAddressResponse> call= RetrofitClient.getInstance().getApi()
+                .editaddress("Bearer "+sharedPrefManager.getData().getAccess_token(),name1,phone1,address11,address21,"New delhi","Delhi",pincode1,true);
+        call.enqueue(new Callback<EditAddressResponse>() {
+            @Override
+            public void onResponse(Call<EditAddressResponse> call, Response<EditAddressResponse> response) {
+                Toast.makeText(getContext(),response.toString(),Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onFailure(Call<EditAddressResponse> call, Throwable t) {
+                Toast.makeText(getContext(),t.getMessage(),Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
+
     }
 }
