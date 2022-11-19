@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Needhelp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="50dp">
+
+        <TextView
+            android:id="@+id/contactus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/customer_care"
+            android:fontFamily="@font/work_sans_bold"
+            android:padding="10dp"
+            android:text="Contact us"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:id="@+id/aboutus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/info"
+            android:fontFamily="@font/work_sans_bold"
+            android:padding="10dp"
+            android:text="About us"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:id="@+id/returnpolicy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/info"
+            android:fontFamily="@font/work_sans_bold"
+            android:padding="10dp"
+            android:text="Return policy"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:id="@+id/faqs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/info"
+            android:fontFamily="@font/work_sans_bold"
+            android:padding="10dp"
+            android:text="FAQs"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:id="@+id/termsandconditions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/info"
+            android:fontFamily="@font/work_sans_bold"
+            android:padding="10dp"
+            android:text="Terms and Conditions"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:id="@+id/privacypolicy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/policy"
+            android:fontFamily="@font/work_sans_bold"
+            android:padding="10dp"
+            android:text="Privacy policy"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+    </LinearLayout>
+</FrameLayout>

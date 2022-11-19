@@ -7,13 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".Product_card">
 
-    <TextView
-        android:id="@+id/tixt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Title"
-        android:textAppearance="?attr/textAppearanceHeadline6" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -31,7 +24,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="start|top"
                 android:scaleType="fitStart"
-                android:src="@drawable/rectangle_1210" />
+                android:src="@drawable/demoimg3" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -75,6 +68,7 @@
                     android:text="Add to cart"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/teal_200"
+                    android:visibility="visible"
                     app:strokeColor="@color/teal_200" />
 
                 <LinearLayout
@@ -83,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:orientation="horizontal"
-                    android:visibility="gone">
+                    android:visibility="visible">
 
 
                     <ImageButton
@@ -129,7 +123,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="start|top"
                 android:scaleType="fitStart"
-                android:src="@drawable/rectangle_1210" />
+                android:src="@drawable/demoimg3" />
 
             <LinearLayout
                 android:layout_width="match_parent"
