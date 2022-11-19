@@ -1,306 +1,313 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:scrollbarThumbHorizontal="@color/transparent"
-    android:scrollbarThumbVertical="@color/transparent"
     tools:context=".homepage">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:scrollbarThumbHorizontal="@color/transparent"
+        android:scrollbarThumbVertical="@color/transparent"
+        >
 
-        <SearchView
-            android:id="@+id/searchView"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="57dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content">
 
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/searchview"
-            android:elevation="6dp"
-            android:iconifiedByDefault="false"
-            android:padding="5dp"
-            android:queryBackground="@android:color/transparent"
-            android:queryHint="Search"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/cartimagebutton"
-            android:layout_width="48dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/cart"
-            android:elevation="5dp"
-            android:minHeight="48dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/shopping_cart_24" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:contentDescription="@string/app_name"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/apni_care_logo" />
-
-
-        <View
-            android:id="@+id/view"
-            android:layout_width="0dp"
-            android:layout_height="109dp"
-            android:layout_marginTop="190dp"
-            android:background="@color/teal_200"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/homeupload"
-            android:layout_width="126dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="16dp"
-            android:backgroundTint="@color/teal_700"
-            android:elevation="10dp"
-            android:text="@string/ordericon"
-            android:textColor="@android:color/white"
-            android:textSize="12sp"
-            app:cornerRadius="20dp"
-            app:layout_constraintEnd_toEndOf="@+id/view"
-            app:layout_constraintTop_toTopOf="@+id/view"
-            tools:ignore="TextContrastCheck" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="150dp"
-            android:layout_height="27dp"
-            android:layout_alignBottom="@id/view"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/orderbyprescription"
-            android:textAllCaps="false"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@id/view"
-            app:layout_constraintTop_toTopOf="@+id/view" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="196dp"
-            android:layout_height="55dp"
-            android:layout_marginStart="16dp"
-            android:text="@string/orderprescription"
-            android:textColor="@android:color/black"
-            app:layout_constraintEnd_toEndOf="@+id/view"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/view"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-        <TextView
-            android:id="@+id/home_user_phn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="32dp"
-            android:fontFamily="@font/ibm_bold"
-            android:inputType="textPersonName"
-            android:text="@string/username"
-            android:textColor="@android:color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview_id"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view" />
-
-
-        <com.denzcoskun.imageslider.ImageSlider
-            android:id="@+id/coursel"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:elevation="10dp"
-            app:iss_auto_cycle="true"
-            app:iss_corner_radius="10"
-            app:iss_delay="8"
-            app:iss_period="1050"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerview_id" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/categories"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:padding="20dp"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="15dp"
-            app:layout_constraintBottom_toTopOf="@id/products"
-            app:layout_constraintEnd_toStartOf="parent"
-            app:layout_constraintStart_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/coursel">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/ibm_bold"
-                    android:padding="20dp"
-                    android:text="@string/popular_categories"
-                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-                    android:textColor="@android:color/black" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerview_id1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp" />
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-
-            android:id="@+id/products"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/categories">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <SearchView
+                android:id="@+id/searchView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp">
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
 
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/ibm_semibold"
-                    android:text="@string/products"
-                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/searchview"
+                android:elevation="6dp"
+                android:iconifiedByDefault="false"
+                android:padding="0dp"
+                android:queryBackground="@android:color/transparent"
+                android:queryHint="Search"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageButton
-                    android:id="@+id/imageButton3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@color/transparent"
-                    android:minWidth="48dp"
-                    android:src="@drawable/ic_round_arrow_forward_ios_24"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <ImageButton
+                android:id="@+id/cartimagebutton"
+                android:layout_width="48dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/cart"
+                android:elevation="5dp"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/shopping_cart_24" />
 
-                <HorizontalScrollView
-                    android:id="@+id/hsv"
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/apni_care_logo" />
+
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="0dp"
+                android:layout_height="109dp"
+                android:layout_marginTop="190dp"
+                android:background="@color/teal_200"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/homeupload"
+                android:layout_width="126dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/teal_700"
+                android:elevation="10dp"
+                android:text="@string/ordericon"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                app:cornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/view"
+                app:layout_constraintTop_toTopOf="@+id/view"
+                tools:ignore="TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="150dp"
+                android:layout_height="27dp"
+                android:layout_alignBottom="@id/view"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/orderbyprescription"
+                android:textAllCaps="false"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/view"
+                app:layout_constraintTop_toTopOf="@+id/view" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="196dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/orderprescription"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="@+id/view"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/view"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <TextView
+                android:id="@+id/home_user_phn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/ibm_bold"
+                android:inputType="textPersonName"
+                android:text="@string/username"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_id"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/coursel"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:elevation="10dp"
+                app:iss_auto_cycle="true"
+                app:iss_corner_radius="10"
+                app:iss_delay="8"
+                app:iss_period="1050"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerview_id" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/categories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:padding="20dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="15dp"
+                app:layout_constraintBottom_toTopOf="@id/products"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/coursel">
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_marginTop="20dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/textView6"
-                    app:layout_constraintTop_toBottomOf="@+id/textView6">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/ibm_bold"
+                        android:padding="20dp"
+                        android:text="@string/popular_categories"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                        android:textColor="@android:color/black" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerview_id1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+
+                android:id="@+id/products"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/categories">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/textView6"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/ibm_semibold"
+                        android:text="@string/products"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@color/transparent"
+                        android:minWidth="48dp"
+                        android:src="@drawable/ic_round_arrow_forward_ios_24"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <HorizontalScrollView
+                        android:id="@+id/hsv"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/textView6"
+                        app:layout_constraintTop_toBottomOf="@+id/textView6">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
+                            android:layout_height="match_parent">
 
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="113dp"
-                                android:layout_height="120dp"
-                                android:layout_margin="5sp"
-                                android:backgroundTint="@color/teal_200"
-                                app:cardCornerRadius="15dp"
-                                app:cardElevation="8sp" />
-
-                            <TextView
-                                android:layout_width="match_parent"
+                            <LinearLayout
+                                android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="Himalaya Mentat Syrup - 200ml"
-                                android:textAlignment="center"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp" />
+                                android:orientation="vertical">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="113dp"
+                                    android:layout_height="120dp"
+                                    android:layout_margin="5sp"
+                                    android:backgroundTint="@color/teal_200"
+                                    app:cardCornerRadius="15dp"
+                                    app:cardElevation="8sp" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="Himalaya Mentat Syrup - 200ml"
+                                    android:textAlignment="center"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="18sp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="110dp"
+                                    android:layout_height="120dp"
+                                    android:layout_margin="5sp"
+                                    android:backgroundTint="@color/teal_200"
+                                    app:cardCornerRadius="15dp"
+                                    app:cardElevation="8sp" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="Himalaya Bresol Tablets - 60'S"
+                                    android:textAlignment="center"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="18sp" />
+
+                            </LinearLayout>
 
                         </LinearLayout>
+                    </HorizontalScrollView>
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="110dp"
-                                android:layout_height="120dp"
-                                android:layout_margin="5sp"
-                                android:backgroundTint="@color/teal_200"
-                                app:cardCornerRadius="15dp"
-                                app:cardElevation="8sp" />
+            </androidx.cardview.widget.CardView>
 
-                            <com.google.android.material.textview.MaterialTextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="Himalaya Bresol Tablets - 60'S"
-                                android:textAlignment="center"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </HorizontalScrollView>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.cardview.widget.CardView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</ScrollView>
+    </ScrollView>
+
+</FrameLayout>

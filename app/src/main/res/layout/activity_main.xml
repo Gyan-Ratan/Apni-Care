@@ -8,20 +8,19 @@
     tools:context=".MainActivity"
     android:id="@+id/main_activity">
 
-<!--    <androidx.core.widget.NestedScrollView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:paddingBottom="100dp"-->
-<!--        android:clipToPadding="false">-->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="100dp"
+        android:clipToPadding="false">
 
-        <!-- Scrollable content -->
-       <FrameLayout
-           android:id="@+id/mainpage"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           />
+<!--         Scrollable content -->
+        <FrameLayout
+            android:id="@+id/mainpage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-<!--    </androidx.core.widget.NestedScrollView>-->
+    </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
@@ -29,9 +28,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:gravity="bottom"
-        app:fabCradleMargin="5dp"
-        app:fabCradleRoundedCornerRadius="10dp"
-        app:fabCradleVerticalOffset="5dp"
+        app:fabCradleMargin="3dp"
+        app:fabCradleRoundedCornerRadius="8dp"
+        app:fabCradleVerticalOffset="0dp"
         app:hideOnScroll="true" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -39,10 +38,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
         android:background="@color/transparent"
         app:elevation="0dp"
-        app:itemPaddingBottom="15dp"
+        app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
         app:menu="@menu/bottom_nav_menu" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
