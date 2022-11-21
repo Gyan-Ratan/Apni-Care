@@ -69,9 +69,9 @@ public class address_book extends Fragment {
                 if (response.isSuccessful()){
                     AddressAdapter adapter =new AddressAdapter(getContext(),addressResponse.getAddressdata());
                     addressrecycleview.setAdapter(adapter);
-                    Toast.makeText(getContext(),response.toString(),Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getContext(),response.toString(),Toast.LENGTH_SHORT).show();
                 }
-                Toast.makeText(getContext(),response.body().toString(),Toast.LENGTH_SHORT).show();
+
             }
 
             @Override

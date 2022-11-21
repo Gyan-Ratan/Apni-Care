@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,13 +59,25 @@ public class edit_address extends Fragment {
         String address11=address1.getText().toString();
         String address21=address2.getText().toString();
         String pincode1=pincode.getText().toString();
+        if(phone1.isEmpty()){
+            phone.requestFocus();
+            phone.setError("please enter number");
+            Toast.makeText(getContext(),"enter correct number",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(!Patterns.PHONE.matcher(phone1).matches()){
+            phone.requestFocus();
+            phone.setError("please enter a valid number");
+            Toast.makeText(getContext(),"enter correct number",Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         Call<EditAddressResponse> call= RetrofitClient.getInstance().getApi()
                 .editaddress("Bearer "+sharedPrefManager.getData().getAccess_token(),name1,phone1,address11,address21,"New delhi","Delhi",pincode1,true);
         call.enqueue(new Callback<EditAddressResponse>() {
             @Override
             public void onResponse(Call<EditAddressResponse> call, Response<EditAddressResponse> response) {
-                Toast.makeText(getContext(),response.toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"Address added",Toast.LENGTH_SHORT).show();
 
             }
 

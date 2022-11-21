@@ -103,6 +103,7 @@
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/pincode"
+                            android:maxLength="8"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_regular"
@@ -183,6 +184,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_regular"
                             android:inputType="phone"
+                            android:maxLength="10"
                             android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2" />
 
                     </com.google.android.material.textfield.TextInputLayout>

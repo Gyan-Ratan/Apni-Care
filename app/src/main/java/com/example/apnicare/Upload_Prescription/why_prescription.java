@@ -62,8 +62,8 @@ public class why_prescription extends BottomSheetDialogFragment {
                     msliderviewpager.setCurrentItem(getitem(1),true);
                 else {
 
-                    NavHostFragment.findNavController(why_prescription.this)
-                            .navigate(R.id.action_why_prescription_to_upload_prescription);
+//                    NavHostFragment.findNavController(why_prescription.this)
+//                            .navigate(R.id.action_why_prescription_to_upload_prescription);
 
                 }
 
@@ -73,8 +73,8 @@ public class why_prescription extends BottomSheetDialogFragment {
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(why_prescription.this)
-                        .navigate(R.id.action_why_prescription_to_upload_prescription);
+//                NavHostFragment.findNavController(why_prescription.this)
+//                        .navigate(R.id.action_why_prescription_to_upload_prescription);
 
 //                finish();
             }
