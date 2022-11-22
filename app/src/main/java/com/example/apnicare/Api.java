@@ -39,6 +39,7 @@ public interface Api {
     @DELETE("/cart/{id}")
     Call<CartItemDeleteResponse> getData(@Path("id") int id,@Header("Authorization") String token);
 
+    @FormUrlEncoded
     @POST("cart/")
     Call<AddItemResponse> additemtocart(@Field("drug_id") String id,@Header("Authorization") String token);
 

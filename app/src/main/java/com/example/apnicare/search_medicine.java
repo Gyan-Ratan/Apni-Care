@@ -55,15 +55,15 @@ public class search_medicine extends Fragment {
 
             @Override
             public boolean onQueryTextSubmit(String query) {
-                Toast.makeText(getContext(), "string entered", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), "string entered", Toast.LENGTH_SHORT).show();
                 searchitems(query);
                 return true;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                searchitems(newText);
-                Toast.makeText(getContext(), "string entered", Toast.LENGTH_SHORT).show();
+//                searchitems(newText);
+//                Toast.makeText(getContext(), "string entered", Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
@@ -85,7 +85,7 @@ public class search_medicine extends Fragment {
                 if (response.isSuccessful()){
                     searchMedicineAdapter adapter =new searchMedicineAdapter(getContext(),searchResponse.getData().getItems());
                     recyclerView2.setAdapter(adapter);
-                    Toast.makeText(getContext(),response.toString(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getContext(),response.toString(), Toast.LENGTH_SHORT).show();
                 }
             }
 
