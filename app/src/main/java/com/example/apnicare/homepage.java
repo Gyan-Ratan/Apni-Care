@@ -50,8 +50,8 @@ public class homepage extends Fragment {
         usernumber.setText(sharedPrefManager.getData().getPhone());
         ImageSlider imageSlider = view.findViewById(R.id.coursel);
 
-        upbtn.setOnClickListener(view1 -> NavHostFragment.findNavController(homepage.this)
-                .navigate(R.id.action_homepage_to_upload_prescription));
+//        upbtn.setOnClickListener(view1 -> NavHostFragment.findNavController(homepage.this)
+//                .navigate(R.id.action_homepage_to_upload_prescription));
 
         cart.setOnClickListener(view12 -> {
             Intent intent = new Intent(getActivity(), CartActivity.class);

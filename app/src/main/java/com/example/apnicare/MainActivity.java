@@ -88,6 +88,16 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.mainpage, fragment);
         fragmentTransaction.commit();
     }
+/*
 
+
+
+public void onClick2(View view) {
+        Fragment2 fragment2 = new Fragment2();
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment1, fragment2);
+        fragmentTransaction.commit();
+ */
 
 }

@@ -8,6 +8,7 @@ import com.example.apnicare.ModelResponses.DeleteAddress.DeleteAddressResponse;
 import com.example.apnicare.ModelResponses.EditAddress.EditAddressResponse;
 import com.example.apnicare.ModelResponses.LoginResponse;
 import com.example.apnicare.ModelResponses.RegisterResponse;
+import com.example.apnicare.ModelResponses.Search.SearchResponse;
 import com.example.apnicare.myCart.AddItemResponse;
 import com.example.apnicare.myCart.CartItemDeleteResponse;
 import com.example.apnicare.myCart.CartResponse;
@@ -20,6 +21,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface Api {
     @FormUrlEncoded
@@ -50,5 +52,9 @@ public interface Api {
                                           @Field("state")String state, @Field("pincode")String pincode, @Field("default")boolean defaultaddress);
     @DELETE("user/address/{id}")
     Call<DeleteAddressResponse> deleteaddress(@Path("id") int id,@Header("Authorization") String token);
+
+    @GET("drug/")
+    Call<SearchResponse> search(@Query("page") int no, @Query("search") String search_item, @Header("authorization") String token);
+
 
 }

@@ -2,63 +2,98 @@ package com.example.apnicare;
 
 import android.os.Bundle;
 
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link search_medicine#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.example.apnicare.ModelResponses.Search.SearchResponse;
+import com.example.apnicare.ModelResponses.Search.searchMedicineAdapter;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
 public class search_medicine extends Fragment {
+    EditText search;
+    RecyclerView recyclerView2;
+    SharedPrefManager sharedPrefManager;
+    Button search_btn;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+// Get data from from search view and the query api to get the results
+//    private void SetupSearchView() {
+//        final SearchView searchView= getActivity().findViewById(R.id.search_view); // STACKOVERFLOW IS GOD
+//
+//    }
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
-    public search_medicine() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment search_medicine.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static search_medicine newInstance(String param1, String param2) {
-        search_medicine fragment = new search_medicine();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search_medicine, container, false);
+
+        View view= inflater.inflate(R.layout.fragment_search_medicine, container, false);
+        sharedPrefManager=new SharedPrefManager(getContext());
+//        search_btn=view.findViewById(R.id.searchbtn);
+        sharedPrefManager=new SharedPrefManager(getContext());
+        SearchView searchView= view.findViewById(R.id.search_view);
+        recyclerView2=view.findViewById(R.id.searchrecyleview);
+        recyclerView2.setHasFixedSize(true);
+        recyclerView2.setLayoutManager(new LinearLayoutManager(getContext()));
+
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Toast.makeText(getContext(), "string entered", Toast.LENGTH_SHORT).show();
+                searchitems(query);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchitems(newText);
+                Toast.makeText(getContext(), "string entered", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+        return view;
+
+    }
+    private void searchitems(String a) {
+        Call<SearchResponse> call= RetrofitClient
+                .getInstance()
+                .getApi()
+                .search(1,a,sharedPrefManager.getData().getAccess_token());
+
+        call.enqueue(new Callback<SearchResponse>() {
+            @Override
+            public void onResponse(Call<SearchResponse> call, Response<SearchResponse> response) {
+//                Toast.makeText(search_medicine.this,"response aa rha h"+response.toString(),Toast.LENGTH_SHORT).show();
+                SearchResponse searchResponse= response.body();
+
+                if (response.isSuccessful()){
+                    searchMedicineAdapter adapter =new searchMedicineAdapter(getContext(),searchResponse.getData().getItems());
+                    recyclerView2.setAdapter(adapter);
+                    Toast.makeText(getContext(),response.toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<SearchResponse> call, Throwable t) {
+                Toast.makeText(getContext(),t.getMessage()+"failure",Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 }
