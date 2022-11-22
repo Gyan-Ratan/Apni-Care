@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,13 +60,15 @@ public class searchMedicineAdapter extends RecyclerView.Adapter<searchMedicineAd
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name;
         TextView price;
+        Button add;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 //            itemView.setOnClickListener(this::onClick);
             name=itemView.findViewById(R.id.name_medicine);
             price=itemView.findViewById(R.id.price);
-            name.setOnClickListener(this);
+            add=itemView.findViewById(R.id.addtocartsearchbtn);
+            add.setOnClickListener(this);
 
         }
 
