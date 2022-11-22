@@ -15,7 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     BottomNavigationView bottomNavigationItemView;
     private Long backPressedTime;
     private Toast backToast;
@@ -29,11 +29,11 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationItemView=findViewById(R.id.bottomNavigationView);
         replace(new homepage(),true);
+
         bottomNavigationItemView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.Home:
                     replace(new homepage(),true);
-
                     break;
                 case R.id.User:
                     replace(new account_page(),false);
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
 
         });
-        bottomNavigationItemView.setSelectedItemId(R.id.Home);
+//        bottomNavigationItemView.setSelectedItemId(R.id.Home);
 
     }
 
@@ -73,22 +73,41 @@ public class MainActivity extends AppCompatActivity {
 //            backPressedTime = System.currentTimeMillis();
 //    }
 
-    public void replace(Fragment fragment,boolean x){
+    public boolean replace(Fragment fragment,boolean x){
         FragmentManager fragmentManager=getSupportFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
 //        if (x){
-//            fragmentTransaction.add(R.id.mainpage,fragment);
+//            fragmentTransaction.replace(R.id.mainpage,fragment);
+////            fragmentManager.popBackStack(null, 0);
+////            fragmentTransaction.addToBackStack(null);
+//            int count = fragmentManager.getBackStackEntryCount();
+//            for(int i = 0; i < count; ++i) {
+//                fragmentManager.popBackStack();
+//            }
 //
 //        }
 //        else {
 //            fragmentTransaction.replace(R.id.mainpage, fragment);
-//
+//            fragmentTransaction.addToBackStack(null);
 //        }
-//        fragmentTransaction.addToBackStack(null);
+
         fragmentTransaction.replace(R.id.mainpage, fragment);
         fragmentTransaction.commit();
+        return true;
     }
-/*
+//
+    @Override
+    public void onBackPressed() {
+        if (bottomNavigationItemView.getSelectedItemId()==R.id.Home){
+            super.onBackPressed();
+        }
+        else{
+            bottomNavigationItemView.setSelectedItemId(R.id.Home);
+        }
+
+        }
+//    }
+    /*
 
 
 

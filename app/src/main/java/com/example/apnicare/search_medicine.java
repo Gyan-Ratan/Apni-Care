@@ -49,6 +49,7 @@ public class search_medicine extends Fragment {
         recyclerView2=view.findViewById(R.id.searchrecyleview);
         recyclerView2.setHasFixedSize(true);
         recyclerView2.setLayoutManager(new LinearLayoutManager(getContext()));
+        searchitems("");
 
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
