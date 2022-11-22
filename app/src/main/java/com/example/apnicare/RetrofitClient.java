@@ -1,17 +1,21 @@
 package com.example.apnicare;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
-    private static String BASE_URL="\n" +
-            "https://dev.api.apnicare.in/";
+    private static String BASE_URL="https://dev.api.apnicare.in/";
     private static RetrofitClient retrofitClient;
     private static Retrofit retrofit;
+
+    Gson gson= new GsonBuilder().serializeNulls().create();
     private RetrofitClient(){
         retrofit=new Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
     }
     public static synchronized RetrofitClient getInstance(){

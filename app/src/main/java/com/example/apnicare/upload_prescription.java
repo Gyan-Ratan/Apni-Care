@@ -26,22 +26,22 @@ public class upload_prescription extends Fragment {
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(upload_prescription.this)
-                        .navigate(R.id.action_upload_prescription_to_upload_options);
+//                NavHostFragment.findNavController(upload_prescription.this)
+//                        .navigate(R.id.action_upload_prescription_to_upload_options);
             }
         });
         whatpres.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(upload_prescription.this)
-                        .navigate(R.id.action_upload_prescription_to_why_prescription);
+//                NavHostFragment.findNavController(upload_prescription.this)
+//                        .navigate(R.id.action_upload_prescription_to_why_prescription);
             }
         });
         whypres.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(upload_prescription.this)
-                        .navigate(R.id.action_upload_prescription_to_why_prescription_2);
+//                NavHostFragment.findNavController(upload_prescription.this)
+//                        .navigate(R.id.action_upload_prescription_to_why_prescription_2);
             }
         });
 
