@@ -4,6 +4,7 @@ import static androidx.core.content.ContextCompat.startActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.transition.Transition;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -90,6 +91,8 @@ public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 }
             });
            delete.setOnClickListener(this);
+
+
         }
 
         @Override
@@ -101,6 +104,10 @@ public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 //            startActivity(refresh);
 //            context.finish();
 //            Toast.makeText(context, "successful", Toast.LENGTH_SHORT).show();
+//            notifyDataSetChanged();
+
+
+
         }
     }
 
@@ -119,7 +126,11 @@ public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 Toast.makeText(context,t.getMessage(),Toast.LENGTH_SHORT).show();
 
             }
-        });
 
+        });
+//        context.notifyDataSetChanged();
+        Intent refresh = new Intent(context,CartActivity.class);
+            context.startActivity(refresh);
+            Toast.makeText(context, "successful", Toast.LENGTH_SHORT).show();
     }
 }
