@@ -7,6 +7,7 @@ import com.example.apnicare.ModelResponses.Address.AddressResponse;
 import com.example.apnicare.ModelResponses.DeleteAddress.DeleteAddressResponse;
 import com.example.apnicare.ModelResponses.EditAddress.EditAddressResponse;
 import com.example.apnicare.ModelResponses.LoginResponse;
+import com.example.apnicare.ModelResponses.OrderCart.CartBookingResponse;
 import com.example.apnicare.ModelResponses.RegisterResponse;
 import com.example.apnicare.ModelResponses.Search.SearchResponse;
 import com.example.apnicare.myCart.AddItemResponse;
@@ -57,5 +58,8 @@ public interface Api {
     @GET("drug/")
     Call<SearchResponse> search(@Query("page") int no, @Query("search") String search_item, @Header("authorization") String token);
 
+    @FormUrlEncoded
+    @POST("order/")
+    Call<CartBookingResponse> book(@Field("order_mode")String mode,@Field("order_type")String type,@Header("Authorization") String token);
 
 }

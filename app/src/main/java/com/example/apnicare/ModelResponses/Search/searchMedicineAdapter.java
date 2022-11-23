@@ -86,7 +86,7 @@ public class searchMedicineAdapter extends RecyclerView.Adapter<searchMedicineAd
         call.enqueue(new Callback<AddItemResponse>() {
             @Override
             public void onResponse(Call<AddItemResponse> call, Response<AddItemResponse> response) {
-                Toast.makeText(context,response.toString(),Toast.LENGTH_SHORT).show();
+//                Toast.makeText(context,response.toString(),Toast.LENGTH_SHORT).show();
                 if (response.isSuccessful()){
                     Toast.makeText(context,"item added to cart",Toast.LENGTH_SHORT).show();
                 }
