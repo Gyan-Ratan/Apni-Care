@@ -51,9 +51,17 @@ public class homepage extends Fragment {
         sharedPrefManager=new SharedPrefManager(getContext());
         usernumber.setText(sharedPrefManager.getData().getPhone());
         ImageSlider imageSlider = view.findViewById(R.id.coursel);
+        upbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-//        upbtn.setOnClickListener(view1 -> NavHostFragment.findNavController(homepage.this)
-//                .navigate(R.id.action_homepage_to_upload_prescription));
+                Intent intent = new Intent(getActivity(), upload_prescription.class);
+                startActivity(intent);
+            }
+        });
+
+
+//
 
         cart.setOnClickListener(view12 -> {
             Intent intent = new Intent(getActivity(), CartActivity.class);
@@ -70,9 +78,13 @@ public class homepage extends Fragment {
 
         //carousel
         ArrayList<SlideModel> mList = new ArrayList<>();
-        mList.add(new SlideModel(R.drawable._5487, ScaleTypes.FIT));
-        mList.add(new SlideModel(R.drawable._23456,ScaleTypes.FIT));
-        mList.add(new SlideModel(R.drawable._014596,ScaleTypes.FIT));
+        mList.add(new SlideModel(R.drawable.oziva_offers_web, ScaleTypes.FIT));
+        mList.add(new SlideModel(R.drawable.tejasya,ScaleTypes.FIT));
+        mList.add(new SlideModel(R.drawable.eno,ScaleTypes.FIT));
+        mList.add(new SlideModel(R.drawable.carousel,ScaleTypes.FIT));
+        mList.add(new SlideModel(R.drawable.carousels1, ScaleTypes.FIT));
+        mList.add(new SlideModel(R.drawable.carousel2,ScaleTypes.FIT));
+        mList.add(new SlideModel(R.drawable.carousel3,ScaleTypes.FIT));
         mList.add(new SlideModel(R.drawable.carousels,ScaleTypes.FIT));
         imageSlider.setImageList(mList,ScaleTypes.FIT);
 
@@ -95,15 +107,15 @@ public class homepage extends Fragment {
     }
     //popular categories data
     private void bulidlistPCdata(){
-        lstpcate.add(new Categoriesdata("Vitamins and Supplements", R.drawable.demoimg2));
-        lstpcate.add(new Categoriesdata("Ayurveda", R.drawable.demoimg1));
-        lstpcate.add(new Categoriesdata("Healthcare Devices", R.drawable.demoimg3));
-        lstpcate.add(new Categoriesdata("Nutritional Drinks", R.drawable.demoimg5));
-        lstpcate.add(new Categoriesdata("Skin care", R.drawable.demoimg4));
-        lstpcate.add(new Categoriesdata("Homeopathy", R.drawable.ic_launcher_background));
-        lstpcate.add(new Categoriesdata("Diabetes Care", R.drawable.ic_launcher_background));
-        lstpcate.add(new Categoriesdata("Pain Relief", R.drawable.ic_launcher_background));
-        lstpcate.add(new Categoriesdata("Sexual Wellness", R.drawable.ic_launcher_background));
+        lstpcate.add(new Categoriesdata("Vitamins and Supplements", R.drawable.vitamins));
+        lstpcate.add(new Categoriesdata("Ayurveda", R.drawable.ayurveda));
+        lstpcate.add(new Categoriesdata("Healthcare Devices", R.drawable.hcdevices));
+        lstpcate.add(new Categoriesdata("Nutritional Drinks", R.drawable.ndrinks));
+        lstpcate.add(new Categoriesdata("Skin care", R.drawable.skincare));
+        lstpcate.add(new Categoriesdata("Homeopathy", R.drawable.hpathy));
+        lstpcate.add(new Categoriesdata("Diabetes Care", R.drawable.diabetes));
+        lstpcate.add(new Categoriesdata("Pain Relief", R.drawable.painref));
+        lstpcate.add(new Categoriesdata("Sexual Wellness", R.drawable.sexualwell));
     }
     // popular gridview layout
     private void initRecyclerView(View view){
