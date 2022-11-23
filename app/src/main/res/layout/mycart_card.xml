@@ -48,31 +48,30 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/prodctMRP"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:id="@+id/prodctMRP"
+                    android:layout_weight="1"
                     android:text="Rs.999"
-                    android:textColor="@color/black"
-                    android:textSize="24dp"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
 
 
-                    />
+                    android:textColor="@color/black" />
 
-            <TextView
-                android:id="@+id/deletebtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Delete"
-                android:textColor="@color/black"
-                android:gravity="end"
-                android:padding="20sp"
-                android:textSize="20sp"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/deletebtn"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/deletecart"
+                    app:backgroundTint="@android:color/holo_red_light" />
+
             </LinearLayout>
 
 
         </LinearLayout>
 
 
-    </androidx.cardview.widget.CardView>
+</androidx.cardview.widget.CardView>
 
