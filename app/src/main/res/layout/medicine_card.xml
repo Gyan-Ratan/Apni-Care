@@ -29,17 +29,16 @@
                 android:id="@+id/name_medicine"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/work_sans_semibold"
                 android:text="Name"
                 android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/price"
-                style="@style/TextAppearance.MdcTypographyStyles.Body2"
+                style="@style/TextAppearance.MdcTypographyStyles.Subtitle1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_round_currency_rupee_24"
-                android:drawablePadding="5dp"
-                android:ems="10"
+                android:drawableStart="@drawable/ic_baseline_currency_rupee_24"
                 android:inputType="number"
                 android:text="class"
                 app:textAllCaps="false" />
@@ -51,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:text="Add to cart"
-                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+                android:textAppearance="@android:style/TextAppearance.Material.Small"
                 android:textColor="@color/teal_200"
                 android:visibility="visible"
                 app:strokeColor="@color/teal_200" />
