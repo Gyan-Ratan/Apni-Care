@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/fab_transformation_sheet_behavior"
-        android:src="@drawable/bottomnav_shoppingcart"
+        android:src="@drawable/upload_file_24"
         app:elevation="9dp"
         app:layout_anchor="@id/bottomAppBar" />
 
