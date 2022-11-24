@@ -44,6 +44,7 @@ public class my_cart extends Fragment {
         proceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 bookorder();
             }
         });
@@ -52,11 +53,13 @@ public class my_cart extends Fragment {
     }
 
     private void bookorder() {
+//        Toast.makeText(getContext(),"function",Toast.LENGTH_SHORT).show();
+
         Call<CartBookingResponse> call=RetrofitClient.getInstance().getApi().book("cart","customer","Bearer "+sharedPrefManager.getData().getAccess_token());
         call.enqueue(new Callback<CartBookingResponse>() {
             @Override
             public void onResponse(Call<CartBookingResponse> call, Response<CartBookingResponse> response) {
-//                Toast.makeText(getContext(),response.toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),response.toString(),Toast.LENGTH_SHORT).show();
                 if (response.isSuccessful()){
                     Toast.makeText(getContext(),"order Booked",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getActivity(), OrderBookedActivity.class);
@@ -66,6 +69,7 @@ public class my_cart extends Fragment {
 
             @Override
             public void onFailure(Call<CartBookingResponse> call, Throwable t) {
+                Toast.makeText(getContext(),t.getMessage(),Toast.LENGTH_SHORT).show();
 
             }
         });

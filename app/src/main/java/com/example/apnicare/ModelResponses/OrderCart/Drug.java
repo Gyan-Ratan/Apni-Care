@@ -21,7 +21,7 @@ public class Drug {
     private Double price;
     @SerializedName("mrp")
     @Expose
-    private int mrp;
+    private double mrp;
     @SerializedName("available")
     @Expose
     private Boolean available;
@@ -75,11 +75,11 @@ public class Drug {
         this.price = price;
     }
 
-    public int getMrp() {
+    public double getMrp() {
         return mrp;
     }
 
-    public void setMrp(int mrp) {
+    public void setMrp(double mrp) {
         this.mrp = mrp;
     }
 
