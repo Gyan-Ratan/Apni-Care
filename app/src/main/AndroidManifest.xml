@@ -15,6 +15,13 @@
         android:theme="@style/Theme.ApniCare"
         tools:targetApi="31">
         <activity
+            android:name=".AllCategoriesActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".AllProducts.OrderBookedActivity"
             android:exported="false">
             <meta-data

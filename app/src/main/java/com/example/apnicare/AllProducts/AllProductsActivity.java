@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,7 @@ public class AllProductsActivity extends AppCompatActivity {
     SharedPrefManager sharedPrefManager;
     Button next,prev;
     int page=1;
+    String id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,12 +33,19 @@ public class AllProductsActivity extends AppCompatActivity {
         sharedPrefManager=new SharedPrefManager(getApplicationContext());
         next=findViewById(R.id.next);
         prev=findViewById(R.id.prev);
+        Intent intent = getIntent();
+        id= intent.getStringExtra("categorySlug");
+
+
+//        if (id.isEmpty()){
+//            id="";
+//        }
         prev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (page>1) {
                     page=page-1;
-                    listall(page);
+                    listall(page,id);
                 }
             }
         });
@@ -44,22 +53,22 @@ public class AllProductsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 page=page+1;
-                listall(page);
+                listall(page,id);
             }
         });
         recyclerView=findViewById(R.id.allproductrecycleview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        listall(page);
+        listall(page,id);
 
     }
 
-    private void listall(int page) {
+    private void listall(int page,String category) {
 
         Call<SearchResponse> call= RetrofitClient
                 .getInstance()
                 .getApi()
-                .search(page,"",sharedPrefManager.getData().getAccess_token());
+                .search(page,"",category,sharedPrefManager.getData().getAccess_token());
 
         call.enqueue(new Callback<SearchResponse>() {
             @Override

@@ -27,7 +27,7 @@ import java.util.List;
 public class homepage extends Fragment {
     Button upbtn;
     ImageButton cart,allproducts;
-    TextView usernumber;
+    TextView usernumber,allCategory;
     SharedPrefManager sharedPrefManager;
     List<Categoriesdata> lstcate ;
     private final List<Categoriesdata> lstpcate = new ArrayList<>() ;
@@ -48,6 +48,7 @@ public class homepage extends Fragment {
         upbtn=view.findViewById(R.id.homeupload);
         allproducts=view.findViewById(R.id.showallproducts);
         usernumber=view.findViewById(R.id.home_user_phn);
+        allCategory=view.findViewById(R.id.allcategories);
         sharedPrefManager=new SharedPrefManager(getContext());
         usernumber.setText(sharedPrefManager.getData().getPhone());
         ImageSlider imageSlider = view.findViewById(R.id.coursel);
@@ -59,7 +60,13 @@ public class homepage extends Fragment {
                 startActivity(intent);
             }
         });
-
+        allCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AllCategoriesActivity.class);
+                startActivity(intent);
+            }
+        });
 
 //
 
