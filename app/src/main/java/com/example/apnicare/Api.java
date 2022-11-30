@@ -68,5 +68,5 @@ public interface Api {
     @GET("drug/category")
     Call<CategoryResponse> getdata();
 
-    
+
 }
