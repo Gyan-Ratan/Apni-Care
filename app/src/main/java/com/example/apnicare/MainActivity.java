@@ -8,9 +8,14 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ClipData;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
+
+import com.example.apnicare.Upload_Prescription.prescription_cam;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,23 +43,38 @@ public class MainActivity extends AppCompatActivity{
                 case R.id.User:
                     replace(new account_page(),false);
                     break;
-//                case R.id.bottomPrescription:
-//                    replace(new upload_prescription());
-//                    break;
+                case R.id.orderviewpager:
+                    uploadpre();
+                    break;
                 case R.id.report:
                     replace(new health_records_page(),false);
                     break;
                 case R.id.Search:
                     replace(new search_medicine(),false);
                     break;
+//                case R.id.fab_upload:
+//                    prescription_cam();
+//                    System.out.println("HELLOOOOO");
+//                    break;
+                default:
+                    Toast.makeText(this, "WORKING ON IT", Toast.LENGTH_LONG).show();
             }
             return true;
 
         });
 //        bottomNavigationItemView.setSelectedItemId(R.id.Home);
-
+        FloatingActionButton myFab = findViewById(R.id.fab_upload);
+        myFab.setOnClickListener(v -> prescription_camera());
     }
 
+    public void prescription_camera(){
+        Intent intent = new Intent(this, prescription_cam.class);
+        startActivity(intent);
+    }
+    public void uploadpre(){
+        Intent intent = new Intent(this, upload_prescription.class);
+        startActivity(intent);
+    }
 
 
 //    @Override
