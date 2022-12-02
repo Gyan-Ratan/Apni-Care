@@ -19,7 +19,8 @@
     <item
         android:id="@+id/placeholder"
         android:enabled="false"
-        android:title="upload" />
+        android:title="Upload"
+        tools:ignore="HardcodedText"/>
     <item
         android:id="@+id/report"
         android:icon="@drawable/ic_baseline_find_in_page_24"
