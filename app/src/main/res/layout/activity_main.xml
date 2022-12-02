@@ -40,6 +40,7 @@
         android:layout_gravity="bottom"
         android:background="@color/transparent"
         app:elevation="0dp"
+        app:labelVisibilityMode="labeled"
         app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
         app:menu="@menu/bottom_nav_menu" />
 
@@ -50,6 +51,7 @@
         android:contentDescription="@string/fab_transformation_sheet_behavior"
         android:src="@drawable/upload_file_24"
         app:elevation="9dp"
+        app:fabSize="auto"
         app:layout_anchor="@id/bottomAppBar" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

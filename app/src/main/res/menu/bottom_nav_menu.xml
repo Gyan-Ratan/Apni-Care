@@ -19,7 +19,7 @@
     <item
         android:id="@+id/placeholder"
         android:enabled="false"
-        android:title="" />
+        android:title="upload" />
     <item
         android:id="@+id/report"
         android:icon="@drawable/ic_baseline_find_in_page_24"
