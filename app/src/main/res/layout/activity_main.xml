@@ -9,12 +9,13 @@
     android:id="@+id/main_activity">
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="100dp"
-        android:clipToPadding="false">
+        android:clipToPadding="false"
+        android:paddingBottom="100dp">
 
-<!--         Scrollable content -->
+        <!--         Scrollable content -->
         <FrameLayout
             android:id="@+id/mainpage"
             android:layout_width="match_parent"

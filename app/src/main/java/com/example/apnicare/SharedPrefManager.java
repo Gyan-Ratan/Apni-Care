@@ -29,7 +29,8 @@ public class SharedPrefManager {
     }
     boolean isLoggedIn(){
         sharedPreferences=context.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
-        return sharedPreferences.getBoolean("logged",false);
+//        return sharedPreferences.getBoolean("logged",false);
+        return true;
 
     }
     public Data getData(){

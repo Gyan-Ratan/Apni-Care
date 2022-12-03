@@ -13,14 +13,21 @@
         android:roundIcon="@drawable/apni_care_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.ApniCare"
-        tools:targetApi="31">
-        <activity
-            android:name=".prescription_cam"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+        tools:targetApi="31"
+        android:usesCleartextTraffic="true">
+
+
+<!--        <activity-->
+<!--            android:name=".prescription_cam"-->
+<!--            android:exported="false">-->
+<!--            <meta-data-->
+<!--                android:name="android.app.lib_name"-->
+<!--                android:value="" />-->
+<!--        </activity>-->
+
+
+<!--       ALL CATEGORY ACTIVITY -->
+
         <activity
             android:name=".AllCategoriesActivity"
             android:exported="false">
@@ -28,6 +35,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+<!--        ALL PRODUCT BOOKED ACTIVITY-->
         <activity
             android:name=".AllProducts.OrderBookedActivity"
             android:exported="false">
@@ -35,6 +44,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+<!--        AllProductsActivity  -->
         <activity
             android:name=".AllProducts.AllProductsActivity"
             android:exported="false">
@@ -42,6 +53,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+<!--        enter_otp_Activity-->
         <activity
             android:name=".enter_otp_Activity"
             android:exported="false"
@@ -50,6 +63,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+<!--        LoginActivity    -->
         <activity
             android:name=".LoginActivity"
             android:exported="false"
@@ -58,6 +73,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+<!--        YourOrdersActivity    -->
         <activity
             android:name=".YourOrders.YourOrdersActivity"
             android:exported="false"
@@ -66,6 +83,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+<!--        CartActivity    -->
         <activity
             android:name=".myCart.CartActivity"
             android:exported="false"
@@ -74,6 +93,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+<!--        AddressActivity   -->
         <activity
             android:name=".address_page.AddressActivity"
             android:exported="false"
@@ -82,13 +103,15 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+
+<!--        SplashScreen    -->
         <activity
             android:name=".SplashScreen"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
@@ -113,12 +136,6 @@
             android:name=".upload_prescription"
             android:exported="true"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
