@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -61,6 +62,7 @@ public class searchMedicineAdapter extends RecyclerView.Adapter<searchMedicineAd
         TextView name;
         TextView price;
         Button add;
+        private LinearLayout Quantitybtn;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -68,8 +70,8 @@ public class searchMedicineAdapter extends RecyclerView.Adapter<searchMedicineAd
             name=itemView.findViewById(R.id.name_medicine);
             price=itemView.findViewById(R.id.price);
             add=itemView.findViewById(R.id.addtocartsearchbtn);
+            Quantitybtn=itemView.findViewById(R.id.quantitybtn);
             add.setOnClickListener(this);
-
         }
 
         @Override
@@ -77,8 +79,11 @@ public class searchMedicineAdapter extends RecyclerView.Adapter<searchMedicineAd
             String id;
             id=Items.get(getAdapterPosition()).getSlug();
             addtocart(id);
+            Quantitybtn.setVisibility(View.VISIBLE);
+            add.setVisibility(View.INVISIBLE);
 
         }
+
     }
 
     private void addtocart(String id) {
