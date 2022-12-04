@@ -16,13 +16,14 @@ import android.widget.Toast;
 import com.example.apnicare.Upload_Prescription.prescription_cam;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity{
     BottomNavigationView bottomNavigationItemView;
-    private Long backPressedTime;
+    private Long exitTime;
     private Toast backToast;
     String ROOT_FRAGMENT="root_fragment";
 
@@ -41,20 +42,20 @@ public class MainActivity extends AppCompatActivity{
                     replace(new homepage(),true);
                     break;
                 case R.id.User:
-                    replace(new account_page(),false);
+                    replace(new account_page(),true);
                     break;
                 case R.id.orderviewpager:
                     uploadpre();
                     break;
                 case R.id.report:
-                    replace(new health_records_page(),false);
+                    replace(new health_records_page(),true);
                     break;
                 case R.id.Search:
-                    replace(new search_medicine(),false);
+                    replace(new search_medicine(),true);
                     break;
 //                case R.id.fab_upload:
 //                    prescription_cam();
-//                    System.out.println("HELLOOOOO");
+//                    System.out.println("HELLO");
 //                    break;
                 default:
                     Toast.makeText(this, "WORKING ON IT", Toast.LENGTH_LONG).show();
@@ -77,22 +78,6 @@ public class MainActivity extends AppCompatActivity{
     }
 
 
-//    @Override
-//    public void onBackPressed() {
-//        //super.onBackPressed();
-//
-//        if( backPressedTime+2000 > System.currentTimeMillis()){
-//            backToast.cancel();
-//            super.onBackPressed();
-//            return;
-//        }
-//        else{
-//            backToast = Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
-//            backToast.show();
-//        }
-//            backPressedTime = System.currentTimeMillis();
-//    }
-
     public boolean replace(Fragment fragment,boolean x){
         FragmentManager fragmentManager=getSupportFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
@@ -112,20 +97,30 @@ public class MainActivity extends AppCompatActivity{
 //        }
 
         fragmentTransaction.replace(R.id.mainpage, fragment);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
         return true;
     }
-//
     @Override
     public void onBackPressed() {
+
         if (bottomNavigationItemView.getSelectedItemId()==R.id.Home){
-            super.onBackPressed();
+            doExitApp();
         }
         else{
             bottomNavigationItemView.setSelectedItemId(R.id.Home);
         }
 
+}
+    public void doExitApp() {
+        if ((System.currentTimeMillis() - exitTime) > 2000) {
+            Toast.makeText(this, "Press again to exit app", Toast.LENGTH_SHORT).show();
+            exitTime = System.currentTimeMillis();
         }
+        else {
+            finish();
+        }
+    }
 //    }
     /*
 
@@ -137,6 +132,7 @@ public void onClick2(View view) {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragment1, fragment2);
         fragmentTransaction.commit();
+        }
  */
 
 }

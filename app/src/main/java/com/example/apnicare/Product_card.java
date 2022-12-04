@@ -21,8 +21,9 @@ import com.google.android.material.textfield.TextInputLayout;
 public class Product_card extends Fragment {
 
     Button button ,minusbtn;
-    LinearLayout linearLayout;
-    TextInputLayout quantitynumber;
+    LinearLayout Quantitybtn;
+    Button add;
+
     private static final String Title = "title";
     private String mTitle;
 
@@ -37,8 +38,10 @@ public class Product_card extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mTitle = getArguments().getString(Title);
+
         }
     }
 
@@ -50,6 +53,15 @@ public class Product_card extends Fragment {
 
         TextView textView = view.findViewById(R.id.text);
         textView.setText(mTitle);
+        add=view.findViewById(R.id.addtocartbtn);
+        Quantitybtn=view.findViewById(R.id.quantitybtn);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Quantitybtn.setVisibility(View.VISIBLE);
+                add.setVisibility(View.INVISIBLE);
+            }
+        });
 
         return view;
     }
