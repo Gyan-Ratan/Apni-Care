@@ -1,32 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <RelativeLayout
+        android:id="@+id/toolbars"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/toolbars"
         android:background="@drawable/shape"
-        android:padding="16dp">
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Login Account"
-            android:textStyle="bold"
-            android:textSize="20dp"/>
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline5"
+            android:textStyle="bold" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello! Welcome back to your account !"
-            android:layout_below="@id/login"/>
+            android:layout_below="@id/login"
+            android:text="Hello! Welcome back to Apnicare"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2" />
 
         <ImageView
+            android:id="@+id/skipbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -34,64 +43,100 @@
     </RelativeLayout>
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/pharmapic"
-        android:layout_below="@+id/toolbars"
-        android:src="@drawable/istockphoto_1179644653_612x612" />
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/phoneno"
-        android:layout_below="@id/pharmapic"
-        android:text="Phone Number"
-        android:paddingLeft="30dp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:textSize="20dp"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_below="@+id/toolbars"
         android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_marginTop="20dp">
+        android:layout_margin="@dimen/default_gap"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/mask_group"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbars" />
+
+    <TextView
+        android:id="@+id/phoneno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pharmapic"
+        android:layout_gravity="start"
+        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Sign in to continue"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pharmapic" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneno">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+91- "
+            android:text="+91 "
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+            android:textColor="@color/black"
             android:textSize="26dp"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
-        <EditText
-            android:inputType="phone"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Phone_Number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
+            android:hint="Enter Mobile Number"
+            android:inputType="phone"
             android:maxLength="10"
-            android:hint="1234567890"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
             android:textSize="24dp"
-            android:textStyle="bold"
-            android:id="@+id/Phone_Number"/>
+            android:textStyle="bold" />
     </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/grey"
-        android:layout_marginHorizontal="100dp"/>
 
-   
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button"
+        style="@style/Widget.MaterialComponents.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:layout_gravity="center" 
-
         android:backgroundTint="@color/teal_200"
-        android:text="Request OTP"
-        app:cornerRadius="20dp" />
+        android:text="Get Verification Code"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:text="By login you are accepting our "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Terms &amp; Conditions"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="@+id/textView5" />
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
