@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.apnicare.AllProducts.OrderBookedActivity;
@@ -18,6 +19,8 @@ import com.example.apnicare.ModelResponses.OrderCart.CartBookingResponse;
 import com.example.apnicare.R;
 import com.example.apnicare.RetrofitClient;
 import com.example.apnicare.SharedPrefManager;
+
+import java.text.DecimalFormat;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,6 +31,7 @@ public class my_cart extends Fragment {
     SharedPrefManager sharedPrefManager;
     RecyclerView recyclerView;
     Button proceed;
+    TextView cartTotal,dicount,topay;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,6 +41,9 @@ public class my_cart extends Fragment {
         sharedPrefManager=new SharedPrefManager(getContext());
         recyclerView=view.findViewById(R.id.mycartrecycleview);
         proceed=view.findViewById(R.id.proceedtopay);
+        cartTotal=view.findViewById(R.id.cartTotal);
+        dicount=view.findViewById(R.id.discount);
+        topay=view.findViewById(R.id.topay);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -64,6 +71,7 @@ public class my_cart extends Fragment {
                     Toast.makeText(getContext(),"order Booked",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getActivity(), OrderBookedActivity.class);
                     startActivity(intent);
+
                 }
             }
 
@@ -82,8 +90,10 @@ public class my_cart extends Fragment {
             public void onResponse(Call<CartResponse> call, Response<CartResponse> response) {
                 CartResponse cartResponse=response.body();
                 if (response.isSuccessful()){
-                    CartItemAdapter adapter =new CartItemAdapter(getContext(),cartResponse.getData());
+                    CartItemAdapter adapter =new CartItemAdapter(getContext(),cartResponse.getData(),cartTotal);
                     recyclerView.setAdapter(adapter);
+                    updateTotal(cartResponse);
+//                    cartTotal.setText(cartResponse.getData());
 
                 }
 //                Toast.makeText(getContext(),response.toString(),Toast.LENGTH_SHORT).show();
@@ -95,5 +105,18 @@ public class my_cart extends Fragment {
             }
         });
 
+    }
+
+    private void updateTotal(CartResponse cartResponse) {
+        int i;
+        double mrp=0,sum=0;
+        String su;
+        for (i=0;i<cartResponse.getData().size();i++){
+            sum= sum+(cartResponse.getData().get(i).getDrug().getPrice()*cartResponse.getData().get(i).getQuantity());
+            mrp = mrp + (cartResponse.getData().get(i).getDrug().getMrp()*cartResponse.getData().get(i).getQuantity());
+        }
+        cartTotal.setText("Rs. "+new DecimalFormat("##.##").format(mrp));
+        dicount.setText("-Rs. "+new DecimalFormat("##.##").format(mrp-sum));
+        topay.setText("Rs. "+new DecimalFormat("##.##").format(sum));
     }
 }

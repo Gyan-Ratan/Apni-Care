@@ -1,10 +1,7 @@
 package com.example.apnicare.myCart;
 
-import static androidx.core.content.ContextCompat.startActivity;
-
 import android.content.Context;
 import android.content.Intent;
-import android.transition.Transition;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,14 +22,16 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHolder> {
+    private TextView cartTotal;
     private Context context;
     private List<Datum> data;
     int id;
     SharedPrefManager sharedPrefManager;
 
-    public CartItemAdapter(Context context, List<Datum> data) {
+    public CartItemAdapter(Context context, List<Datum> data , TextView cartTotal) {
         this.context = context;
         this.data = data;
+        this.cartTotal=cartTotal;
     }
 
     //    @NonNull
@@ -60,25 +59,27 @@ public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         Datum cartresponse=data.get(position);
         holder.productname.setText(cartresponse.getDrug().getName());
-        holder.mrp.setText(cartresponse.getPrice().toString());
+        holder.price.setText(cartresponse.getPrice().toString());
+        holder.mrp.setText(cartresponse.getDrug().getMrp().toString());
 
 
 
     }
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView productname;
-        TextView mrp,delete;
+        TextView price,delete,mrp;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 //            itemView.setOnClickListener(this::onClick);
+            mrp=itemView.findViewById(R.id.mrp);
             delete=itemView.findViewById(R.id.deletebtn);
             productname = itemView.findViewById(R.id.productName);
-            mrp = itemView.findViewById(R.id.prodctMRP);
+            price = itemView.findViewById(R.id.prodctMRP);
             sharedPrefManager=new SharedPrefManager(context);
 
 
-            mrp.setOnClickListener(new View.OnClickListener() {
+            price.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(context, "click on Mrp", Toast.LENGTH_SHORT).show();
@@ -118,6 +119,7 @@ public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             public void onResponse(Call<CartItemDeleteResponse> call, Response<CartItemDeleteResponse> response) {
                 CartItemDeleteResponse cartItemDeleteResponse=response.body();
                 if (response.isSuccessful());
+//                updateTotal();
                 Toast.makeText(context,cartItemDeleteResponse.getData().getMessage().toString(),Toast.LENGTH_SHORT).show();
             }
 
@@ -133,4 +135,6 @@ public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             context.startActivity(refresh);
             Toast.makeText(context, "successful", Toast.LENGTH_SHORT).show();
     }
+
+
 }
