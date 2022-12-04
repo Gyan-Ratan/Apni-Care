@@ -3,8 +3,6 @@ package com.example.apnicare.address_page;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Patterns;
 import android.view.LayoutInflater;
@@ -70,12 +68,6 @@ public class edit_address extends Fragment {
             @Override
             public void onClick(View v) {
                 addAddress();
-//                Fragment address_book = new address_book();
-//                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-//                fragmentTransaction.replace(R.id.edit_address, address_book);
-//                fragmentTransaction.addToBackStack(null);
-//                fragmentTransaction.commit();
-
             }
         });
 
@@ -90,7 +82,6 @@ public class edit_address extends Fragment {
         String address11=address1.getText().toString();
         String address21=address2.getText().toString();
         String pincode1=pincode.getText().toString();
-
         if(phone1.isEmpty()){
             phone.requestFocus();
             phone.setError("please enter number");
@@ -112,6 +103,7 @@ public class edit_address extends Fragment {
                 Toast.makeText(getContext(),"Address added",Toast.LENGTH_SHORT).show();
 
             }
+
             @Override
             public void onFailure(Call<EditAddressResponse> call, Throwable t) {
                 Toast.makeText(getContext(),t.getMessage(),Toast.LENGTH_SHORT).show();

@@ -24,6 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/address_line1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -44,10 +45,10 @@
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="2dp"
                 android:text="Edit"
                 android:textColor="@color/teal_200"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:strokeColor="@color/teal_200" />
 
         </LinearLayout>
 
@@ -59,7 +60,6 @@
             android:padding="5dp"
             android:text="3 Newbridge court"
             android:textSize="18dp"
-            app:layout_constraintBottom_toTopOf="@+id/address_line2"
             app:layout_constraintStart_toStartOf="@+id/linearLayout6"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
 
@@ -67,11 +67,10 @@
             android:id="@+id/address_line2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="1dp"
+            android:inputType="textMultiLine"
             android:padding="5dp"
             android:text="Chino Hills,CA 91709,"
             android:textSize="18dp"
-            app:layout_constraintBottom_toTopOf="@+id/defaultaddress"
             app:layout_constraintStart_toStartOf="@+id/address_line1"
             app:layout_constraintTop_toBottomOf="@+id/address_line1" />
 
@@ -82,8 +81,8 @@
             android:padding="5dp"
             android:text="pincode"
             android:textSize="18dp"
-            app:layout_constraintStart_toEndOf="@+id/address_line2"
-            app:layout_constraintTop_toBottomOf="@+id/address_line1" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/address_line2" />
 
         <CheckBox
             android:id="@+id/defaultaddress"
@@ -94,7 +93,7 @@
             android:text="Use as shipping address"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/address_line2"
-            app:layout_constraintTop_toBottomOf="@+id/address_line2" />
+            app:layout_constraintTop_toBottomOf="@id/pincode" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

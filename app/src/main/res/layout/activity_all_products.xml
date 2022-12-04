@@ -22,19 +22,30 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/prev"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="start"
             android:layout_margin="10sp"
-            android:text="Prev" />
+            android:text="Prev"
+            app:strokeColor="@color/teal_300" />
 
-        <Button
-            android:id="@+id/next"
+        <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/next"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
             android:layout_margin="10sp"
-            android:text="Next" />
+            android:text="Next"
+            app:strokeColor="@color/teal_300" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

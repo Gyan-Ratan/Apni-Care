@@ -52,6 +52,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
     public void onBindViewHolder(@NonNull AddressAdapter.ViewHolder holder, int position) {
         Datum addressresponse= addresses.get(position);
         holder.name.setText(addressresponse.getName());
+        holder.pincode.setText(addressresponse.getPincode());
         holder.address_line1.setText(addressresponse.getAddress1());
         holder.address_line2.setText(addressresponse.getAddress2());
         holder.defaultAddress.setChecked(addressresponse.getDefault());
@@ -65,13 +66,14 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name;
-        TextView address_line1,address_line2;
+        TextView address_line1,address_line2,pincode;
         CheckBox defaultAddress;
         Button edit;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name=itemView.findViewById(R.id.address_name);
+            pincode=itemView.findViewById(R.id.pincode);
             address_line1=itemView.findViewById(R.id.address_line1);
             address_line2=itemView.findViewById(R.id.address_line2);
             defaultAddress=itemView.findViewById(R.id.defaultaddress);

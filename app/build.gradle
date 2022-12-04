@@ -42,10 +42,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 // Updated upstream
-    implementation 'com.google.android.material:material:1.8.0-alpha02'
     implementation 'com.google.code.gson:gson:2.10'
 
-    implementation 'com.google.android.material:material:1.8.0-alpha02'   // used in bottom Nav bar
+    implementation 'com.google.android.material:material:1.8.0-alpha03'   // used in bottom Nav bar
 //    API DEPENDENCIES
     implementation 'com.google.code.gson:gson:2.10'
 // Stashed changes

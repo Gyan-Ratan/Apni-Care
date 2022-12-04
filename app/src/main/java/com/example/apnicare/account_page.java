@@ -21,7 +21,8 @@ import com.example.apnicare.address_page.AddressActivity;
 
 public class account_page extends Fragment {
 
-    TextView order,family,addresspage;
+    TextView order,family,addresspage,usernumber;
+    SharedPrefManager sharedPrefManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,6 +31,9 @@ public class account_page extends Fragment {
         View view= inflater.inflate(R.layout.fragment_account_page, container, false);
         order=view.findViewById(R.id.account_orders);
         family=view.findViewById(R.id.account_family);
+        usernumber=view.findViewById(R.id.phoneNumber);
+        sharedPrefManager=new SharedPrefManager(getContext());
+        usernumber.setText(sharedPrefManager.getData().getPhone());
         addresspage=view.findViewById(R.id.account_addressbook);
 
         addresspage.setOnClickListener(new View.OnClickListener() {
