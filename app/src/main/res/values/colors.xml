@@ -3,6 +3,7 @@
     <color name="grey">#808080</color>
     <color name="black">#FF000000</color>
     <color name="transparent">#00000000</color>
+    <color name="grayish">#9B9B9B</color>
 
     //onboarding colors
     <color name="background">#F0F4F3</color>
