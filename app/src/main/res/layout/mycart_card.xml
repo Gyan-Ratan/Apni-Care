@@ -91,16 +91,17 @@
                         android:src="@drawable/minus_24"
                         app:fabCustomSize="32dp" />
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <TextView
                         android:id="@+id/quantitynumber"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:ems="2"
                         android:gravity="center"
-                        android:inputType="number"
+                        android:textSize="22dp"
+                        android:text="0"
                         android:textAppearance="@style/TextAppearance.Material3.LabelMedium" />
 
-                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    <ImageButton
                         android:id="@+id/addbtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
