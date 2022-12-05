@@ -21,7 +21,7 @@ import com.example.apnicare.address_page.AddressActivity;
 
 public class account_page extends Fragment {
 
-    TextView order,family,addresspage,usernumber;
+    TextView order,family,addresspage,usernumber,logout;
     SharedPrefManager sharedPrefManager;
 
     @Override
@@ -35,6 +35,7 @@ public class account_page extends Fragment {
         sharedPrefManager=new SharedPrefManager(getContext());
         usernumber.setText(sharedPrefManager.getData().getPhone());
         addresspage=view.findViewById(R.id.account_addressbook);
+        logout=view.findViewById(R.id.logOut);
 
         addresspage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +49,17 @@ public class account_page extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), YourOrdersActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sharedPrefManager.logOut();
+                Intent intent = new Intent(getContext(), LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
             }
         });
         return view;
