@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.apnicare.ModelResponses.LoginResponse;
+import com.example.apnicare.ModelResponses.ResendOtp.ResendOtp;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,10 +21,10 @@ import retrofit2.Response;
 
 public class enter_otp_Activity extends AppCompatActivity {
     EditText otp1,otp2,otp3,otp4;
-    Button btn2;
+    Button submitOtp;
     SharedPrefManager sharedPrefManager;
     String  otp;
-    TextView phn_number_otp;
+    TextView phn_number_otp,resendOtp;
 
     String phn_number;
     @Override
@@ -36,20 +36,26 @@ public class enter_otp_Activity extends AppCompatActivity {
         otp2=findViewById(R.id.code2);
         otp3=findViewById(R.id.code3);
         otp4=findViewById(R.id.code4);
-        btn2=findViewById(R.id.resend_otp_button);
-
+        submitOtp =findViewById(R.id.submit_otp_button);
+        resendOtp=findViewById(R.id.resend_otp);
         Intent intent=getIntent();
         phn_number=intent.getStringExtra("Phone");
         phn_number_otp.setText(phn_number);
         sharedPrefManager=new SharedPrefManager(getApplicationContext());
         setUpOtpInputs();
 
-        btn2.setOnClickListener(new View.OnClickListener() {
+        submitOtp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 otp= otp1.getText().toString()+otp2.getText().toString()+otp3.getText().toString()+otp4.getText().toString();
                 userLogin();
 
+            }
+        });
+        resendOtp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resentOtp();
             }
         });
     }
@@ -151,4 +157,22 @@ public class enter_otp_Activity extends AppCompatActivity {
             }
         });
     }
+
+    private void resentOtp() {
+        String number=phn_number;
+        Call<ResendOtp> call= RetrofitClient.getInstance().getApi().resend(number);
+        call.enqueue(new Callback<ResendOtp>() {
+            @Override
+            public void onResponse(Call<ResendOtp> call, Response<ResendOtp> response) {
+                ResendOtp resendOtp=response.body();
+                if(response.isSuccessful()){
+                    Toast.makeText(enter_otp_Activity.this,"OTP sended to "+number,Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onFailure(Call<ResendOtp> call, Throwable t) {
+                Toast.makeText(enter_otp_Activity.this,t.getMessage(),Toast.LENGTH_SHORT).show();
+            }
+        });
     }
+}

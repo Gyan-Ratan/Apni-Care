@@ -5,11 +5,13 @@ package com.example.apnicare;
 
 import com.example.apnicare.ModelResponses.Address.AddressResponse;
 import com.example.apnicare.ModelResponses.CategoryResponse.CategoryResponse;
+import com.example.apnicare.ModelResponses.ContactUs.ContactResponse;
 import com.example.apnicare.ModelResponses.DeleteAddress.DeleteAddressResponse;
 import com.example.apnicare.ModelResponses.EditAddress.EditAddressResponse;
 import com.example.apnicare.ModelResponses.LoginResponse;
 import com.example.apnicare.ModelResponses.OrderCart.CartBookingResponse;
 import com.example.apnicare.ModelResponses.RegisterResponse;
+import com.example.apnicare.ModelResponses.ResendOtp.ResendOtp;
 import com.example.apnicare.ModelResponses.Search.SearchResponse;
 import com.example.apnicare.myCart.AddItemResponse;
 import com.example.apnicare.myCart.CartItemDeleteResponse;
@@ -35,6 +37,10 @@ public interface Api {
     @FormUrlEncoded
     @POST("auth/verify")
     Call<LoginResponse> login(@Field("phone") String phone, @Field("otp") int otp);
+
+    @FormUrlEncoded
+    @POST("auth/resend_otp")
+    Call<ResendOtp> resend(@Field("phone") String phone);
 
     @GET("cart/")
     Call<CartResponse> getData(@Header("Authorization") String token);
@@ -67,6 +73,11 @@ public interface Api {
 
     @GET("drug/category")
     Call<CategoryResponse> getdata();
+
+    @FormUrlEncoded
+    @POST("contact/")
+    Call<ContactResponse> contact(@Field("first_name") String first_name, @Field("last_name") String last_name, @Field("email") String email, @Field("phone") String phone, @Field("subject") String subject, @Field("message") String message);
+
 
 
 }
