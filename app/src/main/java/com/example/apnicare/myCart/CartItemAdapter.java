@@ -1,5 +1,6 @@
 package com.example.apnicare.myCart;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -107,8 +108,6 @@ public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 //            Toast.makeText(context, "successful", Toast.LENGTH_SHORT).show();
 //            notifyDataSetChanged();
 
-
-
         }
     }
 
@@ -133,7 +132,8 @@ public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 //        context.notifyDataSetChanged();
         Intent refresh = new Intent(context,CartActivity.class);
             context.startActivity(refresh);
-            Toast.makeText(context, "successful", Toast.LENGTH_SHORT).show();
+            refresh.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Toast.makeText(context, "successful", Toast.LENGTH_SHORT).show();
     }
 
 

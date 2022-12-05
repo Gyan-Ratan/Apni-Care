@@ -7,9 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class homepage extends Fragment {
+public class homepage extends Fragment  {
     Button upbtn;
     ImageButton cart,allproducts;
     TextView usernumber,allCategory;
@@ -44,6 +49,7 @@ public class homepage extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_homepage, container, false);
+        ImageView searchView = view.findViewById(R.id.imageView);
         cart=view.findViewById(R.id.cartimagebutton);
         upbtn=view.findViewById(R.id.homeupload);
         allproducts=view.findViewById(R.id.showallproducts);
@@ -52,6 +58,18 @@ public class homepage extends Fragment {
         sharedPrefManager=new SharedPrefManager(getContext());
         usernumber.setText(sharedPrefManager.getData().getPhone());
         ImageSlider imageSlider = view.findViewById(R.id.coursel);
+
+        searchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment=new search_medicine();
+                FragmentTransaction transaction=getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.addToBackStack(null);
+                transaction.replace(R.id.homepage,fragment).commit();
+
+            }
+        });
+
         upbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,8 +86,6 @@ public class homepage extends Fragment {
             }
         });
 
-//
-
         cart.setOnClickListener(view12 -> {
             Intent intent = new Intent(getActivity(), CartActivity.class);
             startActivity(intent);
@@ -82,6 +98,7 @@ public class homepage extends Fragment {
                 startActivity(intent);
             }
         });
+
 
         //carousel
         ArrayList<SlideModel> mList = new ArrayList<>();
@@ -97,8 +114,8 @@ public class homepage extends Fragment {
 
         lstcate = new ArrayList<>();
         lstcate.add(new Categoriesdata("Order", R.drawable.demoimg2));
-        lstcate.add(new Categoriesdata("Consult Doctor", R.drawable.demoimg1));
-        lstcate.add(new Categoriesdata("Lab Test", R.drawable.demoimg3));
+      //  lstcate.add(new Categoriesdata("Consult Doctor", R.drawable.demoimg1));
+      // lstcate.add(new Categoriesdata("Lab Test", R.drawable.demoimg3));
         lstcate.add(new Categoriesdata("Medicine", R.drawable.demoimg5));
         lstcate.add(new Categoriesdata("Health Products", R.drawable.demoimg4));
 
@@ -131,4 +148,17 @@ public class homepage extends Fragment {
         recyclerviewpc.setLayoutManager(new GridLayoutManager(getActivity(),3));
         recyclerviewpc.setAdapter(myAdapter);
     }
+
+    /*@Override
+    public void onClick(View view) {
+        Fragment fragment = null;
+        fragment = new search_medicine();
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.homepage, fragment,null);
+        transaction.hide(this);
+        transaction.addToBackStack(null);
+        transaction.commitNow();
+
+        }*/
+
 }

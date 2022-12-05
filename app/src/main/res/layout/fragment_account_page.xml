@@ -29,12 +29,12 @@
                 android:orientation="vertical">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/linearLayout7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/shape"
                     android:orientation="horizontal"
-                    android:background="@color/teal_600"
-                    android:padding="10dp"
-                    android:id="@+id/linearLayout7">
+                    android:padding="10dp">
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/shapeableImageView2"
@@ -43,7 +43,7 @@
                         android:padding="10dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/avatar"
+                        app:srcCompat="@drawable/avatar__1_"
                         tools:layout_conversion_absoluteHeight="102dp"
                         tools:layout_conversion_absoluteWidth="102dp" />
 
@@ -111,7 +111,7 @@
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
                         android:src="@drawable/edit"
-                        android:tint="@color/cyan_50"
+                        android:tint="@color/cyan_800"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"

@@ -19,23 +19,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-<!--            <SearchView-->
-<!--                android:id="@+id/searchView"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-
-<!--                android:layout_marginStart="16dp"-->
-<!--                android:layout_marginTop="100dp"-->
-<!--                android:layout_marginEnd="16dp"-->
-<!--                android:background="@drawable/searchview"-->
-<!--                android:elevation="6dp"-->
-<!--                android:iconifiedByDefault="false"-->
-<!--                android:padding="0dp"-->
-<!--                android:queryBackground="@android:color/transparent"-->
-<!--                android:queryHint="Search"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
+            <!--<androidx.appcompat.widget.SearchView
+                android:id="@+id/search_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/searchview"
+                android:backgroundTint="@android:color/white"
+                android:elevation="6dp"
+                app:iconifiedByDefault="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/home_user_phn"
+                app:queryBackground="@android:color/transparent"
+                app:queryHint="Search your Medicine"/>-->
 
             <ImageButton
                 android:id="@+id/cartimagebutton"
@@ -51,7 +50,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/shopping_cart_24" />
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,14 +59,14 @@
                 android:contentDescription="@string/app_name"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/apni_care_logo" />
+                app:srcCompat="@drawable/avatar__1_" />
 
 
             <View
                 android:id="@+id/view"
                 android:layout_width="0dp"
                 android:layout_height="109dp"
-                android:layout_marginTop="52dp"
+                android:layout_marginTop="80dp"
                 android:background="@color/teal_200"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"

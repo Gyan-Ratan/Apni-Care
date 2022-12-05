@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ApniCare</string>
+    <string name="app_name">Apni Care</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="pres_desc1">A valid prescription should contain doctor, patient, medicine details and the doctor’s signature.</string>
     <string name="pres_title1">What is a valid prescription?</string>

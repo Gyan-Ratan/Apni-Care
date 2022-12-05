@@ -6,24 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".SplashScreen">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="158dp"
-        android:layout_height="141dp"
-        android:layout_marginTop="344dp"
+    <!--<ImageView
+        android:id="@+id/animatedVector"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/splash"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/apni_care_logo" />
+        app:layout_constraintTop_toTopOf="parent" />-->
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/apni_care_logo"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:textSize="28dp"
-        android:text="@string/app_name"
+        android:layout_marginTop="10dp"
+        android:text="Apni Care"
+        android:textColor="@color/grey_800"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
