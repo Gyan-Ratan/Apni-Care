@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -71,7 +72,7 @@ public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView productname;
         public TextView price,delete,mrp,quantityNumber;
-        ImageButton addQuantity;
+        Button addQuantity;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

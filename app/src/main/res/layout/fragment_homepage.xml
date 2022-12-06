@@ -39,32 +39,24 @@
             <ImageView
                 android:id="@+id/imageView6"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="200dp"
                 android:src="@drawable/shape3"
-                app:layout_constraintBottom_toTopOf="@+id/view"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/home_user_phn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="-50dp"
-                android:layout_marginBottom="38dp"
                 android:fontFamily="@font/ibm_bold"
                 android:inputType="textPersonName"
                 android:text="@string/username"
                 android:textColor="@android:color/black"
-                app:layout_constraintBottom_toTopOf="@+id/coursel"
-                app:layout_constraintEnd_toStartOf="@+id/cartimagebutton"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/imageView"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toTopOf="@+id/imageView" />
 
             <ImageButton
                 android:id="@+id/cartimagebutton"
@@ -92,86 +84,74 @@
                 app:srcCompat="@drawable/avatar__1_" />
 
 
-            <com.google.android.material.card.MaterialCardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/view"
-                android:layout_width="0dp"
-                android:layout_height="109dp"
-                android:layout_marginLeft="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="20dp"
                 android:background="@drawable/shape"
-                android:elevation="0dp"
-                app:layout_constraintBottom_toTopOf="@+id/recyclerview_id"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="6dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/coursel">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="10dp">
+                    android:layout_height="wrap_content">
 
                     <Button
                         android:id="@+id/homeupload"
-                        android:layout_width="126dp"
-                        android:layout_height="48dp"
-                        android:layout_marginStart="17dp"
-                        android:layout_marginTop="7dp"
-                        android:layout_marginEnd="15dp"
-                        android:layout_marginBottom="54dp"
+                        style="@android:style/Widget.Material.ButtonBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="18dp"
                         android:backgroundTint="@color/light_blue"
-                        android:elevation="20dp"
+                        android:elevation="80dp"
                         android:text="@string/ordericon"
                         android:textColor="@android:color/white"
-                        android:textSize="12sp"
                         app:cornerRadius="20dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/textView"
-                        app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="TextContrastCheck" />
 
                     <TextView
                         android:id="@+id/textView2"
-                        android:layout_width="150dp"
-                        android:layout_height="27dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="7dp"
-                        android:layout_marginEnd="63dp"
-                        android:layout_marginBottom="4dp"
+                        android:layout_alignParentTop="true"
+                        android:fontFamily="@font/work_sans_bold"
                         android:text="@string/orderbyprescription"
                         android:textAllCaps="false"
                         android:textColor="@android:color/black"
+                        android:textSize="20dp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toTopOf="@+id/textView"
                         app:layout_constraintEnd_toStartOf="@+id/homeupload"
-                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/textView"
-                        android:layout_width="196dp"
-                        android:layout_height="55dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="17dp"
-                        android:layout_marginBottom="16dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/textView2"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_toStartOf="@+id/homeupload"
                         android:text="@string/orderprescription"
-                        android:textColor="@android:color/black"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/homeupload"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle1" />
 
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            </com.google.android.material.card.MaterialCardView>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerview_id"
@@ -179,6 +159,7 @@
                 android:layout_height="0dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view" />
@@ -187,14 +168,15 @@
             <com.denzcoskun.imageslider.ImageSlider
                 android:id="@+id/coursel"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_marginStart="20dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginEnd="10dp"
                 android:elevation="10dp"
                 app:iss_auto_cycle="true"
-                app:iss_corner_radius="10"
+                app:iss_corner_radius="15"
                 app:iss_delay="8"
+                app:iss_indicator_align="10"
                 app:iss_period="1050"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -206,7 +188,7 @@
                 android:layout_height="wrap_content"
 
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
                 android:padding="15dp"
@@ -221,15 +203,37 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/allcategories"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/ibm_bold"
-                        android:padding="20dp"
-                        android:text="@string/popular_categories"
-                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-                        android:textColor="@android:color/black" />
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/allcategories2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/ibm_bold"
+                            android:padding="15dp"
+                            android:text="@string/popular_categories"
+                            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                            android:textColor="@android:color/black" />
+
+                        <TextView
+                            android:id="@+id/allcategories"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="6dp"
+                            android:fontFamily="@font/roboto_condensed_bold"
+                            android:gravity="center"
+                            android:text="See all"
+                            android:textAllCaps="false"
+                            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle1"
+                            android:textColor="@color/teal_300"
+                            app:drawableEndCompat="@drawable/ic_baseline_navigate_next_24"
+                            app:drawableTint="@color/teal_300" />
+                    </LinearLayout>
+
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerview_id1"

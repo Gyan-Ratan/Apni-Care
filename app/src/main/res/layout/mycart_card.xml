@@ -11,8 +11,8 @@
         style="@style/Widget.MaterialComponents.CardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        app:cardCornerRadius="5dp"
+        android:layout_margin="2dp"
+        app:cardCornerRadius="4dp"
         app:cardElevation="0dp"
         app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,15 +22,25 @@
         app:strokeColor="@color/material_on_surface_stroke"
         app:strokeWidth="1dp">
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/deletebtn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="top|end"
+            android:background="@drawable/close"
+            android:rotation="270"
+            app:backgroundTint="@color/red_500"
+            tools:layout_gravity="right" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
+            android:layout_margin="6dp"
             android:orientation="vertical">
 
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
@@ -40,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:text="Nivea Body Lotion,600ml"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="18dp"
                     android:textStyle="bold" />
 
 
@@ -50,10 +60,9 @@
                 android:id="@+id/mrp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="MRP-Rs.1500"
-                android:textSize="16dp"
 
-                />
+                android:text="MRP-Rs.1500"
+                android:textSize="14dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -65,10 +74,10 @@
                     android:id="@+id/prodctMRP"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="14dp"
                     android:layout_weight="1"
                     android:text="Rs.999"
-                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
 
 
                     android:textColor="@color/black" />
@@ -84,12 +93,12 @@
                     app:layout_constraintTop_toTopOf="@id/addtocartsearchbtn">
 
 
-                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    <com.google.android.material.button.MaterialButton
                         android:id="@+id/minusbtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/minus_24"
-                        app:fabCustomSize="32dp" />
+                        style="@android:style/Widget.Material.ImageButton"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/minus_24" />
 
                     <TextView
                         android:id="@+id/quantitynumber"
@@ -97,16 +106,16 @@
                         android:layout_height="match_parent"
                         android:ems="2"
                         android:gravity="center"
-                        android:textSize="22dp"
                         android:text="0"
-                        android:textAppearance="@style/TextAppearance.Material3.LabelMedium" />
+                        android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                        android:textSize="22dp" />
 
-                    <ImageButton
+                    <com.google.android.material.button.MaterialButton
                         android:id="@+id/addbtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_add_24"
-                        app:fabCustomSize="32dp" />
+                        style="@android:style/Widget.Material.ImageButton"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/ic_baseline_add_24" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -114,18 +123,6 @@
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/deletebtn"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_gravity="top|end"
-        android:background="@drawable/ic_twotone_cancel"
-        app:backgroundTint="@color/red_500"
-        app:elevation="35dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_gravity="right" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

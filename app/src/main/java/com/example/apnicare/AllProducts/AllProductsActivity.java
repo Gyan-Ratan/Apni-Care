@@ -58,7 +58,7 @@ public class AllProductsActivity extends AppCompatActivity {
         });
         recyclerView=findViewById(R.id.allproductrecycleview);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(AllProductsActivity.this));
         listall(page,id);
 
     }
