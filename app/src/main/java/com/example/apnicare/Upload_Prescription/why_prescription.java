@@ -17,10 +17,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TabWidget;
 import android.widget.TextView;
 
 import com.example.apnicare.R;
 import com.example.apnicare.ViewPagerAdapt;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 
@@ -29,16 +31,16 @@ public class why_prescription extends BottomSheetDialogFragment {
     Button btnupload;
     TextView[] dots;
     ViewPager msliderviewpager;
-    LinearLayout mDotLayout;
+    TabWidget mDotLayout;
     Button skip;
     ViewPagerAdapt viewPagerAdapt;
+    BottomSheetBehavior bottomSheetBehavior;
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_why_prescription, container, false);
-
         nextbtn = view.findViewById(R.id.nextbtn);
         backbtn = view.findViewById(R.id.backbtn);
         skip = view.findViewById(R.id.skip);
@@ -49,7 +51,6 @@ public class why_prescription extends BottomSheetDialogFragment {
                 if (getitem(0) > 0){
 
                     msliderviewpager.setCurrentItem(getitem(-1),true);
-
                 }
 
             }
@@ -60,10 +61,8 @@ public class why_prescription extends BottomSheetDialogFragment {
             public void onClick(View view) {
                 if (getitem(0) < 3)
                     msliderviewpager.setCurrentItem(getitem(1),true);
-                else {
 
-//                    NavHostFragment.findNavController(why_prescription.this)
-//                            .navigate(R.id.action_why_prescription_to_upload_prescription);
+                else {
 
                 }
 
@@ -73,10 +72,7 @@ public class why_prescription extends BottomSheetDialogFragment {
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                NavHostFragment.findNavController(why_prescription.this)
-//                        .navigate(R.id.action_why_prescription_to_upload_prescription);
 
-//                finish();
             }
         });
 
@@ -98,7 +94,7 @@ public class why_prescription extends BottomSheetDialogFragment {
             dots[i] = new TextView(getContext());
             dots[i].setText(Html.fromHtml("&#8226"));
             dots[i].setTextSize(35);
-            dots[i].setTextColor(getResources().getColor(R.color.inactive,getContext().getTheme()));
+            dots[i].setTextColor(getResources().getColor(R.color.active,getContext().getTheme()));
             mDotLayout.addView(dots[i]);
 
         }
