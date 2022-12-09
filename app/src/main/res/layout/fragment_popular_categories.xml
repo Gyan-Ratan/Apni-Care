@@ -6,43 +6,42 @@
     android:layout_height="wrap_content"
     tools:context=".PopularCategories">
 
-    <LinearLayout
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardview_id"
+        style="@style/Widget.MaterialComponents.CardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_margin="5dp"
+        android:clickable="true"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/material_on_surface_stroke"
+        app:strokeWidth="1dp">
 
-        <com.google.android.material.card.MaterialCardView
-            style="@style/Widget.MaterialComponents.CardView"
-            app:strokeColor="@color/material_on_surface_stroke"
-            app:strokeWidth="1dp"
-            android:id="@+id/cardview_id"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:clickable="true"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="0dp">
+            android:orientation="vertical">
+
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/cate_img_id2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="fitStart" />
+                android:layout_height="90dp"
+                android:scaleType="fitXY" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/cate_title_id2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_gravity="bottom"
                 android:layout_margin="5dp"
                 android:gravity="center|top"
                 android:text="Book Title"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="@android:color/black" />
+        </LinearLayout>
 
-        </com.google.android.material.card.MaterialCardView>
+    </com.google.android.material.card.MaterialCardView>
 
-
-    </LinearLayout>
 </FrameLayout>
