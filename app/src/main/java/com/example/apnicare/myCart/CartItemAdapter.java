@@ -64,8 +64,6 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
                 int id,post;
                 id = cartresponse.getId();
                 holder.deleteitem(id,position);
-                data.remove(position);
-                notifyItemRemoved(position);
 
             }
         });
@@ -157,6 +155,9 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
                 public void onResponse(Call<CartItemDeleteResponse> call, Response<CartItemDeleteResponse> response) {
                     CartItemDeleteResponse cartItemDeleteResponse = response.body();
                     if (response.isSuccessful()) {
+                        data.remove(post);
+                        notifyItemRemoved(id);
+
 //                        notifyItemRemoved(post);
 
                     }

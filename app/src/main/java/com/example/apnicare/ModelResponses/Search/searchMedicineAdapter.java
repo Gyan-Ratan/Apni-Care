@@ -52,7 +52,14 @@ public class searchMedicineAdapter extends RecyclerView.Adapter<searchMedicineAd
 
         holder.name.setText(Items.get(position).getName());
         holder.price.setText(Items.get(position).getMrp().toString());
-        holder.OTC.setText(searchresponse.getPrescriptionRequired().toString());
+        boolean otc=searchresponse.getPrescriptionRequired();
+        if (otc==true){
+            holder.OTC.setText("OTC");
+        }
+        else {
+            holder.OTC.setText("Non-OTC");
+        }
+
         String url =searchresponse.getImage().getOriginalPath();
         if (url==null){
             Toast.makeText(context,"no image",Toast.LENGTH_SHORT).show();

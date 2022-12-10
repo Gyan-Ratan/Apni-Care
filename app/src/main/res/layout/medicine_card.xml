@@ -41,6 +41,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/work_sans"
                 android:text="Text2"
+                android:textColor="@color/red_900"
                 android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
