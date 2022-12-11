@@ -25,7 +25,7 @@
             android:id="@+id/login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/arrow_image"
+            android:layout_toEndOf="@+id/arrow_image"
             android:gravity="center"
             android:padding="10dp"
             android:text="Address Book"

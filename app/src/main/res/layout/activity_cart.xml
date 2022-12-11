@@ -11,7 +11,6 @@
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toTopOf="@id/proceedtopay"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +25,8 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -42,14 +42,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:drawableStart="@drawable/location"
                             android:drawablePadding="2dp"
                             android:gravity="bottom"
                             android:paddingStart="6dp"
                             android:text="Bill To: "
                             android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle1"
                             android:textColor="@color/black"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            app:drawableStartCompat="@drawable/location" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -380,16 +380,33 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <com.google.android.material.button.MaterialButton
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/proceedtopay"
-        style="@style/TextAppearance.MdcTypographyStyles.Button"
+        style="@style/ThemeOverlay.Material3.Button.ElevatedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginHorizontal="20dp"
-        android:text="Procced to pay"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/active"
+        android:orientation="horizontal"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/transparent"
+            android:text="Place Order @ "
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/topay2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2000"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,18 +11,25 @@
         android:icon="@drawable/apni_care_logo"
         android:label="@string/app_name"
         android:roundIcon="@drawable/apni_care_logo"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.ApniCare"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".User_Profile"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".ContactUsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-        <!-- <activity -->
+        </activity> <!-- <activity -->
         <!-- android:name=".prescription_cam" -->
         <!-- android:exported="false"> -->
         <!-- <meta-data -->
@@ -74,9 +81,21 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity> <!-- CartActivity -->
+        </activity>
+        <activity
+            android:name=".family_members"
+            android:exported="false"
+            android:screenOrientation="portrait"></activity> <!-- CartActivity -->
         <activity
             android:name=".myCart.CartActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Needhelp"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data
@@ -107,7 +126,7 @@
         </activity> <!-- PRESCRIPTION -->
         <activity
             android:name=".Upload_Prescription.prescription_cam"
-            android:exported="true"
+            android:exported="false"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.app.lib_name"

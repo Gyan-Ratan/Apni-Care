@@ -35,44 +35,45 @@
 
     </com.google.android.material.tabs.TabLayout>
 
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_skip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:background="#00000000"
-        android:fontFamily="@font/ibm_semibold"
+        android:fontFamily="@font/roboto_condensed_bold"
         android:text="@string/skip"
         android:textAllCaps="false"
-        android:textColor="@color/skipbtn"
+        android:textColor="@color/grey_700"
         android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_next"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginBottom="16dp"
         android:background="@android:color/transparent"
-        android:fontFamily="@font/ibm_semibold"
+        android:fontFamily="@font/roboto_bold"
         android:text="@string/next"
         android:textColor="@color/black"
         android:textSize="17sp"
+        android:visibility="visible"
         app:icon="@drawable/ic_baseline_navigate_next_24"
         app:iconGravity="textEnd"
         app:iconTint="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_Continue" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_Continue"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginBottom="16dp"
         android:background="@android:color/transparent"
-        android:fontFamily="@font/ibm_semibold"
+        android:fontFamily="@font/roboto_bold"
         android:text="@string/conti"
         android:textColor="@color/black"
         android:textSize="17sp"
@@ -81,8 +82,7 @@
         app:iconGravity="textEnd"
         app:iconTint="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

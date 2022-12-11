@@ -1,6 +1,7 @@
 package com.example.apnicare.myCart;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -8,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,8 +29,9 @@ public class CartActivity extends AppCompatActivity {
 
     SharedPrefManager sharedPrefManager;
     RecyclerView recyclerView;
-    Button proceed;
-    TextView cartTotal,dicount,topay;
+    LinearLayoutCompat proceed;
+    CartItemAdapter cartItemAdapter;
+    TextView cartTotal,dicount,topay,topay1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +45,8 @@ public class CartActivity extends AppCompatActivity {
         cartTotal=findViewById(R.id.cartTotal);
         dicount=findViewById(R.id.discount);
         topay=findViewById(R.id.topay);
-
-
+        topay1=findViewById(R.id.topay2);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager((new LinearLayoutManager(CartActivity.this)));
         mycartproducts();
         proceed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +66,7 @@ public class CartActivity extends AppCompatActivity {
                 CartResponse cartResponse=response.body();
                 if (response.isSuccessful()){
                     CartItemAdapter adapter =new CartItemAdapter(CartActivity.this,cartResponse.getData(),cartTotal);
+                    recyclerView.setLayoutManager((new LinearLayoutManager(CartActivity.this)));
                     recyclerView.setAdapter(adapter);
                     updateTotal(cartResponse);
 //                    cartTotal.setText(cartResponse.getData());
@@ -111,8 +113,12 @@ public class CartActivity extends AppCompatActivity {
                     sum= sum+(cartResponse.getData().get(i).getDrug().getPrice()*cartResponse.getData().get(i).getQuantity());
                     mrp = mrp + (cartResponse.getData().get(i).getDrug().getMrp()*cartResponse.getData().get(i).getQuantity());
                 }
-                cartTotal.setText("Rs. "+new DecimalFormat("##.##").format(mrp));
-                dicount.setText("-Rs. "+new DecimalFormat("##.##").format(mrp-sum));
-                topay.setText("Rs. "+new DecimalFormat("##.##").format(sum));
+                cartTotal.setText("₹ "+new DecimalFormat("##.##").format(mrp));
+                dicount.setText("-₹ "+new DecimalFormat("##.##").format(mrp-sum));
+                topay.setText("₹ "+new DecimalFormat("##.##").format(sum));
+                topay1.setText("₹ "+new DecimalFormat("##.##").format(sum));
+
+
             }
+
 }

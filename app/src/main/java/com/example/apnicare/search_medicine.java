@@ -27,6 +27,7 @@ public class search_medicine extends Fragment {
     RecyclerView recyclerView2;
     SharedPrefManager sharedPrefManager;
     Button search_btn;
+    SearchView searchView;
 
 // Get data from from search view and the query api to get the results
 //    private void SetupSearchView() {
@@ -45,10 +46,10 @@ public class search_medicine extends Fragment {
         sharedPrefManager=new SharedPrefManager(getContext());
 //        search_btn=view.findViewById(R.id.searchbtn);
         sharedPrefManager=new SharedPrefManager(getContext());
-        SearchView searchView= view.findViewById(R.id.search_view);
+        searchView= view.findViewById(R.id.search_view);
         recyclerView2=view.findViewById(R.id.searchrecyleview);
         recyclerView2.setHasFixedSize(true);
-        recyclerView2.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView2.setLayoutManager(new LinearLayoutManager(getActivity()));
         searchitems("");
 
 
