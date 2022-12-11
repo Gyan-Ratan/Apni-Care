@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity{
         bottomNavigationItemView=findViewById(R.id.bottomNavigationView);
         replace(new homepage(),true);
 
+
         bottomNavigationItemView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.Home:
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void prescription_camera(){
-        Intent intent = new Intent(this, prescription_cam.class);
+        Intent intent = new Intent(this, upload_prescription.class);
         startActivity(intent);
     }
     public void uploadpre(){
