@@ -1,6 +1,7 @@
 package com.example.apnicare.ModelResponses.Search;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import com.example.apnicare.R;
 import com.example.apnicare.RetrofitClient;
 import com.example.apnicare.SharedPrefManager;
 import com.example.apnicare.myCart.AddItemResponse;
+import com.example.apnicare.myCart.CartActivity;
 
 import java.util.List;
 
@@ -84,9 +86,10 @@ public class searchMedicineAdapter extends RecyclerView.Adapter<searchMedicineAd
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name;
         TextView price,OTC;
-        Button add;
+        Button add,gotocart;
         ImageView imageView;
-        private LinearLayout Quantitybtn;
+//        private LinearLayout Quantitybtn;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -96,8 +99,16 @@ public class searchMedicineAdapter extends RecyclerView.Adapter<searchMedicineAd
             add=itemView.findViewById(R.id.addtocartsearchbtn);
             imageView=itemView.findViewById(R.id.searchImage);
             OTC=itemView.findViewById(R.id.searchOTC);
-            Quantitybtn=itemView.findViewById(R.id.quantitybtn);
+            gotocart=itemView.findViewById(R.id.goToCart);
             add.setOnClickListener(this);
+            gotocart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent refresh = new Intent(context,CartActivity.class);
+                    refresh.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    context.startActivity(refresh);
+                }
+            });
         }
 
         @Override
@@ -105,7 +116,7 @@ public class searchMedicineAdapter extends RecyclerView.Adapter<searchMedicineAd
             String id;
             id=Items.get(getAdapterPosition()).getSlug();
             addtocart(id);
-            Quantitybtn.setVisibility(View.VISIBLE);
+            gotocart.setVisibility(View.VISIBLE);
             add.setVisibility(View.INVISIBLE);
 
         }
