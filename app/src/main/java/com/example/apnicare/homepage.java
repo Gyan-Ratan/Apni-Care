@@ -34,7 +34,6 @@ public class homepage extends Fragment  {
     ImageButton cart,allproducts;
     TextView usernumber,allCategory;
     SharedPrefManager sharedPrefManager;
-    List<Categoriesdata> lstcate ;
     private final List<Categoriesdata> lstpcate = new ArrayList<>() ;
 
     @Override
@@ -112,20 +111,9 @@ public class homepage extends Fragment  {
         mList.add(new SlideModel(R.drawable.carousels,ScaleTypes.FIT));
         imageSlider.setImageList(mList,ScaleTypes.FIT);
 
-        lstcate = new ArrayList<>();
-        lstcate.add(new Categoriesdata("Order", R.drawable.demoimg2));
-      //  lstcate.add(new Categoriesdata("Consult Doctor", R.drawable.demoimg1));
-      // lstcate.add(new Categoriesdata("Lab Test", R.drawable.demoimg3));
-        lstcate.add(new Categoriesdata("Medicine", R.drawable.demoimg5));
-        lstcate.add(new Categoriesdata("Health Products", R.drawable.demoimg4));
-
         bulidlistPCdata();
         initRecyclerView(view);
 
-        RecyclerView myrv = view.findViewById(R.id.recyclerview_id);
-        PopularcategoriesRecyclerViewAdapter myAdapter = new PopularcategoriesRecyclerViewAdapter(getActivity(),lstcate);
-        myrv.setLayoutManager(new GridLayoutManager(getActivity(),3));
-        myrv.setAdapter(myAdapter);
 
         return view;
     }

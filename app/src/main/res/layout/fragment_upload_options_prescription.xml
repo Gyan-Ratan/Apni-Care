@@ -9,7 +9,7 @@
     <LinearLayout
         android:id="@+id/listbottomsheet"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="240dp"
         android:background="@drawable/bottomsheet_background"
         android:orientation="vertical">
 

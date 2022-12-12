@@ -5,103 +5,68 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
-
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bottomsheet_background"
+        android:padding="50dp">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:title="Need Help"
-            app:navigationIcon="@drawable/arrow_back"
-            android:background="@drawable/shape"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary"/>
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/contactus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="50dp">
+            android:drawableStart="@drawable/customer_care"
+            android:drawablePadding="5dp"
+            android:fontFamily="@font/work_sans_bold"
+            android:padding="10dp"
+            android:text="Contact us"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-            <TextView
-                android:id="@+id/contactus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/customer_care"
-                android:drawablePadding="5dp"
-                android:fontFamily="@font/work_sans_bold"
-                android:padding="10dp"
-                android:text="Contact us"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        <TextView
+            android:id="@+id/returnpolicy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/info"
+            android:drawablePadding="5dp"
+            android:fontFamily="@font/work_sans_bold"
+            android:padding="10dp"
+            android:text="Return policy"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-            <TextView
-                android:id="@+id/aboutus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/info"
-                android:drawablePadding="5dp"
-                android:fontFamily="@font/work_sans_bold"
-                android:padding="10dp"
-                android:text="About us"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        <TextView
+            android:id="@+id/faqs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/info"
+            android:drawablePadding="5dp"
+            android:fontFamily="@font/work_sans_bold"
+            android:padding="10dp"
+            android:text="FAQs"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-            <TextView
-                android:id="@+id/returnpolicy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/info"
-                android:drawablePadding="5dp"
-                android:fontFamily="@font/work_sans_bold"
-                android:padding="10dp"
-                android:text="Return policy"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        <TextView
+            android:id="@+id/termsandconditions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/info"
+            android:drawablePadding="5dp"
+            android:fontFamily="@font/work_sans_bold"
+            android:padding="10dp"
+            android:text="Terms and Conditions"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-            <TextView
-                android:id="@+id/faqs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/info"
-                android:drawablePadding="5dp"
-                android:fontFamily="@font/work_sans_bold"
-                android:padding="10dp"
-                android:text="FAQs"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-            <TextView
-                android:id="@+id/termsandconditions"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/info"
-                android:drawablePadding="5dp"
-                android:fontFamily="@font/work_sans_bold"
-                android:padding="10dp"
-                android:text="Terms and Conditions"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-            <TextView
-                android:id="@+id/privacypolicy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/policy"
-                android:drawablePadding="5dp"
-                android:fontFamily="@font/work_sans_bold"
-                android:padding="10dp"
-                android:text="Privacy policy"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+        <TextView
+            android:id="@+id/privacypolicy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/policy"
+            android:drawablePadding="5dp"
+            android:fontFamily="@font/work_sans_bold"
+            android:padding="10dp"
+            android:text="Privacy policy"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+    </LinearLayout>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

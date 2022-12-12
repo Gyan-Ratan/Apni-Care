@@ -1,69 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_your_orders"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".YourOrders.YourOrdersActivity">
+    android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
-        android:layout_width="match_parent"
+        android:id="@+id/appbar"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape"
-        android:fitsSystemWindows="true">
+        android:layout_width="match_parent">
 
-        <LinearLayout
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:background="@drawable/shape"
+            app:title="My Orders"
+            app:navigationIcon="@drawable/arrow_back"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:background="@android:color/transparent"
-                app:srcCompat="@drawable/arrow_back"
-                app:tint="@android:color/white" />
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:fontFamily="@font/work_sans_semibold"
-                android:gravity="center|start"
-                android:text="My Orders"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@android:color/white" />
-        </LinearLayout>
+            android:layout_height="?attr/actionBarSize"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/transparent"
-        android:paddingTop="12dp"
-        android:paddingBottom="12dp"
-        app:tabGravity="center"
-        app:tabIndicator="@drawable/active"
-        app:tabIndicatorAnimationMode="elastic"
-        app:tabIndicatorColor="@color/teal_200"
-        app:tabIndicatorGravity="stretch"
-        app:tabMode="fixed"
-        app:tabRippleColor="@android:color/transparent"
-        app:tabSelectedTextAppearance="@style/TabLayout"
-        app:tabSelectedTextColor="@android:color/white"
-        app:tabTextAppearance="@style/TabLayout" />
+        android:layout_height="match_parent"
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/orderviewpager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
-</LinearLayout>
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <LinearLayout
+            android:id="@+id/activity_your_orders"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".YourOrders.YourOrdersActivity">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:visibility="gone"
+                app:tabGravity="center"
+                app:tabIndicator="@drawable/active"
+                app:tabIndicatorAnimationMode="elastic"
+                app:tabIndicatorColor="@color/teal_200"
+                app:tabIndicatorGravity="stretch"
+                app:tabMode="fixed"
+                app:tabRippleColor="@android:color/transparent"
+                app:tabSelectedTextAppearance="@style/TabLayout"
+                app:tabSelectedTextColor="@android:color/white"
+                app:tabTextAppearance="@style/TabLayout" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/orderviewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

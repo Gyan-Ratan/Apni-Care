@@ -43,17 +43,16 @@
         app:elevation="0dp"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_nav_menu" />
-<!--    app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"-->
+    <!--    app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"-->
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_upload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/fab_transformation_sheet_behavior"
         android:src="@drawable/upload_file_24"
         app:elevation="9dp"
-        app:fabSize="auto"
-        app:layout_anchor="@id/bottomAppBar" />
+        app:layout_anchor="@id/bottomAppBar"
+        app:layout_anchorGravity="bottom"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
