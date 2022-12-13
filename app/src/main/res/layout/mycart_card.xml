@@ -98,7 +98,8 @@
                         style="@android:style/Widget.Material.ImageButton"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:background="@drawable/minus_24" />
+                        android:background="@drawable/minus_24"
+                        android:visibility="invisible" />
 
                     <TextView
                         android:id="@+id/quantitynumber"
