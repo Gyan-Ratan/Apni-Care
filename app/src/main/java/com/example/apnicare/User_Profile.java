@@ -1,6 +1,7 @@
 package com.example.apnicare;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,8 @@ public class User_Profile extends AppCompatActivity {
     RadioButton gender;
     Button save;
     SharedPrefManager sharedPrefManager;
+    Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,11 +38,10 @@ public class User_Profile extends AppCompatActivity {
                 SaveUser();
             }
         });
-
-
-
-
-
+        toolbar=findViewById(R.id.toolbar);
+        toolbar.setNavigationOnClickListener(view -> {
+            finish();
+        });
     }
 
     private void SaveUser() {

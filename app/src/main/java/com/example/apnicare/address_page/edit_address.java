@@ -2,6 +2,7 @@ package com.example.apnicare.address_page;
 
 import android.os.Bundle;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.util.Patterns;
@@ -20,6 +21,8 @@ import com.example.apnicare.RetrofitClient;
 import com.example.apnicare.SharedPrefManager;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.util.Objects;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -28,6 +31,7 @@ import retrofit2.Response;
 public class edit_address extends Fragment {
     TextInputEditText name,address1,address2,phone,pincode;
     Button save;
+    Toolbar toolbar;
     AutoCompleteTextView city,state;
     SharedPrefManager sharedPrefManager;
     String[] items ={ "GZB","MZN"};
@@ -42,7 +46,7 @@ public class edit_address extends Fragment {
 
         name=view.findViewById(R.id.recipientsname);
         sharedPrefManager=new SharedPrefManager(getContext());
-
+        toolbar=view.findViewById(R.id.NewAddtoolbar);
         address1=view.findViewById(R.id.addressLine1);
         city=view.findViewById(R.id.citydropmenu);
         state=view.findViewById(R.id.statedropmenu);
@@ -68,6 +72,9 @@ public class edit_address extends Fragment {
                 addAddress();
             }
         });
+        toolbar.setNavigationOnClickListener(view1 -> {
+            requireActivity().onBackPressed();
+        });
 
         return view;
 
@@ -77,7 +84,7 @@ public class edit_address extends Fragment {
     private void addAddress() {
         String name1=name.getText().toString();
         String phone1=phone.getText().toString();
-        String address11=address1.getText().toString();
+        String address11= Objects.requireNonNull(address1.getText()).toString();
         String address21=address2.getText().toString();
         String pincode1=pincode.getText().toString();
         if(phone1.isEmpty()){
