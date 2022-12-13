@@ -16,6 +16,7 @@ import com.example.apnicare.R;
 import com.example.apnicare.RetrofitClient;
 import com.example.apnicare.SharedPrefManager;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import retrofit2.Call;
@@ -23,15 +24,16 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHolder> {
-    private TextView cartTotal;
+    private TextView cartTotal,discount;
     private Context context;
     private List<Datum> data;
     SharedPrefManager sharedPrefManager;
 
-    public CartItemAdapter(Context context, List<Datum> data , TextView cartTotal) {
+    public CartItemAdapter(Context context, List<Datum> data , TextView cartTotal,TextView discount) {
         this.context = context;
         this.data = data;
         this.cartTotal=cartTotal;
+        this.discount=discount;
     }
 
     @NonNull
@@ -91,7 +93,8 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
                     String id1;
                     id1 = data.get(getAdapterPosition()).getDrug().getSlug();
                     addtocart(id1);
-                    notifyItemChanged(getAdapterPosition());
+
+
                 }
             });
 
@@ -127,11 +130,15 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
                 public void onResponse(Call<AddItemResponse> call, Response<AddItemResponse> response) {
 //                Toast.makeText(context,response.toString(),Toast.LENGTH_SHORT).show();
                     if (response.isSuccessful()) {
-                        int q = data.get(getAdapterPosition()).getQuantity();
-                        quantityNumber.setText(String.valueOf(q));
-                        Intent refresh = new Intent(context,CartActivity.class);
-                        refresh.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        context.startActivity(refresh);
+                        data.get(getAdapterPosition()).setQuantity(response.body().getData().getQuantity());
+                        int q = response.body().getData().getQuantity();
+                        notifyItemChanged(getAdapterPosition());
+                        updateTotal();
+//                        quantityNumber.setText(String.valueOf(q));
+//                        Intent refresh = new Intent(context,CartActivity.class);
+//                        refresh.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                        context.startActivity(refresh);
+
                         }
                 }
 
@@ -153,6 +160,7 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
                     if (response.isSuccessful()) {
                         data.remove(getAdapterPosition());
                         notifyItemRemoved(getAdapterPosition());
+                        updateTotal();
                     }
 
                 }
@@ -171,6 +179,19 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
 //        context.startActivity(refresh);
 //        Toast.makeText(context, "successful", Toast.LENGTH_SHORT).show();
         }
+    }
+    private void updateTotal() {
+        int i;
+        double mrp = 0, sum = 0;
+        String su;
+        for (i = 0; i < data.size(); i++) {
+            sum = sum + (data.get(i).getDrug().getPrice() * data.get(i).getQuantity());
+            mrp = mrp + (data.get(i).getDrug().getMrp() * data.get(i).getQuantity());
+        }
+        cartTotal.setText("₹ "+new DecimalFormat("##.##").format(mrp));
+        discount.setText("-₹ "+new DecimalFormat("##.##").format(mrp-sum));
+
+
     }
 
 }
