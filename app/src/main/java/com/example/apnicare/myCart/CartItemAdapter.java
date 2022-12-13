@@ -56,15 +56,15 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
         holder.price.setText(cartresponse.getPrice().toString());
         holder.mrp.setText(cartresponse.getDrug().getMrp().toString());
         holder.quantityNumber.setText(String.valueOf(cartresponse.getQuantity()));
-        holder.delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int id,post;
-                id = cartresponse.getId();
-                holder.deleteitem(id,position);
-
-            }
-        });
+//        holder.delete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                int id,post;
+//                id = cartresponse.getId();
+//                holder.deleteitem(id,position);
+//
+//            }
+//        });
 
 
 
@@ -91,7 +91,7 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
                     String id1;
                     id1 = data.get(getAdapterPosition()).getDrug().getSlug();
                     addtocart(id1);
-//                    notifyItemChanged(getAdapterPosition());
+                    notifyItemChanged(getAdapterPosition());
                 }
             });
 
@@ -107,7 +107,7 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
                     Toast.makeText(context, "click on name", Toast.LENGTH_SHORT).show();
                 }
             });
-//            delete.setOnClickListener(this);
+            delete.setOnClickListener(this);
 
 
         }
@@ -117,6 +117,7 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
             int id;
             id = data.get(getAdapterPosition()).getId();
             deleteitem(id, getAdapterPosition());
+
         }
 
         private void addtocart(String id) {
@@ -131,10 +132,7 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
                         Intent refresh = new Intent(context,CartActivity.class);
                         refresh.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         context.startActivity(refresh);
-
-
-
-                    }
+                        }
                 }
 
                 @Override
@@ -153,15 +151,10 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
                 public void onResponse(Call<CartItemDeleteResponse> call, Response<CartItemDeleteResponse> response) {
                     CartItemDeleteResponse cartItemDeleteResponse = response.body();
                     if (response.isSuccessful()) {
-                        data.remove(post);
-                        notifyItemRemoved(id);
-
-//                        notifyItemRemoved(post);
-
+                        data.remove(getAdapterPosition());
+                        notifyItemRemoved(getAdapterPosition());
                     }
-//                updateTotal();
 
-//                Toast.makeText(context,cartItemDeleteResponse.getData().getMessage().toString(),Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
