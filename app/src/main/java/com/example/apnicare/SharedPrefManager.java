@@ -23,8 +23,8 @@ public class SharedPrefManager {
         sharedPreferences=context.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         editor=sharedPreferences.edit();
         editor.putString("accessToken", data.getAccessToken());
-        editor.putString("first_name", data.getFirstName());
-        editor.putString("last_name",data.getLastName());
+        editor.putString("firstName", data.getFirstName());
+        editor.putString("lastName",data.getLastName());
         editor.putString("type",data.getType());
         editor.putString("email",data.getEmail());
         editor.putString("phone",data.getPhone());
@@ -60,7 +60,6 @@ public class SharedPrefManager {
                 sharedPreferences.getString("address",null),
                 sharedPreferences.getBoolean("has_password",false),
                 sharedPreferences.getString("retail",null),
-
                 sharedPreferences.getString("refreshToken",null),
                 sharedPreferences.getBoolean("newUser",false)
 
