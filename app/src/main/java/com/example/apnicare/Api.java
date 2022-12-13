@@ -13,6 +13,7 @@ import com.example.apnicare.ModelResponses.OrderCart.CartBookingResponse;
 import com.example.apnicare.ModelResponses.RegisterResponse;
 import com.example.apnicare.ModelResponses.ResendOtp.ResendOtp;
 import com.example.apnicare.ModelResponses.Search.SearchResponse;
+import com.example.apnicare.ModelResponses.UpdateUser.UpdateUserResponse;
 import com.example.apnicare.myCart.AddItemResponse;
 import com.example.apnicare.myCart.CartItemDeleteResponse;
 import com.example.apnicare.myCart.CartResponse;
@@ -26,6 +27,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -78,6 +80,9 @@ public interface Api {
     @POST("contact/")
     Call<ContactResponse> contact(@Field("first_name") String first_name, @Field("last_name") String last_name, @Field("email") String email, @Field("phone") String phone, @Field("subject") String subject, @Field("message") String message);
 
+    @FormUrlEncoded
+    @PUT("user/")
+    Call<UpdateUserResponse> user(@Field("first_name") String first_name, @Field("last_name") String last_name,@Field("gender")String gender, @Field("email") String email,@Header("Authorization") String token);
 
 
 }
