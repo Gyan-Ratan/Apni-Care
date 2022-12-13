@@ -1,8 +1,10 @@
 package com.example.apnicare.address_page;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.os.Bundle;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -29,7 +31,7 @@ public class address_book extends Fragment {
 
    Button editaddress;
    View addaddress;
-
+   Toolbar toolbar;
    SharedPrefManager sharedPrefManager;
    RecyclerView addressrecycleview;
 
@@ -42,7 +44,7 @@ public class address_book extends Fragment {
         editaddress=view.findViewById(R.id.editaddress);
         sharedPrefManager=new SharedPrefManager(getContext());
         addaddress=view.findViewById(R.id.Addaddressbtn);
-
+        toolbar=view.findViewById(R.id.addbook_toolbar);
         addressrecycleview=view.findViewById(R.id.addressrecycleview);
         addressrecycleview.setHasFixedSize(true);
         addressrecycleview.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -55,6 +57,9 @@ public class address_book extends Fragment {
             }
         });
 
+        toolbar.setNavigationOnClickListener(view1 -> {
+            requireActivity().onBackPressed();
+        });
 
         return view;
 

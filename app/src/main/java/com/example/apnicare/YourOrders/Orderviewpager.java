@@ -7,7 +7,8 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class Orderviewpager extends FragmentStateAdapter {
 
-    private String[] titles= new String[]{"Delivered","Pending","Confirmed"};
+    /*private String[] titles= new String[]{"Delivered","Pending","Confirmed"};*/
+    private String[] titles= new String[]{"Pending"};
     public Orderviewpager(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
     }
@@ -17,13 +18,13 @@ public class Orderviewpager extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position){
             case 0:
-                return new Deliveredorder();
-            case 1:
                 return new Pendingorder();
+/*            case 1:
+                return new Deliveredorder();
             case 2:
-                return new Confirmedorder();
+                return new Confirmedorder();*/
         }
-        return new Deliveredorder();
+        return new Pendingorder();
     }
 
     @Override

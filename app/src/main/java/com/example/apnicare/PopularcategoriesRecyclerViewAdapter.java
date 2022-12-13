@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -39,26 +40,9 @@ public class PopularcategoriesRecyclerViewAdapter extends RecyclerView.Adapter<P
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
-
-        holder.tv_cate_title.setText(mData.get(holder.getAdapterPosition()).getTitle());
-        holder.img_cate_thumbnail.setImageResource(mData.get(holder.getAdapterPosition()).getThumbnail());
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                new Intent(mContext, Product_card.class);
-
-                // passing data to the book activity
-                //intent.putExtra("Title",mData.get(holder.getAdapterPosition()).getTitle());
-                // intent.putExtra("Thumbnail",mData.get(holder.getAdapterPosition()).getThumbnail());
-                // start the activity
-                //mContext.startActivity(intent);
-
-            }
-        });
-
-
+        Categoriesdata data = mData.get(holder.getAdapterPosition());
+        holder.tv_cate_title.setText(data.getTitle());
+        holder.img_cate_thumbnail.setImageResource(data.getThumbnail());
 
     }
 
@@ -67,21 +51,30 @@ public class PopularcategoriesRecyclerViewAdapter extends RecyclerView.Adapter<P
         return mData.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView tv_cate_title;
         ImageView img_cate_thumbnail;
         CardView cardView ;
 
-        public MyViewHolder(View itemView) {
+        public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-
             tv_cate_title = itemView.findViewById(R.id.cate_title_id2);
             img_cate_thumbnail = itemView.findViewById(R.id.cate_img_id2);
             cardView = itemView.findViewById(R.id.cardview_id);
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Toast.makeText(mContext,"Working",Toast.LENGTH_SHORT).show();
+                    // passing data to the book activity
+                    //intent.putExtra("Title",mData.get(holder.getAdapterPosition()).getTitle());
+                    // intent.putExtra("Thumbnail",mData.get(holder.getAdapterPosition()).getThumbnail());
+                    // start the activity
+                    //mContext.startActivity(intent);
+                }
+            });
 
         }
     }
-
-
 }
