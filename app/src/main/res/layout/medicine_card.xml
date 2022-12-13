@@ -68,7 +68,7 @@
                     android:layout_height="wrap_content"
                     android:text="Add to cart"
                     android:textAppearance="@android:style/TextAppearance.Material.Medium"
-                    android:textColor="@color/teal_200"
+                    android:textColor="@color/teal_400"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:strokeColor="@color/teal_200" />

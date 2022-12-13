@@ -44,7 +44,7 @@
 
     <ImageView
         android:id="@+id/pharmapic"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbars"
         android:layout_gravity="center"
@@ -57,7 +57,7 @@
 
     <TextView
         android:id="@+id/phoneno"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/pharmapic"
         android:layout_gravity="start"
@@ -73,7 +73,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_marginStart="10dp"
@@ -84,16 +84,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+91 "
             android:paddingLeft="20dp"
+            android:text="+91 "
             android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
             android:textColor="@color/black"
             android:textSize="26dp"
             android:textStyle="bold" />
 
         <com.google.android.material.textfield.TextInputEditText
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:id="@+id/Phone_Number"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Enter Mobile Number"

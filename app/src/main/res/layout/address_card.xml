@@ -31,13 +31,14 @@
 
             <TextView
                 android:id="@+id/address_name"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="start"
-                android:paddingLeft="8dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="@dimen/default_gap"
                 android:text="Jane Doe"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <com.google.android.material.button.MaterialButton
