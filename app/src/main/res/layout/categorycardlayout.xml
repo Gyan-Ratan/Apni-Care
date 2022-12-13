@@ -17,7 +17,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
 
-            android:src="@drawable/ic_launcher_background"/>
+            android:src="@drawable/ic_launcher_background"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/category"
@@ -25,6 +26,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="hello"
-            android:textSize="30dp"/>
+            android:textSize="30dp"
+            app:drawableEndCompat="@drawable/ic_baseline_arrow_right_24" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
