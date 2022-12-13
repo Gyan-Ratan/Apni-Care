@@ -12,10 +12,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.apnicare.ModelResponses.Address.AddressResponse;
 import com.example.apnicare.ModelResponses.EditAddress.EditAddressResponse;
 import com.example.apnicare.R;
 import com.example.apnicare.RetrofitClient;
@@ -96,7 +94,7 @@ public class edit_address extends Fragment {
         }
 
         Call<EditAddressResponse> call= RetrofitClient.getInstance().getApi()
-                .editaddress("Bearer "+sharedPrefManager.getData().getAccess_token(),name1,phone1,address11,address21,"New delhi","Delhi",pincode1,true);
+                .editaddress("Bearer "+sharedPrefManager.getData().getAccessToken(),name1,phone1,address11,address21,"New delhi","Delhi",pincode1,true);
         call.enqueue(new Callback<EditAddressResponse>() {
             @Override
             public void onResponse(Call<EditAddressResponse> call, Response<EditAddressResponse> response) {

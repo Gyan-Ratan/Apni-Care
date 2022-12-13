@@ -5,15 +5,11 @@ import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.apnicare.AllProducts.OrderBookedActivity;
 import com.example.apnicare.ModelResponses.OrderCart.CartBookingResponse;
 import com.example.apnicare.R;
 import com.example.apnicare.RetrofitClient;
@@ -59,7 +55,7 @@ public class CartActivity extends AppCompatActivity {
     }
 
     private void mycartproducts() {
-        Call<CartResponse> call= RetrofitClient.getInstance().getApi().getData("Bearer "+sharedPrefManager.getData().getAccess_token());
+        Call<CartResponse> call= RetrofitClient.getInstance().getApi().getData("Bearer "+sharedPrefManager.getData().getAccessToken());
         call.enqueue(new Callback<CartResponse>() {
             @Override
             public void onResponse(Call<CartResponse> call, Response<CartResponse> response) {
@@ -86,7 +82,7 @@ public class CartActivity extends AppCompatActivity {
             private void bookorder() {
 //        Toast.makeText(getContext(),"function",Toast.LENGTH_SHORT).show();
 
-                Call<CartBookingResponse> call=RetrofitClient.getInstance().getApi().book("cart","customer","Bearer "+sharedPrefManager.getData().getAccess_token());
+                Call<CartBookingResponse> call=RetrofitClient.getInstance().getApi().book("cart","customer","Bearer "+sharedPrefManager.getData().getAccessToken());
                 call.enqueue(new Callback<CartBookingResponse>() {
                     @Override
                     public void onResponse(Call<CartBookingResponse> call, Response<CartBookingResponse> response) {

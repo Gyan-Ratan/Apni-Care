@@ -1,4 +1,4 @@
-package com.example.apnicare.ModelResponses;
+package com.example.apnicare.ModelResponses.LoginResponse;
 
 public class LoginResponse {
     Data data;

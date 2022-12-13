@@ -3,7 +3,10 @@ package com.example.apnicare;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.apnicare.ModelResponses.Data;
+import com.example.apnicare.ModelResponses.LoginResponse.Data;
+
+
+
 
 public class SharedPrefManager {
 
@@ -19,10 +22,20 @@ public class SharedPrefManager {
     void saveUser(Data data) {
         sharedPreferences=context.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         editor=sharedPreferences.edit();
-        editor.putString("access_token", data.getAccess_token());
-        editor.putString("phone", data.getPhone());
-        editor.putInt("otp", data.getOtp());
-        editor.putString("refresh_token", data.getRefresh_token());
+        editor.putString("accessToken", data.getAccessToken());
+        editor.putString("first_name", data.getFirstName());
+        editor.putString("last_name",data.getLastName());
+        editor.putString("type",data.getType());
+        editor.putString("email",data.getEmail());
+        editor.putString("phone",data.getPhone());
+        editor.putString("gender", data.getGender());
+        editor.putBoolean("email_verified", data.getEmailVerified());
+        editor.putBoolean("verified", data.getVerified());
+        editor.putString("address", data.getAddress());
+        editor.putBoolean("has_password", data.getHasPassword());
+        editor.putString("retail", data.getRetail());
+        editor.putString("refreshToken", data.getRefreshToken());
+        editor.putBoolean("new_user", data.getNewUser());
         editor.putBoolean("logged",true);
         editor.apply();
 
@@ -30,17 +43,31 @@ public class SharedPrefManager {
     boolean isLoggedIn(){
         sharedPreferences=context.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         return sharedPreferences.getBoolean("logged",false);
-//        return true;
 
     }
     public Data getData(){
         sharedPreferences=context.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
-        return new Data(sharedPreferences.getString("access_token",null),
+        return new Data(
+                sharedPreferences.getString("accessToken",null),
+                sharedPreferences.getString("firstName",null),
+                sharedPreferences.getString("lastName",null),
+                sharedPreferences.getString("type",null),
+                sharedPreferences.getString("email",null),
                 sharedPreferences.getString("phone",null),
-                sharedPreferences.getInt("otp",-1),
-                sharedPreferences.getString("refresh_token",null));
+                sharedPreferences.getString("gender",null),
+                sharedPreferences.getBoolean("email_verified",false),
+                sharedPreferences.getBoolean("verified",false),
+                sharedPreferences.getString("address",null),
+                sharedPreferences.getBoolean("has_password",false),
+                sharedPreferences.getString("retail",null),
 
+                sharedPreferences.getString("refreshToken",null),
+                sharedPreferences.getBoolean("newUser",false)
+
+
+                );
     }
+
     void logOut(){
         sharedPreferences=context.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         editor= sharedPreferences.edit();

@@ -1,13 +1,11 @@
 package com.example.apnicare.myCart;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -122,7 +120,7 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
         }
 
         private void addtocart(String id) {
-            Call<AddItemResponse> call = RetrofitClient.getInstance().getApi().additemtocart(id, "Bearer " + sharedPrefManager.getData().getAccess_token());
+            Call<AddItemResponse> call = RetrofitClient.getInstance().getApi().additemtocart(id, "Bearer " + sharedPrefManager.getData().getAccessToken());
             call.enqueue(new Callback<AddItemResponse>() {
                 @Override
                 public void onResponse(Call<AddItemResponse> call, Response<AddItemResponse> response) {
@@ -149,7 +147,7 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
 
 
         public void deleteitem(int id, int post) {
-            Call<CartItemDeleteResponse> call = RetrofitClient.getInstance().getApi().getData(id, "Bearer " + sharedPrefManager.getData().getAccess_token());
+            Call<CartItemDeleteResponse> call = RetrofitClient.getInstance().getApi().getData(id, "Bearer " + sharedPrefManager.getData().getAccessToken());
             call.enqueue(new Callback<CartItemDeleteResponse>() {
                 @Override
                 public void onResponse(Call<CartItemDeleteResponse> call, Response<CartItemDeleteResponse> response) {

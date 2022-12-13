@@ -34,7 +34,7 @@ public class account_page extends Fragment {
         usernumber=view.findViewById(R.id.phoneNumber);
         accountsetting=view.findViewById(R.id.account_setting);
         sharedPrefManager=new SharedPrefManager(getContext());
-        usernumber.setText(sharedPrefManager.getData().getPhone());
+        usernumber.setText(sharedPrefManager.getData().getFirstName());
         addresspage=view.findViewById(R.id.account_addressbook);
         logout=view.findViewById(R.id.logOut);
 

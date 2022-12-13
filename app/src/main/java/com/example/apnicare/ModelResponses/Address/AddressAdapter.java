@@ -10,15 +10,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.apnicare.ModelResponses.DeleteAddress.DeleteAddressResponse;
 import com.example.apnicare.R;
 import com.example.apnicare.RetrofitClient;
 import com.example.apnicare.SharedPrefManager;
-import com.example.apnicare.address_page.address_book;
 
 import java.util.List;
 
@@ -94,7 +91,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
     }
 
     private void deleteaddress(int id) {
-        Call<DeleteAddressResponse> call= RetrofitClient.getInstance().getApi().deleteaddress(id,"Bearer "+sharedPrefManager.getData().getAccess_token());
+        Call<DeleteAddressResponse> call= RetrofitClient.getInstance().getApi().deleteaddress(id,"Bearer "+sharedPrefManager.getData().getAccessToken());
         call.enqueue(new Callback<DeleteAddressResponse>() {
             @Override
             public void onResponse(Call<DeleteAddressResponse> call, Response<DeleteAddressResponse> response) {

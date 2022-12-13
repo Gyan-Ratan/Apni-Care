@@ -60,7 +60,7 @@ public class address_book extends Fragment {
 
     }
     private void address() {
-        Call<AddressResponse> call= RetrofitClient.getInstance().getApi().getData1("Bearer "+sharedPrefManager.getData().getAccess_token());
+        Call<AddressResponse> call= RetrofitClient.getInstance().getApi().getData1("Bearer "+sharedPrefManager.getData().getAccessToken());
 
         call.enqueue(new Callback<AddressResponse>() {
             @Override

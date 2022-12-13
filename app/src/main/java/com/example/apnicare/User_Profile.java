@@ -3,7 +3,6 @@ package com.example.apnicare;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.text.TextPaint;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -47,19 +46,19 @@ public class User_Profile extends AppCompatActivity {
         String fName=firstName.getText().toString();
         String lName=lastName.getText().toString();
         String email=Email.getText().toString();
-        Call<UpdateUserResponse> call=RetrofitClient.getInstance().getApi().user(fName,lName,"M",email,"Bearer "+sharedPrefManager.getData().getAccess_token());
+        Call<UpdateUserResponse> call=RetrofitClient.getInstance().getApi().user(fName,lName,"M",email,"Bearer "+sharedPrefManager.getData().getAccessToken());
         call.enqueue(new Callback<UpdateUserResponse>() {
             @Override
             public void onResponse(Call<UpdateUserResponse> call, Response<UpdateUserResponse> response) {
                 UpdateUserResponse updateUserResponse=response.body();
                 if (response.isSuccessful()){
                     Toast.makeText(getApplicationContext(),"Profile Updated",Toast.LENGTH_SHORT).show();
+
                 }
                 else {
-                    Toast.makeText(getApplicationContext(),response.body().getMessage(),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Email Already Registerd",Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call<UpdateUserResponse> call, Throwable t) {
                 Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_SHORT).show();

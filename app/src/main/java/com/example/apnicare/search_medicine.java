@@ -76,7 +76,7 @@ public class search_medicine extends Fragment {
         Call<SearchResponse> call= RetrofitClient
                 .getInstance()
                 .getApi()
-                .search(1,a,null,sharedPrefManager.getData().getAccess_token());
+                .search(1,a,null,sharedPrefManager.getData().getAccessToken());
 
         call.enqueue(new Callback<SearchResponse>() {
             @Override

@@ -8,7 +8,7 @@ import com.example.apnicare.ModelResponses.CategoryResponse.CategoryResponse;
 import com.example.apnicare.ModelResponses.ContactUs.ContactResponse;
 import com.example.apnicare.ModelResponses.DeleteAddress.DeleteAddressResponse;
 import com.example.apnicare.ModelResponses.EditAddress.EditAddressResponse;
-import com.example.apnicare.ModelResponses.LoginResponse;
+import com.example.apnicare.ModelResponses.LoginResponse.LoginResponse;
 import com.example.apnicare.ModelResponses.OrderCart.CartBookingResponse;
 import com.example.apnicare.ModelResponses.RegisterResponse;
 import com.example.apnicare.ModelResponses.ResendOtp.ResendOtp;
@@ -17,8 +17,6 @@ import com.example.apnicare.ModelResponses.UpdateUser.UpdateUserResponse;
 import com.example.apnicare.myCart.AddItemResponse;
 import com.example.apnicare.myCart.CartItemDeleteResponse;
 import com.example.apnicare.myCart.CartResponse;
-
-import java.lang.reflect.Array;
 
 import retrofit2.Call;
 import retrofit2.http.DELETE;

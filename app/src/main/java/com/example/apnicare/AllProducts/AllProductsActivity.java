@@ -68,7 +68,7 @@ public class AllProductsActivity extends AppCompatActivity {
         Call<SearchResponse> call= RetrofitClient
                 .getInstance()
                 .getApi()
-                .search(page,"",category,sharedPrefManager.getData().getAccess_token());
+                .search(page,"",category,sharedPrefManager.getData().getAccessToken());
 
         call.enqueue(new Callback<SearchResponse>() {
             @Override

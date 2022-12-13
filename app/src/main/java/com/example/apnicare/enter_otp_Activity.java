@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.apnicare.ModelResponses.LoginResponse;
+import com.example.apnicare.ModelResponses.LoginResponse.LoginResponse;
 import com.example.apnicare.ModelResponses.ResendOtp.ResendOtp;
 
 import retrofit2.Call;
