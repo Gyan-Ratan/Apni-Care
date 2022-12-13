@@ -61,7 +61,7 @@ public class CartActivity extends AppCompatActivity {
             public void onResponse(Call<CartResponse> call, Response<CartResponse> response) {
                 CartResponse cartResponse=response.body();
                 if (response.isSuccessful()){
-                    CartItemAdapter adapter =new CartItemAdapter(CartActivity.this,cartResponse.getData(),cartTotal,dicount);
+                    CartItemAdapter adapter =new CartItemAdapter(CartActivity.this,cartResponse.getData(),cartTotal,dicount,topay);
                     recyclerView.setLayoutManager((new LinearLayoutManager(CartActivity.this)));
                     recyclerView.setAdapter(adapter);
                     updateTotal(cartResponse);

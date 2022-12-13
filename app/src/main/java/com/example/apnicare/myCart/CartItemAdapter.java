@@ -24,16 +24,17 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHolder> {
-    private TextView cartTotal,discount;
+    private TextView cartTotal,discount,topay;
     private Context context;
     private List<Datum> data;
     SharedPrefManager sharedPrefManager;
 
-    public CartItemAdapter(Context context, List<Datum> data , TextView cartTotal,TextView discount) {
+    public CartItemAdapter(Context context, List<Datum> data , TextView cartTotal,TextView discount,TextView topay) {
         this.context = context;
         this.data = data;
         this.cartTotal=cartTotal;
         this.discount=discount;
+        this.topay=topay;
     }
 
     @NonNull
@@ -183,13 +184,13 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
     private void updateTotal() {
         int i;
         double mrp = 0, sum = 0;
-        String su;
         for (i = 0; i < data.size(); i++) {
             sum = sum + (data.get(i).getDrug().getPrice() * data.get(i).getQuantity());
             mrp = mrp + (data.get(i).getDrug().getMrp() * data.get(i).getQuantity());
         }
         cartTotal.setText("₹ "+new DecimalFormat("##.##").format(mrp));
         discount.setText("-₹ "+new DecimalFormat("##.##").format(mrp-sum));
+        topay.setText("₹ "+new DecimalFormat("##.##").format(sum));
 
 
     }
