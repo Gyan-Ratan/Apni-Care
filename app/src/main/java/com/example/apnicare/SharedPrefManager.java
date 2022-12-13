@@ -31,7 +31,7 @@ public class SharedPrefManager {
         editor.putString("gender", data.getGender());
         editor.putBoolean("email_verified", data.getEmailVerified());
         editor.putBoolean("verified", data.getVerified());
-        editor.putString("address", data.getAddress());
+
         editor.putBoolean("has_password", data.getHasPassword());
         editor.putString("retail", data.getRetail());
         editor.putString("refreshToken", data.getRefreshToken());
@@ -57,9 +57,10 @@ public class SharedPrefManager {
                 sharedPreferences.getString("gender",null),
                 sharedPreferences.getBoolean("email_verified",false),
                 sharedPreferences.getBoolean("verified",false),
-                sharedPreferences.getString("address",null),
+//                sharedPreferences.getString("address",null),
                 sharedPreferences.getBoolean("has_password",false),
                 sharedPreferences.getString("retail",null),
+
                 sharedPreferences.getString("refreshToken",null),
                 sharedPreferences.getBoolean("newUser",false)
 

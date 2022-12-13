@@ -15,15 +15,15 @@ public class UpdateUserResponse {
     public void setDataUser(Data dataUser) {
         this.dataUser = dataUser;
     }
-    @SerializedName("message")
-    @Expose
-    private String message;
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
+//    @SerializedName("message")
+//    @Expose
+//    private String message;
+//
+//    public String getMessage() {
+//        return message;
+//    }
+//
+//    public void setMessage(String message) {
+//        this.message = message;
+//    }
 }

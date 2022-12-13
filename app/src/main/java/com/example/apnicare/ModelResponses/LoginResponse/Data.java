@@ -178,8 +178,6 @@ public class Data {
     @SerializedName("last_name")
     @Expose
     private String lastName;
-
-
     @SerializedName("type")
     @Expose
     private String type;
@@ -200,7 +198,7 @@ public class Data {
     private Boolean verified;
     @SerializedName("address")
     @Expose
-    private String address;
+    private Address address;
     @SerializedName("has_password")
     @Expose
     private Boolean hasPassword;
@@ -227,7 +225,7 @@ public class Data {
     @Expose
     private Boolean newUser;
 
-    public Data(String accessToken, String  firstName, String lastName, String type, String email, String phone, String gender, Boolean emailVerified, Boolean verified, String address, Boolean hasPassword, String retail, String refreshToken, Boolean newUser) {
+    public Data(String accessToken, String  firstName, String lastName, String type, String email, String phone, String gender, Boolean emailVerified, Boolean verified, Boolean hasPassword, String retail, String refreshToken, Boolean newUser) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.type = type;
@@ -313,13 +311,13 @@ public class Data {
         this.verified = verified;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
+//    public Address getAddress() {
+//        return address;
+//    }
+//
+//    public void setAddress(Address address) {
+//        this.address = address;
+//    }
 
     public Boolean getHasPassword() {
         return hasPassword;

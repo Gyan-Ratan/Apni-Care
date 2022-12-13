@@ -153,7 +153,7 @@ public class enter_otp_Activity extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText(enter_otp_Activity.this,"Error",Toast.LENGTH_SHORT).show();
+                Toast.makeText(enter_otp_Activity.this,t.getMessage(),Toast.LENGTH_SHORT).show();
             }
         });
     }
