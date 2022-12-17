@@ -254,6 +254,18 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:drawableStartCompat="@drawable/info" />
+        <TextView
+            android:id="@+id/referButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:drawablePadding="20dp"
+            android:fontFamily="@font/work_sans_semibold"
+            android:text="Refer app"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/info" />
 
         <View
             android:id="@+id/divider"

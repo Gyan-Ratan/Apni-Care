@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,25 +19,30 @@ import com.example.apnicare.address_page.AddressActivity;
 
 public class account_page extends Fragment {
 
-    TextView order,family,addresspage,usernumber,logout,needhelp,accountsetting;
+    TextView order,family,addresspage,usernumber,logout,needhelp,accountsetting,referButton;
     ImageButton userprofile;
     SharedPrefManager sharedPrefManager;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_account_page, container, false);
-        order=view.findViewById(R.id.account_orders);
-        needhelp=view.findViewById(R.id.Needhelp);
-        userprofile=view.findViewById(R.id.edit_profile);
-        family=view.findViewById(R.id.account_family);
-        usernumber=view.findViewById(R.id.phoneNumber);
-        accountsetting=view.findViewById(R.id.account_setting);
-        sharedPrefManager=new SharedPrefManager(getContext());
+        View view = inflater.inflate(R.layout.fragment_account_page, container, false);
+        order = view.findViewById(R.id.account_orders);
+        needhelp = view.findViewById(R.id.Needhelp);
+        userprofile = view.findViewById(R.id.edit_profile);
+        family = view.findViewById(R.id.account_family);
+        usernumber = view.findViewById(R.id.phoneNumber);
+        accountsetting = view.findViewById(R.id.account_setting);
+        sharedPrefManager = new SharedPrefManager(getContext());
         usernumber.setText(sharedPrefManager.getData().getFirstName());
-        addresspage=view.findViewById(R.id.account_addressbook);
-        logout=view.findViewById(R.id.logOut);
+        addresspage = view.findViewById(R.id.account_addressbook);
+        logout = view.findViewById(R.id.logOut);
+        referButton = view.findViewById(R.id.referButton);
+
+
 
         userprofile.setOnClickListener(view0 ->  {
             Intent intent = new Intent(getActivity(), User_Profile.class);
@@ -74,6 +80,17 @@ public class account_page extends Fragment {
                 Intent intent = new Intent(getContext(), LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
+        });
+
+        //        REFER ACTION
+        referButton.setOnClickListener(view7 -> {
+            Intent myIntent = new Intent(Intent.ACTION_SEND);
+            myIntent.setType("text/plain");
+            String body = "www.apnicare.in";
+            String sub = "www.apnicare.in";
+            myIntent.putExtra(Intent.EXTRA_SUBJECT, sub);
+            myIntent.putExtra(Intent.EXTRA_TEXT, body);
+            startActivity(Intent.createChooser(myIntent, "Share Using"));
         });
         return view;
 
