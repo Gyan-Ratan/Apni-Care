@@ -261,7 +261,7 @@
             android:layout_margin="10dp"
             android:drawablePadding="20dp"
             android:fontFamily="@font/work_sans_semibold"
-            android:text="Refer app"
+            android:text="Refer "
             android:textColor="@android:color/black"
             android:textSize="20sp"
             android:textStyle="bold"
