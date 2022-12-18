@@ -54,7 +54,7 @@ public class CategoryRecycleAdapter extends RecyclerView.Adapter<CategoryRecycle
         ImageView catimg;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            catimg = itemView.findViewById(R.id.catimg);
+//            catimg = itemView.findViewById(R.id.catimg);
             category =itemView.findViewById(R.id.category);
             category.setOnClickListener(new View.OnClickListener() {
                 @Override

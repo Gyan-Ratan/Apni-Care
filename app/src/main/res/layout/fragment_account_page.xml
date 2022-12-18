@@ -265,7 +265,7 @@
             android:textColor="@android:color/black"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:drawableStartCompat="@drawable/info" />
+            app:drawableStartCompat="@drawable/ic_baseline_share_24" />
 
         <View
             android:id="@+id/divider"
