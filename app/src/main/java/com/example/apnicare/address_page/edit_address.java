@@ -61,8 +61,13 @@ public class edit_address extends Fragment {
         state.setOnItemClickListener((new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String item = parent.getItemAtPosition(position).toString();
-                Toast.makeText(getActivity(), "Item:"+item, Toast.LENGTH_SHORT).show();
+                try {
+                    String item = parent.getItemAtPosition(position).toString();
+                    Toast.makeText(getActivity(), "Item:"+item, Toast.LENGTH_SHORT).show();
+                }catch (Exception e){
+                    System.out.println("some error at edit_Address.java" + e);
+                }
+
             }
         }));
 
@@ -87,18 +92,20 @@ public class edit_address extends Fragment {
         String address11= Objects.requireNonNull(address1.getText()).toString();
         String address21=address2.getText().toString();
         String pincode1=pincode.getText().toString();
-        if(phone1.isEmpty()){
-            phone.requestFocus();
-            phone.setError("please enter number");
-            Toast.makeText(getContext(),"enter correct number",Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(!Patterns.PHONE.matcher(phone1).matches()){
-            phone.requestFocus();
-            phone.setError("please enter a valid number");
-            Toast.makeText(getContext(),"enter correct number",Toast.LENGTH_SHORT).show();
-            return;
-        }
+        try {
+            if (phone1.isEmpty()) {
+                phone.requestFocus();
+                phone.setError("please enter number");
+                Toast.makeText(getContext(), "enter correct number", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (!Patterns.PHONE.matcher(phone1).matches()) {
+                phone.requestFocus();
+                phone.setError("please enter a valid number");
+                Toast.makeText(getContext(), "enter correct number", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
 
         Call<EditAddressResponse> call= RetrofitClient.getInstance().getApi()
                 .editaddress("Bearer "+sharedPrefManager.getData().getAccessToken(),name1,phone1,address11,address21,"New delhi","Delhi",pincode1,true);
@@ -116,6 +123,10 @@ public class edit_address extends Fragment {
 
             }
         });
+        }
+        catch (Exception f){
+            System.out.println("some error at edit_address.java"+f);
+        }
 
     }
 }

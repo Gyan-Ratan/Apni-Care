@@ -40,6 +40,7 @@ public class AllProductsActivity extends AppCompatActivity {
 //        if (id.isEmpty()){
 //            id="";
 //        }
+        try{
         prev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,14 +49,19 @@ public class AllProductsActivity extends AppCompatActivity {
                     listall(page,id);
                 }
             }
-        });
+        });}catch (Exception e){
+            System.out.println("some error at ");
+        }
+        try {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 page=page+1;
                 listall(page,id);
             }
-        });
+        });}catch (Exception e){
+            System.out.println("some error at ");
+        }
         recyclerView=findViewById(R.id.allproductrecycleview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(AllProductsActivity.this));
@@ -64,30 +70,33 @@ public class AllProductsActivity extends AppCompatActivity {
     }
 
     private void listall(int page,String category) {
+        try {
+            Call<SearchResponse> call = RetrofitClient
+                    .getInstance()
+                    .getApi()
+                    .search(page, "", category, sharedPrefManager.getData().getAccessToken());
 
-        Call<SearchResponse> call= RetrofitClient
-                .getInstance()
-                .getApi()
-                .search(page,"",category,sharedPrefManager.getData().getAccessToken());
-
-        call.enqueue(new Callback<SearchResponse>() {
-            @Override
-            public void onResponse(Call<SearchResponse> call, Response<SearchResponse> response) {
+            call.enqueue(new Callback<SearchResponse>() {
+                @Override
+                public void onResponse(Call<SearchResponse> call, Response<SearchResponse> response) {
 //                Toast.makeText(search_medicine.this,"response aa rha h"+response.toString(),Toast.LENGTH_SHORT).show();
-                SearchResponse searchResponse= response.body();
+                    SearchResponse searchResponse = response.body();
 
-                if (response.isSuccessful()){
-                    searchMedicineAdapter adapter =new searchMedicineAdapter(getApplicationContext(),searchResponse.getData().getItems());
-                    recyclerView.setAdapter(adapter);
+                    if (response.isSuccessful()) {
+                        searchMedicineAdapter adapter = new searchMedicineAdapter(getApplicationContext(), searchResponse.getData().getItems());
+                        recyclerView.setAdapter(adapter);
 //                    Toast.makeText(getContext(),response.toString(), Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<SearchResponse> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),t.getMessage()+"failure",Toast.LENGTH_SHORT).show();
+                @Override
+                public void onFailure(Call<SearchResponse> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(), t.getMessage() + "failure", Toast.LENGTH_SHORT).show();
 
-            }
-        });
+                }
+            });
+        }catch (Exception e){
+            System.out.println("some error at ");
+        }
     }
 }

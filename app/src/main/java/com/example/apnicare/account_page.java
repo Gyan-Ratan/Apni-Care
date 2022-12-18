@@ -87,7 +87,7 @@ public class account_page extends Fragment {
             Intent myIntent = new Intent(Intent.ACTION_SEND);
             myIntent.setType("text/plain");
             String body = "www.apnicare.in";
-            String sub = "www.apnicare.in";
+            String sub = "RANDOM";
             myIntent.putExtra(Intent.EXTRA_SUBJECT, sub);
             myIntent.putExtra(Intent.EXTRA_TEXT, body);
             startActivity(Intent.createChooser(myIntent, "Share Using"));

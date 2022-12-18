@@ -85,7 +85,7 @@
         <activity
             android:name=".family_members"
             android:exported="false"
-            android:screenOrientation="portrait"></activity> <!-- CartActivity -->
+            android:screenOrientation="portrait" /> <!-- CartActivity -->
         <activity
             android:name=".myCart.CartActivity"
             android:exported="false"

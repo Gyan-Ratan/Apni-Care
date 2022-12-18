@@ -53,21 +53,26 @@ public class CategoryRecycleAdapter extends RecyclerView.Adapter<CategoryRecycle
         TextView category;
         ImageView catimg;
         public MyViewHolder(@NonNull View itemView) {
+
             super(itemView);
             catimg = itemView.findViewById(R.id.catimg);
-            category =itemView.findViewById(R.id.category);
+            category = itemView.findViewById(R.id.category);
+            try{
             category.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     String id;
-                    id=list.get(getAdapterPosition()).getSlug();
+                    id = list.get(getAdapterPosition()).getSlug();
                     Intent intent = new Intent(context, AllProductsActivity.class);
-                    intent.putExtra("categorySlug",id);
+                    intent.putExtra("categorySlug", id);
                     context.startActivity(intent);
 
 
                 }
             });
+        }catch (Exception f){
+            System.out.println("some error at Category.java"+f);
+        }
         }
     }
 }

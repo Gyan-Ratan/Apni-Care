@@ -52,8 +52,13 @@ public class address_book extends Fragment {
         addaddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(address_book.this)
-                        .navigate(R.id.action_address_book_to_edit_address);
+                try {
+                    NavHostFragment.findNavController(address_book.this)
+                            .navigate(R.id.action_address_book_to_edit_address);
+                }catch (Exception e){
+                    System.out.println("some error at Address_Book.java" + e);
+                }
+
             }
         });
 
@@ -71,11 +76,16 @@ public class address_book extends Fragment {
             @Override
             public void onResponse(Call<AddressResponse> call, Response<AddressResponse> response) {
                 AddressResponse addressResponse= response.body();
-                if (response.isSuccessful()){
-                    AddressAdapter adapter =new AddressAdapter(getContext(),addressResponse.getAddressdata());
-                    addressrecycleview.setAdapter(adapter);
+                try {
+                    if (response.isSuccessful()){
+                        AddressAdapter adapter =new AddressAdapter(getContext(),addressResponse.getAddressdata());
+                        addressrecycleview.setAdapter(adapter);
 //                    Toast.makeText(getContext(),response.toString(),Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e){
+                    System.out.println("some error at Address_Book.java" + e);
                 }
+
 
             }
 
