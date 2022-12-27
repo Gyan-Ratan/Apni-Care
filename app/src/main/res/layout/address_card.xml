@@ -48,7 +48,7 @@
                 android:text="Delete"
                 android:textColor="@color/red_900"
                 android:textStyle="bold"
-                app:strokeColor="@color/red_500" />
+                app:strokeColor="@color/red_800" />
 
         </LinearLayout>
 

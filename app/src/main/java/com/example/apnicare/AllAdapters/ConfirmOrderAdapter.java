@@ -29,7 +29,7 @@ public class ConfirmOrderAdapter extends RecyclerView.Adapter<ConfirmOrderAdapte
     @NonNull
     @Override
     public ConfirmOrderAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.mycart_card,parent,false);
+        View view= LayoutInflater.from(context).inflate(R.layout.confirmorder_card,parent,false);
         return new ConfirmOrderAdapter.ViewHolder(view);
     }
 
@@ -47,12 +47,11 @@ public class ConfirmOrderAdapter extends RecyclerView.Adapter<ConfirmOrderAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView productname;
-        public TextView price, delete, mrp, quantityNumber;
+        public TextView price, mrp, quantityNumber;
         Button addQuantity;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             mrp = itemView.findViewById(R.id.mrp);
-            delete = itemView.findViewById(R.id.deletebtn);
             productname = itemView.findViewById(R.id.productName);
             price = itemView.findViewById(R.id.prodctMRP);
         }

@@ -2,7 +2,6 @@ package com.example.apnicare.AllProducts;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,12 +12,10 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.apnicare.AllAdapters.SelectAddressAdapter;
-import com.example.apnicare.ModelResponses.Address.AddressAdapter;
 import com.example.apnicare.ModelResponses.Address.AddressResponse;
 import com.example.apnicare.R;
 import com.example.apnicare.RetrofitClient;
 import com.example.apnicare.SharedPrefManager;
-import com.example.apnicare.address_page.address_book;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,7 +32,7 @@ public class OrderBookedActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_booked);
+        setContentView(R.layout.selectaddress);
         sharedPrefManager=new SharedPrefManager(this);
         addressrecycleview=findViewById(R.id.addressrecycleview2);
         addressrecycleview.setHasFixedSize(true);
