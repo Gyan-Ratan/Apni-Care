@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".Upload_Prescription.sprescription">
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/PostalAddressView"
@@ -20,6 +16,7 @@
             android:drawableEnd="@drawable/location"
             android:drawablePadding="10dp"
             android:inputType="none"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,10 +25,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@id/PostalAddressView"
-            app:layout_constraintEnd_toEndOf="@id/PostalAddressView"
-            app:layout_constraintStart_toStartOf="@id/PostalAddressView"
-            app:layout_constraintTop_toTopOf="@id/PostalAddressView">
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/back"
@@ -73,7 +70,7 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/PostalAddressView">
+            app:layout_constraintTop_toBottomOf="@id/linearLayout2">
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView"
@@ -82,13 +79,12 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="16dp"
-                android:fontFamily="@font/ibm_bold"
+                android:fontFamily="@font/ibm_semibold"
                 android:singleLine="false"
                 android:text="@string/Howwouldyouliketoproceed"
                 android:textAlignment="textStart"
                 android:textAllCaps="false"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@android:color/black" />
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button"
@@ -122,6 +118,14 @@
                 app:cornerRadius="2dp" />
 
         </LinearLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/ConstraintLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/ConstraintLayout"
@@ -170,7 +174,7 @@
                 android:layout_marginTop="-8dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:contentPadding="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -203,14 +207,4 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ConstraintLayout" />
 
-        <com.google.android.material.divider.MaterialDivider
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            app:layout_constraintBottom_toTopOf="@+id/ConstraintLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

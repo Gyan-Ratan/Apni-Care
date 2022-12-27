@@ -56,8 +56,7 @@ public class CategoryRecycleAdapter extends RecyclerView.Adapter<CategoryRecycle
 
             super(itemView);
             catimg = itemView.findViewById(R.id.catimg);
-            category = itemView.findViewById(R.id.category);
-            try{
+            category =itemView.findViewById(R.id.category);
             category.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
