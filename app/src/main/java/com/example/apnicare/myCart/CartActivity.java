@@ -5,11 +5,13 @@ import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.apnicare.AllProducts.OrderBookedActivity;
 import com.example.apnicare.ModelResponses.OrderCart.CartBookingResponse;
 import com.example.apnicare.R;
 import com.example.apnicare.RetrofitClient;
@@ -86,11 +88,13 @@ public class CartActivity extends AppCompatActivity {
                 call.enqueue(new Callback<CartBookingResponse>() {
                     @Override
                     public void onResponse(Call<CartBookingResponse> call, Response<CartBookingResponse> response) {
-                        Toast.makeText(CartActivity.this,response.toString(),Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(CartActivity.this,response.toString(),Toast.LENGTH_SHORT).show();
+                        CartBookingResponse cartBookingResponse=response.body();
                         if (response.isSuccessful()){
                             Toast.makeText(CartActivity.this,"order Booked",Toast.LENGTH_SHORT).show();
-                            /*Intent intent = new Intent(getActivity(), OrderBookedActivity.class);
-                            startActivity(intent);*/
+                            Intent intent = new Intent(getApplicationContext(), OrderBookedActivity.class);
+                            intent.putExtra("order_id",cartBookingResponse.getOrder().getId());
+                            startActivity(intent);
 
                         }
                     }

@@ -85,16 +85,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/address_line2" />
 
-        <CheckBox
-            android:id="@+id/defaultaddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:padding="5dp"
-            android:text="Use as shipping address"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/address_line2"
-            app:layout_constraintTop_toBottomOf="@id/pincode" />
+<!--        <CheckBox-->
+<!--            android:id="@+id/defaultaddress"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:checked="true"-->
+<!--            android:padding="5dp"-->
+<!--            android:text="Use as shipping address"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/address_line2"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/pincode" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

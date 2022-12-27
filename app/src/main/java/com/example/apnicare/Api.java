@@ -82,5 +82,10 @@ public interface Api {
     @PUT("user/")
     Call<UpdateUserResponse> user(@Field("first_name") String first_name, @Field("last_name") String last_name,@Field("gender")String gender, @Field("email") String email,@Header("Authorization") String token);
 
+    @GET("order/{id}")
+    Call<CartBookingResponse> getOrder(@Path("id")int id,@Header("Authorization") String token  );
+
+
+
 
 }

@@ -17,6 +17,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Confirm_Order_Activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".User_Profile"
             android:exported="false">
             <meta-data
@@ -85,7 +92,7 @@
         <activity
             android:name=".family_members"
             android:exported="false"
-            android:screenOrientation="portrait"></activity> <!-- CartActivity -->
+            android:screenOrientation="portrait" /> <!-- CartActivity -->
         <activity
             android:name=".myCart.CartActivity"
             android:exported="false"
@@ -158,8 +165,10 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-        <activity android:name=".product_detail"
-            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".product_detail"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
