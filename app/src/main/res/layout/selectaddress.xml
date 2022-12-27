@@ -8,6 +8,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar4"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape"
+        android:minHeight="?attr/actionBarSize"
+        app:navigationIcon="@drawable/arrow_back"
+        app:title="Select Address" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/addressrecycleview2"
         android:layout_marginTop="60dp"
