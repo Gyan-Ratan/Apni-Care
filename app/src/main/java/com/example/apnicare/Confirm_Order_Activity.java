@@ -30,13 +30,13 @@ public class Confirm_Order_Activity extends AppCompatActivity {
         sharedPrefManager=new SharedPrefManager(this);
         Intent intent=getIntent();
 //        int id= Integer.parseInt(intent.getStringExtra("id"));
-//        order= Integer.parseInt(intent.getStringExtra("order"));
+        order= intent.getIntExtra("order",0);
         confirmOrder();
 
     }
 
     private void confirmOrder() {
-        Call<CartBookingResponse> call=RetrofitClient.getInstance().getApi().getOrder(488,"Bearer "+sharedPrefManager.getData().getAccessToken());
+        Call<CartBookingResponse> call=RetrofitClient.getInstance().getApi().getOrder(order,"Bearer "+sharedPrefManager.getData().getAccessToken());
         call.enqueue(new Callback<CartBookingResponse>() {
             @Override
             public void onResponse(Call<CartBookingResponse> call, Response<CartBookingResponse> response) {
