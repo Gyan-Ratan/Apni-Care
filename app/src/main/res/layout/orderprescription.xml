@@ -1,214 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Upload_Prescription.sprescription">
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/PostalAddressView"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="67dp"
-        android:autofillHints=""
-        android:background="@drawable/shape"
-        android:drawableStart="@drawable/arrow_back"
-        android:drawableEnd="@drawable/location"
-        android:drawablePadding="10dp"
-        android:inputType="none"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/back"
-            android:layout_width="40dp"
-            android:layout_height="65dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="@android:string/untitled" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/deliveryto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:text="@string/deliveringto"
-                android:textColor="@android:color/black" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/PostalAddress"
-                android:layout_width="277dp"
-                android:layout_height="wrap_content"
-                android:inputType="textMultiLine|text"
-                android:text="@string/address"
-                android:textColor="@android:color/black"
-                app:layout_constraintStart_toStartOf="@+id/back"
-                app:layout_constraintTop_toBottomOf="@+id/deliveryto" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@android:color/white"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout2">
+        android:layout_height="match_parent"
+        tools:context=".Upload_Prescription.sprescription">
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/textView"
+            android:id="@+id/PostalAddressView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/ibm_semibold"
-            android:singleLine="false"
-            android:text="@string/Howwouldyouliketoproceed"
-            android:textAlignment="textStart"
-            android:textAllCaps="false"
-            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        <androidx.appcompat.widget.AppCompatRadioButton
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:backgroundTint="@android:color/white"
-            android:drawableEnd="@drawable/medical_prescription"
-            android:elevation="10dp"
-            android:text="@string/OrderEverythingasperprescription"
-            android:textAlignment="viewStart"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="@android:color/black"
-            app:cornerRadius="2dp" />
-
-        <androidx.appcompat.widget.AppCompatRadioButton
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:backgroundTint="@android:color/white"
-            android:drawableEnd="@drawable/call_icon"
-            android:elevation="10dp"
-            android:text="@string/Callforthedetails"
-            android:textAlignment="textStart"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="@android:color/black"
-            app:cornerRadius="2dp" />
-        </RadioGroup>
-
-    </LinearLayout>
-
-    <com.google.android.material.divider.MaterialDivider
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/ConstraintLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ConstraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/white"
-        app:layout_constraintBottom_toTopOf="@+id/materialButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="false"
-            app:backgroundTint="@color/transparent"
-            app:borderWidth="0dp"
-            app:elevation="0dp"
-            app:fabSize="mini"
-            app:layout_constraintEnd_toEndOf="@id/attach"
-            app:layout_constraintTop_toTopOf="@id/attach"
-            app:pressedTranslationZ="0dp"
-            app:rippleColor="@android:color/transparent"
-            app:srcCompat="@drawable/arrow_down" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/attach"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:text="@string/AttachedPrescription"
-            android:textAlignment="viewStart"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@android:color/black"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="67dp"
+            android:autofillHints=""
+            android:background="@drawable/shape"
+            android:drawableStart="@drawable/arrow_back"
+            android:drawableEnd="@drawable/location"
+            android:drawablePadding="10dp"
+            android:inputType="none"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/attachView"
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/back"
+                android:layout_width="40dp"
+                android:layout_height="65dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@android:string/untitled" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/deliveryto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="@string/deliveringto"
+                    android:textColor="@android:color/black" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/PostalAddress"
+                    android:layout_width="277dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine|text"
+                    android:text="@string/address"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintStart_toStartOf="@+id/back"
+                    app:layout_constraintTop_toBottomOf="@+id/deliveryto" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="-8dp"
-            android:layout_marginEnd="10dp"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout2">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/ibm_semibold"
+                android:singleLine="false"
+                android:text="@string/Howwouldyouliketoproceed"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@android:color/white"
+                android:drawableEnd="@drawable/medical_prescription"
+                android:elevation="10dp"
+                android:text="@string/OrderEverythingasperprescription"
+                android:textAlignment="viewStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@android:color/black"
+                app:cornerRadius="2dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@android:color/white"
+                android:drawableEnd="@drawable/call_icon"
+                android:elevation="10dp"
+                android:text="@string/Callforthedetails"
+                android:textAlignment="textStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@android:color/black"
+                app:cornerRadius="2dp" />
+
+        </LinearLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/ConstraintLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/white"
+            app:layout_constraintBottom_toTopOf="@+id/materialButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatingActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                app:backgroundTint="@color/transparent"
+                app:borderWidth="0dp"
+                app:elevation="0dp"
+                app:fabSize="mini"
+                app:layout_constraintEnd_toEndOf="@id/attach"
+                app:layout_constraintTop_toTopOf="@id/attach"
+                app:pressedTranslationZ="0dp"
+                app:rippleColor="@android:color/transparent"
+                app:srcCompat="@drawable/arrow_down" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/attach"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="@string/AttachedPrescription"
+                android:textAlignment="viewStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/attachView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="-8dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone"
+                app:contentPadding="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/attach">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_launcher_background" />
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/materialButton"
+            android:layout_width="217dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="1dp"
             android:layout_marginBottom="10dp"
-            android:visibility="gone"
-            app:contentPadding="10dp"
+            android:text="@string/Placerequest"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            app:backgroundTint="@color/teal_200"
+            app:cornerRadius="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/attach">
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:srcCompat="@drawable/validate_rx" />
-
-        </androidx.cardview.widget.CardView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton"
-        android:layout_width="217dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="10dp"
-        android:text="@string/Placerequest"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        app:backgroundTint="@color/teal_200"
-        app:cornerRadius="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ConstraintLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/ConstraintLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
