@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.apnicare.AllAdapters.SelectAddressAdapter;
 import com.example.apnicare.ModelResponses.Address.AddressAdapter;
 import com.example.apnicare.ModelResponses.Address.AddressResponse;
 import com.example.apnicare.R;
@@ -54,7 +55,7 @@ public class OrderBookedActivity extends AppCompatActivity {
             public void onResponse(Call<AddressResponse> call, Response<AddressResponse> response) {
                 AddressResponse addressResponse= response.body();
                 if (response.isSuccessful()){
-                    AddressAdapter adapter =new AddressAdapter(OrderBookedActivity.this,addressResponse.getAddressdata(),order_id);
+                    SelectAddressAdapter adapter =new SelectAddressAdapter(OrderBookedActivity.this,addressResponse.getAddressdata(),order_id);
                     addressrecycleview.setAdapter(adapter);
 //                    Toast.makeText(getContext(),response.toString(),Toast.LENGTH_SHORT).show();
                 }

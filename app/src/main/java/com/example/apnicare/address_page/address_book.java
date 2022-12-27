@@ -72,7 +72,7 @@ public class address_book extends Fragment {
             public void onResponse(Call<AddressResponse> call, Response<AddressResponse> response) {
                 AddressResponse addressResponse= response.body();
                 if (response.isSuccessful()){
-                    AddressAdapter adapter =new AddressAdapter(getContext(),addressResponse.getAddressdata(),0);
+                    AddressAdapter adapter =new AddressAdapter(getContext(),addressResponse.getAddressdata());
                     addressrecycleview.setAdapter(adapter);
 //                    Toast.makeText(getContext(),response.toString(),Toast.LENGTH_SHORT).show();
                 }

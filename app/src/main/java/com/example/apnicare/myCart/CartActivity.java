@@ -45,6 +45,7 @@ public class CartActivity extends AppCompatActivity {
         topay=findViewById(R.id.topay);
         topay1=findViewById(R.id.topay2);
         recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(CartActivity.this));
         mycartproducts();
         proceed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +65,7 @@ public class CartActivity extends AppCompatActivity {
                 CartResponse cartResponse=response.body();
                 if (response.isSuccessful()){
                     CartItemAdapter adapter =new CartItemAdapter(CartActivity.this,cartResponse.getData(),cartTotal,dicount,topay);
-                    recyclerView.setLayoutManager((new LinearLayoutManager(CartActivity.this)));
+//                    recyclerView.setLayoutManager((new LinearLayoutManager(CartActivity.this)));
                     recyclerView.setAdapter(adapter);
                     updateTotal(cartResponse);
 //                    cartTotal.setText(cartResponse.getData());
