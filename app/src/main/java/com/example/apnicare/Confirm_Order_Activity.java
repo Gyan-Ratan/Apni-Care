@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.apnicare.AllAdapters.ConfirmOrderAdapter;
 import com.example.apnicare.AllProducts.OrderBookedActivity;
+import com.example.apnicare.ModelResponses.ComfirmOrder.ConfirmResponse;
 import com.example.apnicare.ModelResponses.OrderCart.CartBookingResponse;
 import com.example.apnicare.YourOrders.YourOrderConfirmedActivity;
 import com.example.apnicare.myCart.CartActivity;
@@ -26,6 +27,7 @@ public class Confirm_Order_Activity extends AppCompatActivity {
     RecyclerView recyclerView;
     Button confirm;
     SharedPrefManager sharedPrefManager;
+    int id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,14 +36,32 @@ public class Confirm_Order_Activity extends AppCompatActivity {
         confirm=findViewById(R.id.confirm_button);
         sharedPrefManager=new SharedPrefManager(this);
         Intent intent=getIntent();
-//        int id= Integer.parseInt(intent.getStringExtra("id"));
+        id= intent.getIntExtra("id",0);
         order= intent.getIntExtra("order",0);
         confirmOrder();
+        placeconfirm();
         confirm.setOnClickListener(view -> {
             Intent intent1 = new Intent(getApplicationContext(), YourOrderConfirmedActivity.class);
             startActivity(intent1);
         });
 
+    }
+
+    private void placeconfirm() {
+        Call<ConfirmResponse> call=RetrofitClient.getInstance().getApi().getconfirm(order,"Bearer "+sharedPrefManager.getData().getAccessToken(),163,163);
+        call.enqueue(new Callback<ConfirmResponse>() {
+            @Override
+            public void onResponse(Call<ConfirmResponse> call, Response<ConfirmResponse> response) {
+                if (response.isSuccessful()){
+                    Toast.makeText(Confirm_Order_Activity.this,"confirm",Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ConfirmResponse> call, Throwable t) {
+
+            }
+        });
     }
 
     private void confirmOrder() {
@@ -65,4 +85,5 @@ public class Confirm_Order_Activity extends AppCompatActivity {
             }
         });
     }
+
 }
