@@ -37,7 +37,9 @@ public class ConfirmOrderAdapter extends RecyclerView.Adapter<ConfirmOrderAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Detail cartresponse=data.get(position);
         holder.productname.setText(cartresponse.getDrug().getName());
-        holder.price.setText(cartresponse.getPrice().toString());
+        holder.price.setText("Rs. "+cartresponse.getPrice().toString());
+        String qty= String.valueOf(cartresponse.getQuantity());
+        holder.quantityNumber.setText(qty);
     }
 
     @Override
@@ -54,6 +56,7 @@ public class ConfirmOrderAdapter extends RecyclerView.Adapter<ConfirmOrderAdapte
             mrp = itemView.findViewById(R.id.mrp);
             productname = itemView.findViewById(R.id.productName);
             price = itemView.findViewById(R.id.prodctMRP);
+            quantityNumber=itemView.findViewById(R.id.quantitynumber12);
         }
     }
 }

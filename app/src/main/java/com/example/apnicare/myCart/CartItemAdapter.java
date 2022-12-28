@@ -59,8 +59,8 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
 
         Datum cartresponse=data.get(position);
         holder.productname.setText(cartresponse.getDrug().getName());
-        holder.price.setText(cartresponse.getPrice().toString());
-        holder.mrp.setText(cartresponse.getDrug().getMrp().toString());
+        holder.price.setText("Rs. " +cartresponse.getPrice().toString());
+        holder.mrp.setText("MRP Rs. "+cartresponse.getDrug().getMrp().toString());
         holder.quantityNumber.setText(String.valueOf(cartresponse.getQuantity()));
 //        holder.delete.setOnClickListener(new View.OnClickListener() {
 //            @Override
