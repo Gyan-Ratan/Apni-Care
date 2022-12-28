@@ -67,7 +67,7 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
 //            public void onClick(View v) {
 //                int id,post;
 //                id = cartresponse.getId();
-//                holder.deleteitem(id,position);
+//                holder.deleteitem(id,position);0
 //
 //            }
 //        });
