@@ -5,6 +5,7 @@ package com.example.apnicare;
 
 import com.example.apnicare.ModelResponses.Address.AddressResponse;
 import com.example.apnicare.ModelResponses.CategoryResponse.CategoryResponse;
+import com.example.apnicare.ModelResponses.ComfirmOrder.ConfirmResponse;
 import com.example.apnicare.ModelResponses.ContactUs.ContactResponse;
 import com.example.apnicare.ModelResponses.DeleteAddress.DeleteAddressResponse;
 import com.example.apnicare.ModelResponses.EditAddress.EditAddressResponse;
@@ -85,7 +86,8 @@ public interface Api {
     @GET("order/{id}")
     Call<CartBookingResponse> getOrder(@Path("id")int id,@Header("Authorization") String token  );
 
-
-
+    @FormUrlEncoded
+    @PUT("order/{id}/confirm")
+    Call<ConfirmResponse> getconfirm(@Path("id")int id,@Header("Authorization") String token,@Field("shipping_address_id")int addId,@Field("billing_address_id")int billAddress);
 
 }
