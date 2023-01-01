@@ -13,6 +13,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.alan.alansdk.AlanConfig;
+import com.alan.alansdk.button.AlanButton;
 import com.example.apnicare.Upload_Prescription.prescription_cam;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -26,6 +28,8 @@ public class MainActivity extends AppCompatActivity{
     private Long exitTime;
     private Toast backToast;
     String ROOT_FRAGMENT="root_fragment";
+    /// Add the alanButton variable
+    private AlanButton alanButton;
 
 
     @Override
@@ -36,6 +40,10 @@ public class MainActivity extends AppCompatActivity{
         bottomNavigationItemView=findViewById(R.id.bottomNavigationView);
         replace(new homepage(),true);
 
+        /// Set up the Alan button
+        AlanConfig config = AlanConfig.builder().setProjectId("8e8119840d055d65278663cdc6fbf63f2e956eca572e1d8b807a3e2338fdd0dc/stage").build();
+        alanButton = findViewById(R.id.alan_button);
+        alanButton.initWithConfig(config);
 
         bottomNavigationItemView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){

@@ -35,9 +35,9 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/switchuser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/teal_200"
                     android:backgroundTintMode="screen"
                     android:fontFamily="@font/ibm_bold"
                     android:text="@string/username"
@@ -55,19 +55,21 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/clinicaldocs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
                 android:backgroundTint="@android:color/white"
                 android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
-                android:padding="15dp"
 
+                android:padding="15dp"
                 android:text="Clinical Documents"
                 android:textAlignment="textStart"
                 android:textColor="@color/teal_700"
                 app:elevation="5dp" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/consultation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
@@ -80,13 +82,14 @@
                 app:elevation="5dp" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/testreports"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
                 android:backgroundTint="@android:color/white"
                 android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
                 android:padding="15dp"
-                android:text="Test Repost"
+                android:text="Test Reports"
                 android:textAlignment="textStart"
                 android:textColor="@color/teal_700"
                 app:elevation="5dp" />
@@ -105,6 +108,7 @@
                 app:elevation="5dp" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/vacreports"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
@@ -117,6 +121,7 @@
                 app:elevation="5dp" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/bills"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
@@ -129,6 +134,7 @@
                 app:elevation="5dp" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/insurance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
