@@ -39,26 +39,40 @@ public class Confirm_Order_Activity extends AppCompatActivity {
         id= intent.getIntExtra("id",0);
         order= intent.getIntExtra("order",0);
         confirmOrder();
-        placeconfirm();
+
         confirm.setOnClickListener(view -> {
-            Intent intent1 = new Intent(getApplicationContext(), YourOrderConfirmedActivity.class);
-            startActivity(intent1);
+            placeconfirm();
+            String i= String.valueOf(id);
+            Toast.makeText(Confirm_Order_Activity.this,i,Toast.LENGTH_SHORT).show();
+
         });
 
     }
 
     private void placeconfirm() {
-        Call<ConfirmResponse> call=RetrofitClient.getInstance().getApi().getconfirm(order,"Bearer "+sharedPrefManager.getData().getAccessToken(),163,163);
+        Call<ConfirmResponse> call=RetrofitClient.getInstance().getApi().getconfirm(order,"Bearer "+sharedPrefManager.getData().getAccessToken(),id,id);
         call.enqueue(new Callback<ConfirmResponse>() {
             @Override
             public void onResponse(Call<ConfirmResponse> call, Response<ConfirmResponse> response) {
+                assert response.body() != null;
+                Toast.makeText(Confirm_Order_Activity.this,response.body().getData().toString(),Toast.LENGTH_SHORT).show();
+
                 if (response.isSuccessful()){
-                    Toast.makeText(Confirm_Order_Activity.this,"confirm",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(Confirm_Order_Activity.this,id,Toast.LENGTH_SHORT).show();
+                    Intent intent1 = new Intent(getApplicationContext(),YourOrderConfirmedActivity.class);
+//                    placeconfirm();
+                    startActivity(intent1);
                 }
+                else{
+                    Toast.makeText(Confirm_Order_Activity.this,"id",Toast.LENGTH_SHORT).show();
+
+                }
+
             }
 
             @Override
             public void onFailure(Call<ConfirmResponse> call, Throwable t) {
+                Toast.makeText(Confirm_Order_Activity.this,"faulure",Toast.LENGTH_SHORT).show();
 
             }
         });

@@ -45,13 +45,13 @@ public class CartActivity extends AppCompatActivity {
         topay=findViewById(R.id.topay);
         topay1=findViewById(R.id.topay2);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(CartActivity.this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         mycartproducts();
         proceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                bookorder();
+                Initiateorder();
             }
         });
 
@@ -82,7 +82,7 @@ public class CartActivity extends AppCompatActivity {
 
     }
 
-            private void bookorder() {
+            private void Initiateorder() {
 //        Toast.makeText(getContext(),"function",Toast.LENGTH_SHORT).show();
 
                 Call<CartBookingResponse> call=RetrofitClient.getInstance().getApi().book("cart","customer","Bearer "+sharedPrefManager.getData().getAccessToken());
