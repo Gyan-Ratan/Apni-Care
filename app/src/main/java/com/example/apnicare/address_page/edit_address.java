@@ -51,7 +51,7 @@ public class edit_address extends Fragment {
         city=view.findViewById(R.id.citydropmenu);
         state=view.findViewById(R.id.statedropmenu);
         address2=view.findViewById(R.id.addressLine2);
-        pincode=view.findViewById(R.id.pincode);
+        pincode=view.findViewById(R.id.pincode123);
         phone=view.findViewById(R.id.phoneNumber);
         save=view.findViewById(R.id.saveaddress);
 

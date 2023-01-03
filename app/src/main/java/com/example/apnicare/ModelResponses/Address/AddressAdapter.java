@@ -52,7 +52,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
         holder.pincode.setText(addressresponse.getPincode());
         holder.address_line1.setText(addressresponse.getAddress1());
         holder.address_line2.setText(addressresponse.getAddress2());
-        holder.defaultAddress.setChecked(addressresponse.getDefault());
+//        holder.defaultAddress.setChecked(addressresponse.getDefault());
 
     }
 
@@ -73,7 +73,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
             pincode=itemView.findViewById(R.id.pincode);
             address_line1=itemView.findViewById(R.id.address_line1);
             address_line2=itemView.findViewById(R.id.address_line2);
-            defaultAddress=itemView.findViewById(R.id.defaultaddress);
+//            defaultAddress=itemView.findViewById(R.id.defaultaddress);
             edit=itemView.findViewById(R.id.editaddress);
             sharedPrefManager=new SharedPrefManager(context);
 
@@ -85,6 +85,9 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
             int id;
             id=addresses.get(getAdapterPosition()).getId();
             deleteaddress(id);
+            addresses.remove(getAdapterPosition());
+            notifyItemRemoved(getAdapterPosition());
+
 
 
         }
@@ -98,6 +101,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
                 DeleteAddressResponse deleteAddressResponse=response.body();
                 if (response.isSuccessful()){
                     Toast.makeText(context,response.toString(),Toast.LENGTH_SHORT).show();
+
                 }
             }
 

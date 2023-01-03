@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -16,7 +17,7 @@ public class prescription_cam extends AppCompatActivity {
     // Define the pic id
     private static final int pic_id = 123;
     // Define the button and imageview type variable
-    Button camera_open_id;
+    Button camera_open_id,buttonproceed;
     ImageView click_image_id;
 
 
@@ -30,6 +31,7 @@ public class prescription_cam extends AppCompatActivity {
         // By ID we can get each component which id is assigned in XML file get Buttons and imageview.
         camera_open_id = findViewById(R.id.camera_button);
         click_image_id = findViewById(R.id.click_image);
+        buttonproceed=findViewById(R.id.camera_proceed);
 
         // Camera_open button is for open the camera and add the setOnClickListener in this button
         camera_open_id.setOnClickListener(v -> {
@@ -37,6 +39,11 @@ public class prescription_cam extends AppCompatActivity {
             Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             // Start the activity with camera_intent, and request pic id
             startActivityForResult(camera_intent, pic_id);
+        });
+
+        buttonproceed.setOnClickListener(view -> {
+            Intent intent1 =new Intent(getApplicationContext(),sprescription.class);
+            startActivity(intent1);
         });
     }
 
@@ -48,9 +55,12 @@ public class prescription_cam extends AppCompatActivity {
             // BitMap is data structure of image file which store the image in memory
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             // Set the image in imageview for display
+            buttonproceed.setVisibility(View.VISIBLE);
+            camera_open_id.setVisibility(View.GONE);
             click_image_id.setImageBitmap(photo);
         }
     }
+
 
 
 }

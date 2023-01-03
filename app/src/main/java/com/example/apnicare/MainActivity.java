@@ -10,13 +10,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.alan.alansdk.AlanConfig;
+import com.alan.alansdk.button.AlanButton;
 import com.example.apnicare.Upload_Prescription.prescription_cam;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +34,6 @@ public class MainActivity extends AppCompatActivity{
     private Toast backToast;
     String ROOT_FRAGMENT="root_fragment";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +41,6 @@ public class MainActivity extends AppCompatActivity{
 
         bottomNavigationItemView=findViewById(R.id.bottomNavigationView);
         replace(new homepage(),true);
-
 
         bottomNavigationItemView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){

@@ -48,7 +48,7 @@ public class homepage extends Fragment  {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_homepage, container, false);
-        ImageView searchView = view.findViewById(R.id.imageView);
+//        ImageView searchView = view.findViewById(R.id.imageView);
         cart=view.findViewById(R.id.cartimagebutton);
         upbtn=view.findViewById(R.id.homeupload);
         allproducts=view.findViewById(R.id.showallproducts);
@@ -58,16 +58,16 @@ public class homepage extends Fragment  {
         usernumber.setText(sharedPrefManager.getData().getPhone());
         ImageSlider imageSlider = view.findViewById(R.id.coursel);
 
-        searchView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Fragment fragment=new search_medicine();
-                FragmentTransaction transaction=getActivity().getSupportFragmentManager().beginTransaction();
-                transaction.addToBackStack(null);
-                transaction.replace(R.id.homepage,fragment).commit();
-
-            }
-        });
+//        searchView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Fragment fragment=new search_medicine();
+//                FragmentTransaction transaction=getActivity().getSupportFragmentManager().beginTransaction();
+//                transaction.addToBackStack(null);
+//                transaction.replace(R.id.homepage,fragment).commit();
+//
+//            }
+//        });
 
         upbtn.setOnClickListener(new View.OnClickListener() {
             @Override

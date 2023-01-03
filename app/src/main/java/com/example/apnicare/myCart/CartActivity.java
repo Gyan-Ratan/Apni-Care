@@ -5,11 +5,13 @@ import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.apnicare.AllProducts.OrderBookedActivity;
 import com.example.apnicare.ModelResponses.OrderCart.CartBookingResponse;
 import com.example.apnicare.R;
 import com.example.apnicare.RetrofitClient;
@@ -43,12 +45,13 @@ public class CartActivity extends AppCompatActivity {
         topay=findViewById(R.id.topay);
         topay1=findViewById(R.id.topay2);
         recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         mycartproducts();
         proceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                bookorder();
+                Initiateorder();
             }
         });
 
@@ -62,7 +65,7 @@ public class CartActivity extends AppCompatActivity {
                 CartResponse cartResponse=response.body();
                 if (response.isSuccessful()){
                     CartItemAdapter adapter =new CartItemAdapter(CartActivity.this,cartResponse.getData(),cartTotal,dicount,topay);
-                    recyclerView.setLayoutManager((new LinearLayoutManager(CartActivity.this)));
+//                    recyclerView.setLayoutManager((new LinearLayoutManager(CartActivity.this)));
                     recyclerView.setAdapter(adapter);
                     updateTotal(cartResponse);
 //                    cartTotal.setText(cartResponse.getData());
@@ -79,18 +82,20 @@ public class CartActivity extends AppCompatActivity {
 
     }
 
-            private void bookorder() {
+            private void Initiateorder() {
 //        Toast.makeText(getContext(),"function",Toast.LENGTH_SHORT).show();
 
                 Call<CartBookingResponse> call=RetrofitClient.getInstance().getApi().book("cart","customer","Bearer "+sharedPrefManager.getData().getAccessToken());
                 call.enqueue(new Callback<CartBookingResponse>() {
                     @Override
                     public void onResponse(Call<CartBookingResponse> call, Response<CartBookingResponse> response) {
-                        Toast.makeText(CartActivity.this,response.toString(),Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(CartActivity.this,response.toString(),Toast.LENGTH_SHORT).show();
+                        CartBookingResponse cartBookingResponse=response.body();
                         if (response.isSuccessful()){
                             Toast.makeText(CartActivity.this,"order Booked",Toast.LENGTH_SHORT).show();
-                            /*Intent intent = new Intent(getActivity(), OrderBookedActivity.class);
-                            startActivity(intent);*/
+                            Intent intent = new Intent(getApplicationContext(), OrderBookedActivity.class);
+                            intent.putExtra("order_id",cartBookingResponse.getOrder().getId());
+                            startActivity(intent);
 
                         }
                     }

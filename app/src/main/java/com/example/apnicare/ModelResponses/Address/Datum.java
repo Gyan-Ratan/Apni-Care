@@ -33,10 +33,10 @@ public class Datum {
     private String location;
     @SerializedName("latitude")
     @Expose
-    private int latitude;
+    private double latitude;
     @SerializedName("longitude")
     @Expose
-    private int longitude;
+    private double longitude;
     @SerializedName("default")
     @Expose
     private Boolean _default;
@@ -113,19 +113,19 @@ public class Datum {
         this.location = location;
     }
 
-    public int getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(int latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public int getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(int longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 

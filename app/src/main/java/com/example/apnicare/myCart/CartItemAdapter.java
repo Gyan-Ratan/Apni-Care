@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.apnicare.ModelResponses.OrderCart.Detail;
 import com.example.apnicare.R;
 import com.example.apnicare.RetrofitClient;
 import com.example.apnicare.SharedPrefManager;
@@ -37,6 +38,8 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
         this.topay=topay;
     }
 
+
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -56,15 +59,15 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
 
         Datum cartresponse=data.get(position);
         holder.productname.setText(cartresponse.getDrug().getName());
-        holder.price.setText(cartresponse.getPrice().toString());
-        holder.mrp.setText(cartresponse.getDrug().getMrp().toString());
+        holder.price.setText("Rs. " +cartresponse.getPrice().toString());
+        holder.mrp.setText("MRP Rs. "+cartresponse.getDrug().getMrp().toString());
         holder.quantityNumber.setText(String.valueOf(cartresponse.getQuantity()));
 //        holder.delete.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
 //                int id,post;
 //                id = cartresponse.getId();
-//                holder.deleteitem(id,position);
+//                holder.deleteitem(id,position);0
 //
 //            }
 //        });
