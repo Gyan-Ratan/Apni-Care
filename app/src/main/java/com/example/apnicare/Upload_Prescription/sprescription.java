@@ -11,8 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.example.apnicare.Confirm_Order_Activity;
-import com.example.apnicare.MainActivity;
 import com.example.apnicare.R;
 import com.example.apnicare.YourOrders.YourOrderConfirmedActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;

@@ -21,7 +21,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class OrderBookedActivity extends AppCompatActivity {
+public class SelectAddressActivity extends AppCompatActivity {
     Button editaddress;
     View addaddress;
     Toolbar toolbar;
@@ -52,7 +52,7 @@ public class OrderBookedActivity extends AppCompatActivity {
             public void onResponse(Call<AddressResponse> call, Response<AddressResponse> response) {
                 AddressResponse addressResponse= response.body();
                 if (response.isSuccessful()){
-                    SelectAddressAdapter adapter =new SelectAddressAdapter(OrderBookedActivity.this,addressResponse.getAddressdata(),order_id);
+                    SelectAddressAdapter adapter =new SelectAddressAdapter(SelectAddressActivity.this,addressResponse.getAddressdata(),order_id);
                     addressrecycleview.setAdapter(adapter);
 //                    Toast.makeText(getContext(),response.toString(),Toast.LENGTH_SHORT).show();
                 }

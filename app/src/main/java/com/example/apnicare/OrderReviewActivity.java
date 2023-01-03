@@ -4,25 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.apnicare.AllAdapters.ConfirmOrderAdapter;
-import com.example.apnicare.AllProducts.OrderBookedActivity;
 import com.example.apnicare.ModelResponses.ComfirmOrder.ConfirmResponse;
 import com.example.apnicare.ModelResponses.OrderCart.CartBookingResponse;
 import com.example.apnicare.YourOrders.YourOrderConfirmedActivity;
-import com.example.apnicare.myCart.CartActivity;
-import com.example.apnicare.myCart.CartItemAdapter;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Confirm_Order_Activity extends AppCompatActivity {
+public class OrderReviewActivity extends AppCompatActivity {
     int order;
     RecyclerView recyclerView;
     Button confirm;
@@ -43,28 +39,27 @@ public class Confirm_Order_Activity extends AppCompatActivity {
         confirm.setOnClickListener(view -> {
             placeconfirm();
             String i= String.valueOf(id);
-            Toast.makeText(Confirm_Order_Activity.this,i,Toast.LENGTH_SHORT).show();
+            Toast.makeText(OrderReviewActivity.this,i,Toast.LENGTH_SHORT).show();
 
         });
 
     }
-
     private void placeconfirm() {
         Call<ConfirmResponse> call=RetrofitClient.getInstance().getApi().getconfirm(order,"Bearer "+sharedPrefManager.getData().getAccessToken(),id,id);
         call.enqueue(new Callback<ConfirmResponse>() {
             @Override
             public void onResponse(Call<ConfirmResponse> call, Response<ConfirmResponse> response) {
-                assert response.body() != null;
-                Toast.makeText(Confirm_Order_Activity.this,response.body().getData().toString(),Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(OrderReviewActivity.this,response.toString(),Toast.LENGTH_SHORT).show();
 
                 if (response.isSuccessful()){
-//                    Toast.makeText(Confirm_Order_Activity.this,id,Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(OrderReviewActivity.this,id,Toast.LENGTH_SHORT).show();
                     Intent intent1 = new Intent(getApplicationContext(),YourOrderConfirmedActivity.class);
 //                    placeconfirm();
                     startActivity(intent1);
                 }
                 else{
-                    Toast.makeText(Confirm_Order_Activity.this,"id",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(OrderReviewActivity.this,"id",Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -72,7 +67,7 @@ public class Confirm_Order_Activity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ConfirmResponse> call, Throwable t) {
-                Toast.makeText(Confirm_Order_Activity.this,"faulure",Toast.LENGTH_SHORT).show();
+                Toast.makeText(OrderReviewActivity.this,"faulure",Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -84,10 +79,10 @@ public class Confirm_Order_Activity extends AppCompatActivity {
             @Override
             public void onResponse(Call<CartBookingResponse> call, Response<CartBookingResponse> response) {
                 CartBookingResponse cartBookingResponse=response.body();
-                Toast.makeText(Confirm_Order_Activity.this,response.toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(OrderReviewActivity.this,response.toString(),Toast.LENGTH_SHORT).show();
                 if (response.isSuccessful()){
 
-                ConfirmOrderAdapter adapter =new ConfirmOrderAdapter(Confirm_Order_Activity.this,cartBookingResponse.getOrder().getDetail());
+                ConfirmOrderAdapter adapter =new ConfirmOrderAdapter(OrderReviewActivity.this,cartBookingResponse.getOrder().getDetail());
                 recyclerView.setLayoutManager((new LinearLayoutManager(getApplicationContext())));
                 recyclerView.setAdapter(adapter);
                 }

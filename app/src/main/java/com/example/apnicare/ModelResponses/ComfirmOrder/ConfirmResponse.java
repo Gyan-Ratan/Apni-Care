@@ -8,6 +8,16 @@ public class ConfirmResponse {
     @Expose
     private Object data;
 
+    private Object message;
+
+    public Object getMessage() {
+        return message;
+    }
+
+    public void setMessage(Object message) {
+        this.message = message;
+    }
+
     public Object getData() {
         return data;
     }

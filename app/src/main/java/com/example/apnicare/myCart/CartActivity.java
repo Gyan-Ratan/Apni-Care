@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.apnicare.AllProducts.OrderBookedActivity;
+import com.example.apnicare.AllProducts.SelectAddressActivity;
 import com.example.apnicare.ModelResponses.OrderCart.CartBookingResponse;
 import com.example.apnicare.R;
 import com.example.apnicare.RetrofitClient;
@@ -93,7 +93,7 @@ public class CartActivity extends AppCompatActivity {
                         CartBookingResponse cartBookingResponse=response.body();
                         if (response.isSuccessful()){
                             Toast.makeText(CartActivity.this,"order Booked",Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), OrderBookedActivity.class);
+                            Intent intent = new Intent(getApplicationContext(), SelectAddressActivity.class);
                             intent.putExtra("order_id",cartBookingResponse.getOrder().getId());
                             startActivity(intent);
 

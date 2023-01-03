@@ -11,8 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.apnicare.Confirm_Order_Activity;
-import com.example.apnicare.ModelResponses.Address.AddressAdapter;
+import com.example.apnicare.OrderReviewActivity;
 import com.example.apnicare.ModelResponses.Address.Datum;
 import com.example.apnicare.R;
 import com.example.apnicare.SharedPrefManager;
@@ -85,7 +84,7 @@ public class SelectAddressAdapter extends RecyclerView.Adapter<SelectAddressAdap
         public void onClick(View v) {
             int id1;
             id1=addresses.get(getAdapterPosition()).getId();
-            Intent intent = new Intent(context,Confirm_Order_Activity.class);
+            Intent intent = new Intent(context, OrderReviewActivity.class);
             intent.putExtra("id",id1);
             intent.putExtra("order",o_id);
             context.startActivity(intent);

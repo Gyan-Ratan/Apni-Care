@@ -51,7 +51,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Confirm_Order_Activity"
+            android:name=".OrderReviewActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -86,7 +86,7 @@
                 android:value="" />
         </activity> <!-- ALL PRODUCT BOOKED ACTIVITY -->
         <activity
-            android:name=".AllProducts.OrderBookedActivity"
+            android:name=".AllProducts.SelectAddressActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
