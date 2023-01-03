@@ -31,24 +31,30 @@ public class LoginActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                registerUser();
+                String number=num.getText().toString();
+                if(number.isEmpty()){
+                    num.requestFocus();
+                    num.setError("please enter number");
+                    Toast.makeText(LoginActivity.this,"enter correct number",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(!Patterns.PHONE.matcher(number).matches()){
+                    num.requestFocus();
+                    num.setError("please enter a valid number");
+                    Toast.makeText(LoginActivity.this,"enter correct number",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                registerUser(number);
+                Intent intent = new Intent(LoginActivity.this, enter_otp_Activity.class);
+                intent.putExtra("Phone", number);
+                startActivity(intent);
+
             }
         });
     }
-    private void registerUser() {
-        String number=num.getText().toString();
-        if(number.isEmpty()){
-            num.requestFocus();
-            num.setError("please enter number");
-            Toast.makeText(LoginActivity.this,"enter correct number",Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(!Patterns.PHONE.matcher(number).matches()){
-            num.requestFocus();
-            num.setError("please enter a valid number");
-            Toast.makeText(LoginActivity.this,"enter correct number",Toast.LENGTH_SHORT).show();
-            return;
-        }
+    private void registerUser(String number) {
+
         Call<RegisterResponse> call= RetrofitClient
                 .getInstance()
                 .getApi()
@@ -60,9 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(response.isSuccessful()){
 
 //                    Toast.makeText(LoginActivity.this,"login succes",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(LoginActivity.this, enter_otp_Activity.class);
-                    intent.putExtra("Phone", number);
-                    startActivity(intent);
+
                 }
             }
 
