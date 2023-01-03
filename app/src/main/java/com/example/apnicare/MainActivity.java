@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -20,6 +22,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,9 +33,6 @@ public class MainActivity extends AppCompatActivity{
     private Long exitTime;
     private Toast backToast;
     String ROOT_FRAGMENT="root_fragment";
-    /// Add the alanButton variable
-    private AlanButton alanButton;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +41,6 @@ public class MainActivity extends AppCompatActivity{
 
         bottomNavigationItemView=findViewById(R.id.bottomNavigationView);
         replace(new homepage(),true);
-
-        /// Set up the Alan button
-        AlanConfig config = AlanConfig.builder().setProjectId("8e8119840d055d65278663cdc6fbf63f2e956eca572e1d8b807a3e2338fdd0dc/stage").build();
-        alanButton = findViewById(R.id.alan_button);
-        alanButton.initWithConfig(config);
 
         bottomNavigationItemView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
