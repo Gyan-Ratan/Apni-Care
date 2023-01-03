@@ -55,7 +55,7 @@ public class CategoryRecycleAdapter extends RecyclerView.Adapter<CategoryRecycle
         public MyViewHolder(@NonNull View itemView) {
 
             super(itemView);
-            catimg = itemView.findViewById(R.id.catimg);
+//            catimg = itemView.findViewById(R.id.catimg);
             category =itemView.findViewById(R.id.category);
             category.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -69,9 +69,6 @@ public class CategoryRecycleAdapter extends RecyclerView.Adapter<CategoryRecycle
 
                 }
             });
-        }catch (Exception f){
-            System.out.println("some error at Category.java"+f);
         }
         }
     }
-}

@@ -15,8 +15,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.alan.alansdk.AlanConfig;
-import com.alan.alansdk.button.AlanButton;
 import com.example.apnicare.Upload_Prescription.prescription_cam;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
