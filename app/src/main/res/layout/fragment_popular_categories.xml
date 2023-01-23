@@ -27,17 +27,18 @@
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/cate_img_id2"
                 android:layout_width="match_parent"
-                android:layout_height="95dp"
+                android:layout_gravity="center"
+                android:layout_height="100dp"
                 android:scaleType="fitXY" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/cate_title_id2"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:layout_gravity="bottom"
+                android:layout_gravity="bottom|center"
                 android:layout_margin="5dp"
                 android:gravity="center|top"
-                android:text="Book Title"
+                android:text="Product Name"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="@android:color/black" />
         </LinearLayout>
