@@ -11,6 +11,7 @@ import com.example.apnicare.ModelResponses.DeleteAddress.DeleteAddressResponse;
 import com.example.apnicare.ModelResponses.EditAddress.EditAddressResponse;
 import com.example.apnicare.ModelResponses.LoginResponse.LoginResponse;
 import com.example.apnicare.ModelResponses.OrderCart.CartBookingResponse;
+import com.example.apnicare.ModelResponses.OrdersStatusResponse.OrderStatusResponse;
 import com.example.apnicare.ModelResponses.RegisterResponse;
 import com.example.apnicare.ModelResponses.ResendOtp.ResendOtp;
 import com.example.apnicare.ModelResponses.Search.SearchResponse;
@@ -90,4 +91,7 @@ public interface Api {
     @PUT("order/{id}/confirm")
     Call<ConfirmResponse> getconfirm(@Path("id")int id,@Header("Authorization") String token,@Field("shipping_address_id")int addId,@Field("billing_address_id")int billAddress);
 
+
+    @GET("order/")
+    Call<OrderStatusResponse> orderStatus(@Query("page")int page,@Header("Authorization") String token);
 }

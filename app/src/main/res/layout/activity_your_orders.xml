@@ -37,29 +37,33 @@
             android:orientation="vertical"
             tools:context=".YourOrders.YourOrdersActivity">
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/transparent"
-                android:paddingTop="12dp"
-                android:paddingBottom="12dp"
-                android:visibility="gone"
-                app:tabGravity="center"
-                app:tabIndicator="@drawable/active"
-                app:tabIndicatorAnimationMode="elastic"
-                app:tabIndicatorColor="@color/teal_200"
-                app:tabIndicatorGravity="stretch"
-                app:tabMode="fixed"
-                app:tabRippleColor="@android:color/transparent"
-                app:tabSelectedTextAppearance="@style/TabLayout"
-                app:tabSelectedTextColor="@android:color/white"
-                app:tabTextAppearance="@style/TabLayout" />
+<!--            <com.google.android.material.tabs.TabLayout-->
+<!--                android:id="@+id/tabLayout"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@color/transparent"-->
+<!--                android:paddingTop="12dp"-->
+<!--                android:paddingBottom="12dp"-->
+<!--                android:visibility="gone"-->
+<!--                app:tabGravity="center"-->
+<!--                app:tabIndicator="@drawable/active"-->
+<!--                app:tabIndicatorAnimationMode="elastic"-->
+<!--                app:tabIndicatorColor="@color/teal_200"-->
+<!--                app:tabIndicatorGravity="stretch"-->
+<!--                app:tabMode="fixed"-->
+<!--                app:tabRippleColor="@android:color/transparent"-->
+<!--                app:tabSelectedTextAppearance="@style/TabLayout"-->
+<!--                app:tabSelectedTextColor="@android:color/white"-->
+<!--                app:tabTextAppearance="@style/TabLayout" />-->
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/orderviewpager"
+<!--            <androidx.viewpager2.widget.ViewPager2-->
+<!--                android:id="@+id/orderviewpager"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent" />-->
+            <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:id="@+id/StatusOrderView"/>
 
         </LinearLayout>
 

@@ -48,9 +48,9 @@ public class MainActivity extends AppCompatActivity{
                 case R.id.User:
                     replace(new account_page(),true);
                     break;
-                case R.id.orderviewpager:
-                    uploadpre();
-                    break;
+//                case R.id.orderviewpager:
+//                    uploadpre();
+//                    break;
                 case R.id.report:
                     replace(new health_records_page(),true);
                     break;

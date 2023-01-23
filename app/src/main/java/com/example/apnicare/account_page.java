@@ -71,7 +71,7 @@ public class account_page extends Fragment {
         });
 
         needhelp.setOnClickListener(view5 ->  {
-                Intent intent = new Intent(getActivity(), Needhelp.class);
+                Intent intent = new Intent(getActivity(), ContactUsActivity.class);
                 startActivity(intent);
         });
 

@@ -2,9 +2,13 @@ package com.example.apnicare;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,15 +22,34 @@ import retrofit2.Response;
 public class ContactUsActivity extends AppCompatActivity {
     EditText first, last, email, phone, subject, message;
     Button submit;
+    private WebView mywebView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        WebView myWebView = new WebView(getApplicationContext());
-        setContentView(myWebView);
-//        setContentView(R.layout.activity_contact_us);
+//        myWebView = new WebView(getApplicationContext());
+//        setContentView(myWebView);
+        setContentView(R.layout.activity_contact_us);
+        mywebView=(WebView) findViewById(R.id.web);
+        mywebView.setWebViewClient(new WebViewClient());
+        mywebView.loadUrl("https://dev.apnicare.in/terms");
+        WebSettings webSettings=mywebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+
+        mywebView.setWebViewClient(new MyWebClient());
+//                                   {
+//            @Override
+//            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+//                return super.shouldOverrideUrlLoading(view, request);
+//            }
+//        });
+
+
+
+
 //        WebView myWebView = (WebView) findViewById(R.id.web);
-        myWebView.loadUrl("http://www.google.com");
+//        myWebView.loadUrl("http://www.google.com");
 
 //
 //        first = findViewById(R.id.firstName);
@@ -69,5 +92,30 @@ public class ContactUsActivity extends AppCompatActivity {
 //        });
 //
 //    }
+
+
+
+
+    public class MyWebClient extends WebViewClient{
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon){
+            super.onPageStarted(view,url,favicon);
+        }
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view,String url){
+            view.loadUrl(url);
+            return true;
+        }
+    }
+    @Override
+    public void onBackPressed(){
+        if(mywebView.canGoBack()) {
+            mywebView.goBack();
+        }
+        else{
+            super.onBackPressed();
+        }
+    }
+
 
 }
