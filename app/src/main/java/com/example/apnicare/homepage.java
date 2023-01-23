@@ -68,7 +68,7 @@ public class homepage extends Fragment  {
         recyclerviewpc = view.findViewById(R.id.recyclerview_id1);
         sharedPrefManager=new SharedPrefManager(getContext());
         AllCategoriesActivity allCategoriesActivity=new AllCategoriesActivity();
-      
+
         usernumber.setText(sharedPrefManager.getData().getPhone());
         ImageSlider imageSlider = view.findViewById(R.id.coursel);
 
