@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.apnicare.AllAdapters.CategoryRecycleAdapter;
@@ -16,11 +18,14 @@ import retrofit2.Response;
 
 public class AllCategoriesActivity extends AppCompatActivity {
     RecyclerView recycle;
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_categories);
         recycle =findViewById(R.id.recycle);
+        progressBar=findViewById(R.id.pbarAllCategory);
+        progressBar.getProgress();
         LinearLayoutManager llm =new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false);
         recycle.setLayoutManager(llm);
         listingdata();
@@ -32,17 +37,21 @@ public class AllCategoriesActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<CategoryResponse> call, Response<CategoryResponse> response) {
                 CategoryResponse categoryResponse=response.body();
-                Toast.makeText(getApplicationContext(),response.toString(),Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(),response.toString(),Toast.LENGTH_SHORT).show();
 
                 if (response.isSuccessful()){
-                    CategoryRecycleAdapter adapter =new CategoryRecycleAdapter(AllCategoriesActivity.this,categoryResponse.getData());
-                    recycle.setAdapter(adapter);
+                    if (!categoryResponse.getData().isEmpty()){
+                        progressBar.setVisibility(View.GONE);
+                        CategoryRecycleAdapter adapter =new CategoryRecycleAdapter(AllCategoriesActivity.this,categoryResponse.getData());
+                        recycle.setAdapter(adapter);
+                    }
+
                 }
             }
 
             @Override
             public void onFailure(Call<CategoryResponse> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Check Internet",Toast.LENGTH_SHORT).show();
 
             }
         });

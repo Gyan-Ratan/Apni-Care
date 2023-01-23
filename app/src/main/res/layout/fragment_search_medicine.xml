@@ -69,10 +69,19 @@
 
     <!--                android:layout_height="wrap_content"-->
     <!--                android:alwaysDrawnWithCache="true" />-->
+    <ProgressBar
+        android:id="@+id/pbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:foregroundGravity="center"
+
+        />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/searchrecyleview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         />
+
 
 </LinearLayout>

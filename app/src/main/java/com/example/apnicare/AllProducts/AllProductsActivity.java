@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.apnicare.ModelResponses.Search.SearchResponse;
@@ -24,6 +25,7 @@ public class AllProductsActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     SharedPrefManager sharedPrefManager;
     Button next,prev;
+    ProgressBar progressBar;
     int page=1;
     String id;
     @Override
@@ -32,6 +34,7 @@ public class AllProductsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_all_products);
         sharedPrefManager=new SharedPrefManager(getApplicationContext());
         next=findViewById(R.id.next);
+        progressBar=findViewById(R.id.pbarAllProducts);
         prev=findViewById(R.id.prev);
         Intent intent = getIntent();
         id= intent.getStringExtra("categorySlug");
@@ -45,6 +48,7 @@ public class AllProductsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (page>1) {
+//                    progressBar.setVisibility(View.VISIBLE);
                     page=page-1;
                     listall(page,id);
                 }
@@ -56,6 +60,7 @@ public class AllProductsActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                progressBar.setVisibility(View.VISIBLE);
                 page=page+1;
                 listall(page,id);
             }
@@ -83,8 +88,12 @@ public class AllProductsActivity extends AppCompatActivity {
                     SearchResponse searchResponse = response.body();
 
                     if (response.isSuccessful()) {
-                        searchMedicineAdapter adapter = new searchMedicineAdapter(getApplicationContext(), searchResponse.getData().getItems());
-                        recyclerView.setAdapter(adapter);
+                        if (!searchResponse.getData().getItems().isEmpty()){
+                            progressBar.setVisibility(View.GONE);
+                            searchMedicineAdapter adapter = new searchMedicineAdapter(getApplicationContext(), searchResponse.getData().getItems());
+                            recyclerView.setAdapter(adapter);
+                        }
+
 //                    Toast.makeText(getContext(),response.toString(), Toast.LENGTH_SHORT).show();
                     }
                 }

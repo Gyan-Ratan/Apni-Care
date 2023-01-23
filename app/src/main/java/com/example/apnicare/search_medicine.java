@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.apnicare.ModelResponses.Search.SearchResponse;
@@ -28,6 +29,7 @@ public class search_medicine extends Fragment {
     SharedPrefManager sharedPrefManager;
     Button search_btn;
     SearchView searchView;
+    ProgressBar progressBar;
 
 // Get data from from search view and the query api to get the results
 //    private void SetupSearchView() {
@@ -45,6 +47,8 @@ public class search_medicine extends Fragment {
         View view= inflater.inflate(R.layout.fragment_search_medicine, container, false);
         sharedPrefManager=new SharedPrefManager(getContext());
 //        search_btn=view.findViewById(R.id.searchbtn);
+        progressBar=view.findViewById(R.id.pbar);
+        progressBar.getProgress();
         sharedPrefManager=new SharedPrefManager(getContext());
         searchView= view.findViewById(R.id.search_view);
         recyclerView2=view.findViewById(R.id.searchrecyleview);
@@ -85,8 +89,13 @@ public class search_medicine extends Fragment {
                 SearchResponse searchResponse= response.body();
 
                 if (response.isSuccessful()){
-                    searchMedicineAdapter adapter =new searchMedicineAdapter(getContext(),searchResponse.getData().getItems());
-                    recyclerView2.setAdapter(adapter);
+
+                    if (!searchResponse.getData().getItems().isEmpty()){
+                        progressBar.setVisibility(View.GONE);
+                        searchMedicineAdapter adapter =new searchMedicineAdapter(getContext(),searchResponse.getData().getItems());
+                        recyclerView2.setAdapter(adapter);
+                    }
+
 //                    Toast.makeText(getContext(),response.toString(), Toast.LENGTH_SHORT).show();
                 }
             }

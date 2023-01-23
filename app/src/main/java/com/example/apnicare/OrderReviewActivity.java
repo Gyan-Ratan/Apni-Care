@@ -49,8 +49,8 @@ public class OrderReviewActivity extends AppCompatActivity {
         call.enqueue(new Callback<ConfirmResponse>() {
             @Override
             public void onResponse(Call<ConfirmResponse> call, Response<ConfirmResponse> response) {
-
-                Toast.makeText(OrderReviewActivity.this,response.toString(),Toast.LENGTH_SHORT).show();
+                ConfirmResponse confirmResponse=response.body();
+//                Toast.makeText(OrderReviewActivity.this,confirmResponse.toString(),Toast.LENGTH_SHORT).show();
 
                 if (response.isSuccessful()){
 //                    Toast.makeText(OrderReviewActivity.this,id,Toast.LENGTH_SHORT).show();
@@ -59,7 +59,7 @@ public class OrderReviewActivity extends AppCompatActivity {
                     startActivity(intent1);
                 }
                 else{
-                    Toast.makeText(OrderReviewActivity.this,"id",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(OrderReviewActivity.this,"Please Contact Admin",Toast.LENGTH_SHORT).show();
 
                 }
 

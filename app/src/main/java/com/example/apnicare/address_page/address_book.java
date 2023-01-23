@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.apnicare.ModelResponses.Address.AddressAdapter;
@@ -34,6 +35,7 @@ public class address_book extends Fragment {
    Toolbar toolbar;
    SharedPrefManager sharedPrefManager;
    RecyclerView addressrecycleview;
+   TextView noAddress;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -45,6 +47,7 @@ public class address_book extends Fragment {
         sharedPrefManager=new SharedPrefManager(getContext());
         addaddress=view.findViewById(R.id.Addaddressbtn);
         toolbar=view.findViewById(R.id.addbook_toolbar);
+        noAddress=view.findViewById(R.id.noAddress);
         addressrecycleview=view.findViewById(R.id.addressrecycleview);
         addressrecycleview.setHasFixedSize(true);
         addressrecycleview.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -78,8 +81,12 @@ public class address_book extends Fragment {
                 AddressResponse addressResponse= response.body();
                 try {
                     if (response.isSuccessful()){
-                        AddressAdapter adapter =new AddressAdapter(getContext(),addressResponse.getAddressdata());
-                        addressrecycleview.setAdapter(adapter);
+                        if (!addressResponse.getAddressdata().isEmpty()){
+                            noAddress.setVisibility(View.GONE);
+                            AddressAdapter adapter =new AddressAdapter(getContext(),addressResponse.getAddressdata());
+                            addressrecycleview.setAdapter(adapter);
+                        }
+
 //                    Toast.makeText(getContext(),response.toString(),Toast.LENGTH_SHORT).show();
                     }
                 }catch (Exception e){
