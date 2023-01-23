@@ -65,7 +65,6 @@
                             android:layout_gravity="top"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="User Name"
                             android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
                             android:visibility="gone" />
 
@@ -75,7 +74,6 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="User Email"
                             android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle1"
                             android:visibility="gone" />
 
@@ -85,7 +83,6 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="gender"
                             android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Overline"
                             android:visibility="gone" />
 

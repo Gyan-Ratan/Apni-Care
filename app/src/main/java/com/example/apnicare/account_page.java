@@ -19,7 +19,7 @@ import com.example.apnicare.address_page.AddressActivity;
 
 public class account_page extends Fragment {
 
-    TextView order,family,addresspage,usernumber,logout,needhelp,accountsetting,referButton;
+    TextView order,family,addresspage,usernumber,username,gender,email,logout,needhelp,accountsetting,referButton;
     ImageButton userprofile;
     SharedPrefManager sharedPrefManager;
 
@@ -35,6 +35,9 @@ public class account_page extends Fragment {
         userprofile = view.findViewById(R.id.edit_profile);
         family = view.findViewById(R.id.account_family);
         usernumber = view.findViewById(R.id.phoneNumber);
+        username = view.findViewById(R.id.text_dashboard);
+//        email=view.findViewById(R.id.text_email);
+        gender=view.findViewById(R.id.text_gender);
         accountsetting = view.findViewById(R.id.account_setting);
         sharedPrefManager = new SharedPrefManager(getContext());
         usernumber.setText(sharedPrefManager.getData().getPhone());
@@ -42,7 +45,14 @@ public class account_page extends Fragment {
         logout = view.findViewById(R.id.logOut);
         referButton = view.findViewById(R.id.referButton);
 
+        username.setText(sharedPrefManager.getData().getFirstName().toUpperCase());
+        username.setVisibility(sharedPrefManager.getData().getFirstName()==null ? View.GONE : View.VISIBLE);
 
+//        email.setText(sharedPrefManager.getData().getEmail());
+//        email.setVisibility(sharedPrefManager.getData().getEmail()==null ? View.GONE : View.VISIBLE);
+
+        gender.setText(sharedPrefManager.getData().getGender().substring(0,1));
+        gender.setVisibility(sharedPrefManager.getData().getGender()==null ? View.GONE : View.VISIBLE);
 
         userprofile.setOnClickListener(view0 ->  {
             Intent intent = new Intent(getActivity(), User_Profile.class);
