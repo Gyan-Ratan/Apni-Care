@@ -10,61 +10,86 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15sp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="14dp"
         android:elevation="5dp"
-        app:cardElevation="5sp"
         app:cardCornerRadius="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:cardElevation="5sp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="15sp">
+            android:padding="12sp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/order_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Order No- "
+
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1" />
+
+                <TextView
+                    android:id="@+id/order_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="12374623874"
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body2" />
+            </LinearLayout>
 
             <TextView
+                android:id="@+id/expected_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Date:- 05/01/2022" />
+                android:padding="2dp"
+                android:text=" 05/01/2022"
+                tools:layout_editor_absoluteX="15dp"
+                tools:layout_editor_absoluteY="15dp" />
 
             <TextView
-                android:id="@+id/orderId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Order No-"
-                android:textSize="18sp"
 
-                />
-            <TextView
-
+                android:id="@+id/track_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="2dp"
                 android:text="Tracking id"
-                android:textSize="18sp"/>
+                tools:layout_editor_absoluteX="15dp"
+                tools:layout_editor_absoluteY="15dp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <Button
+
+                <TextView
+                    android:id="@+id/order_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Details"
-                    android:background="@color/transparent"
-                    android:textColor="@color/black"/>
-                <TextView
-                    android:id="@+id/stat"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="2dp"
                     android:text="Pending"
-                    android:textColor="@color/teal_200"
-                    android:textSize="18dp"
-                    android:gravity="end"/>
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body2"
+                    android:textColor="@color/teal_200" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Amount : "
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Amt" />
 
             </LinearLayout>
         </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 </LinearLayout>

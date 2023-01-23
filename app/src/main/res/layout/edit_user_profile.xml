@@ -41,16 +41,6 @@
                 android:layout_height="150dp"
                 app:srcCompat="@drawable/user" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="NAME"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textColor="@color/grayish"
-                android:textStyle="bold" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -104,16 +94,6 @@
 
             </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="Date Of Birth"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textColor="@color/grayish"
-                android:textStyle="bold" />
-
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
@@ -121,7 +101,9 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:focusable="true"
-                android:focusableInTouchMode="true">
+                android:focusableInTouchMode="true"
+                android:hint="Date Of Birth"
+                app:helperText="Format: DD/MM/YYYY">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/dob"
@@ -131,21 +113,10 @@
                     android:layout_centerVertical="true"
                     android:autofillHints=""
                     android:ems="10"
-                    android:hint="DD/MM/YYYY"
                     android:inputType="date"
                     android:singleLine="false"
                     android:textSize="20sp" />
             </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="Email"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textColor="@color/grayish"
-                android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -169,16 +140,6 @@
                     android:singleLine="false"
                     android:textSize="20sp" />
             </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="Phone Number"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textColor="@color/grayish"
-                android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"

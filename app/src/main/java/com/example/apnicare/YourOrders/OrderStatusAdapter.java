@@ -11,9 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.apnicare.ModelResponses.OrdersStatusResponse.Item;
 import com.example.apnicare.R;
-import com.example.apnicare.myCart.CartItemAdapter;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -36,7 +33,7 @@ public class OrderStatusAdapter extends RecyclerView.Adapter<OrderStatusAdapter.
     @Override
     public void onBindViewHolder(@NonNull OrderStatusAdapter.ViewHolder holder, int position) {
         Item item=items.get(position);
-        holder.orderId.setText("OrderId : "+item.getOrderNumber());
+        holder.orderId.setText(item.getOrderNumber());
         holder.status.setText(item.getStatus());
 
     }
@@ -51,8 +48,8 @@ public class OrderStatusAdapter extends RecyclerView.Adapter<OrderStatusAdapter.
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            orderId=itemView.findViewById(R.id.orderId);
-            status=itemView.findViewById(R.id.stat);
+            orderId=itemView.findViewById(R.id.order_no);
+            status=itemView.findViewById(R.id.order_status);
         }
 
         @Override
