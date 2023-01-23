@@ -69,6 +69,11 @@ public class homepage extends Fragment  {
 //            }
 //        });
 
+        // cart badge
+        TextView cartBadgeTextView = view.findViewById(R.id.cart_badge_text_view);
+        int cartQuantity =3;
+        cartBadgeTextView.setText(String.valueOf(cartQuantity));
+        cartBadgeTextView.setVisibility(cartQuantity == 0 ? View.GONE : View.VISIBLE);
         upbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
