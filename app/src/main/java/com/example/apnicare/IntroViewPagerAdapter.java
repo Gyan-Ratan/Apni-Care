@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
+//import androidx.viewpager2.widget.PagerAdapter;
 
 import java.util.List;
 
