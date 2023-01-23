@@ -10,12 +10,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.apnicare.ModelResponses.OrderCart.Detail;
 import com.example.apnicare.R;
 import com.example.apnicare.RetrofitClient;
 import com.example.apnicare.SharedPrefManager;
+import com.example.apnicare.product_detail;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -79,17 +81,24 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
         TextView productname;
         public TextView price, delete, mrp, quantityNumber;
         Button addQuantity;
+        CardView cardView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 //            itemView.setOnClickListener(this::onClick);
             mrp = itemView.findViewById(R.id.mrp);
+            cardView=itemView.findViewById(R.id.cart_cardView);
             delete = itemView.findViewById(R.id.deletebtn);
             productname = itemView.findViewById(R.id.productName);
             price = itemView.findViewById(R.id.prodctMRP);
             quantityNumber = itemView.findViewById(R.id.quantitynumber);
             addQuantity = itemView.findViewById(R.id.addbtn);
             sharedPrefManager = new SharedPrefManager(context);
+            cardView.setOnClickListener(view -> {
+                Intent intent = new Intent(context, product_detail.class);
+                context.startActivity(intent);
+            });
+
             addQuantity.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

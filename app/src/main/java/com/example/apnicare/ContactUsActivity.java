@@ -29,7 +29,7 @@ public class ContactUsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        myWebView = new WebView(getApplicationContext());
-//        setContentView(myWebView);
+//        setContentView(webView);
         setContentView(R.layout.activity_contact_us);
         mywebView=(WebView) findViewById(R.id.web);
         mywebView.setWebViewClient(new WebViewClient());

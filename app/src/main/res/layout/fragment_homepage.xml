@@ -68,6 +68,20 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/shopping_cart_24" />
 
+            <TextView
+                android:id="@+id/cart_badge_text_view"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/ic_baseline_circle_24"
+                android:elevation="6sp"
+                android:ellipsize="middle"
+                android:text="1"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/cartimagebutton"
+                app:layout_constraintTop_toTopOf="@+id/cartimagebutton" />
+
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
