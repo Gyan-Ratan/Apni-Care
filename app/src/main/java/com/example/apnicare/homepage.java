@@ -8,10 +8,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.SearchView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -43,6 +45,8 @@ public class homepage extends Fragment  {
     TextView usernumber,allCategory;
     SharedPrefManager sharedPrefManager;
     RecyclerView recyclerviewpc;
+    ProgressBar progressBar;
+    ConstraintLayout constraintLayout;
     BottomNavigationItemView bottomNavigationItemView;
     private final List<Categoriesdata> lstpcate = new ArrayList<>() ;
 
@@ -60,6 +64,9 @@ public class homepage extends Fragment  {
         View view= inflater.inflate(R.layout.fragment_homepage, container, false);
 //        ImageView searchView = view.findViewById(R.id.imageView);
         cart=view.findViewById(R.id.cartimagebutton);
+        constraintLayout=view.findViewById(R.id.HomeLayout);
+        progressBar=view.findViewById(R.id.pbarHome);
+
 
         upbtn=view.findViewById(R.id.homeupload);
         allproducts=view.findViewById(R.id.showallproducts);
@@ -181,6 +188,8 @@ public class homepage extends Fragment  {
 //                Toast.makeText(getApplicationContext(),response.toString(),Toast.LENGTH_SHORT).show();
 
                 if (response.isSuccessful()){
+                    constraintLayout.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.GONE);
                     if (!categoryResponse.getData().isEmpty()){
                         PopularcategoriesRecyclerViewAdapter myAdapter = new PopularcategoriesRecyclerViewAdapter(getActivity(),categoryResponse.getData() );
                         recyclerviewpc.setLayoutManager(new GridLayoutManager(getActivity(),3));

@@ -11,10 +11,18 @@
         tools:context=".homepage"
         android:id="@+id/homepage"
         >
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/HomeLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:visibility="gone">
 
             <!--<androidx.appcompat.widget.SearchView
                 android:id="@+id/search_view"
@@ -363,6 +371,13 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+    <ProgressBar
+        android:padding="20sp"
+        android:id="@+id/pbarHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+    </LinearLayout>
 
 
 </ScrollView>
