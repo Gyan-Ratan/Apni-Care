@@ -100,6 +100,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom"
                             android:gravity="center"
+                            android:textSize="18dp"
                             android:text="Mobile Number"
                             android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Button"
                             android:layout_weight="1" />
@@ -115,6 +116,7 @@
                         android:minHeight="48dp"
                         android:src="@drawable/edit"
                         android:tint="@color/cyan_800"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"

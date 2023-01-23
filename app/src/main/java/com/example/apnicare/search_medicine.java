@@ -93,7 +93,7 @@ public class search_medicine extends Fragment {
 
             @Override
             public void onFailure(Call<SearchResponse> call, Throwable t) {
-                Toast.makeText(getContext(),t.getMessage()+"failure",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"Server Issue, contact admin",Toast.LENGTH_SHORT).show();
 
             }
         });
