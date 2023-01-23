@@ -22,18 +22,28 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.apnicare.AllAdapters.CategoryRecycleAdapter;
 import com.example.apnicare.AllProducts.AllProductsActivity;
+import com.example.apnicare.ModelResponses.CategoryResponse.CategoryResponse;
 import com.example.apnicare.myCart.CartActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 public class homepage extends Fragment  {
     Button upbtn;
+    SearchView searchView;
     ImageButton cart,allproducts;
     TextView usernumber,allCategory;
     SharedPrefManager sharedPrefManager;
+    RecyclerView recyclerviewpc;
+    BottomNavigationItemView bottomNavigationItemView;
     private final List<Categoriesdata> lstpcate = new ArrayList<>() ;
 
     @Override
@@ -50,11 +60,15 @@ public class homepage extends Fragment  {
         View view= inflater.inflate(R.layout.fragment_homepage, container, false);
 //        ImageView searchView = view.findViewById(R.id.imageView);
         cart=view.findViewById(R.id.cartimagebutton);
+
         upbtn=view.findViewById(R.id.homeupload);
         allproducts=view.findViewById(R.id.showallproducts);
         usernumber=view.findViewById(R.id.home_user_phn);
         allCategory=view.findViewById(R.id.allcategories);
+        recyclerviewpc = view.findViewById(R.id.recyclerview_id1);
         sharedPrefManager=new SharedPrefManager(getContext());
+        AllCategoriesActivity allCategoriesActivity=new AllCategoriesActivity();
+      
         usernumber.setText(sharedPrefManager.getData().getPhone());
         ImageSlider imageSlider = view.findViewById(R.id.coursel);
 
@@ -69,9 +83,11 @@ public class homepage extends Fragment  {
 //            }
 //        });
 
+
         // cart badge
+
         TextView cartBadgeTextView = view.findViewById(R.id.cart_badge_text_view);
-        int cartQuantity =3;
+        int cartQuantity =0;
         cartBadgeTextView.setText(String.valueOf(cartQuantity));
         cartBadgeTextView.setVisibility(cartQuantity == 0 ? View.GONE : View.VISIBLE);
         upbtn.setOnClickListener(new View.OnClickListener() {
@@ -117,7 +133,8 @@ public class homepage extends Fragment  {
         imageSlider.setImageList(mList,ScaleTypes.FIT);
 
         bulidlistPCdata();
-        initRecyclerView(view);
+        listingdata();
+//        initRecyclerView(view);
 
 
         return view;
@@ -135,12 +152,12 @@ public class homepage extends Fragment  {
         lstpcate.add(new Categoriesdata("Sexual Wellness", R.drawable.sexualwell));
     }
     // popular gridview layout
-    private void initRecyclerView(View view){
-        RecyclerView recyclerviewpc = view.findViewById(R.id.recyclerview_id1);
-        PopularcategoriesRecyclerViewAdapter myAdapter = new PopularcategoriesRecyclerViewAdapter(getActivity(),lstpcate);
-        recyclerviewpc.setLayoutManager(new GridLayoutManager(getActivity(),3));
-        recyclerviewpc.setAdapter(myAdapter);
-    }
+//    private void initRecyclerView(View view){
+//        RecyclerView recyclerviewpc = view.findViewById(R.id.recyclerview_id1);
+//        PopularcategoriesRecyclerViewAdapter myAdapter = new PopularcategoriesRecyclerViewAdapter(getActivity(),lstpcate);
+//        recyclerviewpc.setLayoutManager(new GridLayoutManager(getActivity(),3));
+//        recyclerviewpc.setAdapter(myAdapter);
+//    }
 
     /*@Override
     public void onClick(View view) {
@@ -153,5 +170,35 @@ public class homepage extends Fragment  {
         transaction.commitNow();
 
         }*/
+
+    public void listingdata() {
+
+        Call<CategoryResponse> call=RetrofitClient.getInstance().getApi().getdata();
+        call.enqueue(new Callback<CategoryResponse>() {
+            @Override
+            public void onResponse(Call<CategoryResponse> call, Response<CategoryResponse> response) {
+                CategoryResponse categoryResponse=response.body();
+//                Toast.makeText(getApplicationContext(),response.toString(),Toast.LENGTH_SHORT).show();
+
+                if (response.isSuccessful()){
+                    if (!categoryResponse.getData().isEmpty()){
+                        PopularcategoriesRecyclerViewAdapter myAdapter = new PopularcategoriesRecyclerViewAdapter(getActivity(),categoryResponse.getData() );
+                        recyclerviewpc.setLayoutManager(new GridLayoutManager(getActivity(),3));
+                        recyclerviewpc.setAdapter(myAdapter);
+
+//                        CategoryRecycleAdapter adapter =new CategoryRecycleAdapter(getContext(),categoryResponse.getData());
+//                        recycle.setAdapter(adapter);
+                    }
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CategoryResponse> call, Throwable t) {
+                Toast.makeText(getContext(),"Check Internet",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
 
 }

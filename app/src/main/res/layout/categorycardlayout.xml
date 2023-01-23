@@ -12,7 +12,7 @@
         android:layout_margin="10sp">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/imge"
             android:layout_width="50dp"
             android:layout_height="50dp"
             tools:srcCompat="@tools:sample/avatars" />

@@ -13,6 +13,10 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.example.apnicare.AllProducts.AllProductsActivity;
+import com.example.apnicare.ModelResponses.CategoryResponse.CategoryResponse;
+
 import java.util.List;
 
 
@@ -20,13 +24,13 @@ import java.util.List;
 public class PopularcategoriesRecyclerViewAdapter extends RecyclerView.Adapter<PopularcategoriesRecyclerViewAdapter.MyViewHolder> {
 
     private Context mContext ;
-    private List<Categoriesdata> mData ;
+    private List<CategoryResponse.Datum> mData ;
 
-
-    public PopularcategoriesRecyclerViewAdapter(Context mContext, List<Categoriesdata> mData) {
+    public PopularcategoriesRecyclerViewAdapter(Context mContext, List<CategoryResponse.Datum> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }
+
 
     @NonNull
     @Override
@@ -40,15 +44,28 @@ public class PopularcategoriesRecyclerViewAdapter extends RecyclerView.Adapter<P
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
-        Categoriesdata data = mData.get(holder.getAdapterPosition());
-        holder.tv_cate_title.setText(data.getTitle());
-        holder.img_cate_thumbnail.setImageResource(data.getThumbnail());
+        String phUrl="https://res.cloudinary.com/du8msdgbj/image/upload/w_360,h_360,c_fit,a_ignore,q_60,fl_lossy,f_auto/v1573463739/nherof9d47s0wgmmrrzh.png";
+
+        CategoryResponse.Datum data = mData.get(holder.getAdapterPosition());
+        holder.tv_cate_title.setText(data.getName());
+        String url =data.getImage().getOriginalPath();
+        if (url==null){
+//            Toast.makeText(mContext,"no image",Toast.LENGTH_SHORT).show();
+
+        }
+        else {
+            Glide.with(mContext)
+                    .load(url)
+                    .into(holder.img_cate_thumbnail);
+
+        }
+//        holder.img_cate_thumbnail.setImageResource(data.getThumbnail());
 
     }
 
     @Override
     public int getItemCount() {
-        return mData.size();
+        return 9;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -66,12 +83,17 @@ public class PopularcategoriesRecyclerViewAdapter extends RecyclerView.Adapter<P
                 @Override
                 public void onClick(View v) {
 
-                    Toast.makeText(mContext,"Working",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(mContext,"Working",Toast.LENGTH_SHORT).show();
                     // passing data to the book activity
                     //intent.putExtra("Title",mData.get(holder.getAdapterPosition()).getTitle());
                     // intent.putExtra("Thumbnail",mData.get(holder.getAdapterPosition()).getThumbnail());
                     // start the activity
                     //mContext.startActivity(intent);
+                    String id;
+                    id = mData.get(getAdapterPosition()).getSlug();
+                    Intent intent = new Intent(mContext, AllProductsActivity.class);
+                    intent.putExtra("categorySlug", id);
+                    mContext.startActivity(intent);
                 }
             });
 

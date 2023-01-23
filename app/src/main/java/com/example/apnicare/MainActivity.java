@@ -1,6 +1,7 @@
 package com.example.apnicare;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -31,11 +32,13 @@ public class MainActivity extends AppCompatActivity{
     private Long exitTime;
     private Toast backToast;
     String ROOT_FRAGMENT="root_fragment";
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        searchView=findViewById(R.id.search_view22);
 
         bottomNavigationItemView=findViewById(R.id.bottomNavigationView);
         replace(new homepage(),true);

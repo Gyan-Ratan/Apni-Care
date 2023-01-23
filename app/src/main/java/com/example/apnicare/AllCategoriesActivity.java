@@ -1,6 +1,7 @@
 package com.example.apnicare;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,12 +27,13 @@ public class AllCategoriesActivity extends AppCompatActivity {
         recycle =findViewById(R.id.recycle);
         progressBar=findViewById(R.id.pbarAllCategory);
         progressBar.getProgress();
-        LinearLayoutManager llm =new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false);
-        recycle.setLayoutManager(llm);
+//        LinearLayoutManager llm =new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false);
+//        recycle.setLayoutManager(llm);
         listingdata();
     }
 
-    private void listingdata() {
+    public void listingdata() {
+
         Call<CategoryResponse> call=RetrofitClient.getInstance().getApi().getdata();
         call.enqueue(new Callback<CategoryResponse>() {
             @Override
@@ -43,6 +45,7 @@ public class AllCategoriesActivity extends AppCompatActivity {
                     if (!categoryResponse.getData().isEmpty()){
                         progressBar.setVisibility(View.GONE);
                         CategoryRecycleAdapter adapter =new CategoryRecycleAdapter(AllCategoriesActivity.this,categoryResponse.getData());
+                        recycle.setLayoutManager(new GridLayoutManager(getApplicationContext(),3));
                         recycle.setAdapter(adapter);
                     }
 
