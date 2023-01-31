@@ -12,12 +12,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.apnicare.AllProducts.SelectAddressActivity;
+import com.example.apnicare.CartManager;
+import com.example.apnicare.CartPref;
 import com.example.apnicare.ModelResponses.OrderCart.CartBookingResponse;
 import com.example.apnicare.R;
 import com.example.apnicare.RetrofitClient;
 import com.example.apnicare.SharedPrefManager;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,7 +33,9 @@ public class CartActivity extends AppCompatActivity {
     LinearLayoutCompat proceed;
     CartItemAdapter cartItemAdapter;
     TextView cartTotal,dicount,topay,topay1;
-
+    CartPref cartPref;
+    TextView temp;
+    ArrayList<CartManager> cartManagerArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,20 +43,23 @@ public class CartActivity extends AppCompatActivity {
 
         recyclerView=findViewById(R.id.mycartrecycleview);
         sharedPrefManager=new SharedPrefManager(CartActivity.this);
-
+        temp=findViewById(R.id.temp_data);
         proceed=findViewById(R.id.proceedtopay);
         cartTotal=findViewById(R.id.cartTotal);
         dicount=findViewById(R.id.discount);
+        cartPref=new CartPref(CartActivity.this);
         topay=findViewById(R.id.topay);
         topay1=findViewById(R.id.topay2);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
         mycartproducts();
+//        showdata();
         proceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Initiateorder();
+                cartPref.clearCart();
+//                Initiateorder();
             }
         });
 
@@ -64,7 +72,7 @@ public class CartActivity extends AppCompatActivity {
             public void onResponse(Call<CartResponse> call, Response<CartResponse> response) {
                 CartResponse cartResponse=response.body();
                 if (response.isSuccessful()){
-                    CartItemAdapter adapter =new CartItemAdapter(CartActivity.this,cartResponse.getData(),cartTotal,dicount,topay);
+                    CartItemAdapter adapter =new CartItemAdapter(CartActivity.this,cartPref.loadData(),cartTotal,dicount,topay);
 //                    recyclerView.setLayoutManager((new LinearLayoutManager(CartActivity.this)));
                     recyclerView.setAdapter(adapter);
                     updateTotal(cartResponse);
@@ -122,4 +130,19 @@ public class CartActivity extends AppCompatActivity {
 
             }
 
+    private void showdata() {
+        cartManagerArrayList=cartPref.loadData();
+        if (cartManagerArrayList.isEmpty()){
+            temp.setText("No Data");
+        }
+        else {
+            temp.setText("");
+
+            int a=0;
+            for (a=0;a<cartManagerArrayList.size();a++){
+                temp.setText(temp.getText()+"\n"+cartManagerArrayList.get(a).itemName);
+
+            }
+        }
+    }
 }

@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.apnicare.CartPref;
 import com.example.apnicare.R;
 import com.example.apnicare.RetrofitClient;
 import com.example.apnicare.SharedPrefManager;
@@ -31,11 +32,19 @@ public class searchMedicineAdapter extends RecyclerView.Adapter<searchMedicineAd
     private List<items> Items;
     SharedPrefManager sharedPrefManager;
 
-
-    public searchMedicineAdapter(Context context, List<items> items) {
+    public searchMedicineAdapter(Context context, List<items> items, CartPref cartPref) {
         this.context = context;
-        this.Items = items;
+        Items = items;
+        this.cartPref = cartPref;
     }
+
+    public CartPref cartPref;
+
+
+//    public searchMedicineAdapter(Context context, List<items> items) {
+//        this.context = context;
+//        this.Items = items;
+//    }
 
     @NonNull
     @Override
@@ -99,6 +108,7 @@ public class searchMedicineAdapter extends RecyclerView.Adapter<searchMedicineAd
             imageView=itemView.findViewById(R.id.searchImage);
             OTC=itemView.findViewById(R.id.searchOTC);
             gotocart=itemView.findViewById(R.id.goToCart);
+
             add.setOnClickListener(this);
             gotocart.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -114,7 +124,8 @@ public class searchMedicineAdapter extends RecyclerView.Adapter<searchMedicineAd
         public void onClick(View view) {
             String id;
             id=Items.get(getAdapterPosition()).getSlug();
-            addtocart(id);
+            cartPref.saveItem(Items.get(getAdapterPosition()).getName(),1,Items.get(getAdapterPosition()).getSlug(),Items.get(getAdapterPosition()).getPrice());
+//            addtocart(id);
             gotocart.setVisibility(View.VISIBLE);
             add.setVisibility(View.INVISIBLE);
 

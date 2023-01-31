@@ -16,7 +16,15 @@
         android:theme="@style/Theme.ApniCare"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <activity android:name=".Upload_Prescription.sprescription"
+        <activity
+            android:name=".TempActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Upload_Prescription.sprescription"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

@@ -154,7 +154,13 @@
                     android:layout_height="wrap_content"
                     android:padding="4dp">
 
+
             </androidx.recyclerview.widget.RecyclerView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="harsh"
+                android:id="@+id/temp_data"/>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"

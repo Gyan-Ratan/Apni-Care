@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.apnicare.CartPref;
 import com.example.apnicare.ModelResponses.Search.SearchResponse;
 import com.example.apnicare.ModelResponses.Search.searchMedicineAdapter;
 import com.example.apnicare.R;
@@ -26,6 +27,7 @@ public class AllProductsActivity extends AppCompatActivity {
     SharedPrefManager sharedPrefManager;
     Button next,prev;
     ProgressBar progressBar;
+    CartPref cartPref;
     int page=1;
     String id;
     @Override
@@ -38,6 +40,8 @@ public class AllProductsActivity extends AppCompatActivity {
         prev=findViewById(R.id.prev);
         Intent intent = getIntent();
         id= intent.getStringExtra("categorySlug");
+        cartPref=new CartPref(getApplicationContext());
+
 
 
 //        if (id.isEmpty()){
@@ -90,7 +94,7 @@ public class AllProductsActivity extends AppCompatActivity {
                     if (response.isSuccessful()) {
                         if (!searchResponse.getData().getItems().isEmpty()){
                             progressBar.setVisibility(View.GONE);
-                            searchMedicineAdapter adapter = new searchMedicineAdapter(getApplicationContext(), searchResponse.getData().getItems());
+                            searchMedicineAdapter adapter = new searchMedicineAdapter(getApplicationContext(), searchResponse.getData().getItems(),cartPref);
                             recyclerView.setAdapter(adapter);
                         }
 
