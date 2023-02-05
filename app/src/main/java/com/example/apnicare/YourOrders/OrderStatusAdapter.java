@@ -35,6 +35,8 @@ public class OrderStatusAdapter extends RecyclerView.Adapter<OrderStatusAdapter.
         Item item=items.get(position);
         holder.orderId.setText(item.getOrderNumber());
         holder.status.setText(item.getStatus());
+        holder.amt.setText("Rs. "+item.getAmount());
+        holder.expected_date.setText("Expected Date- "+item.getExpectedDelivery());
 
     }
 
@@ -44,12 +46,14 @@ public class OrderStatusAdapter extends RecyclerView.Adapter<OrderStatusAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        TextView orderId,status;
+        TextView orderId,status,amt,expected_date;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             orderId=itemView.findViewById(R.id.order_no);
             status=itemView.findViewById(R.id.order_status);
+            amt=itemView.findViewById(R.id.order_amt);
+            expected_date=itemView.findViewById(R.id.expected_date);
         }
 
         @Override

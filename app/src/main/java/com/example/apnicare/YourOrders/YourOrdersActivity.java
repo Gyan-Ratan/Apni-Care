@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.apnicare.ModelResponses.OrdersStatusResponse.OrderStatusResponse;
@@ -29,8 +31,11 @@ public class YourOrdersActivity extends AppCompatActivity {
     ViewPager2 viewPager2;
     RecyclerView recyclerView;
     SharedPrefManager sharedPrefManager;
+    Button prv,nxt;
     Toolbar toolbar;
     private String[] titles= new String[]{"Delivered","Pending","Confirmed"};
+    int page=1;
+    OrderStatusResponse orderStatusResponse;
 
 
     @Override
@@ -40,6 +45,8 @@ public class YourOrdersActivity extends AppCompatActivity {
         sharedPrefManager=new SharedPrefManager(YourOrdersActivity.this);
         toolbar=findViewById(R.id.toolbar);
         recyclerView=findViewById(R.id.StatusOrderView);
+        prv=findViewById(R.id.prv);
+        nxt=findViewById(R.id.nxt);
 //        tabLayout=findViewById(R.id.tabLayout);
 
 //        viewPager2=findViewById(R.id.orderviewpager);
@@ -51,19 +58,45 @@ public class YourOrdersActivity extends AppCompatActivity {
 //        } );
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(YourOrdersActivity.this));
-            getOrder();
+            getOrder(page);
+
+        nxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (page<orderStatusResponse.getData().getPages()){
+                    page=page+1;
+                    getOrder(page);
+                }
+
+            }
+        });
+        prv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (page>1){
+                    page=page-1;
+                    getOrder(page);
+                }
+            }
+        });
 
     }
 
-    private void getOrder() {
-        Call<OrderStatusResponse> call= RetrofitClient.getInstance().getApi().orderStatus(1,"Bearer "+sharedPrefManager.getData().getAccessToken());
+    private void getOrder(int page) {
+        Call<OrderStatusResponse> call= RetrofitClient.getInstance().getApi().orderStatus(page,"Bearer "+sharedPrefManager.getData().getAccessToken());
 //        Toast.makeText(YourOrdersActivity.this, "function", Toast.LENGTH_SHORT).show();
        call.enqueue(new Callback<OrderStatusResponse>() {
            @Override
            public void onResponse(Call<OrderStatusResponse> call, Response<OrderStatusResponse> response) {
-               Toast.makeText(YourOrdersActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
-               OrderStatusAdapter orderStatusAdapter=new OrderStatusAdapter(response.body().getData().getItems(),YourOrdersActivity.this);
-               recyclerView.setAdapter(orderStatusAdapter);
+               orderStatusResponse=response.body();
+               if (response.isSuccessful()){
+                   if (orderStatusResponse.getData()!=null){
+                       OrderStatusAdapter orderStatusAdapter=new OrderStatusAdapter(response.body().getData().getItems(),YourOrdersActivity.this);
+                       recyclerView.setAdapter(orderStatusAdapter);
+                   }
+               }
+//               Toast.makeText(YourOrdersActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
+
            }
 
            @Override
