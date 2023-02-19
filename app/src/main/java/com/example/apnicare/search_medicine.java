@@ -30,7 +30,6 @@ public class search_medicine extends Fragment {
     Button search_btn;
     SearchView searchView;
     ProgressBar progressBar;
-    CartPref cartPref;
 
 // Get data from from search view and the query api to get the results
 //    private void SetupSearchView() {
@@ -50,8 +49,6 @@ public class search_medicine extends Fragment {
 //        search_btn=view.findViewById(R.id.searchbtn);
         progressBar=view.findViewById(R.id.pbar);
         progressBar.getProgress();
-        cartPref=new CartPref(getContext());
-
         sharedPrefManager=new SharedPrefManager(getContext());
         searchView= view.findViewById(R.id.search_view);
         recyclerView2=view.findViewById(R.id.searchrecyleview);
@@ -95,7 +92,7 @@ public class search_medicine extends Fragment {
 
                     if (!searchResponse.getData().getItems().isEmpty()){
                         progressBar.setVisibility(View.GONE);
-                        searchMedicineAdapter adapter =new searchMedicineAdapter(getContext(),searchResponse.getData().getItems(),cartPref);
+                        searchMedicineAdapter adapter =new searchMedicineAdapter(getContext(),searchResponse.getData().getItems());
                         recyclerView2.setAdapter(adapter);
                     }
 

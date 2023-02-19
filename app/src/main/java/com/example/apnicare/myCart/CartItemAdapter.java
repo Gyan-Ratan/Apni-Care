@@ -13,8 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.apnicare.CartManager;
-import com.example.apnicare.CartPref;
 import com.example.apnicare.ModelResponses.OrderCart.Detail;
 import com.example.apnicare.R;
 import com.example.apnicare.RetrofitClient;
@@ -22,7 +20,6 @@ import com.example.apnicare.SharedPrefManager;
 import com.example.apnicare.product_detail;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -32,12 +29,10 @@ import retrofit2.Response;
 public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHolder> {
     private TextView cartTotal,discount,topay;
     private Context context;
-//    private List<Datum> data;
+    private List<Datum> data;
     SharedPrefManager sharedPrefManager;
-    CartPref cartPref;
-    ArrayList<CartManager> data;
 
-    public CartItemAdapter(Context context, ArrayList<CartManager> data , TextView cartTotal,TextView discount,TextView topay) {
+    public CartItemAdapter(Context context, List<Datum> data , TextView cartTotal,TextView discount,TextView topay) {
         this.context = context;
         this.data = data;
         this.cartTotal=cartTotal;
@@ -51,7 +46,6 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(context).inflate(R.layout.mycart_card,parent,false);
-        cartPref=new CartPref(context);
         return new ViewHolder(view);
 }
 
@@ -65,11 +59,11 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull CartItemAdapter.ViewHolder holder, int position) {
 
-//        Datum cartresponse=data.get(position);
-//        holder.productname.setText(cartresponse.getDrug().getName());
-//        holder.price.setText("Rs. " +cartresponse.getPrice().toString());
-//        holder.mrp.setText("MRP Rs. "+cartresponse.getDrug().getMrp().toString());
-//        holder.quantityNumber.setText(String.valueOf(cartresponse.getQuantity()));
+        Datum cartresponse=data.get(position);
+        holder.productname.setText(cartresponse.getDrug().getName());
+        holder.price.setText("Rs. " +cartresponse.getPrice().toString());
+        holder.mrp.setText("MRP Rs. "+cartresponse.getDrug().getMrp().toString());
+        holder.quantityNumber.setText(String.valueOf(cartresponse.getQuantity()));
 //        holder.delete.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -79,11 +73,6 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
 //
 //            }
 //        });
-
-        holder.productname.setText(data.get(position).itemName);
-        holder.price.setText("Rs. " +data.get(position).price);
-        holder.mrp.setText("MRP Rs. "+data.get(position).qty);
-        holder.quantityNumber.setText(String.valueOf(data.get(position).qty));
 
 
 
@@ -110,17 +99,17 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
                 context.startActivity(intent);
             });
 
-//            addQuantity.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Toast.makeText(context, "item increase", Toast.LENGTH_SHORT).show();
-//                    String id1;
-//                    id1 = data.get(getAdapterPosition()).getDrug().getSlug();
-//                    addtocart(id1);
-//
-//
-//                }
-//            });
+            addQuantity.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, "item increase", Toast.LENGTH_SHORT).show();
+                    String id1;
+                    id1 = data.get(getAdapterPosition()).getDrug().getSlug();
+                    addtocart(id1);
+
+
+                }
+            });
 
             price.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -141,83 +130,81 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
 
         @Override
         public void onClick(View view) {
-            String id;
-            id = data.get(getAdapterPosition()).slug;
-            data.remove(getAdapterPosition());
-//            data.notify();
-//            deleteitem(id, getAdapterPosition());
+            int id;
+            id = data.get(getAdapterPosition()).getId();
+            deleteitem(id, getAdapterPosition());
 
         }
 
-//        private void addtocart(String id) {
-//            Call<AddItemResponse> call = RetrofitClient.getInstance().getApi().additemtocart(id, "Bearer " + sharedPrefManager.getData().getAccessToken());
-//            call.enqueue(new Callback<AddItemResponse>() {
-//                @Override
-//                public void onResponse(Call<AddItemResponse> call, Response<AddItemResponse> response) {
-////                Toast.makeText(context,response.toString(),Toast.LENGTH_SHORT).show();
-//                    if (response.isSuccessful()) {
-//                        data.get(getAdapterPosition()).setQuantity(response.body().getData().getQuantity());
-//                        int q = response.body().getData().getQuantity();
-//                        notifyItemChanged(getAdapterPosition());
-//                        updateTotal();
-////                        quantityNumber.setText(String.valueOf(q));
-////                        Intent refresh = new Intent(context,CartActivity.class);
-////                        refresh.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-////                        context.startActivity(refresh);
-//
-//                        }
-//                }
-//
-//                @Override
-//                public void onFailure(Call<AddItemResponse> call, Throwable t) {
-//
-//                }
-//            });
-//
-//        }
+        private void addtocart(String id) {
+            Call<AddItemResponse> call = RetrofitClient.getInstance().getApi().additemtocart(id, "Bearer " + sharedPrefManager.getData().getAccessToken());
+            call.enqueue(new Callback<AddItemResponse>() {
+                @Override
+                public void onResponse(Call<AddItemResponse> call, Response<AddItemResponse> response) {
+//                Toast.makeText(context,response.toString(),Toast.LENGTH_SHORT).show();
+                    if (response.isSuccessful()) {
+                        data.get(getAdapterPosition()).setQuantity(response.body().getData().getQuantity());
+                        int q = response.body().getData().getQuantity();
+                        notifyItemChanged(getAdapterPosition());
+                        updateTotal();
+//                        quantityNumber.setText(String.valueOf(q));
+//                        Intent refresh = new Intent(context,CartActivity.class);
+//                        refresh.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                        context.startActivity(refresh);
+
+                        }
+                }
+
+                @Override
+                public void onFailure(Call<AddItemResponse> call, Throwable t) {
+
+                }
+            });
+
+        }
 
 
-//        public void deleteitem(int id, int post) {
-//            Call<CartItemDeleteResponse> call = RetrofitClient.getInstance().getApi().getData(id, "Bearer " + sharedPrefManager.getData().getAccessToken());
-//            call.enqueue(new Callback<CartItemDeleteResponse>() {
-//                @Override
-//                public void onResponse(Call<CartItemDeleteResponse> call, Response<CartItemDeleteResponse> response) {
-//                    CartItemDeleteResponse cartItemDeleteResponse = response.body();
-//                    if (response.isSuccessful()) {
-//                        data.remove(getAdapterPosition());
-//                        notifyItemRemoved(getAdapterPosition());
-//                        updateTotal();
-//                    }
+        public void deleteitem(int id, int post) {
+            Call<CartItemDeleteResponse> call = RetrofitClient.getInstance().getApi().getData(id, "Bearer " + sharedPrefManager.getData().getAccessToken());
+            call.enqueue(new Callback<CartItemDeleteResponse>() {
+                @Override
+                public void onResponse(Call<CartItemDeleteResponse> call, Response<CartItemDeleteResponse> response) {
+                    CartItemDeleteResponse cartItemDeleteResponse = response.body();
+                    if (response.isSuccessful()) {
+                        data.remove(getAdapterPosition());
+                        notifyItemRemoved(getAdapterPosition());
+                        updateTotal();
+                    }
+
+                }
+
+                @Override
+                public void onFailure(Call<CartItemDeleteResponse> call, Throwable t) {
+                    Toast.makeText(context, t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                }
+
+            });
+            //        context.notifyDataSetChanged();
+//        Intent refresh = new Intent(context,CartActivity.class);
 //
-//                }
-//
-//                @Override
-//                public void onFailure(Call<CartItemDeleteResponse> call, Throwable t) {
-//                    Toast.makeText(context, t.getMessage(), Toast.LENGTH_SHORT).show();
-//
-//                }
-//
-//            });
-//            //        context.notifyDataSetChanged();
-////        Intent refresh = new Intent(context,CartActivity.class);
-////
-////        refresh.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-////        context.startActivity(refresh);
-////        Toast.makeText(context, "successful", Toast.LENGTH_SHORT).show();
-//        }
+//        refresh.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        context.startActivity(refresh);
+//        Toast.makeText(context, "successful", Toast.LENGTH_SHORT).show();
+        }
     }
-//    private void updateTotal() {
-//        int i;
-//        double mrp = 0, sum = 0;
-//        for (i = 0; i < data.size(); i++) {
-//            sum = sum + (data.get(i).getDrug().getPrice() * data.get(i).getQuantity());
-//            mrp = mrp + (data.get(i).getDrug().getMrp() * data.get(i).getQuantity());
-//        }
-//        cartTotal.setText("₹ "+new DecimalFormat("##.##").format(mrp));
-//        discount.setText("-₹ "+new DecimalFormat("##.##").format(mrp-sum));
-//        topay.setText("₹ "+new DecimalFormat("##.##").format(sum));
-//
-//
-//    }
+    private void updateTotal() {
+        int i;
+        double mrp = 0, sum = 0;
+        for (i = 0; i < data.size(); i++) {
+            sum = sum + (data.get(i).getDrug().getPrice() * data.get(i).getQuantity());
+            mrp = mrp + (data.get(i).getDrug().getMrp() * data.get(i).getQuantity());
+        }
+        cartTotal.setText("₹ "+new DecimalFormat("##.##").format(mrp));
+        discount.setText("-₹ "+new DecimalFormat("##.##").format(mrp-sum));
+        topay.setText("₹ "+new DecimalFormat("##.##").format(sum));
+
+
+    }
 
 }
