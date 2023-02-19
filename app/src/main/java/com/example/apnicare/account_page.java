@@ -55,7 +55,7 @@ public class account_page extends Fragment {
         gender.setVisibility(sharedPrefManager.getData().getGender()==null ? View.GONE : View.VISIBLE);
 
         userprofile.setOnClickListener(view0 ->  {
-            Intent intent = new Intent(getActivity(), TempActivity.class);
+            Intent intent = new Intent(getActivity(), User_Profile.class);
             startActivity(intent);
         });
 
