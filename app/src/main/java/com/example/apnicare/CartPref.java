@@ -29,15 +29,19 @@ public class CartPref {
         editor=sharedPreferences.edit();
         checkData();
         for (int i=0;i<cartManagerArray.size();i++){
-            Toast.makeText(context, cartManagerArray.get(i).slug+"\n"+slug, Toast.LENGTH_SHORT).show();
+
             String aa=cartManagerArray.get(i).slug;
-            if(aa!=slug.toString()){
-//                cartManagerArray.get(i).qty=cartManagerArray.get(i).qty+Qty;
-                Toast.makeText(context, cartManagerArray.get(i).slug+"@@11", Toast.LENGTH_SHORT).show();
-//                flag=false;
+            if(aa.equals(slug)){
+                cartManagerArray.get(i).qty=cartManagerArray.get(i).qty+Qty;
+//                Toast.makeText(context, "qty increased", Toast.LENGTH_SHORT).show();
+                if(cartManagerArray.get(i).qty==0){
+                    cartManagerArray.remove(i);
+                }
+                flag=false;
+                break;
             }
             else {
-                Toast.makeText(context, ""+i, Toast.LENGTH_SHORT).show();
+                flag=true;
 
             }
         }

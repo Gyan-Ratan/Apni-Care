@@ -91,7 +91,7 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView productname;
         public TextView price, delete, mrp, quantityNumber;
-        Button addQuantity;
+        Button addQuantity,minus;
         CardView cardView;
 
         public ViewHolder(@NonNull View itemView) {
@@ -104,23 +104,18 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
             price = itemView.findViewById(R.id.prodctMRP);
             quantityNumber = itemView.findViewById(R.id.quantitynumber);
             addQuantity = itemView.findViewById(R.id.addbtn);
+            minus=itemView.findViewById(R.id.minusbtn);
             sharedPrefManager = new SharedPrefManager(context);
-            cardView.setOnClickListener(view -> {
-                Intent intent = new Intent(context, product_detail.class);
-                context.startActivity(intent);
-            });
 
-//            addQuantity.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Toast.makeText(context, "item increase", Toast.LENGTH_SHORT).show();
-//                    String id1;
-//                    id1 = data.get(getAdapterPosition()).getDrug().getSlug();
-//                    addtocart(id1);
-//
-//
-//                }
-//            });
+            addQuantity.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    cartPref.saveItem(data.get(getAdapterPosition()).itemName,1,data.get(getAdapterPosition()).slug,data.get(getAdapterPosition()).price);
+                    data.get(getAdapterPosition()).setQty(data.get(getAdapterPosition()).qty+1);
+                    notifyItemChanged(getAdapterPosition());
+                    updateTotal();
+                }
+            });
 
             price.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -134,16 +129,33 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
                     Toast.makeText(context, "click on name", Toast.LENGTH_SHORT).show();
                 }
             });
-            delete.setOnClickListener(this);
+
+            minus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    cartPref.saveItem(data.get(getAdapterPosition()).itemName,-1,data.get(getAdapterPosition()).slug,data.get(getAdapterPosition()).price);
+                    data.get(getAdapterPosition()).setQty(data.get(getAdapterPosition()).qty-1);
+                    if (data.get(getAdapterPosition()).qty==0){
+                        data.remove(getAdapterPosition());
+                        notifyItemRemoved(getAdapterPosition());
+                    }
+                    else if (data.get(getAdapterPosition()).qty<0){
+
+                    }
+                    else {
+                        notifyItemChanged(getAdapterPosition());
+                    }
+
+                    updateTotal();
+                }
+            });
 
 
         }
 
         @Override
         public void onClick(View view) {
-            String id;
-            id = data.get(getAdapterPosition()).slug;
-            data.remove(getAdapterPosition());
+//            data.remove(getAdapterPosition());
 //            data.notify();
 //            deleteitem(id, getAdapterPosition());
 
@@ -206,16 +218,38 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
 ////        Toast.makeText(context, "successful", Toast.LENGTH_SHORT).show();
 //        }
     }
-//    private void updateTotal() {
-//        int i;
-//        double mrp = 0, sum = 0;
-//        for (i = 0; i < data.size(); i++) {
-//            sum = sum + (data.get(i).getDrug().getPrice() * data.get(i).getQuantity());
+    private void updateTotal() {
+        int i;
+        double mrp = 0, sum = 0;
+        for (i = 0; i < data.size(); i++) {
+            sum = sum + (data.get(i).getPrice() * data.get(i).qty);
 //            mrp = mrp + (data.get(i).getDrug().getMrp() * data.get(i).getQuantity());
-//        }
+        }
 //        cartTotal.setText("₹ "+new DecimalFormat("##.##").format(mrp));
 //        discount.setText("-₹ "+new DecimalFormat("##.##").format(mrp-sum));
-//        topay.setText("₹ "+new DecimalFormat("##.##").format(sum));
+        topay.setText("₹ "+new DecimalFormat("##.##").format(sum));
+
+
+    }
+
+//    private void updateTotal() {
+//        int i;
+//        double mrp=0,sum=0;
+//        if (cartManagerArrayList==null || cartManagerArrayList.isEmpty()){
+//            topay.setText("₹ "+"00");
+////            topay1.setText("₹ "+"00");
+//        }
+//        else {
+//            for (i=0;i<cartManagerArrayList.size();i++){
+//                sum= sum+(cartManagerArrayList.get(i).price*cartManagerArrayList.get(i).qty);
+////            mrp = mrp + (cartResponse.getData().get(i).getDrug().getMrp()*cartResponse.getData().get(i).getQuantity());
+//            }
+////        cartTotal.setText("₹ "+new DecimalFormat("##.##").format(mrp));
+////        dicount.setText("-₹ "+new DecimalFormat("##.##").format(mrp-sum));
+//            topay.setText("₹ "+new DecimalFormat("##.##").format(sum));
+////            topay.setText("₹ "+new DecimalFormat("##.##").format(sum));
+//        }
+//
 //
 //
 //    }

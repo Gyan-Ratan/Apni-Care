@@ -31,14 +31,15 @@ public class searchMedicineAdapter extends RecyclerView.Adapter<searchMedicineAd
     private Context context;
     private List<items> Items;
     SharedPrefManager sharedPrefManager;
+    public CartPref cartPref;
+
 
     public searchMedicineAdapter(Context context, List<items> items, CartPref cartPref) {
         this.context = context;
-        Items = items;
+        this.Items = items;
         this.cartPref = cartPref;
     }
 
-    public CartPref cartPref;
 
 
 //    public searchMedicineAdapter(Context context, List<items> items) {
@@ -122,10 +123,10 @@ public class searchMedicineAdapter extends RecyclerView.Adapter<searchMedicineAd
 
         @Override
         public void onClick(View view) {
-            String id;
-            id=Items.get(getAdapterPosition()).getSlug();
+//            String id;
+//            id=Items.get(getAdapterPosition()).getSlug();
             cartPref.saveItem(Items.get(getAdapterPosition()).getName(),1,Items.get(getAdapterPosition()).getSlug(),Items.get(getAdapterPosition()).getPrice());
-//            addtocart(id);
+
             gotocart.setVisibility(View.VISIBLE);
             add.setVisibility(View.INVISIBLE);
 
@@ -150,5 +151,5 @@ public class searchMedicineAdapter extends RecyclerView.Adapter<searchMedicineAd
             }
         });
 
-    }
+    }// function to make api call
 }

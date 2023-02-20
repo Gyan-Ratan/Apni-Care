@@ -53,8 +53,7 @@ public class CartActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mycartproducts();
-//        showdata();
+        showdata();
         proceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,7 +74,7 @@ public class CartActivity extends AppCompatActivity {
                     CartItemAdapter adapter =new CartItemAdapter(CartActivity.this,cartPref.loadData(),cartTotal,dicount,topay);
 //                    recyclerView.setLayoutManager((new LinearLayoutManager(CartActivity.this)));
                     recyclerView.setAdapter(adapter);
-                    updateTotal(cartResponse);
+//                    updateTotal(cartResponse);
 //                    cartTotal.setText(cartResponse.getData());
 
                 }
@@ -90,7 +89,7 @@ public class CartActivity extends AppCompatActivity {
 
     }
 
-            private void Initiateorder() {
+    private void Initiateorder() {
 //        Toast.makeText(getContext(),"function",Toast.LENGTH_SHORT).show();
 
                 Call<CartBookingResponse> call=RetrofitClient.getInstance().getApi().book("cart","customer","Bearer "+sharedPrefManager.getData().getAccessToken());
@@ -114,35 +113,46 @@ public class CartActivity extends AppCompatActivity {
                     }
                 });
             }
-            private void updateTotal(CartResponse cartResponse) {
-                int i;
-                double mrp=0,sum=0;
-                String su;
-                for (i=0;i<cartResponse.getData().size();i++){
-                    sum= sum+(cartResponse.getData().get(i).getDrug().getPrice()*cartResponse.getData().get(i).getQuantity());
-                    mrp = mrp + (cartResponse.getData().get(i).getDrug().getMrp()*cartResponse.getData().get(i).getQuantity());
-                }
-                cartTotal.setText("₹ "+new DecimalFormat("##.##").format(mrp));
-                dicount.setText("-₹ "+new DecimalFormat("##.##").format(mrp-sum));
-                topay.setText("₹ "+new DecimalFormat("##.##").format(sum));
-                topay1.setText("₹ "+new DecimalFormat("##.##").format(sum));
 
 
+    private void updateTotal(ArrayList<CartManager> cartManagerArrayList) {
+        int i;
+        double mrp=0,sum=0;
+        if (cartManagerArrayList==null || cartManagerArrayList.isEmpty()){
+            topay.setText("₹ "+"00");
+            topay1.setText("₹ "+"00");
+        }
+        else {
+            for (i=0;i<cartManagerArrayList.size();i++){
+                sum= sum+(cartManagerArrayList.get(i).price*cartManagerArrayList.get(i).qty);
+//            mrp = mrp + (cartResponse.getData().get(i).getDrug().getMrp()*cartResponse.getData().get(i).getQuantity());
             }
+//        cartTotal.setText("₹ "+new DecimalFormat("##.##").format(mrp));
+//        dicount.setText("-₹ "+new DecimalFormat("##.##").format(mrp-sum));
+            topay.setText("₹ "+new DecimalFormat("##.##").format(sum));
+            topay1.setText("₹ "+new DecimalFormat("##.##").format(sum));
+        }
+
+
+
+    }
 
     private void showdata() {
+
         cartManagerArrayList=cartPref.loadData();
-        if (cartManagerArrayList.isEmpty()){
-            temp.setText("No Data");
+        if (cartManagerArrayList==null || cartManagerArrayList.isEmpty()){
+            temp.setText("No data");
         }
         else {
             temp.setText("");
-
             int a=0;
             for (a=0;a<cartManagerArrayList.size();a++){
-                temp.setText(temp.getText()+"\n"+cartManagerArrayList.get(a).itemName);
-
+//                temp.setText(temp.getText()+"\n"+cartManagerArrayList.get(a).itemName);
+                CartItemAdapter adapter =new CartItemAdapter(CartActivity.this,cartPref.loadData(),cartTotal,dicount,topay);
+//                    recyclerView.setLayoutManager((new LinearLayoutManager(CartActivity.this)));
+                recyclerView.setAdapter(adapter);
             }
         }
+        updateTotal(cartManagerArrayList);
     }
 }
