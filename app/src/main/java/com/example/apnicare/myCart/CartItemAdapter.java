@@ -133,19 +133,24 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
             minus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    cartPref.saveItem(data.get(getAdapterPosition()).itemName,-1,data.get(getAdapterPosition()).slug,data.get(getAdapterPosition()).price);
-                    data.get(getAdapterPosition()).setQty(data.get(getAdapterPosition()).qty-1);
-                    if (data.get(getAdapterPosition()).qty==0){
-                        data.remove(getAdapterPosition());
-                        notifyItemRemoved(getAdapterPosition());
-                    }
-                    else if (data.get(getAdapterPosition()).qty<0){
+                    if (data.get(getAdapterPosition()).qty<0){
 
                     }
                     else {
-                        notifyItemChanged(getAdapterPosition());
-                    }
 
+
+
+                        if (data.get(getAdapterPosition()).qty == 0) {
+                            data.remove(getAdapterPosition());
+                            notifyItemRemoved(getAdapterPosition());
+                        } else if (data.get(getAdapterPosition()).qty < 0) {
+
+                        } else {
+                            cartPref.saveItem(data.get(getAdapterPosition()).itemName, -1, data.get(getAdapterPosition()).slug, data.get(getAdapterPosition()).price);
+                            data.get(getAdapterPosition()).setQty(data.get(getAdapterPosition()).qty - 1);
+                            notifyItemChanged(getAdapterPosition());
+                        }
+                    }
                     updateTotal();
                 }
             });
