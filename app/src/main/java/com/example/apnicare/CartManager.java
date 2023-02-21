@@ -3,10 +3,29 @@ package com.example.apnicare;
 import java.security.PublicKey;
 
 public class CartManager {
+    public CartManager(String itemName, int qty, String slug, Double price, Double mrp) {
+        this.itemName = itemName;
+        this.qty = qty;
+        this.slug = slug;
+        this.price = price;
+        this.mrp = mrp;
+    }
+
     public String itemName;
     public int qty;
     public String slug;
     public Double price;
+
+    public Double getMrp() {
+        return mrp;
+    }
+
+    public void setMrp(Double mrp) {
+        this.mrp = mrp;
+    }
+
+    public Double mrp;
+
 
     public String getItemName() {
         return itemName;
@@ -40,10 +59,5 @@ public class CartManager {
         this.price = price;
     }
 
-    public CartManager(String itemName, int qty, String slug, Double price) {
-        this.itemName = itemName;
-        this.qty = qty;
-        this.slug = slug;
-        this.price = price;
-    }
+
 }

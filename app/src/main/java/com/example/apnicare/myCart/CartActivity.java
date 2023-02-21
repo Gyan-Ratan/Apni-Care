@@ -125,10 +125,10 @@ public class CartActivity extends AppCompatActivity {
         else {
             for (i=0;i<cartManagerArrayList.size();i++){
                 sum= sum+(cartManagerArrayList.get(i).price*cartManagerArrayList.get(i).qty);
-//            mrp = mrp + (cartResponse.getData().get(i).getDrug().getMrp()*cartResponse.getData().get(i).getQuantity());
+            mrp = mrp + (cartManagerArrayList.get(i).getMrp()*cartManagerArrayList.get(i).qty);
             }
-//        cartTotal.setText("₹ "+new DecimalFormat("##.##").format(mrp));
-//        dicount.setText("-₹ "+new DecimalFormat("##.##").format(mrp-sum));
+        cartTotal.setText("₹ "+new DecimalFormat("##.##").format(mrp));
+        dicount.setText("-₹ "+new DecimalFormat("##.##").format(mrp-sum));
             topay.setText("₹ "+new DecimalFormat("##.##").format(sum));
             topay1.setText("₹ "+new DecimalFormat("##.##").format(sum));
         }

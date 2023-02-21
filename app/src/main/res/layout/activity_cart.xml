@@ -349,16 +349,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@color/transparent"
-            android:text="Place Order @ "
+            android:text="Checkout "
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:paddingHorizontal="20dp"
             android:textStyle="bold" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/topay2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2000"
-            android:textStyle="bold" />
+<!--        <androidx.appcompat.widget.AppCompatTextView-->
+<!--            android:id="@+id/topay2"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="2000"-->
+<!--            android:textStyle="bold" />-->
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

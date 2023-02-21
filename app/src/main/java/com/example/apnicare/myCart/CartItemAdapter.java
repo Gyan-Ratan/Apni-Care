@@ -82,7 +82,7 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
 
         holder.productname.setText(data.get(position).itemName);
         holder.price.setText("Rs. " +data.get(position).price);
-        holder.mrp.setText("MRP Rs. "+data.get(position).qty);
+        holder.mrp.setText("MRP Rs. "+data.get(position).mrp);
         holder.quantityNumber.setText(String.valueOf(data.get(position).qty));
 
 
@@ -110,7 +110,7 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
             addQuantity.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    cartPref.saveItem(data.get(getAdapterPosition()).itemName,1,data.get(getAdapterPosition()).slug,data.get(getAdapterPosition()).price);
+                    cartPref.saveItem(data.get(getAdapterPosition()).itemName,1,data.get(getAdapterPosition()).slug,data.get(getAdapterPosition()).price,data.get(getAdapterPosition()).mrp);
                     data.get(getAdapterPosition()).setQty(data.get(getAdapterPosition()).qty+1);
                     notifyItemChanged(getAdapterPosition());
                     updateTotal();
@@ -133,25 +133,43 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
             minus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (data.get(getAdapterPosition()).qty<0){
+//                    if (data.get(getAdapterPosition()).qty<0){
+//
+//                    }
+//                    else {
+//
+//
+//
+//                        if (data.get(getAdapterPosition()).qty == 0) {
+//                            data.remove(getAdapterPosition());
+//                            notifyItemRemoved(getAdapterPosition());
+//                        } else {
+//                            cartPref.saveItem(data.get(getAdapterPosition()).itemName, -1, data.get(getAdapterPosition()).slug, data.get(getAdapterPosition()).price);
+//                            data.get(getAdapterPosition()).setQty(data.get(getAdapterPosition()).qty - 1);
+//                            if (data.get(getAdapterPosition()).qty == 0) {
+//                                data.remove(getAdapterPosition());
+//                                notifyItemRemoved(getAdapterPosition());
+//                            }
+//                            notifyItemChanged(getAdapterPosition());
+//                        }
+//                    }
+//                    updateTotal();
 
-                    }
-                    else {
-
-
-
+                    if (data.get(getAdapterPosition()).qty>0){
+                        cartPref.saveItem(data.get(getAdapterPosition()).itemName, -1, data.get(getAdapterPosition()).slug, data.get(getAdapterPosition()).price,data.get(getAdapterPosition()).mrp);
+                        data.get(getAdapterPosition()).setQty(data.get(getAdapterPosition()).qty - 1);
                         if (data.get(getAdapterPosition()).qty == 0) {
-                            data.remove(getAdapterPosition());
-                            notifyItemRemoved(getAdapterPosition());
-                        } else if (data.get(getAdapterPosition()).qty < 0) {
-
-                        } else {
-                            cartPref.saveItem(data.get(getAdapterPosition()).itemName, -1, data.get(getAdapterPosition()).slug, data.get(getAdapterPosition()).price);
-                            data.get(getAdapterPosition()).setQty(data.get(getAdapterPosition()).qty - 1);
+                                data.remove(getAdapterPosition());
+                                notifyItemRemoved(getAdapterPosition());
+                            }
+                        else {
                             notifyItemChanged(getAdapterPosition());
+
                         }
+
                     }
                     updateTotal();
+
                 }
             });
 
@@ -228,10 +246,10 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
         double mrp = 0, sum = 0;
         for (i = 0; i < data.size(); i++) {
             sum = sum + (data.get(i).getPrice() * data.get(i).qty);
-//            mrp = mrp + (data.get(i).getDrug().getMrp() * data.get(i).getQuantity());
+            mrp = mrp + (data.get(i).getMrp() * data.get(i).qty);
         }
-//        cartTotal.setText("₹ "+new DecimalFormat("##.##").format(mrp));
-//        discount.setText("-₹ "+new DecimalFormat("##.##").format(mrp-sum));
+        cartTotal.setText("₹ "+new DecimalFormat("##.##").format(mrp));
+        discount.setText("-₹ "+new DecimalFormat("##.##").format(mrp-sum));
         topay.setText("₹ "+new DecimalFormat("##.##").format(sum));
 
 

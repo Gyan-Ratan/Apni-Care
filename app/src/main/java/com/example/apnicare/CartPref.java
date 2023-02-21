@@ -24,7 +24,7 @@ public class CartPref {
     Context context;
     private  SharedPreferences.Editor editor;
 
-    public void saveItem(String Name,int Qty,String slug,Double price){
+    public void saveItem(String Name,int Qty,String slug,Double price,Double mrp){
         sharedPreferences=context.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         editor=sharedPreferences.edit();
         checkData();
@@ -46,7 +46,7 @@ public class CartPref {
             }
         }
         if (flag){
-            cartManagerArray.add(new CartManager(Name,Qty,slug,price));
+            cartManagerArray.add(new CartManager(Name,Qty,slug,price,mrp));
 
 
         }

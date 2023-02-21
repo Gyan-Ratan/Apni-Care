@@ -125,7 +125,7 @@ public class searchMedicineAdapter extends RecyclerView.Adapter<searchMedicineAd
         public void onClick(View view) {
 //            String id;
 //            id=Items.get(getAdapterPosition()).getSlug();
-            cartPref.saveItem(Items.get(getAdapterPosition()).getName(),1,Items.get(getAdapterPosition()).getSlug(),Items.get(getAdapterPosition()).getPrice());
+            cartPref.saveItem(Items.get(getAdapterPosition()).getName(),1,Items.get(getAdapterPosition()).getSlug(),Items.get(getAdapterPosition()).getPrice(),Items.get(getAdapterPosition()).getMrp());
 
             gotocart.setVisibility(View.VISIBLE);
             add.setVisibility(View.INVISIBLE);
