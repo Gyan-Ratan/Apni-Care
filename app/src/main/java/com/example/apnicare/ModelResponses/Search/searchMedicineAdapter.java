@@ -135,7 +135,7 @@ public class searchMedicineAdapter extends RecyclerView.Adapter<searchMedicineAd
     }
 
     private void addtocart(String id) {
-        Call<AddItemResponse> call= RetrofitClient.getInstance().getApi().additemtocart(id,"Bearer "+sharedPrefManager.getData().getAccessToken());
+        Call<AddItemResponse> call= RetrofitClient.getInstance().getApi().additemtocart(id,1,"Bearer "+sharedPrefManager.getData().getAccessToken());
         call.enqueue(new Callback<AddItemResponse>() {
             @Override
             public void onResponse(Call<AddItemResponse> call, Response<AddItemResponse> response) {

@@ -57,8 +57,22 @@ public class CartActivity extends AppCompatActivity {
         proceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cartPref.clearCart();
+//                cartPref.clearCart();
 //                Initiateorder();
+                cartManagerArrayList=cartPref.loadData();
+                if(cartManagerArrayList==null || cartManagerArrayList.isEmpty()){
+                    Toast.makeText(CartActivity.this, "Cart empty", Toast.LENGTH_SHORT).show();
+                }
+                else {
+
+                    System.out.println("cartManagerArrayList.size()");
+                    for (int i =0;i<cartManagerArrayList.size();i++){
+                        addtocart(cartManagerArrayList.get(i).slug,cartManagerArrayList.get(i).qty);
+                    }
+                    Initiateorder();
+                    cartPref.clearCart();
+                    
+                }
             }
         });
 
@@ -155,4 +169,23 @@ public class CartActivity extends AppCompatActivity {
         }
         updateTotal(cartManagerArrayList);
     }
+
+    private void addtocart(String id,int qty) {
+        Call<AddItemResponse> call= RetrofitClient.getInstance().getApi().additemtocart(id,qty,"Bearer "+sharedPrefManager.getData().getAccessToken());
+        call.enqueue(new Callback<AddItemResponse>() {
+            @Override
+            public void onResponse(Call<AddItemResponse> call, Response<AddItemResponse> response) {
+//                Toast.makeText(context,response.toString(),Toast.LENGTH_SHORT).show();
+                if (response.isSuccessful()){
+                    Toast.makeText(CartActivity.this,"item added to cart",Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AddItemResponse> call, Throwable t) {
+
+            }
+        });
+
+    }// function to make api call
 }

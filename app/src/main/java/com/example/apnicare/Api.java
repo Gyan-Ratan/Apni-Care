@@ -53,7 +53,7 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("cart/")
-    Call<AddItemResponse> additemtocart(@Field("drug_id") String id,@Header("Authorization") String token);
+    Call<AddItemResponse> additemtocart(@Field("drug_id") String id,@Field("quantity")int qunatity,@Header("Authorization") String token);
 
     @GET("user/address/")
     Call<AddressResponse> getData1(@Header("Authorization") String token);
