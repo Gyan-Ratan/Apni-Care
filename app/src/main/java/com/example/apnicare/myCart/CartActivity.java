@@ -49,7 +49,7 @@ public class CartActivity extends AppCompatActivity {
         dicount=findViewById(R.id.discount);
         cartPref=new CartPref(CartActivity.this);
         topay=findViewById(R.id.topay);
-        topay1=findViewById(R.id.topay2);
+//        topay1=findViewById(R.id.topay2);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -120,7 +120,7 @@ public class CartActivity extends AppCompatActivity {
         double mrp=0,sum=0;
         if (cartManagerArrayList==null || cartManagerArrayList.isEmpty()){
             topay.setText("₹ "+"00");
-            topay1.setText("₹ "+"00");
+//            topay1.setText("₹ "+"00");
         }
         else {
             for (i=0;i<cartManagerArrayList.size();i++){
@@ -130,7 +130,7 @@ public class CartActivity extends AppCompatActivity {
         cartTotal.setText("₹ "+new DecimalFormat("##.##").format(mrp));
         dicount.setText("-₹ "+new DecimalFormat("##.##").format(mrp-sum));
             topay.setText("₹ "+new DecimalFormat("##.##").format(sum));
-            topay1.setText("₹ "+new DecimalFormat("##.##").format(sum));
+//            topay1.setText("₹ "+new DecimalFormat("##.##").format(sum));
         }
 
 
