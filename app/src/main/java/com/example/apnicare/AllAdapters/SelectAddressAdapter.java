@@ -86,7 +86,7 @@ public class SelectAddressAdapter extends RecyclerView.Adapter<SelectAddressAdap
             id1=addresses.get(getAdapterPosition()).getId();
             Intent intent = new Intent(context, OrderReviewActivity.class);
             intent.putExtra("id",id1);
-            intent.putExtra("order",o_id);
+//            intent.putExtra("order",o_id);
             context.startActivity(intent);
 
         }

@@ -46,15 +46,18 @@ public class SelectAddressActivity extends AppCompatActivity {
     }
     private void address() {
         Call<AddressResponse> call= RetrofitClient.getInstance().getApi().getData1("Bearer "+sharedPrefManager.getData().getAccessToken());
+        Toast.makeText(SelectAddressActivity.this,"response.toString()",Toast.LENGTH_SHORT).show();
 
         call.enqueue(new Callback<AddressResponse>() {
             @Override
             public void onResponse(Call<AddressResponse> call, Response<AddressResponse> response) {
                 AddressResponse addressResponse= response.body();
+                Toast.makeText(SelectAddressActivity.this,response.toString(),Toast.LENGTH_SHORT).show();
+
                 if (response.isSuccessful()){
                     SelectAddressAdapter adapter =new SelectAddressAdapter(SelectAddressActivity.this,addressResponse.getAddressdata(),order_id);
                     addressrecycleview.setAdapter(adapter);
-//                    Toast.makeText(getContext(),response.toString(),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SelectAddressActivity.this,response.toString(),Toast.LENGTH_SHORT).show();
                 }
 
             }

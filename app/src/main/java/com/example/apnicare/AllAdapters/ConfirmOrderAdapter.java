@@ -10,17 +10,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.apnicare.CartManager;
 import com.example.apnicare.ModelResponses.OrderCart.Detail;
 import com.example.apnicare.R;
+import com.example.apnicare.myCart.CartActivity;
 import com.example.apnicare.myCart.Datum;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ConfirmOrderAdapter extends RecyclerView.Adapter<ConfirmOrderAdapter.ViewHolder> {
      private Context context;
-    private List<Detail> data;
+    private ArrayList<CartManager> data;
 
-    public ConfirmOrderAdapter(Context context, List<Detail> data) {
+    public ConfirmOrderAdapter(Context context, ArrayList<CartManager> data) {
         this.context = context;
         this.data = data;
     }
@@ -35,10 +38,10 @@ public class ConfirmOrderAdapter extends RecyclerView.Adapter<ConfirmOrderAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Detail cartresponse=data.get(position);
-        holder.productname.setText(cartresponse.getDrug().getName());
-        holder.price.setText("Rs. "+cartresponse.getPrice().toString());
-        String qty= String.valueOf(cartresponse.getQuantity());
+//        Detail cartresponse=data.get(position);
+        holder.productname.setText(data.get(position).itemName);
+        holder.price.setText("Rs. "+data.get(position).price);
+        String qty= String.valueOf(data.get(position).qty);
         holder.quantityNumber.setText(qty);
     }
 

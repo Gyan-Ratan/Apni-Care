@@ -131,6 +131,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/abc"
+                android:text="No Items"
+                android:gravity="center"
+                android:textSize="24dp"
+                />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recy"

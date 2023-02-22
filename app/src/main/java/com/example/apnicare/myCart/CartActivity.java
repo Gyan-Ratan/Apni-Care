@@ -65,14 +65,13 @@ public class CartActivity extends AppCompatActivity {
                 }
                 else {
 
-                    System.out.println("cartManagerArrayList.size()");
-                    for (int i =0;i<cartManagerArrayList.size();i++){
-                        addtocart(cartManagerArrayList.get(i).slug,cartManagerArrayList.get(i).qty);
-                    }
-                    Initiateorder();
-                    cartPref.clearCart();
-                    
+                    Intent intent = new Intent(getApplicationContext(), SelectAddressActivity.class);
+//                intent.putExtra("order_id",cartBookingResponse.getOrder().getId());
+                    startActivity(intent);
+
+
                 }
+
             }
         });
 
