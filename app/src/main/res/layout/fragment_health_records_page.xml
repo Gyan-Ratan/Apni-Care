@@ -55,7 +55,7 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/clinicaldocs"
+                android:id="@+id/clinicaldocsbtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
@@ -69,7 +69,7 @@
                 app:elevation="5dp" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/consultation"
+                android:id="@+id/consultationbtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
@@ -82,7 +82,7 @@
                 app:elevation="5dp" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/testreports"
+                android:id="@+id/testreportsbtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
@@ -95,6 +95,7 @@
                 app:elevation="5dp" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/hospitbtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
@@ -121,7 +122,7 @@
                 app:elevation="5dp" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/bills"
+                android:id="@+id/billsbtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
@@ -134,7 +135,7 @@
                 app:elevation="5dp" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/insurance"
+                android:id="@+id/insurancebtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"

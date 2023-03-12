@@ -65,8 +65,8 @@
                             android:layout_gravity="top"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
-                            android:visibility="gone" />
+                            android:text="Hi"
+                            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2" />
 
                         <TextView
                             android:id="@+id/text_email"

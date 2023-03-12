@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +38,7 @@ public class CartActivity extends AppCompatActivity {
     CartPref cartPref;
     TextView temp;
     Toolbar toolbar;
+    Button couponbtn;
     ArrayList<CartManager> cartManagerArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class CartActivity extends AppCompatActivity {
         sharedPrefManager=new SharedPrefManager(CartActivity.this);
         temp=findViewById(R.id.temp_data);
         proceed=findViewById(R.id.proceedtopay);
+        couponbtn=findViewById(R.id.couponbtn);
         cartTotal=findViewById(R.id.cartTotal);
         dicount=findViewById(R.id.discount);
 
@@ -82,6 +85,10 @@ public class CartActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(view1 ->{
             finish();
         } );
+        //coupons
+        couponbtn.setOnClickListener(view -> {
+            Toast.makeText(CartActivity.this, "Not Available", Toast.LENGTH_SHORT).show();
+        });
 
     }
 

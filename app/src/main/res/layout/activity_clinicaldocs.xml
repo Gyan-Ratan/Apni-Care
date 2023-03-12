@@ -48,11 +48,11 @@
             app:srcCompat="@drawable/no_docs" />
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/emptyrestxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="No Document Found"
+            android:text="Not Available"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     </LinearLayout>
