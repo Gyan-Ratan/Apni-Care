@@ -2,6 +2,7 @@ package com.example.apnicare.myCart;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,6 +36,7 @@ public class CartActivity extends AppCompatActivity {
     TextView cartTotal,dicount,topay,topay1;
     CartPref cartPref;
     TextView temp;
+    Toolbar toolbar;
     ArrayList<CartManager> cartManagerArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,8 @@ public class CartActivity extends AppCompatActivity {
         proceed=findViewById(R.id.proceedtopay);
         cartTotal=findViewById(R.id.cartTotal);
         dicount=findViewById(R.id.discount);
+
+        toolbar=findViewById(R.id.toolbar2);
         cartPref=new CartPref(CartActivity.this);
         topay=findViewById(R.id.topay);
 //        topay1=findViewById(R.id.topay2);
@@ -74,6 +78,10 @@ public class CartActivity extends AppCompatActivity {
 
             }
         });
+        // backbtn
+        toolbar.setNavigationOnClickListener(view1 ->{
+            finish();
+        } );
 
     }
 

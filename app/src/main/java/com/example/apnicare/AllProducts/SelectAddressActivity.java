@@ -35,6 +35,12 @@ public class SelectAddressActivity extends AppCompatActivity {
         setContentView(R.layout.selectaddress);
         sharedPrefManager=new SharedPrefManager(this);
         addressrecycleview=findViewById(R.id.addressrecycleview2);
+        toolbar=findViewById(R.id.selectAdd_backbtn);
+
+        //backbtn
+        toolbar.setNavigationOnClickListener(view1 ->{
+            finish();
+        } );
         addressrecycleview.setHasFixedSize(true);
         addressrecycleview.setLayoutManager(new LinearLayoutManager(this));
         Intent intent=getIntent();

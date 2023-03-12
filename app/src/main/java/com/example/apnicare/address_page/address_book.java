@@ -48,6 +48,10 @@ public class address_book extends Fragment {
         addaddress=view.findViewById(R.id.Addaddressbtn);
         toolbar=view.findViewById(R.id.addbook_toolbar);
         noAddress=view.findViewById(R.id.noAddress);
+        //backbtn
+        toolbar.setNavigationOnClickListener(view1 ->{
+            requireActivity().onBackPressed();
+        } );
         addressrecycleview=view.findViewById(R.id.addressrecycleview);
         addressrecycleview.setHasFixedSize(true);
         addressrecycleview.setLayoutManager(new LinearLayoutManager(getContext()));

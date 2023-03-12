@@ -15,6 +15,7 @@
             android:id="@+id/imge"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:visibility="invisible"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
@@ -28,10 +29,10 @@
             android:textSize="18dp"
             android:drawableRight="@drawable/ic_baseline_navigate_next_24"/>
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/darker_gray"
-        />
+        android:background="?android:attr/listDivider" />
 
 </LinearLayout>

@@ -7,7 +7,7 @@
     tools:context=".HealthRecords.vaccinationreports">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar6"
+        android:id="@+id/reportsbackbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/shape"

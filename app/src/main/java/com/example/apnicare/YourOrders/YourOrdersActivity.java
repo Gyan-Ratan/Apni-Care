@@ -38,7 +38,7 @@ public class YourOrdersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_your_orders);
         sharedPrefManager=new SharedPrefManager(YourOrdersActivity.this);
-        toolbar=findViewById(R.id.toolbar);
+        toolbar=findViewById(R.id.myorderbackbtn);
         recyclerView=findViewById(R.id.StatusOrderView);
 //        tabLayout=findViewById(R.id.tabLayout);
 
@@ -46,9 +46,11 @@ public class YourOrdersActivity extends AppCompatActivity {
 //        viewPagerFragmentAdapter=new Orderviewpager(this);
 //        viewPager2.setAdapter(viewPagerFragmentAdapter);
 //        new TabLayoutMediator(tabLayout,viewPager2,((tab, position) -> tab.setText(titles[position]))).attach();
-//        toolbar.setNavigationOnClickListener(view1 ->{
-//            finish();
-//        } );
+
+        // backbtn
+        toolbar.setNavigationOnClickListener(view1 ->{
+            finish();
+        } );
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(YourOrdersActivity.this));
             getOrder();

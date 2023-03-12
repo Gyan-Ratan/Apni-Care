@@ -204,7 +204,7 @@ public class homepage extends Fragment  {
 
             @Override
             public void onFailure(Call<CategoryResponse> call, Throwable t) {
-                Toast.makeText(getContext(),"Check Internet",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"Check Internet", Toast.LENGTH_SHORT).show();
 
             }
         });
