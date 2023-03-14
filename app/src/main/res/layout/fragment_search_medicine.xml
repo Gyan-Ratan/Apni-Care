@@ -69,10 +69,16 @@
 
     <!--                android:layout_height="wrap_content"-->
     <!--                android:alwaysDrawnWithCache="true" />-->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/carousels"
+        />
     <ProgressBar
         android:id="@+id/pbar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:foregroundGravity="center"
 

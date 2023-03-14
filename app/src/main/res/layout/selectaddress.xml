@@ -25,5 +25,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/Addaddressbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        app:fabSize="normal"
+        app:useCompatPadding="true"
+        app:srcCompat="@drawable/ic_round_add_24" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

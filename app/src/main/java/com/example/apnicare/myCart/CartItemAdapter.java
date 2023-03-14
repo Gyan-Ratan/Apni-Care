@@ -81,7 +81,7 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
 //        });
 
         holder.productname.setText(data.get(position).itemName);
-        holder.price.setText("Rs. " +data.get(position).price);
+        holder.price.setText("₹ " +data.get(position).price);
         holder.mrp.setText("MRP Rs. "+data.get(position).mrp);
         holder.quantityNumber.setText(String.valueOf(data.get(position).qty));
 

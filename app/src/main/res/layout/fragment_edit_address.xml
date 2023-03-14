@@ -192,12 +192,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:fontFamily="@font/ibm_regular"
         android:text="Save"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
-        app:backgroundTint="@color/teal_200"
-        app:cornerRadius="16dp" />
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Button"
+        app:backgroundTint="@color/teal_A700" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

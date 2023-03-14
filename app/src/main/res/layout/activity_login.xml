@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <RelativeLayout
+    <!--<RelativeLayout
         android:id="@+id/toolbars"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,34 +40,34 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:src="@drawable/ic_baseline_account_circle_24" />
-    </RelativeLayout>
+    </RelativeLayout>-->
 
     <ImageView
         android:id="@+id/pharmapic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbars"
         android:layout_gravity="center"
-        android:layout_margin="@dimen/default_gap"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
         android:src="@drawable/mask_group"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/phoneno"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/pharmapic"
-        android:layout_gravity="start"
-        android:layout_margin="10dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="10dp"
         android:text="Sign in to continue"
-        android:textColor="@color/black"
-        android:textSize="20dp"
+        android:textAlignment="textStart"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pharmapic" />
 
@@ -75,47 +75,53 @@
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="40dp"
         android:orientation="horizontal"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phoneno">
 
-        <TextView
+        <!--<TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="20dp"
             android:text="+91 "
             android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
-            android:textColor="@color/black"
-            android:textSize="26dp"
-            android:textStyle="bold" />
+            android:textColor="@android:color/black" />-->
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Phone_Number"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Mobile Number"
-            android:inputType="phone"
-            android:maxLength="10"
-            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
-            android:textSize="24dp"
-            android:textStyle="bold" />
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Phone_Number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Mobile Number"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+                android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
+
     </LinearLayout>
 
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button"
         style="@style/Widget.MaterialComponents.Button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:backgroundTint="@color/teal_A700"
         android:text="Get Verification Code"
         android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
@@ -125,9 +131,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
         android:text="By login you are accepting our "
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
@@ -135,9 +141,26 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Terms &amp; Conditions"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="@+id/textView5" />
+        android:text="Terms &amp; Conditions and Privacy Policy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
+    <!--<TextView
+        android:id="@+id/textView10"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:text=" and "
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        tools:layout_editor_absoluteX="122dp" />-->
+
+    <!--<TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Privacy Policy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

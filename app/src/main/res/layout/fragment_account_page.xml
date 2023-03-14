@@ -65,7 +65,7 @@
                             android:layout_gravity="top"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="Hi"
+                            android:text="Hi,"
                             android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2" />
 
                         <TextView
