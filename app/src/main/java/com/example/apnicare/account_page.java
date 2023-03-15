@@ -45,14 +45,14 @@ public class account_page extends Fragment {
         logout = view.findViewById(R.id.logOut);
         referButton = view.findViewById(R.id.referButton);
 
-        username.setText(sharedPrefManager.getData().getFirstName().toUpperCase());
-        username.setVisibility(sharedPrefManager.getData().getFirstName()==null ? View.GONE : View.VISIBLE);
+        /*username.setText(sharedPrefManager.getData().getFirstName().toUpperCase());
+        username.setVisibility(sharedPrefManager.getData().getFirstName()==null ? View.GONE : View.VISIBLE);*/
 
 //        email.setText(sharedPrefManager.getData().getEmail());
 //        email.setVisibility(sharedPrefManager.getData().getEmail()==null ? View.GONE : View.VISIBLE);
 
-        gender.setText(sharedPrefManager.getData().getGender().substring(0,1));
-        gender.setVisibility(sharedPrefManager.getData().getGender()==null ? View.GONE : View.VISIBLE);
+        /*gender.setText(sharedPrefManager.getData().getGender().substring(0,1));
+        gender.setVisibility(sharedPrefManager.getData().getGender()==null ? View.GONE : View.VISIBLE);*/
 
         userprofile.setOnClickListener(view0 ->  {
             Intent intent = new Intent(getActivity(), TempActivity.class);
