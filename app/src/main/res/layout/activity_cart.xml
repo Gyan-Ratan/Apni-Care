@@ -52,7 +52,8 @@
             app:backgroundTint="@color/teal_200"
             app:icon="@drawable/ic_round_arrow_forward_ios_24"
             app:iconGravity="end"
-            app:iconTint="@android:color/black" />
+            app:iconTint="@android:color/black"
+            android:visibility="gone"/>
     </LinearLayout>
 
     <androidx.core.widget.NestedScrollView

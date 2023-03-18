@@ -29,7 +29,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity{
     BottomNavigationView bottomNavigationItemView;
-    private Long exitTime;
+    private Long exitTime=0L;
     private Toast backToast;
     String ROOT_FRAGMENT="root_fragment";
     SearchView searchView;

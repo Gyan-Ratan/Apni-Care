@@ -103,7 +103,7 @@ public class address_book extends Fragment {
             @Override
             public void onFailure(Call<AddressResponse> call, Throwable t) {
 
-                Toast.makeText(getContext(),t.toString(),Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(),t.toString(),Toast.LENGTH_SHORT).show();
             }
         });
     }
