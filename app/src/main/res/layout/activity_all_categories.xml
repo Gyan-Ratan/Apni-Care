@@ -26,4 +26,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/emptyLinearLayout"
+        android:visibility="gone"
+        >
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/no_docs" />
+
+        <TextView
+            android:id="@+id/emptty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="No Products Available"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

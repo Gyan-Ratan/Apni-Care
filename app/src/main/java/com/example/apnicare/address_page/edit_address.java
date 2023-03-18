@@ -88,7 +88,7 @@ public class edit_address extends Fragment {
             @Override
             public void onClick(View v) {
                 String pincode1 = pincode.getText().toString();
-                getDataFromPinCode(pincode1);
+//                getDataFromPinCode(pincode1);
                 addAddress(pincode1);
 
             }
@@ -125,7 +125,7 @@ public class edit_address extends Fragment {
 
 
             Call<EditAddressResponse> call = RetrofitClient.getInstance().getApi()
-                    .editaddress("Bearer " + sharedPrefManager.getData().getAccessToken(), name1, phone1, address11, address21, "Hirdaipur Madaula", state1, pincode1, true);
+                    .editaddress("Bearer " + sharedPrefManager.getData().getAccessToken(), name1, phone1, address11, address21, "Hirdaipur Madaula", "Uttar Pradesh", pincode1, pincode1,28.855450,77.607803,true);
             call.enqueue(new Callback<EditAddressResponse>() {
                 @Override
                 public void onResponse(Call<EditAddressResponse> call, Response<EditAddressResponse> response) {

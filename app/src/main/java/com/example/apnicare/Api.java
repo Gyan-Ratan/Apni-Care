@@ -62,7 +62,7 @@ public interface Api {
     @POST("user/address/")
     Call<EditAddressResponse> editaddress(@Header("Authorization") String token, @Field("name") String name, @Field("phone") String phone,
                                           @Field("address1")String address1, @Field("address2")String address2, @Field("city")String city,
-                                          @Field("state")String state, @Field("pincode")String pincode, @Field("default")boolean defaultaddress);
+                                          @Field("state")String state, @Field("pincode")String pincode,@Field("location")String location,@Field("latitude")Double latitude,@Field("longitude")Double longitude, @Field("default")boolean defaultaddress);
     @DELETE("user/address/{id}")
     Call<DeleteAddressResponse> deleteaddress(@Path("id") int id,@Header("Authorization") String token);
 

@@ -42,6 +42,7 @@
                 android:fontFamily="@font/work_sans"
                 android:text="Text2"
                 android:textColor="@color/red_900"
+                android:textSize="12dp"
                 android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -67,6 +68,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Add to cart"
+                    android:textSize="12sp"
                     android:textAppearance="@android:style/TextAppearance.Material.Medium"
                     android:textColor="@color/teal_400"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -78,6 +80,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Go to cart"
+                    android:textSize="12sp"
                     android:visibility="invisible"
                     android:textAppearance="@android:style/TextAppearance.Material.Medium"
                     android:textColor="@color/teal_200"

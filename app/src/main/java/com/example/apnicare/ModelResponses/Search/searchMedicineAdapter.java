@@ -2,6 +2,7 @@ package com.example.apnicare.ModelResponses.Search;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,15 +66,18 @@ public class searchMedicineAdapter extends RecyclerView.Adapter<searchMedicineAd
         holder.price.setText(Items.get(position).getMrp().toString());
         boolean otc=searchresponse.getPrescriptionRequired();
         if (otc==true){
-            holder.OTC.setText("OTC");
+            holder.OTC.setText("No-Prescription Required");
+
+//            holder.OTC.getResources().getColor(R.color.green_A700);
+            holder.OTC.setTextColor(Color.parseColor( "#3cb043"));
         }
         else {
-            holder.OTC.setText("Non-OTC");
+            holder.OTC.setText("Prescription Required");
         }
 
         String url =searchresponse.getImage().getOriginalPath();
         if (url==null){
-            Toast.makeText(context,"no image",Toast.LENGTH_SHORT).show();
+//            Toast.makeText(context,"no image",Toast.LENGTH_SHORT).show();
 
         }
         else {

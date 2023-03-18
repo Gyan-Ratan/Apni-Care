@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.apnicare.HealthRecords.clinicaldocs;
 import com.example.apnicare.YourOrders.YourOrdersActivity;
 import com.example.apnicare.address_page.AddressActivity;
 
@@ -44,6 +45,7 @@ public class account_page extends Fragment {
         addresspage = view.findViewById(R.id.account_addressbook);
         logout = view.findViewById(R.id.logOut);
         referButton = view.findViewById(R.id.referButton);
+        userprofile.setVisibility(View.GONE);
 
         /*username.setText(sharedPrefManager.getData().getFirstName().toUpperCase());
         username.setVisibility(sharedPrefManager.getData().getFirstName()==null ? View.GONE : View.VISIBLE);*/
@@ -60,7 +62,8 @@ public class account_page extends Fragment {
         });
 
         family.setOnClickListener(view1 ->  {
-            Intent intent = new Intent(getActivity(), family_members.class);
+            Intent intent = new Intent(getActivity(), clinicaldocs.class);
+            intent.putExtra("newText", "Available Soon");
             startActivity(intent);
         });
 

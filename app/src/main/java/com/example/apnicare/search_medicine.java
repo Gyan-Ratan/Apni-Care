@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ import retrofit2.Response;
 
 public class search_medicine extends Fragment {
     EditText search;
+    ImageView imageView;
     RecyclerView recyclerView2;
     SharedPrefManager sharedPrefManager;
     Button search_btn;
@@ -49,15 +51,15 @@ public class search_medicine extends Fragment {
         sharedPrefManager=new SharedPrefManager(getContext());
 //        search_btn=view.findViewById(R.id.searchbtn);
         progressBar=view.findViewById(R.id.pbar);
-        progressBar.getProgress();
+//        progressBar.getProgress();
         cartPref=new CartPref(getContext());
-
+        imageView=view.findViewById(R.id.searchImageView);
         sharedPrefManager=new SharedPrefManager(getContext());
         searchView= view.findViewById(R.id.search_view);
         recyclerView2=view.findViewById(R.id.searchrecyleview);
         recyclerView2.setHasFixedSize(true);
         recyclerView2.setLayoutManager(new LinearLayoutManager(getActivity()));
-        searchitems("");
+//        searchitems("");
 
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -71,7 +73,7 @@ public class search_medicine extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-//                searchitems(newText);
+                searchitems(newText);
 //                Toast.makeText(getContext(), "string entered", Toast.LENGTH_SHORT).show();
                 return true;
             }
@@ -95,6 +97,7 @@ public class search_medicine extends Fragment {
 
                     if (!searchResponse.getData().getItems().isEmpty()){
                         progressBar.setVisibility(View.GONE);
+                        imageView.setVisibility(View.GONE);
                         searchMedicineAdapter adapter =new searchMedicineAdapter(getContext(),searchResponse.getData().getItems(),cartPref);
                         recyclerView2.setAdapter(adapter);
                     }

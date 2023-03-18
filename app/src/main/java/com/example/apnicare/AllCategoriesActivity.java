@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -20,11 +21,13 @@ import retrofit2.Response;
 public class AllCategoriesActivity extends AppCompatActivity {
     RecyclerView recycle;
     ProgressBar progressBar;
+    LinearLayout linearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_categories);
         recycle =findViewById(R.id.recycle);
+        linearLayout=findViewById(R.id.emptyLinearLayout);
         progressBar=findViewById(R.id.pbarAllCategory);
         progressBar.getProgress();
 //        LinearLayoutManager llm =new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false);
@@ -44,9 +47,15 @@ public class AllCategoriesActivity extends AppCompatActivity {
                 if (response.isSuccessful()){
                     if (!categoryResponse.getData().isEmpty()){
                         progressBar.setVisibility(View.GONE);
-                        CategoryRecycleAdapter adapter =new CategoryRecycleAdapter(AllCategoriesActivity.this,categoryResponse.getData());
-                        recycle.setLayoutManager(new GridLayoutManager(getApplicationContext(),3));
-                        recycle.setAdapter(adapter);
+                        if (!categoryResponse.getData().isEmpty() || response.body().getData()!=null){
+                            CategoryRecycleAdapter adapter =new CategoryRecycleAdapter(AllCategoriesActivity.this,categoryResponse.getData());
+                            recycle.setLayoutManager(new GridLayoutManager(getApplicationContext(),3));
+                            recycle.setAdapter(adapter);
+                        }
+                        else {
+                            linearLayout.setVisibility(View.VISIBLE);
+                        }
+
                     }
 
                 }

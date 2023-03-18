@@ -25,48 +25,55 @@ public class health_records_page extends Fragment {
         clincaldocsbtn = view.findViewById(R.id.clinicaldocsbtn);
         clincaldocsbtn.setOnClickListener(view1 -> {
             Intent intent = new Intent(getActivity(), clinicaldocs.class);
-            intent.putExtra("newText", "Not Registered");
+            intent.putExtra("newText", "Available Soon");
             startActivity(intent);
 
         });
 
         vacreportbtn = view.findViewById(R.id.vacreports);
         vacreportbtn.setOnClickListener(view1 -> {
-            Toast.makeText(getContext(), "Available Soon", Toast.LENGTH_SHORT).show();
-
+//            Toast.makeText(getContext(), "Available Soon", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getActivity(), clinicaldocs.class);
+            intent.putExtra("newText", "Available Soon");
+            startActivity(intent);
         });
 
         consbtn = view.findViewById(R.id.consultationbtn);
         consbtn.setOnClickListener(view1 -> {
-            Toast.makeText(getContext(), "Available Soon", Toast.LENGTH_SHORT).show();
-
+//            Toast.makeText(getContext(), "Available Soon", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getActivity(), clinicaldocs.class);
+            intent.putExtra("newText", "Available Soon");
+            startActivity(intent);
 
         });
 
         testre_btn = view.findViewById(R.id.testreportsbtn);
         testre_btn.setOnClickListener(view1 -> {
             Intent intent = new Intent(getActivity(), clinicaldocs.class);
-            intent.putExtra("newText", "Not Registered");
+            intent.putExtra("newText", "Available Soon");
             startActivity(intent);
         });
         hospit_btn = view.findViewById(R.id.hospitbtn);
         hospit_btn.setOnClickListener(view1 -> {
-            Toast.makeText(getContext(), "Available Soon", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getContext(), "Available Soon", Toast.LENGTH_SHORT).show();
 
+            Intent intent = new Intent(getActivity(), clinicaldocs.class);
+            intent.putExtra("newText", "Available Soon");
+            startActivity(intent);
 
         });
 
         billbtn = view.findViewById(R.id.billsbtn);
         billbtn.setOnClickListener(view1 -> {
             Intent intent = new Intent(getActivity(), clinicaldocs.class);
-            intent.putExtra("newText", "Not Registered");
+            intent.putExtra("newText", "Available Soon");
             startActivity(intent);
 
         });
         insur_btn = view.findViewById(R.id.insurancebtn);
         insur_btn.setOnClickListener(view1 -> {
             Intent intent = new Intent(getActivity(), clinicaldocs.class);
-            intent.putExtra("newText", "Not Registered");
+            intent.putExtra("newText", "Available Soon");
             startActivity(intent);
         });
 
