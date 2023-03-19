@@ -51,7 +51,13 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
         holder.name.setText(addressresponse.getName());
         holder.pincode.setText(addressresponse.getPincode());
         holder.address_line1.setText(addressresponse.getAddress1());
-        holder.address_line2.setText(addressresponse.getAddress2());
+
+        if (addressresponse.getAddress2().isEmpty()){
+            holder.address_line2.setVisibility(View.GONE);
+        }
+        else {
+            holder.address_line2.setText(addressresponse.getAddress2());
+        }
 //        holder.defaultAddress.setChecked(addressresponse.getDefault());
 
     }

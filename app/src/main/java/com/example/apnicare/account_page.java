@@ -23,6 +23,7 @@ public class account_page extends Fragment {
     TextView order,family,addresspage,usernumber,username,gender,email,logout,needhelp,accountsetting,referButton;
     ImageButton userprofile;
     SharedPrefManager sharedPrefManager;
+    CartPref cartPref;
 
 
 
@@ -39,6 +40,7 @@ public class account_page extends Fragment {
         username = view.findViewById(R.id.text_dashboard);
 //        email=view.findViewById(R.id.text_email);
         gender=view.findViewById(R.id.text_gender);
+        cartPref=new CartPref(getContext());
         accountsetting = view.findViewById(R.id.account_setting);
         sharedPrefManager = new SharedPrefManager(getContext());
         usernumber.setText(sharedPrefManager.getData().getPhone());
@@ -92,6 +94,7 @@ public class account_page extends Fragment {
                 sharedPrefManager.logOut();
                 Intent intent = new Intent(getContext(), LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                cartPref.clearCart();
                 startActivity(intent);
         });
 

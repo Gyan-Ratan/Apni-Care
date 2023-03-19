@@ -65,7 +65,7 @@ public class searchMedicineAdapter extends RecyclerView.Adapter<searchMedicineAd
         holder.name.setText(Items.get(position).getName());
         holder.price.setText(Items.get(position).getMrp().toString());
         boolean otc=searchresponse.getPrescriptionRequired();
-        if (otc==true){
+        if (otc!=true){
             holder.OTC.setText("No-Prescription Required");
 
 //            holder.OTC.getResources().getColor(R.color.green_A700);
@@ -78,7 +78,9 @@ public class searchMedicineAdapter extends RecyclerView.Adapter<searchMedicineAd
         String url =searchresponse.getImage().getOriginalPath();
         if (url==null){
 //            Toast.makeText(context,"no image",Toast.LENGTH_SHORT).show();
-
+            Glide.with(context)
+                    .load(phUrl)
+                    .into(holder.imageView);
         }
         else {
             Glide.with(context)

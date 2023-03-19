@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/edit_address"
-        android:name="com.example.apnicare.address_page.edit_address"
+        android:name="com.example.apnicare.address_page.EditAddress"
         android:label="fragment_edit_address"
         tools:layout="@layout/fragment_edit_address" >
         <action

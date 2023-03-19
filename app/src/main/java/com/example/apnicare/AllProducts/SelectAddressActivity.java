@@ -2,6 +2,7 @@ package com.example.apnicare.AllProducts;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,6 +17,8 @@ import com.example.apnicare.ModelResponses.Address.AddressResponse;
 import com.example.apnicare.R;
 import com.example.apnicare.RetrofitClient;
 import com.example.apnicare.SharedPrefManager;
+import com.example.apnicare.address_page.EditAddress;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,6 +30,8 @@ public class SelectAddressActivity extends AppCompatActivity {
     Toolbar toolbar;
     SharedPrefManager sharedPrefManager;
     RecyclerView addressrecycleview;
+    FloatingActionButton floatingActionButton;
+
     int order_id;
 
     @Override
@@ -35,7 +40,30 @@ public class SelectAddressActivity extends AppCompatActivity {
         setContentView(R.layout.selectaddress);
         sharedPrefManager=new SharedPrefManager(this);
         addressrecycleview=findViewById(R.id.addressrecycleview2);
+        floatingActionButton=findViewById(R.id.Addaddressbtn1);
         toolbar=findViewById(R.id.selectAdd_backbtn);
+
+        toolbar.setVisibility(View.VISIBLE);
+        floatingActionButton.setVisibility(View.VISIBLE);
+        addressrecycleview.setVisibility(View.VISIBLE);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//                toolbar.setVisibility(View.GONE);
+//                floatingActionButton.setVisibility(View.GONE);
+//                addressrecycleview.setVisibility(View.GONE);
+                // Get the FragmentManager
+                FragmentManager fragmentManager = getSupportFragmentManager();
+
+                // Create a new Fragment instance
+                EditAddress fragment = new EditAddress();
+
+                // Add the Fragment to a container within the Activity layout
+                fragmentManager.beginTransaction().replace(R.id.selectAddress, fragment).addToBackStack(null).commit();
+            }
+        });
+
 
         //backbtn
         toolbar.setNavigationOnClickListener(view1 ->{

@@ -20,10 +20,13 @@ import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.apnicare.AllAdapters.SelectAddressAdapter;
+import com.example.apnicare.ModelResponses.Address.Datum;
 import com.example.apnicare.ModelResponses.EditAddress.EditAddressResponse;
 import com.example.apnicare.R;
 import com.example.apnicare.RetrofitClient;
 import com.example.apnicare.SharedPrefManager;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONArray;
@@ -37,16 +40,19 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class edit_address extends Fragment {
+public class EditAddress extends Fragment {
     TextInputEditText name,address1,address2,phone,pincode;
     Button save;
-    Toolbar toolbar;
+    Toolbar toolbar,toolbar2;
     AutoCompleteTextView city,state;
     SharedPrefManager sharedPrefManager;
     String[] items ={ "GZB","MZN"};
     ArrayAdapter<String> adapteritems;
     private RequestQueue mRequestQueue;
     String district,state1;
+    FloatingActionButton floatingActionButton;
+    SelectAddressAdapter selectAddressAdapter;
+
 
 
     @Override
@@ -57,6 +63,8 @@ public class edit_address extends Fragment {
 
         name=view.findViewById(R.id.recipientsname);
         sharedPrefManager=new SharedPrefManager(getContext());
+        floatingActionButton=view.findViewById(R.id.Addaddressbtn1);
+        toolbar2=view.findViewById(R.id.selectAdd_backbtn);
         toolbar=view.findViewById(R.id.NewAddtoolbar);
         address1=view.findViewById(R.id.addressLine1);
         city=view.findViewById(R.id.citydropmenu);
@@ -129,11 +137,12 @@ public class edit_address extends Fragment {
             call.enqueue(new Callback<EditAddressResponse>() {
                 @Override
                 public void onResponse(Call<EditAddressResponse> call, Response<EditAddressResponse> response) {
+                    EditAddressResponse editAddressResponse =response.body();
 //                    Toast.makeText(getContext(), response.toString(), Toast.LENGTH_SHORT).show();
-
+                    Datum add=response.body().getEditaddressdata();
                     if (response.isSuccessful()){
                         Toast.makeText(getContext(), "Address added", Toast.LENGTH_SHORT).show();
-
+                        selectAddressAdapter.addAddress(add);
                     }
 
                 }
@@ -146,7 +155,7 @@ public class edit_address extends Fragment {
                 }
             });
         } catch (Exception f) {
-            System.out.println("some error at edit_address.java" + f);
+            System.out.println("some error at EditAddress.java" + f);
         }
     }
 

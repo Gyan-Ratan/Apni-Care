@@ -48,7 +48,9 @@ public class CategoryRecycleAdapter extends RecyclerView.Adapter<CategoryRecycle
         String url =category.getImage().getOriginalPath();
         if (url==null){
 //            Toast.makeText(context,"no image",Toast.LENGTH_SHORT).show();
-
+            Glide.with(context)
+                    .load(phUrl)
+                    .into(holder.catimg);
         }
         else {
             Glide.with(context)
