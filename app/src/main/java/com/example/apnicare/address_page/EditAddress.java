@@ -63,8 +63,7 @@ public class EditAddress extends Fragment {
 
         name=view.findViewById(R.id.recipientsname);
         sharedPrefManager=new SharedPrefManager(getContext());
-        floatingActionButton=view.findViewById(R.id.Addaddressbtn1);
-        toolbar2=view.findViewById(R.id.selectAdd_backbtn);
+
         toolbar=view.findViewById(R.id.NewAddtoolbar);
         address1=view.findViewById(R.id.addressLine1);
         city=view.findViewById(R.id.citydropmenu);
@@ -139,17 +138,16 @@ public class EditAddress extends Fragment {
                 public void onResponse(Call<EditAddressResponse> call, Response<EditAddressResponse> response) {
                     EditAddressResponse editAddressResponse =response.body();
 //                    Toast.makeText(getContext(), response.toString(), Toast.LENGTH_SHORT).show();
-                    Datum add=response.body().getEditaddressdata();
                     if (response.isSuccessful()){
                         Toast.makeText(getContext(), "Address added", Toast.LENGTH_SHORT).show();
-                        selectAddressAdapter.addAddress(add);
+
                     }
 
                 }
 
                 @Override
                 public void onFailure(Call<EditAddressResponse> call, Throwable t) {
-                    Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),""+ t.getMessage(), Toast.LENGTH_SHORT).show();
 
 
                 }
