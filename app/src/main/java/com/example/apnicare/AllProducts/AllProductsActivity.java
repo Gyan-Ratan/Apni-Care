@@ -79,6 +79,8 @@ public class AllProductsActivity extends AppCompatActivity {
         recyclerView=findViewById(R.id.allproductrecycleview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(AllProductsActivity.this));
+        recyclerView.setVisibility(View.VISIBLE);
+
         listall(page,id);
 
     }
@@ -99,13 +101,16 @@ public class AllProductsActivity extends AppCompatActivity {
                     if (response.isSuccessful()) {
                         if (!searchResponse.getData().getItems().isEmpty()){
                             progressBar.setVisibility(View.GONE);
-                            Toast.makeText(AllProductsActivity.this, ""+searchResponse.getData().getItems().toString(), Toast.LENGTH_SHORT).show();
+                            recyclerView.setVisibility(View.VISIBLE);
+//                            Toast.makeText(AllProductsActivity.this, ""+searchResponse.getData().getItems().toString(), Toast.LENGTH_SHORT).show();
                             searchMedicineAdapter adapter = new searchMedicineAdapter(getApplicationContext(), searchResponse.getData().getItems(),cartPref);
                             recyclerView.setAdapter(adapter);
+                            linearLayout.setVisibility(View.GONE);
                         }
                         else {
                             progressBar.setVisibility(View.GONE);
                             linearLayout.setVisibility(View.VISIBLE);
+                            recyclerView.setVisibility(View.GONE);
                         }
 
 //                    Toast.makeText(getContext(),response.toString(), Toast.LENGTH_SHORT).show();
