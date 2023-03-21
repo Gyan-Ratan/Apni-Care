@@ -3,6 +3,7 @@ package com.example.apnicare.AllProducts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -40,8 +41,9 @@ public class SelectAddressActivity extends AppCompatActivity {
         setContentView(R.layout.selectaddress);
         sharedPrefManager=new SharedPrefManager(this);
         addressrecycleview=findViewById(R.id.addressrecycleview2);
-        floatingActionButton=findViewById(R.id.Addaddressbtn1);
+        floatingActionButton=findViewById(R.id.Addaddressbtn);
         toolbar=findViewById(R.id.selectAdd_backbtn);
+        addaddress=findViewById(R.id.Addaddressbtn);
 
         toolbar.setVisibility(View.VISIBLE);
         floatingActionButton.setVisibility(View.VISIBLE);
@@ -77,6 +79,11 @@ public class SelectAddressActivity extends AppCompatActivity {
         address();
 
 
+        /*addaddress.setOnClickListener(view -> {
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.add(R.id.edit_address,new EditAddress());
+            fragmentTransaction.commit();
+        });*/
     }
     private void address() {
         Call<AddressResponse> call= RetrofitClient.getInstance().getApi().getData1("Bearer "+sharedPrefManager.getData().getAccessToken());

@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/searchImage"
-            android:layout_width="67dp"
-            android:layout_height="match_parent"
+            android:layout_width="68dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="start|top"
             android:scaleType="fitStart"
             android:src="@drawable/loading" />
@@ -27,32 +27,30 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/name_medicine"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/work_sans_semibold"
-                android:text="Name"
-                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6" />
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+                android:text="Name" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/searchOTC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/work_sans"
-                android:text="Text2"
+                android:text="Otc"
                 android:textColor="@color/red_900"
-                android:textSize="12dp"
-                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2" />
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Overline" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/linearLayout4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.google.android.material.textview.MaterialTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/price"
-                    style="@style/TextAppearance.MdcTypographyStyles.Subtitle1"
+                    style="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_baseline_currency_rupee_24"
@@ -68,8 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Add to cart"
-                    android:textSize="12sp"
-                    android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                    android:textAppearance="@android:style/TextAppearance.Material.Button"
                     android:textColor="@color/teal_400"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -80,9 +77,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Go to cart"
-                    android:textSize="12sp"
                     android:visibility="invisible"
-                    android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                    android:textAppearance="@android:style/TextAppearance.Material.Button"
                     android:textColor="@color/teal_200"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

@@ -26,7 +26,7 @@ prescription to be valid</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="hello_blank_fragment">fragment</string>
     <string name="ordericon">Order Now</string>
-    <string name="orderbyprescription">Order By Prescription</string>
+    <string name="orderbyprescription">Order with prescription</string>
     <string name="orderprescription">Upload the prescription and tell us what you need. We do the rest.</string>
     <string name="username">USER</string>
     <string name="cart">cart</string>

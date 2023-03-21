@@ -171,12 +171,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
             android:drawablePadding="20dp"
-            android:fontFamily="@font/work_sans_semibold"
-
+            android:fontFamily="@font/roboto_bold"
             android:text="Family Members"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline7"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
             app:drawableLeftCompat="@drawable/ic_baseline_family_restroom_24" />
 
         <TextView
@@ -185,11 +183,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
             android:drawablePadding="20dp"
-            android:fontFamily="@font/work_sans_semibold"
+            android:fontFamily="@font/roboto_bold"
             android:text="Your orders"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline7"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
             app:drawableLeftCompat="@drawable/ic_baseline_library_books_24" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -198,11 +195,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
             android:drawablePadding="20dp"
-            android:fontFamily="@font/work_sans_semibold"
+            android:fontFamily="@font/roboto_bold"
             android:text="Address book"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline7"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
             app:drawableLeftCompat="@drawable/ic_baseline_location_on_24" />
 
         <View
@@ -219,11 +215,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
             android:drawablePadding="20dp"
-            android:fontFamily="@font/work_sans_semibold"
+            android:fontFamily="@font/roboto_bold"
             android:text="Settings"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline7"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
             app:drawableLeftCompat="@drawable/ic_baseline_settings_24" />
 
         <TextView
@@ -232,11 +227,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
             android:drawablePadding="20dp"
-            android:fontFamily="@font/work_sans_semibold"
+            android:fontFamily="@font/roboto_bold"
             android:text="Need help ?"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline7"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
             app:drawableLeftCompat="@drawable/ic_baseline_help_24" />
 
         <TextView
@@ -245,11 +239,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:drawablePadding="20dp"
-            android:fontFamily="@font/work_sans_semibold"
+            android:fontFamily="@font/roboto_bold"
             android:text="About us"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline7"
             android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
             app:drawableStartCompat="@drawable/info" />
 
         <TextView
@@ -258,11 +251,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:drawablePadding="20dp"
-            android:fontFamily="@font/work_sans_semibold"
+            android:fontFamily="@font/roboto_bold"
             android:text="Refer "
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline7"
             android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
             app:drawableStartCompat="@drawable/ic_baseline_share_24" />
 
         <View
@@ -281,11 +273,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
             android:drawablePadding="20dp"
-            android:fontFamily="@font/work_sans_semibold"
+            android:fontFamily="@font/roboto_bold"
             android:text="Logout"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline7"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
             app:drawableLeftCompat="@drawable/ic_baseline_login_24" />
 
     </LinearLayout>

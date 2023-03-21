@@ -51,51 +51,46 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/Hi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hi,"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="-20dp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                android:layout_marginTop="12dp"
+                android:text="Hi,"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Widget.TextView"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toTopOf="@+id/imageView"
-                />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/home_user_phn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:text="@string/username"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toTopOf="@+id/imageView" />
+                app:layout_constraintTop_toBottomOf="@+id/Hi" />
 
             <ImageButton
                 android:id="@+id/cartimagebutton"
-                android:layout_width="48dp"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/cart"
                 android:elevation="5dp"
-                android:minHeight="48dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/shopping_cart_24" />
+                app:srcCompat="@drawable/outline_shopping_cart_24" />
 
             <TextView
                 android:id="@+id/cart_badge_text_view"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:background="@drawable/ic_baseline_circle_24"
                 android:elevation="6sp"
                 android:ellipsize="middle"
-                android:text="0"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
@@ -111,7 +106,7 @@
                 android:contentDescription="@string/app_name"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/avatar__1_" />
+                app:srcCompat="@drawable/account_circle" />
 
 
             <androidx.cardview.widget.CardView
@@ -158,9 +153,7 @@
                         android:fontFamily="@font/work_sans_bold"
                         android:text="@string/orderbyprescription"
                         android:textAllCaps="false"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
+                        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline7"
                         app:layout_constraintBottom_toTopOf="@+id/textView"
                         app:layout_constraintEnd_toStartOf="@+id/homeupload"
                         app:layout_constraintStart_toStartOf="parent"
@@ -177,7 +170,7 @@
                         android:layout_marginEnd="10dp"
                         android:layout_toStartOf="@+id/homeupload"
                         android:text="@string/orderprescription"
-                        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle1" />
+                        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body2" />
 
 
                 </RelativeLayout>
@@ -195,13 +188,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/view" />-->
 
 
-
             <com.denzcoskun.imageslider.ImageSlider
                 android:id="@+id/coursel"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="10dp"
                 android:elevation="10dp"
                 app:iss_auto_cycle="true"
@@ -236,7 +228,7 @@
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
 
-                        <TextView
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/allcategories2"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -244,7 +236,7 @@
                             android:fontFamily="@font/ibm_bold"
                             android:padding="15dp"
                             android:text="@string/popular_categories"
-                            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
                             android:textColor="@android:color/black" />
 
                         <com.google.android.material.textview.MaterialTextView
