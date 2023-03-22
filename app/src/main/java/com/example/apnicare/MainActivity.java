@@ -58,7 +58,9 @@ public class MainActivity extends AppCompatActivity{
                     replace(new health_records_page(),true);
                     break;
                 case R.id.Search:
-                    replace(new search_medicine(),true);
+//                    replace(new search_medicine(),true);
+                    Intent intent = new Intent(this, SearchActivity.class);
+                    startActivity(intent);
                     break;
 //                case R.id.fab_upload:
 //                    prescription_cam();
