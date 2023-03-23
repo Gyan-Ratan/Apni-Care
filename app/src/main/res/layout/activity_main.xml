@@ -8,10 +8,48 @@
     tools:context=".MainActivity"
     android:id="@+id/main_activity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/homeappbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape3"
+        app:elevation=".2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/home_user_phn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:labelVisibilityMode="unlabeled"
+            app:menu="@menu/topbar"
+            app:navigationIcon="@drawable/account_circle"
+            app:subtitle="User"
+            app:subtitleTextAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+            app:subtitleTextColor="@color/black"
+            app:title="Hi,"
+            app:titleTextAppearance="@style/TextAppearance.MaterialComponents.Subtitle2" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/homesearch_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/white"
+            android:layout_marginHorizontal="6dp"
+            app:layout_scrollFlags="snap"
+            app:cornerRadius="8dp"
+            android:hint="Search Your Medicine"
+            android:textAlignment="textStart"
+            app:icon="@drawable/search_icon"
+            app:iconTint="@color/black"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
         android:contentDescription="Nested"
-        android:id="@+id/nestedScrollView"
+        android:id="@+id/home_nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
@@ -43,8 +81,10 @@
         android:layout_gravity="bottom"
         android:background="@color/transparent"
         app:elevation="0dp"
+        android:fitsSystemWindows="true"
         app:labelVisibilityMode="labeled"
-        app:menu="@menu/bottom_nav_menu" />
+        app:menu="@menu/bottom_nav_menu" >
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
     <!--    app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"-->
 
 

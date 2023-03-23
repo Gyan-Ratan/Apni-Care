@@ -11,7 +11,7 @@
         android:id="@+id/appbar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:background="@color/white"
+        android:background="@color/transparent"
         app:liftOnScroll="true"
         style="@style/ThemeOverlay.AppCompat.ActionBar">
 
@@ -23,9 +23,13 @@
             android:background="@drawable/searchview"
             android:backgroundTint="@android:color/white"
             android:elevation="6dp"
+            app:hideNavigationIcon="true"
             app:iconifiedByDefault="false"
             app:queryBackground="@android:color/transparent"
-            app:queryHint="Search your Medicine" />
+            app:queryHint="Search your Medicine"
+            >
+            <requestFocus/>
+        </androidx.appcompat.widget.SearchView>
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -89,6 +93,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
+    <LinearLayout
+        android:id="@+id/lyt_no_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No result"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+            android:textColor="@color/grey_40"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="Try input more general keyword"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="@color/grey_40" />
+
+    </LinearLayout>
 
 
 </LinearLayout>

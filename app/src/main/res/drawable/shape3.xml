@@ -9,7 +9,7 @@
         android:endColor="#A5E6CE">
 
     </gradient>
-    <corners android:bottomRightRadius="25dp"
-        android:bottomLeftRadius="25dp"/>
+    <corners android:bottomRightRadius="20dp"
+        android:bottomLeftRadius="20dp"/>
 
 </shape>

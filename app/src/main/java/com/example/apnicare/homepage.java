@@ -28,7 +28,10 @@ import com.example.apnicare.AllAdapters.CategoryRecycleAdapter;
 import com.example.apnicare.AllProducts.AllProductsActivity;
 import com.example.apnicare.ModelResponses.CategoryResponse.CategoryResponse;
 import com.example.apnicare.myCart.CartActivity;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,9 +43,8 @@ import retrofit2.Response;
 
 public class homepage extends Fragment  {
     Button upbtn;
-    SearchView searchView;
     ImageButton cart,allproducts;
-    TextView usernumber,allCategory;
+    TextView allCategory;
     SharedPrefManager sharedPrefManager;
     RecyclerView recyclerviewpc;
     ProgressBar progressBar;
@@ -62,41 +64,24 @@ public class homepage extends Fragment  {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_homepage, container, false);
-//        ImageView searchView = view.findViewById(R.id.imageView);
-        cart=view.findViewById(R.id.cartimagebutton);
         constraintLayout=view.findViewById(R.id.HomeLayout);
         progressBar=view.findViewById(R.id.pbarHome);
 
-
         upbtn=view.findViewById(R.id.homeupload);
         allproducts=view.findViewById(R.id.showallproducts);
-        usernumber=view.findViewById(R.id.home_user_phn);
         allCategory=view.findViewById(R.id.allcategories);
         recyclerviewpc = view.findViewById(R.id.recyclerview_id1);
         sharedPrefManager=new SharedPrefManager(getContext());
         AllCategoriesActivity allCategoriesActivity=new AllCategoriesActivity();
 
-        usernumber.setText(sharedPrefManager.getData().getPhone());
         ImageSlider imageSlider = view.findViewById(R.id.coursel);
 
-//        searchView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Fragment fragment=new search_medicine();
-//                FragmentTransaction transaction=getActivity().getSupportFragmentManager().beginTransaction();
-//                transaction.addToBackStack(null);
-//                transaction.replace(R.id.homepage,fragment).commit();
-//
-//            }
-//        });
+
+
+
 
 
         // cart badge
-
-        TextView cartBadgeTextView = view.findViewById(R.id.cart_badge_text_view);
-        int cartQuantity =0;
-        cartBadgeTextView.setText(String.valueOf(cartQuantity));
-        cartBadgeTextView.setVisibility(cartQuantity == 0 ? View.GONE : View.VISIBLE);
         upbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -5,11 +5,15 @@ import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -28,6 +32,7 @@ public class SearchActivity extends AppCompatActivity {
     Button search_btn;
     SearchView searchView;
     ProgressBar progressBar;
+    private LinearLayout lyt_no_result;
     CartPref cartPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +56,19 @@ public class SearchActivity extends AppCompatActivity {
             public boolean onQueryTextSubmit(String query) {
 //                Toast.makeText(getContext(), "string entered", Toast.LENGTH_SHORT).show();
                 searchitems(query);
+                if (query.equals(" ")) {
+                    hideKeyboard();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            progressBar.setVisibility(View.VISIBLE);
+                        }
+                    }, 2000);
+                } else {
+                    //Toast.makeText(getApplicationContext(), "Please fill search input", Toast.LENGTH_SHORT).show();
+                }
+                hideKeyboard();
                 return true;
             }
 
@@ -63,6 +81,14 @@ public class SearchActivity extends AppCompatActivity {
         });
 
     }
+    private void hideKeyboard() {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+
     private void searchitems(String a) {
         Call<SearchResponse> call= RetrofitClient
                 .getInstance()
@@ -82,6 +108,10 @@ public class SearchActivity extends AppCompatActivity {
                         imageView.setVisibility(View.GONE);
                         searchMedicineAdapter adapter =new searchMedicineAdapter(SearchActivity.this,searchResponse.getData().getItems(),cartPref);
                         recyclerView2.setAdapter(adapter);
+                    }
+                    else{
+                        recyclerView2.setVisibility(View.GONE);
+                        imageView.setVisibility(View.VISIBLE);
                     }
 
 //                    Toast.makeText(getContext(),response.toString(), Toast.LENGTH_SHORT).show();

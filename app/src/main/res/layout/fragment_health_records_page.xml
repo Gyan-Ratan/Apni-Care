@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,150 +7,150 @@
     tools:context=".health_records_page">
 
     <!-- Note: A RecyclerView can also be used -->
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="20dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <!-- Scrollable content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:fontFamily="@font/ibm_semibold"
-                    android:text="Hey, "
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/switchuser"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTintMode="screen"
-                    android:fontFamily="@font/ibm_bold"
-                    android:text="@string/username"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    app:cornerRadius="20dp"
-                    app:icon="@drawable/ic_round_arrow_circle_down_24"
-                    app:iconGravity="end" />
-
-            </LinearLayout>
-
-            <androidx.legacy.widget.Space
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:fontFamily="@font/ibm_semibold"
+                android:text="Hey, "
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/clinicaldocsbtn"
-                android:layout_width="match_parent"
+                android:id="@+id/switchuser"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:backgroundTint="@android:color/white"
-                android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
-
-                android:padding="15dp"
-                android:text="Clinical Documents"
-                android:textAlignment="textStart"
-                android:textColor="@color/teal_700"
-                app:elevation="5dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/consultationbtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:backgroundTint="@android:color/white"
-                android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
-                android:padding="15dp"
-                android:text="Doctor Consultation"
-                android:textAlignment="textStart"
-                android:textColor="@color/teal_700"
-                app:elevation="5dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/testreportsbtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:backgroundTint="@android:color/white"
-                android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
-                android:padding="15dp"
-                android:text="Test Reports"
-                android:textAlignment="textStart"
-                android:textColor="@color/teal_700"
-                app:elevation="5dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/hospitbtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
-                android:padding="15dp"
-                android:text="Hospitalisation"
-                android:textAlignment="textStart"
-                android:textColor="@color/teal_700"
-                app:backgroundTint="@color/white"
-                app:cornerRadius="10dp"
-                app:elevation="5dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/vacreports"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:backgroundTint="@android:color/white"
-                android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
-                android:padding="15dp"
-                android:text="vaccination reports"
-                android:textAlignment="textStart"
-                android:textColor="@color/teal_700"
-                app:elevation="5dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/billsbtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:backgroundTint="@android:color/white"
-                android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
-                android:padding="15dp"
-                android:text="Bills"
-                android:textAlignment="textStart"
-                android:textColor="@color/teal_700"
-                app:elevation="5dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/insurancebtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:backgroundTint="@android:color/white"
-                android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
-                android:padding="15dp"
-                android:text="Insurance"
-                android:textAlignment="textStart"
-                android:textColor="@color/teal_700"
-                app:elevation="5dp" />
+                android:backgroundTintMode="screen"
+                android:fontFamily="@font/ibm_bold"
+                android:text="@string/username"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/ic_round_arrow_circle_down_24"
+                app:iconGravity="end" />
 
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
 
-</FrameLayout>
+        <androidx.legacy.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/clinicaldocsbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="@android:color/white"
+            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
+
+            android:padding="15dp"
+            android:text="Clinical Documents"
+            android:textAlignment="textStart"
+            android:textColor="@color/teal_700"
+            app:elevation="5dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/consultationbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="@android:color/white"
+            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
+            android:padding="15dp"
+            android:text="Doctor Consultation"
+            android:textAlignment="textStart"
+            android:textColor="@color/teal_700"
+            app:elevation="5dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/testreportsbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="@android:color/white"
+            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
+            android:padding="15dp"
+            android:text="Test Reports"
+            android:textAlignment="textStart"
+            android:textColor="@color/teal_700"
+            app:elevation="5dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/hospitbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
+            android:padding="15dp"
+            android:text="Hospitalisation"
+            android:textAlignment="textStart"
+            android:textColor="@color/teal_700"
+            app:backgroundTint="@color/white"
+            app:cornerRadius="10dp"
+            app:elevation="5dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/vacreports"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="@android:color/white"
+            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
+            android:padding="15dp"
+            android:text="vaccination reports"
+            android:textAlignment="textStart"
+            android:textColor="@color/teal_700"
+            app:elevation="5dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/billsbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="@android:color/white"
+            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
+            android:padding="15dp"
+            android:text="Bills"
+            android:textAlignment="textStart"
+            android:textColor="@color/teal_700"
+            app:elevation="5dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/insurancebtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="@android:color/white"
+            android:drawableEnd="@drawable/ic_baseline_arrow_right_24"
+            android:padding="15dp"
+            android:text="Insurance"
+            android:textAlignment="textStart"
+            android:textColor="@color/teal_700"
+            app:elevation="5dp" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
