@@ -49,7 +49,19 @@ public class SearchActivity extends AppCompatActivity {
         recyclerView2=findViewById(R.id.searchrecyleview);
         recyclerView2.setHasFixedSize(true);
         recyclerView2.setLayoutManager(new LinearLayoutManager(SearchActivity.this));
-//        searchitems("");
+        searchitems("");
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                // Hide the keyboard when the close icon is clicked
+                Toast.makeText(SearchActivity.this, "work", Toast.LENGTH_SHORT).show();
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(searchView.getWindowToken(), 0);
+                return false;
+
+            }
+        });
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
             @Override

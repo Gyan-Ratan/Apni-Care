@@ -43,7 +43,7 @@ import retrofit2.Response;
 
 public class homepage extends Fragment  {
     Button upbtn;
-    ImageButton cart,allproducts;
+    ImageButton allproducts;
     TextView allCategory;
     SharedPrefManager sharedPrefManager;
     RecyclerView recyclerviewpc;
@@ -97,11 +97,6 @@ public class homepage extends Fragment  {
                 startActivity(intent);
             }
         });
-
-//        cart.setOnClickListener(view12 -> {
-//            Intent intent = new Intent(getActivity(), CartActivity.class);
-//            startActivity(intent);
-//        });
 
         allproducts.setOnClickListener(new View.OnClickListener() {
             @Override
