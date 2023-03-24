@@ -39,7 +39,7 @@
             android:backgroundTint="@color/white"
             android:layout_marginHorizontal="6dp"
             app:layout_scrollFlags="snap"
-            app:cornerRadius="8dp"
+            app:cornerRadius="08dp"
             android:hint="Search Your Medicine"
             android:textAlignment="textStart"
             app:icon="@drawable/search_icon"

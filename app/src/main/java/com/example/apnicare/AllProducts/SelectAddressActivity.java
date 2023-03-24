@@ -41,12 +41,12 @@ public class SelectAddressActivity extends AppCompatActivity {
         setContentView(R.layout.selectaddress);
         sharedPrefManager=new SharedPrefManager(this);
         addressrecycleview=findViewById(R.id.addressrecycleview2);
-        floatingActionButton=findViewById(R.id.Addaddressbtn);
+        floatingActionButton=findViewById(R.id.Addaddressbtn1);
         toolbar=findViewById(R.id.selectAdd_backbtn);
         addaddress=findViewById(R.id.Addaddressbtn);
 
         toolbar.setVisibility(View.VISIBLE);
-        floatingActionButton.setVisibility(View.VISIBLE);
+//        floatingActionButton.setVisibility(View.VISIBLE);
         addressrecycleview.setVisibility(View.VISIBLE);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override

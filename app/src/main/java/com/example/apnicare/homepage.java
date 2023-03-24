@@ -98,10 +98,10 @@ public class homepage extends Fragment  {
             }
         });
 
-        cart.setOnClickListener(view12 -> {
-            Intent intent = new Intent(getActivity(), CartActivity.class);
-            startActivity(intent);
-        });
+//        cart.setOnClickListener(view12 -> {
+//            Intent intent = new Intent(getActivity(), CartActivity.class);
+//            startActivity(intent);
+//        });
 
         allproducts.setOnClickListener(new View.OnClickListener() {
             @Override
