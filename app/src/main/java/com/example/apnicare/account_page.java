@@ -43,11 +43,16 @@ public class account_page extends Fragment {
         cartPref=new CartPref(getContext());
         accountsetting = view.findViewById(R.id.account_setting);
         sharedPrefManager = new SharedPrefManager(getContext());
-        usernumber.setText(sharedPrefManager.getData().getPhone());
         addresspage = view.findViewById(R.id.account_addressbook);
         logout = view.findViewById(R.id.logOut);
         referButton = view.findViewById(R.id.referButton);
-        userprofile.setVisibility(View.GONE);
+        if (sharedPrefManager.getData().getFirstName().toString().isEmpty() || sharedPrefManager.getData().getFirstName()==null){
+            usernumber.setText(sharedPrefManager.getData().getPhone());
+        }
+        else {
+            usernumber.setText(sharedPrefManager.getData().getFirstName());
+
+        }
 
         /*username.setText(sharedPrefManager.getData().getFirstName().toUpperCase());
         username.setVisibility(sharedPrefManager.getData().getFirstName()==null ? View.GONE : View.VISIBLE);*/
@@ -59,7 +64,7 @@ public class account_page extends Fragment {
         gender.setVisibility(sharedPrefManager.getData().getGender()==null ? View.GONE : View.VISIBLE);*/
 
         userprofile.setOnClickListener(view0 ->  {
-            Intent intent = new Intent(getActivity(), TempActivity.class);
+            Intent intent = new Intent(getActivity(), User_Profile.class);
             startActivity(intent);
         });
 

@@ -40,6 +40,23 @@ public class SharedPrefManager {
         editor.apply();
 
     }
+    void updateUser(com.example.apnicare.ModelResponses.UpdateUser.Data data) {
+        sharedPreferences=context.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
+        editor=sharedPreferences.edit();
+        editor.putString("firstName", data.getFirstName());
+        editor.putString("lastName",data.getLastName());
+        editor.putString("type",data.getType());
+        editor.putString("email",data.getEmail());
+        editor.putString("phone",data.getPhone());
+        editor.putString("gender", data.getGender());
+        editor.putBoolean("email_verified", data.getEmailVerified());
+        editor.putBoolean("verified", data.getVerified());
+        editor.putBoolean("has_password", data.getHasPassword());
+        editor.putString("retail", data.getRetail());
+        editor.putBoolean("logged",true);
+        editor.apply();
+
+    }
     boolean isLoggedIn(){
         sharedPreferences=context.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         return sharedPreferences.getBoolean("logged",false);
@@ -49,10 +66,10 @@ public class SharedPrefManager {
         sharedPreferences=context.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         return new Data(
                 sharedPreferences.getString("accessToken",null),
-                sharedPreferences.getString("firstName",null),
-                sharedPreferences.getString("lastName",null),
+                sharedPreferences.getString("firstName",""),
+                sharedPreferences.getString("lastName",""),
                 sharedPreferences.getString("type",null),
-                sharedPreferences.getString("email",null),
+                sharedPreferences.getString("email",""),
                 sharedPreferences.getString("phone",null),
                 sharedPreferences.getString("gender",null),
                 sharedPreferences.getBoolean("email_verified",false),

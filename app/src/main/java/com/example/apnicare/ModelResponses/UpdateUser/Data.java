@@ -30,9 +30,9 @@ public class Data {
     @SerializedName("verified")
     @Expose
     private Boolean verified;
-    @SerializedName("address")
-    @Expose
-    private String address;
+//    @SerializedName("address")
+//    @Expose
+//    private String address;
     @SerializedName("has_password")
     @Expose
     private Boolean hasPassword;
@@ -116,13 +116,13 @@ public class Data {
         this.verified = verified;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
+//    public String getAddress() {
+//        return address;
+//    }
+//
+//    public void setAddress(String address) {
+//        this.address = address;
+//    }
 
     public Boolean getHasPassword() {
         return hasPassword;

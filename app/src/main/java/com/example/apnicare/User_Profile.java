@@ -32,6 +32,9 @@ public class User_Profile extends AppCompatActivity {
         Email=findViewById(R.id.emailUser);
         save=findViewById(R.id.saveUser);
         sharedPrefManager=new SharedPrefManager(getApplicationContext());
+        firstName.setText(""+sharedPrefManager.getData().getFirstName());
+        lastName.setText(""+sharedPrefManager.getData().getLastName());
+        Email.setText(""+sharedPrefManager.getData().getEmail());
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +59,7 @@ public class User_Profile extends AppCompatActivity {
                 UpdateUserResponse updateUserResponse=response.body();
                 if (response.isSuccessful()){
                     Toast.makeText(getApplicationContext(),"Profile Updated",Toast.LENGTH_SHORT).show();
+                    sharedPrefManager.updateUser(updateUserResponse.getDataUser());
 
                 }
                 else {
@@ -65,7 +69,6 @@ public class User_Profile extends AppCompatActivity {
             @Override
             public void onFailure(Call<UpdateUserResponse> call, Throwable t) {
                 Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_SHORT).show();
-
             }
         });
     }
