@@ -65,6 +65,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
                         android:autofillHints=""
                         android:hint="First Name"
                         android:inputType="text"
@@ -86,6 +87,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
                         android:autofillHints=""
                         android:hint="Last Name"
                         android:inputType="text"
@@ -95,34 +97,36 @@
 
             </LinearLayout>
 
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginLeft="16dp"-->
+<!--                android:layout_marginRight="16dp"-->
+<!--                android:focusable="true"-->
+<!--                android:focusableInTouchMode="true"-->
+<!--                android:hint="Date Of Birth"-->
+<!--                app:helperText="Format: DD/MM/YYYY">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/dob"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_centerHorizontal="true"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:autofillHints=""-->
+<!--                    android:ems="10"-->
+<!--                    android:inputType="date"-->
+<!--                    android:singleLine="false"-->
+<!--                    android:textSize="15sp" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:hint="Date Of Birth"
-                app:helperText="Format: DD/MM/YYYY">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/dob"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:autofillHints=""
-                    android:ems="10"
-                    android:inputType="date"
-                    android:singleLine="false"
-                    android:textSize="15sp" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:focusable="true"
@@ -146,6 +150,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:focusable="true"
@@ -168,8 +173,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="30dp"
                 android:text="Gender"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                 android:textColor="@color/grayish"
@@ -179,7 +185,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginLeft="20dp"
                 android:orientation="horizontal">
 
