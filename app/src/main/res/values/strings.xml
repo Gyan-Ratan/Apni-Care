@@ -72,5 +72,9 @@ prescription to be valid</string>
     <string name="Nutritionaldrinks">Nutritional drinks</string>
     <string name="products">Products</string>
     <string name="prefix">₹</string>
+    <string name="invalidName">Invalid Name</string>
+    <string name="invalidEmail">Enter proper Email Address</string>
+    <string name="invalidNumber">Invalid Number</string>
+    <string name="invalidDOb">Invalid DOB</string>
 
 </resources>
