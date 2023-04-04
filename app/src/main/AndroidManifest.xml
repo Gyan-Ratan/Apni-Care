@@ -37,7 +37,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Upload_Prescription.sprescription"
+            android:name=".address_page.EditAddress"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

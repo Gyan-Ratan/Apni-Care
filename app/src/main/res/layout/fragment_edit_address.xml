@@ -119,41 +119,39 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:hint="State"
                     app:boxStrokeColor="@color/teal_200"
                     app:hintTextColor="@color/teal_200">
 
-
-                    <AutoCompleteTextView
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/statedropmenu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:dropDownWidth="wrap_content"
-                        android:dropDownHeight="wrap_content"
-                        android:inputType="none|textAutoComplete" />
+                        android:clickable="false"
+                        android:editable="false"
+                        android:text="Uttar Pradesh"
+                        android:textIsSelectable="false" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="City"
                     app:boxStrokeColor="@color/teal_200"
                     app:hintTextColor="@color/teal_200">
 
-
-                    <AutoCompleteTextView
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/citydropmenu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:inputType="none|textAutoComplete" />
+                        android:text="Ghaziabad"
+                        android:clickable="false"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -180,12 +178,10 @@
                     android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2" />
 
             </com.google.android.material.textfield.TextInputLayout>
-
-
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <com.google.android.material.button.MaterialButton
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/saveaddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

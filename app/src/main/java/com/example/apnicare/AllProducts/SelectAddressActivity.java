@@ -52,17 +52,19 @@ public class SelectAddressActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Intent starteditadd_ = new Intent(SelectAddressActivity.this,EditAddress.class);
+                startActivity(starteditadd_);
 //                toolbar.setVisibility(View.GONE);
 //                floatingActionButton.setVisibility(View.GONE);
 //                addressrecycleview.setVisibility(View.GONE);
                 // Get the FragmentManager
-                FragmentManager fragmentManager = getSupportFragmentManager();
+                /*FragmentManager fragmentManager = getSupportFragmentManager();
 
                 // Create a new Fragment instance
                 EditAddress fragment = new EditAddress();
 
                 // Add the Fragment to a container within the Activity layout
-                fragmentManager.beginTransaction().replace(R.id.selectAddress, fragment).addToBackStack(null).commit();
+                fragmentManager.beginTransaction().replace(R.id.selectAddress, fragment().addToBackStack(null).commit();*/
             }
         });
 
