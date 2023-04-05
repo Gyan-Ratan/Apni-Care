@@ -23,7 +23,7 @@ public class Detail {
     private int nextNum;
     @SerializedName("prev_num")
     @Expose
-    private Object prevNum;
+    private int prevNum;
     @SerializedName("has_next")
     @Expose
     private Boolean hasNext;
@@ -74,11 +74,11 @@ public class Detail {
         this.nextNum = nextNum;
     }
 
-    public Object getPrevNum() {
+    public int getPrevNum() {
         return prevNum;
     }
 
-    public void setPrevNum(Object prevNum) {
+    public void setPrevNum(int prevNum) {
         this.prevNum = prevNum;
     }
 

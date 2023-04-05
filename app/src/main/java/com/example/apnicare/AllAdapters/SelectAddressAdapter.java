@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.apnicare.OrderReviewActivity;
-import com.example.apnicare.ModelResponses.Address.Datum;
+import com.example.apnicare.ModelResponses.Address.User_Address;
 import com.example.apnicare.R;
 import com.example.apnicare.SharedPrefManager;
 
@@ -20,11 +20,11 @@ import java.util.List;
 
 public class SelectAddressAdapter extends RecyclerView.Adapter<SelectAddressAdapter.ViewHolder> {
     private Context context;
-    private List<Datum> addresses;
+    private List<User_Address> addresses;
     private SharedPrefManager sharedPrefManager;
     private int o_id;
 
-    public SelectAddressAdapter(Context context, List<Datum> addresses, int o_id) {
+    public SelectAddressAdapter(Context context, List<User_Address> addresses, int o_id) {
         this.context = context;
         this.addresses = addresses;
         this.o_id = o_id;
@@ -39,7 +39,7 @@ public class SelectAddressAdapter extends RecyclerView.Adapter<SelectAddressAdap
 
     @Override
     public void onBindViewHolder(@NonNull SelectAddressAdapter.ViewHolder holder, int position) {
-        Datum addressresponse= addresses.get(position);
+        User_Address addressresponse= addresses.get(position);
         holder.name.setText(addressresponse.getName());
         holder.pincode.setText(addressresponse.getPincode());
         holder.address_line1.setText(addressresponse.getAddress1());

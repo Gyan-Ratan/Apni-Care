@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.apnicare.CartManager;
 import com.example.apnicare.CartPref;
+import com.example.apnicare.ModelResponses.DecreaseQuantity.DecreseQuantityResponse;
 import com.example.apnicare.ModelResponses.OrderCart.Detail;
 import com.example.apnicare.R;
 import com.example.apnicare.RetrofitClient;
@@ -32,12 +33,12 @@ import retrofit2.Response;
 public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHolder> {
     private TextView cartTotal,discount,topay;
     private Context context;
-//    private List<Datum> data;
+    private List<Datum> data;
     SharedPrefManager sharedPrefManager;
     CartPref cartPref;
-    ArrayList<CartManager> data;
+//    ArrayList<CartManager> data;
 
-    public CartItemAdapter(Context context, ArrayList<CartManager> data , TextView cartTotal,TextView discount,TextView topay) {
+    public CartItemAdapter(Context context, List<Datum> data , TextView cartTotal,TextView discount,TextView topay) {
         this.context = context;
         this.data = data;
         this.cartTotal=cartTotal;
@@ -51,7 +52,7 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(context).inflate(R.layout.mycart_card,parent,false);
-        cartPref=new CartPref(context);
+//        cartPref=new CartPref(context);
         return new ViewHolder(view);
 }
 
@@ -65,25 +66,25 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull CartItemAdapter.ViewHolder holder, int position) {
 
-//        Datum cartresponse=data.get(position);
-//        holder.productname.setText(cartresponse.getDrug().getName());
-//        holder.price.setText("Rs. " +cartresponse.getPrice().toString());
-//        holder.mrp.setText("MRP Rs. "+cartresponse.getDrug().getMrp().toString());
-//        holder.quantityNumber.setText(String.valueOf(cartresponse.getQuantity()));
+        Datum cartresponse=data.get(position);
+        holder.productname.setText(cartresponse.getDrug().getName());
+        holder.price.setText("Rs. " +cartresponse.getPrice().toString());
+        holder.mrp.setText("MRP Rs. "+cartresponse.getDrug().getMrp().toString());
+        holder.quantityNumber.setText(String.valueOf(cartresponse.getQuantity()));
 //        holder.delete.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
 //                int id,post;
 //                id = cartresponse.getId();
-//                holder.deleteitem(id,position);0
+//                holder.deleteitem(id,position);
 //
 //            }
 //        });
 
-        holder.productname.setText(data.get(position).itemName);
-        holder.price.setText("₹ " +data.get(position).price);
-        holder.mrp.setText("MRP Rs. "+data.get(position).mrp);
-        holder.quantityNumber.setText(String.valueOf(data.get(position).qty));
+//        holder.productname.setText(data.get(position).itemName);
+//        holder.price.setText("₹ " +data.get(position).price);
+//        holder.mrp.setText("MRP Rs. "+data.get(position).mrp);
+//        holder.quantityNumber.setText(String.valueOf(data.get(position).qty));
 
 
 
@@ -99,90 +100,187 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
 //            itemView.setOnClickListener(this::onClick);
             mrp = itemView.findViewById(R.id.mrp);
             cardView=itemView.findViewById(R.id.cart_cardView);
-            delete = itemView.findViewById(R.id.deletebtn);
+            delete = itemView.findViewById(R.id.mycart_deletebtn);
             productname = itemView.findViewById(R.id.productName);
             price = itemView.findViewById(R.id.prodctMRP);
             quantityNumber = itemView.findViewById(R.id.quantitynumber);
-            addQuantity = itemView.findViewById(R.id.addbtn);
-            minus=itemView.findViewById(R.id.minusbtn);
+            addQuantity = itemView.findViewById(R.id.mycart_addbtn);
+            minus=itemView.findViewById(R.id.mycart_minusbtn);
             sharedPrefManager = new SharedPrefManager(context);
+            delete.setOnClickListener(this);
+
 
             addQuantity.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    cartPref.saveItem(data.get(getAdapterPosition()).itemName,1,data.get(getAdapterPosition()).slug,data.get(getAdapterPosition()).price,data.get(getAdapterPosition()).mrp);
-                    data.get(getAdapterPosition()).setQty(data.get(getAdapterPosition()).qty+1);
-                    notifyItemChanged(getAdapterPosition());
-                    updateTotal();
-                }
-            });
+                    Toast.makeText(context, "item increase", Toast.LENGTH_SHORT).show();
+                    String id1;
+                    id1 = data.get(getAdapterPosition()).getDrug().getSlug();
+                    addtocart(id1);
 
-            price.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(context, "click on Mrp", Toast.LENGTH_SHORT).show();
-                }
-            });
-            productname.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(context, "click on name", Toast.LENGTH_SHORT).show();
+
                 }
             });
 
             minus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    if (data.get(getAdapterPosition()).qty<0){
+                    int id;
+                    int qty;
+                    int position;
+                    position=getAdapterPosition();
+                    if (position>-1) {
+
+
+                        qty = (data.get(getAdapterPosition()).getQuantity());
+                        id = data.get(getAdapterPosition()).getId();
+                        if (1 < qty) {
+                            Toast.makeText(context, "qty" + qty, Toast.LENGTH_SHORT).show();
+                            decreasequantity(id, qty - 1);
+                        } else if (qty == 1) {
+                            Toast.makeText(context, "delete", Toast.LENGTH_SHORT).show();
+                            deleteitem(id, getAdapterPosition());
+                        } else {
+                            //Do not do anything here
+                        }
+                    }
+
+                }
+            });
+//            minus.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+////                    if (data.get(getAdapterPosition()).qty<0){
+////
+////                    }
+////                    else {
+////
+////
+////
+////                        if (data.get(getAdapterPosition()).qty == 0) {
+////                            data.remove(getAdapterPosition());
+////                            notifyItemRemoved(getAdapterPosition());
+////                        } else {
+////                            cartPref.saveItem(data.get(getAdapterPosition()).itemName, -1, data.get(getAdapterPosition()).slug, data.get(getAdapterPosition()).price);
+////                            data.get(getAdapterPosition()).setQty(data.get(getAdapterPosition()).qty - 1);
+////                            if (data.get(getAdapterPosition()).qty == 0) {
+////                                data.remove(getAdapterPosition());
+////                                notifyItemRemoved(getAdapterPosition());
+////                            }
+////                            notifyItemChanged(getAdapterPosition());
+////                        }
+////                    }
+////                    updateTotal();
 //
-//                    }
-//                    else {
-//
-//
-//
+//                    if (data.get(getAdapterPosition()).qty>0){
+//                        cartPref.saveItem(data.get(getAdapterPosition()).itemName, -1, data.get(getAdapterPosition()).slug, data.get(getAdapterPosition()).price,data.get(getAdapterPosition()).mrp);
+//                        data.get(getAdapterPosition()).setQty(data.get(getAdapterPosition()).qty - 1);
 //                        if (data.get(getAdapterPosition()).qty == 0) {
-//                            data.remove(getAdapterPosition());
-//                            notifyItemRemoved(getAdapterPosition());
-//                        } else {
-//                            cartPref.saveItem(data.get(getAdapterPosition()).itemName, -1, data.get(getAdapterPosition()).slug, data.get(getAdapterPosition()).price);
-//                            data.get(getAdapterPosition()).setQty(data.get(getAdapterPosition()).qty - 1);
-//                            if (data.get(getAdapterPosition()).qty == 0) {
 //                                data.remove(getAdapterPosition());
 //                                notifyItemRemoved(getAdapterPosition());
 //                            }
+//                        else {
 //                            notifyItemChanged(getAdapterPosition());
+//
 //                        }
+//
 //                    }
 //                    updateTotal();
+//
+//                }
+//            });
 
-                    if (data.get(getAdapterPosition()).qty>0){
-                        cartPref.saveItem(data.get(getAdapterPosition()).itemName, -1, data.get(getAdapterPosition()).slug, data.get(getAdapterPosition()).price,data.get(getAdapterPosition()).mrp);
-                        data.get(getAdapterPosition()).setQty(data.get(getAdapterPosition()).qty - 1);
-                        if (data.get(getAdapterPosition()).qty == 0) {
-                                data.remove(getAdapterPosition());
-                                notifyItemRemoved(getAdapterPosition());
-                            }
-                        else {
-                            notifyItemChanged(getAdapterPosition());
 
-                        }
+        }
+
+
+
+        @Override
+        public void onClick(View view) {
+            int id;
+            id = data.get(getAdapterPosition()).getId();
+            deleteitem(id, getAdapterPosition());
+
+        }
+        private void addtocart(String id) {
+            Call<AddItemResponse> call = RetrofitClient.getInstance().getApi().additemtocart(id,1,"Bearer " + sharedPrefManager.getData().getAccessToken());
+            call.enqueue(new Callback<AddItemResponse>() {
+                @Override
+                public void onResponse(Call<AddItemResponse> call, Response<AddItemResponse> response) {
+//                Toast.makeText(context,response.toString(),Toast.LENGTH_SHORT).show();
+                    if (response.isSuccessful()) {
+                        data.get(getAdapterPosition()).setQuantity(response.body().getData().getQuantity());
+                        int q = response.body().getData().getQuantity();
+                        notifyItemChanged(getAdapterPosition());
+                        updateTotal();
+//                        quantityNumber.setText(String.valueOf(q));
+//                        Intent refresh = new Intent(context,CartActivity.class);
+//                        refresh.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                        context.startActivity(refresh);
 
                     }
-                    updateTotal();
+                }
+
+                @Override
+                public void onFailure(Call<AddItemResponse> call, Throwable t) {
 
                 }
             });
 
-
         }
 
-        @Override
-        public void onClick(View view) {
-//            data.remove(getAdapterPosition());
-//            data.notify();
-//            deleteitem(id, getAdapterPosition());
+        public void decreasequantity(int id,int quantity){
+            Call<DecreseQuantityResponse> call=RetrofitClient.getInstance().getApi().decreaseQuantity(id,quantity,true,"Bearer "+sharedPrefManager.getData().getAccessToken());
+            call.enqueue(new Callback<DecreseQuantityResponse>() {
+                @Override
+                public void onResponse(Call<DecreseQuantityResponse> call, Response<DecreseQuantityResponse> response) {
+                    DecreseQuantityResponse decreseQuantityResponse=response.body();
+                    Toast.makeText(context, ""+response.toString(), Toast.LENGTH_SHORT).show();
+//                    productname.setText(response.toString());
+                    if (response.isSuccessful()){
+                        int q = response.body().getData().getQuantity();
+                        data.get(getAdapterPosition()).setQuantity(response.body().getData().getQuantity());
+                        notifyItemChanged(getAdapterPosition());
+                        updateTotal();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<DecreseQuantityResponse> call, Throwable t) {
+
+                }
+            });
 
         }
+        public void deleteitem(int id, int post) {
+            Call<CartItemDeleteResponse> call = RetrofitClient.getInstance().getApi().getData(id,"Bearer " + sharedPrefManager.getData().getAccessToken());
+            call.enqueue(new Callback<CartItemDeleteResponse>() {
+                @Override
+                public void onResponse(Call<CartItemDeleteResponse> call, Response<CartItemDeleteResponse> response) {
+                    CartItemDeleteResponse cartItemDeleteResponse = response.body();
+                    if (response.isSuccessful()) {
+                        data.remove(getAdapterPosition());
+                        notifyItemRemoved(getAdapterPosition());
+                        updateTotal();
+                    }
+
+                }
+
+                @Override
+                public void onFailure(Call<CartItemDeleteResponse> call, Throwable t) {
+                    Toast.makeText(context, t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                }
+
+            });
+            //        context.notifyDataSetChanged();
+//        Intent refresh = new Intent(context,CartActivity.class);
+//
+//        refresh.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        context.startActivity(refresh);
+//        Toast.makeText(context, "successful", Toast.LENGTH_SHORT).show();
+        }
+
 
 //        private void addtocart(String id) {
 //            Call<AddItemResponse> call = RetrofitClient.getInstance().getApi().additemtocart(id, "Bearer " + sharedPrefManager.getData().getAccessToken());
@@ -245,8 +343,8 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
         int i;
         double mrp = 0, sum = 0;
         for (i = 0; i < data.size(); i++) {
-            sum = sum + (data.get(i).getPrice() * data.get(i).qty);
-            mrp = mrp + (data.get(i).getMrp() * data.get(i).qty);
+            sum = sum + (data.get(i).getDrug().getPrice() * data.get(i).getQuantity());
+            mrp = mrp + (data.get(i).getDrug().getMrp() * data.get(i).getQuantity());
         }
         cartTotal.setText("₹ "+new DecimalFormat("##.##").format(mrp));
         discount.setText("-₹ "+new DecimalFormat("##.##").format(mrp-sum));
@@ -254,27 +352,5 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ViewHo
 
 
     }
-
-//    private void updateTotal() {
-//        int i;
-//        double mrp=0,sum=0;
-//        if (cartManagerArrayList==null || cartManagerArrayList.isEmpty()){
-//            topay.setText("₹ "+"00");
-////            topay1.setText("₹ "+"00");
-//        }
-//        else {
-//            for (i=0;i<cartManagerArrayList.size();i++){
-//                sum= sum+(cartManagerArrayList.get(i).price*cartManagerArrayList.get(i).qty);
-////            mrp = mrp + (cartResponse.getData().get(i).getDrug().getMrp()*cartResponse.getData().get(i).getQuantity());
-//            }
-////        cartTotal.setText("₹ "+new DecimalFormat("##.##").format(mrp));
-////        dicount.setText("-₹ "+new DecimalFormat("##.##").format(mrp-sum));
-//            topay.setText("₹ "+new DecimalFormat("##.##").format(sum));
-////            topay.setText("₹ "+new DecimalFormat("##.##").format(sum));
-//        }
-//
-//
-//
-//    }
 
 }

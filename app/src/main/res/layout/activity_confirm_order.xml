@@ -73,11 +73,12 @@
 
 
             <TextView
+                android:id="@+id/order_review_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxWidth="350dp"
                 android:paddingStart="6dp"
-                android:text="484/2 - Chaudhary wada 4 skandrabad"
+                android:text="No address Available"
                 android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2" />
 
             <LinearLayout
@@ -96,14 +97,14 @@
                     android:textColor="@android:color/black" />
 
                 <TextView
-                    android:id="@+id/deliverydate"
+                    android:id="@+id/OrderReview_deliverydate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
+                    android:paddingVertical="5sp"
                     android:text="Date"
                     android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
                     android:textColor="@color/black"
-                    android:textStyle="bold" />
+                     />
 
 
             </LinearLayout>
@@ -138,6 +139,7 @@
                 android:text="No Items"
                 android:gravity="center"
                 android:textSize="24dp"
+                android:visibility="gone"
                 />
 
             <androidx.recyclerview.widget.RecyclerView

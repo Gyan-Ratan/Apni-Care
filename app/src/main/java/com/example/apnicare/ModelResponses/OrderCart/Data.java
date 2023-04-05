@@ -1,5 +1,6 @@
 package com.example.apnicare.ModelResponses.OrderCart;
 
+import com.example.apnicare.ModelResponses.Address.User_Address;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -44,10 +45,10 @@ public class Data {
     private Boolean paid;
     @SerializedName("shipping_address")
     @Expose
-    private String shippingAddress;
+    private User_Address shippingAddress;
     @SerializedName("billing_address")
     @Expose
-    private String billingAddress;
+    private User_Address billingAddress;
     @SerializedName("prescriptions")
     @Expose
     private List<String> prescriptions = null;
@@ -163,19 +164,19 @@ public class Data {
         this.paid = paid;
     }
 
-    public String getShippingAddress() {
+    public User_Address getShippingAddress() {
         return shippingAddress;
     }
 
-    public void setShippingAddress(String shippingAddress) {
+    public void setShippingAddress(User_Address shippingAddress) {
         this.shippingAddress = shippingAddress;
     }
 
-    public String getBillingAddress() {
+    public User_Address getBillingAddress() {
         return billingAddress;
     }
 
-    public void setBillingAddress(String billingAddress) {
+    public void setBillingAddress(User_Address billingAddress) {
         this.billingAddress = billingAddress;
     }
 

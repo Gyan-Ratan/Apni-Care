@@ -26,10 +26,10 @@ import retrofit2.Response;
 public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHolder> {
 
     private Context context;
-    private List<Datum> addresses;
+    private List<User_Address> addresses;
     SharedPrefManager sharedPrefManager;
 
-    public AddressAdapter(Context context, List<Datum> addresses) {
+    public AddressAdapter(Context context, List<User_Address> addresses) {
         this.context = context;
         this.addresses = addresses;
     }
@@ -47,7 +47,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull AddressAdapter.ViewHolder holder, int position) {
-        Datum addressresponse= addresses.get(position);
+        User_Address addressresponse= addresses.get(position);
         holder.name.setText(addressresponse.getName());
         holder.pincode.setText(addressresponse.getPincode());
         holder.address_line1.setText(addressresponse.getAddress1());

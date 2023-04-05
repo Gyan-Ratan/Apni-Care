@@ -39,6 +39,7 @@ public class CartActivity extends AppCompatActivity {
     TextView temp;
     Toolbar toolbar;
     Button couponbtn;
+    CartResponse cartResponse;
     ArrayList<CartManager> cartManagerArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +48,7 @@ public class CartActivity extends AppCompatActivity {
 
         recyclerView=findViewById(R.id.mycartrecycleview);
         sharedPrefManager=new SharedPrefManager(CartActivity.this);
-        temp=findViewById(R.id.temp_data);
+//        temp=findViewById(R.id.temp_data);
         proceed=findViewById(R.id.proceedtopay);
         couponbtn=findViewById(R.id.couponbtn);
         cartTotal=findViewById(R.id.cartTotal);
@@ -59,21 +60,21 @@ public class CartActivity extends AppCompatActivity {
 //        topay1=findViewById(R.id.topay2);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        showdata();
+            mycartproducts();
+//        showdata();
         proceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                cartPref.clearCart();
 //                Initiateorder();
-                cartManagerArrayList=cartPref.loadData();
-                if(cartManagerArrayList==null || cartManagerArrayList.isEmpty()){
+//                cartManagerArrayList=cartPref.loadData();
+                if(cartResponse.getData()==null || cartResponse.getData().isEmpty()){
                     Toast.makeText(CartActivity.this, "Cart empty", Toast.LENGTH_SHORT).show();
                 }
                 else {
 
                     Intent intent = new Intent(getApplicationContext(), SelectAddressActivity.class);
-//                intent.putExtra("order_id",cartBookingResponse.getOrder().getId());
+//                     intent.putExtra("order_id",cartBookingResponse.getOrder().getId());
                     startActivity(intent);
 
 
@@ -97,12 +98,12 @@ public class CartActivity extends AppCompatActivity {
         call.enqueue(new Callback<CartResponse>() {
             @Override
             public void onResponse(Call<CartResponse> call, Response<CartResponse> response) {
-                CartResponse cartResponse=response.body();
+                cartResponse=response.body();
                 if (response.isSuccessful()){
-                    CartItemAdapter adapter =new CartItemAdapter(CartActivity.this,cartPref.loadData(),cartTotal,dicount,topay);
+                    CartItemAdapter adapter =new CartItemAdapter(CartActivity.this,cartResponse.getData(),cartTotal,dicount,topay);
 //                    recyclerView.setLayoutManager((new LinearLayoutManager(CartActivity.this)));
                     recyclerView.setAdapter(adapter);
-//                    updateTotal(cartResponse);
+                    updateTotal(cartResponse);
 //                    cartTotal.setText(cartResponse.getData());
 
                 }
@@ -117,72 +118,139 @@ public class CartActivity extends AppCompatActivity {
 
     }
 
+//    private void mycartproducts() {
+//        Call<CartResponse> call= RetrofitClient.getInstance().getApi().getData("Bearer "+sharedPrefManager.getData().getAccessToken());
+//        call.enqueue(new Callback<CartResponse>() {
+//            @Override
+//            public void onResponse(Call<CartResponse> call, Response<CartResponse> response) {
+//                CartResponse cartResponse=response.body();
+//                if (response.isSuccessful()){
+//                    CartItemAdapter adapter =new CartItemAdapter(CartActivity.this,cartResponse.getData(),cartTotal,dicount,topay);
+////                    recyclerView.setLayoutManager((new LinearLayoutManager(CartActivity.this)));
+//                    recyclerView.setAdapter(adapter);
+////                    updateTotal(cartResponse);
+////                    cartTotal.setText(cartResponse.getData());
+//
+//                }
+////                Toast.makeText(getContext(),response.toString(),Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void onFailure(Call<CartResponse> call, Throwable t) {
+//
+//            }
+//        });
+//
+//    }
+
     private void Initiateorder() {
 //        Toast.makeText(getContext(),"function",Toast.LENGTH_SHORT).show();
 
-                Call<CartBookingResponse> call=RetrofitClient.getInstance().getApi().book("cart","customer","Bearer "+sharedPrefManager.getData().getAccessToken());
-                call.enqueue(new Callback<CartBookingResponse>() {
-                    @Override
-                    public void onResponse(Call<CartBookingResponse> call, Response<CartBookingResponse> response) {
+        Call<CartBookingResponse> call=RetrofitClient.getInstance().getApi().book("cart","customer","Bearer "+sharedPrefManager.getData().getAccessToken(),0,0);
+        call.enqueue(new Callback<CartBookingResponse>() {
+            @Override
+            public void onResponse(Call<CartBookingResponse> call, Response<CartBookingResponse> response) {
 //                        Toast.makeText(CartActivity.this,response.toString(),Toast.LENGTH_SHORT).show();
-                        CartBookingResponse cartBookingResponse=response.body();
-                        if (response.isSuccessful()){
-                            Toast.makeText(CartActivity.this,"order Booked",Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), SelectAddressActivity.class);
-                            intent.putExtra("order_id",cartBookingResponse.getOrder().getId());
-                            startActivity(intent);
+                CartBookingResponse cartBookingResponse=response.body();
+                if (response.isSuccessful()){
+                    Toast.makeText(CartActivity.this,"order Booked",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), SelectAddressActivity.class);
+                    intent.putExtra("order_id",cartBookingResponse.getOrder().getId());
+                    startActivity(intent);
 
-                        }
-                    }
-                    @Override
-                    public void onFailure(Call<CartBookingResponse> call, Throwable t) {
-                        Toast.makeText(CartActivity.this,t.getMessage(),Toast.LENGTH_SHORT).show();
-
-                    }
-                });
+                }
             }
+            @Override
+            public void onFailure(Call<CartBookingResponse> call, Throwable t) {
+                Toast.makeText(CartActivity.this,t.getMessage(),Toast.LENGTH_SHORT).show();
 
+            }
+        });
+    }
 
-    private void updateTotal(ArrayList<CartManager> cartManagerArrayList) {
+    private void updateTotal(CartResponse cartResponse) {
         int i;
         double mrp=0,sum=0;
-        if (cartManagerArrayList==null || cartManagerArrayList.isEmpty()){
-            topay.setText("₹ "+"00");
-//            topay1.setText("₹ "+"00");
+        String su;
+        for (i=0;i<cartResponse.getData().size();i++){
+            sum= sum+(cartResponse.getData().get(i).getDrug().getPrice()*cartResponse.getData().get(i).getQuantity());
+            mrp = mrp + (cartResponse.getData().get(i).getDrug().getMrp()*cartResponse.getData().get(i).getQuantity());
         }
-        else {
-            for (i=0;i<cartManagerArrayList.size();i++){
-                sum= sum+(cartManagerArrayList.get(i).price*cartManagerArrayList.get(i).qty);
-            mrp = mrp + (cartManagerArrayList.get(i).getMrp()*cartManagerArrayList.get(i).qty);
-            }
         cartTotal.setText("₹ "+new DecimalFormat("##.##").format(mrp));
         dicount.setText("-₹ "+new DecimalFormat("##.##").format(mrp-sum));
-            topay.setText("₹ "+new DecimalFormat("##.##").format(sum));
-//            topay1.setText("₹ "+new DecimalFormat("##.##").format(sum));
-        }
-
+        topay.setText("₹ "+new DecimalFormat("##.##").format(sum));
+//        topay1.setText("₹ "+new DecimalFormat("##.##").format(sum));
 
 
     }
 
-    private void showdata() {
 
-        cartManagerArrayList=cartPref.loadData();
-        if (cartManagerArrayList==null || cartManagerArrayList.isEmpty()){
-            temp.setText("No data");
-        }
-        else {
-            temp.setText("");
-            int a=0;
-            for (a=0;a<cartManagerArrayList.size();a++){
-//                temp.setText(temp.getText()+"\n"+cartManagerArrayList.get(a).itemName);
-                CartItemAdapter adapter =new CartItemAdapter(CartActivity.this,cartPref.loadData(),cartTotal,dicount,topay);
-//                    recyclerView.setLayoutManager((new LinearLayoutManager(CartActivity.this)));
-                recyclerView.setAdapter(adapter);
-            }
-        }
-        updateTotal(cartManagerArrayList);
-    }
+//    private void Initiateorder() {
+////        Toast.makeText(getContext(),"function",Toast.LENGTH_SHORT).show();
+//
+//                Call<CartBookingResponse> call=RetrofitClient.getInstance().getApi().book("cart","customer","Bearer "+sharedPrefManager.getData().getAccessToken());
+//                call.enqueue(new Callback<CartBookingResponse>() {
+//                    @Override
+//                    public void onResponse(Call<CartBookingResponse> call, Response<CartBookingResponse> response) {
+////                        Toast.makeText(CartActivity.this,response.toString(),Toast.LENGTH_SHORT).show();
+//                        CartBookingResponse cartBookingResponse=response.body();
+//                        if (response.isSuccessful()){
+//                            Toast.makeText(CartActivity.this,"order Booked",Toast.LENGTH_SHORT).show();
+//                            Intent intent = new Intent(getApplicationContext(), SelectAddressActivity.class);
+//                            intent.putExtra("order_id",cartBookingResponse.getOrder().getId());
+//                            startActivity(intent);
+//
+//                        }
+//                    }
+//                    @Override
+//                    public void onFailure(Call<CartBookingResponse> call, Throwable t) {
+//                        Toast.makeText(CartActivity.this,t.getMessage(),Toast.LENGTH_SHORT).show();
+//
+//                    }
+//                });
+//            }
+
+
+//    private void updateTotal(ArrayList<CartManager> cartManagerArrayList) {
+//        int i;
+//        double mrp=0,sum=0;
+//        if (cartManagerArrayList==null || cartManagerArrayList.isEmpty()){
+//            topay.setText("₹ "+"00");
+////            topay1.setText("₹ "+"00");
+//        }
+//        else {
+//            for (i=0;i<cartManagerArrayList.size();i++){
+//                sum= sum+(cartManagerArrayList.get(i).price*cartManagerArrayList.get(i).qty);
+//            mrp = mrp + (cartManagerArrayList.get(i).getMrp()*cartManagerArrayList.get(i).qty);
+//            }
+//        cartTotal.setText("₹ "+new DecimalFormat("##.##").format(mrp));
+//        dicount.setText("-₹ "+new DecimalFormat("##.##").format(mrp-sum));
+//            topay.setText("₹ "+new DecimalFormat("##.##").format(sum));
+////            topay1.setText("₹ "+new DecimalFormat("##.##").format(sum));
+//        }
+//
+//
+//
+//    }
+
+//    private void showdata() {
+//
+//        cartManagerArrayList=cartPref.loadData();
+//        if (cartManagerArrayList==null || cartManagerArrayList.isEmpty()){
+//            temp.setText("No data");
+//        }
+//        else {
+//            temp.setText("");
+//            int a=0;
+//            for (a=0;a<cartManagerArrayList.size();a++){
+////                temp.setText(temp.getText()+"\n"+cartManagerArrayList.get(a).itemName);
+//                CartItemAdapter adapter =new CartItemAdapter(CartActivity.this,cartPref.loadData(),cartTotal,dicount,topay);
+////                    recyclerView.setLayoutManager((new LinearLayoutManager(CartActivity.this)));
+//                recyclerView.setAdapter(adapter);
+//            }
+//        }
+//        updateTotal(cartManagerArrayList);
+//    }
 
     private void addtocart(String id,int qty) {
         Call<AddItemResponse> call= RetrofitClient.getInstance().getApi().additemtocart(id,qty,"Bearer "+sharedPrefManager.getData().getAccessToken());

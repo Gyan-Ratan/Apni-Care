@@ -17,13 +17,13 @@ public class Item {
     private String orderType;
     @SerializedName("discount")
     @Expose
-    private int discount;
+    private double discount;
     @SerializedName("discount_type")
     @Expose
     private String discountType;
     @SerializedName("discount_amount")
     @Expose
-    private int discountAmount;
+    private double discountAmount;
     @SerializedName("sub_total")
     @Expose
     private Double subTotal;
@@ -59,7 +59,7 @@ public class Item {
     private String expectedDelivery;
     @SerializedName("delivered_at")
     @Expose
-    private Object deliveredAt;
+    private String deliveredAt;
     @SerializedName("placed_at")
     @Expose
     private String placedAt;
@@ -91,12 +91,20 @@ public class Item {
         this.orderType = orderType;
     }
 
-    public int getDiscount() {
+    public double getDiscount() {
         return discount;
     }
 
-    public void setDiscount(int discount) {
+    public void setDiscount(double discount) {
         this.discount = discount;
+    }
+
+    public double getDiscountAmount() {
+        return discountAmount;
+    }
+
+    public void setDiscountAmount(double discountAmount) {
+        this.discountAmount = discountAmount;
     }
 
     public String getDiscountType() {
@@ -107,13 +115,6 @@ public class Item {
         this.discountType = discountType;
     }
 
-    public int getDiscountAmount() {
-        return discountAmount;
-    }
-
-    public void setDiscountAmount(int discountAmount) {
-        this.discountAmount = discountAmount;
-    }
 
     public Double getSubTotal() {
         return subTotal;
@@ -203,11 +204,11 @@ public class Item {
         this.expectedDelivery = expectedDelivery;
     }
 
-    public Object getDeliveredAt() {
+    public String getDeliveredAt() {
         return deliveredAt;
     }
 
-    public void setDeliveredAt(Object deliveredAt) {
+    public void setDeliveredAt(String deliveredAt) {
         this.deliveredAt = deliveredAt;
     }
 

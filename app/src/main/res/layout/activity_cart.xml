@@ -4,15 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".myCart.CartActivity"
     android:orientation="vertical">
 
-    <!--<androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/emp_data"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="gone"
         android:elevation="4dp">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/temp_data"
+            android:id="@+id/shapeableImageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/empty_cart"
@@ -20,12 +23,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+            android:text="Your Cart is empty!"
+            app:layout_constraintEnd_toEndOf="@+id/shapeableImageView"
+            app:layout_constraintStart_toStartOf="@+id/shapeableImageView"
+            app:layout_constraintTop_toBottomOf="@+id/shapeableImageView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".myCart.CartActivity">
+        android:visibility="visible">
 
 
         <androidx.appcompat.widget.Toolbar
@@ -77,21 +89,17 @@
                 app:iconTint="@android:color/black" />
         </LinearLayout>
 
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/emptyscrollview"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
 
-            app:layout_constraintBottom_toTopOf="@+id/pricecard"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0sp"
 
-                android:orientation="vertical">
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/pricecard"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
 
 
                 <com.google.android.material.divider.MaterialDivider
@@ -100,116 +108,17 @@
                     android:layout_height="3dp"
                     android:background="?android:attr/listDivider" />
 
-
-                <!--            <androidx.cardview.widget.CardView-->
-                <!--                android:layout_width="match_parent"-->
-                <!--                android:layout_height="wrap_content"-->
-
-                <!--                app:cardCornerRadius="5dp"-->
-                <!--                app:cardElevation="2dp"-->
-                <!--                app:cardUseCompatPadding="true"-->
-                <!--                app:contentPadding="10sp">-->
-
-                <!--                <LinearLayout-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:orientation="vertical">-->
-
-
-                <!--                    <LinearLayout-->
-                <!--                        android:layout_width="match_parent"-->
-                <!--                        android:layout_height="wrap_content"-->
-                <!--                        android:orientation="horizontal">-->
-
-                <!--                        <TextView-->
-                <!--                            android:layout_width="match_parent"-->
-                <!--                            android:layout_height="wrap_content"-->
-
-                <!--                            android:text="Nivea Body Lotion,600ml"-->
-                <!--                            android:textColor="@color/black"-->
-                <!--                            android:textSize="18sp"-->
-                <!--                            android:textStyle="bold" />-->
-
-
-                <!--                    </LinearLayout>-->
-
-                <!--                    <TextView-->
-                <!--                        android:layout_width="wrap_content"-->
-                <!--                        android:layout_height="wrap_content"-->
-                <!--                        android:text="MRP-Rs.1500"-->
-                <!--                        android:textSize="16dp"-->
-
-                <!--                        />-->
-
-                <!--                    <LinearLayout-->
-                <!--                        android:layout_width="match_parent"-->
-                <!--                        android:layout_height="wrap_content"-->
-                <!--                        android:layout_gravity="center_vertical|center_horizontal"-->
-                <!--                        android:orientation="horizontal">-->
-
-                <!--                        <TextView-->
-                <!--                            android:layout_width="wrap_content"-->
-                <!--                            android:layout_height="wrap_content"-->
-                <!--                            android:layout_marginTop="12dp"-->
-                <!--                            android:text="Rs.999"-->
-                <!--                            android:textColor="@color/black"-->
-                <!--                            android:textSize="24dp"-->
-
-
-                <!--                            />-->
-
-                <!--                        &lt;!&ndash;                    <ImageButton&ndash;&gt;-->
-                <!--                        &lt;!&ndash;                        android:layout_width="50dp"&ndash;&gt;-->
-                <!--                        &lt;!&ndash;                        android:layout_height="50sp"&ndash;&gt;-->
-                <!--                        &lt;!&ndash;                        android:background="@color/black"&ndash;&gt;-->
-                <!--                        &lt;!&ndash;                        android:layout_marginLeft="250dp"&ndash;&gt;-->
-
-                <!--                        &lt;!&ndash;                         />&ndash;&gt;-->
-                <!--                    </LinearLayout>-->
-
-
-                <!--                </LinearLayout>-->
-
-
-                <!--            </androidx.cardview.widget.CardView>-->
-
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/mycartrecycleview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-
-                    android:foregroundGravity="fill"
                     android:padding="4dp">
 
 
                 </androidx.recyclerview.widget.RecyclerView>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="harsh"
-                    android:id="@+id/temp_data"/>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="500dp"
-                    android:layout_marginTop="10sp"
-                    android:layout_marginBottom="10sp"
-                    android:visibility="gone">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10sp"
-                        android:text="Discount and Offers"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                </androidx.cardview.widget.CardView>
-
 
             </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/pricecard"
