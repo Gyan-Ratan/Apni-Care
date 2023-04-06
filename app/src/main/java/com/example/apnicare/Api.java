@@ -7,6 +7,7 @@ import com.example.apnicare.ModelResponses.Address.AddressResponse;
 import com.example.apnicare.ModelResponses.CategoryResponse.CategoryResponse;
 import com.example.apnicare.ModelResponses.ComfirmOrder.ConfirmResponse;
 import com.example.apnicare.ModelResponses.ContactUs.ContactResponse;
+import com.example.apnicare.ModelResponses.DecreaseQuantity.DecreseQuantityResponse;
 import com.example.apnicare.ModelResponses.DeleteAddress.DeleteAddressResponse;
 import com.example.apnicare.ModelResponses.EditAddress.EditAddressResponse;
 import com.example.apnicare.ModelResponses.LoginResponse.LoginResponse;
@@ -55,6 +56,10 @@ public interface Api {
     @POST("cart/")
     Call<AddItemResponse> additemtocart(@Field("drug_id") String id,@Field("quantity")int qunatity,@Header("Authorization") String token);
 
+    @FormUrlEncoded
+    @PUT("cart/{id}")
+    Call<DecreseQuantityResponse> decreaseQuantity(@Path("id")int id,@Field("quantity")int quantity,@Field("selected")boolean selected,@Header("Authorization") String token);
+
     @GET("user/address/")
     Call<AddressResponse> getData1(@Header("Authorization") String token);
 
@@ -71,7 +76,7 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("order/")
-    Call<CartBookingResponse> book(@Field("order_mode")String mode,@Field("order_type")String type,@Header("Authorization") String token);
+    Call<CartBookingResponse> book(@Field("order_mode")String mode,@Field("order_type")String type,@Header("Authorization") String token,@Field("shipping_address_id")int addId,@Field("billing_address_id")int billAddress);
 
     @GET("drug/category")
     Call<CategoryResponse> getdata();

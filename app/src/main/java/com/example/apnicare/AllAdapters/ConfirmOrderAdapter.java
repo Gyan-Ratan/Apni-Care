@@ -21,12 +21,13 @@ import java.util.List;
 
 public class ConfirmOrderAdapter extends RecyclerView.Adapter<ConfirmOrderAdapter.ViewHolder> {
      private Context context;
-    private ArrayList<CartManager> data;
+    private  List<Detail> data;
 
-    public ConfirmOrderAdapter(Context context, ArrayList<CartManager> data) {
+    public ConfirmOrderAdapter(Context context, List<Detail> data) {
         this.context = context;
         this.data = data;
     }
+
 
 
     @NonNull
@@ -38,10 +39,10 @@ public class ConfirmOrderAdapter extends RecyclerView.Adapter<ConfirmOrderAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-//        Detail cartresponse=data.get(position);
-        holder.productname.setText(data.get(position).itemName);
-        holder.price.setText("Rs. "+data.get(position).price);
-        String qty= String.valueOf(data.get(position).qty);
+        Detail cartresponse=data.get(position);
+        holder.productname.setText(cartresponse.getDrug().getName());
+        holder.price.setText("Rs. "+cartresponse.getPrice().toString());
+        String qty= String.valueOf(cartresponse.getQuantity());
         holder.quantityNumber.setText(qty);
     }
 

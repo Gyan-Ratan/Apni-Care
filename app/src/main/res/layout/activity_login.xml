@@ -91,16 +91,22 @@
             android:textColor="@android:color/black" />-->
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            >
+            android:layout_weight="1"
+            android:hint="Enter Mobile Number"
+            app:boxStrokeColor="@color/teal_200"
+            app:hintTextColor="@color/teal_200"
+            app:prefixText="+91"
+            app:prefixTextAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2">
+
+        >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/Phone_Number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter Mobile Number"
                 android:inputType="phone"
                 android:maxLength="10"
                 android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"

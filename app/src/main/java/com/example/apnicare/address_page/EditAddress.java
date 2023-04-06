@@ -2,16 +2,12 @@ package com.example.apnicare.address_page;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
 
+import android.text.TextUtils;
 import android.util.Patterns;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -21,7 +17,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.apnicare.AllAdapters.SelectAddressAdapter;
-import com.example.apnicare.ModelResponses.Address.Datum;
 import com.example.apnicare.ModelResponses.EditAddress.EditAddressResponse;
 import com.example.apnicare.R;
 import com.example.apnicare.RetrofitClient;
@@ -33,21 +28,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Objects;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class EditAddress extends Fragment {
-    TextInputEditText name,address1,address2,phone,pincode;
+public class EditAddress extends AppCompatActivity {
+    TextInputEditText name,address1,address2,phone,pincode,city,state;
     Button save;
-    Toolbar toolbar,toolbar2;
-    AutoCompleteTextView city,state;
+    Toolbar toolbar;
     SharedPrefManager sharedPrefManager;
-    String[] items ={ "GZB","MZN"};
-    ArrayAdapter<String> adapteritems;
     private RequestQueue mRequestQueue;
     String district,state1;
     FloatingActionButton floatingActionButton;
@@ -56,63 +46,48 @@ public class EditAddress extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_edit_address, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_edit_address);
+        name=findViewById(R.id.recipientsname);
+        sharedPrefManager=new SharedPrefManager(getApplicationContext());
 
-        name=view.findViewById(R.id.recipientsname);
-        sharedPrefManager=new SharedPrefManager(getContext());
-
-        toolbar=view.findViewById(R.id.NewAddtoolbar);
-        address1=view.findViewById(R.id.addressLine1);
-        city=view.findViewById(R.id.citydropmenu);
-        state=view.findViewById(R.id.statedropmenu);
-        address2=view.findViewById(R.id.addressLine2);
-        pincode=view.findViewById(R.id.pincode123);
-        phone=view.findViewById(R.id.phoneNumber);
-        save=view.findViewById(R.id.saveaddress);
-        mRequestQueue = Volley.newRequestQueue(getContext());
+        toolbar=findViewById(R.id.NewAddtoolbar);
+        address1=findViewById(R.id.addressLine1);
+        city=findViewById(R.id.citydropmenu);
+        state=findViewById(R.id.statedropmenu);
+        address2=findViewById(R.id.addressLine2);
+        pincode=findViewById(R.id.pincode123);
+        phone=findViewById(R.id.phoneNumber);
+        save=findViewById(R.id.saveaddress);
+        mRequestQueue = Volley.newRequestQueue(getApplicationContext());
 
 
-        adapteritems = new ArrayAdapter<String>(getContext(),R.layout.dropmenu_list,items);
-        state.setAdapter(adapteritems);
+        /*adapteritems = new ArrayAdapter<String>(getApplicationContext(),R.layout.dropmenu_list,items);
+        state.setAdapter(adapteritems);*/
 
-        state.setOnItemClickListener((new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                try {
-                    String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(getActivity(), "Item:"+item, Toast.LENGTH_SHORT).show();
-                }catch (Exception e){
-                    System.out.println("some error at edit_Address.java" + e);
-                }
-
-            }
-        }));
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String pincode1 = pincode.getText().toString();
 //                getDataFromPinCode(pincode1);
-                addAddress(pincode1);
-
+                if (!TextUtils.isEmpty(pincode1)) {
+                    addAddress(pincode1);
+                }
             }
         });
         toolbar.setNavigationOnClickListener(view1 -> {
-            requireActivity().onBackPressed();
+            finish();
         });
-
-        return view;
-
 
     }
 
     private void addAddress(String pincode1) {
         String name1 = name.getText().toString();
         String phone1 = phone.getText().toString();
-        String address11 = Objects.requireNonNull(address1.getText()).toString();
+        String address11 = address1.getText().toString();
         String address21 = address2.getText().toString();
 
 
@@ -120,13 +95,13 @@ public class EditAddress extends Fragment {
             if (phone1.isEmpty()) {
                 phone.requestFocus();
                 phone.setError("please enter number");
-                Toast.makeText(getContext(), "enter correct number", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "enter correct number", Toast.LENGTH_SHORT).show();
                 return;
             }
             if (!Patterns.PHONE.matcher(phone1).matches()) {
                 phone.requestFocus();
                 phone.setError("please enter a valid number");
-                Toast.makeText(getContext(), "enter correct number", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "enter correct number", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -137,9 +112,9 @@ public class EditAddress extends Fragment {
                 @Override
                 public void onResponse(Call<EditAddressResponse> call, Response<EditAddressResponse> response) {
                     EditAddressResponse editAddressResponse =response.body();
-//                    Toast.makeText(getContext(), response.toString(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
                     if (response.isSuccessful()){
-                        Toast.makeText(getContext(), "Address added", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Address added", Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -147,7 +122,7 @@ public class EditAddress extends Fragment {
 
                 @Override
                 public void onFailure(Call<EditAddressResponse> call, Throwable t) {
-                    Toast.makeText(getContext(),""+ t.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),""+ t.getMessage(), Toast.LENGTH_SHORT).show();
 
 
                 }
@@ -167,7 +142,7 @@ public class EditAddress extends Fragment {
             String url = "http://www.postalpincode.in/api/pincode/" + pinCode;
 
             // below line is use to initialize our request queue.
-            RequestQueue queue = Volley.newRequestQueue(getContext());
+            RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
             // in below line we are creating a
             // object request using volley.
@@ -187,7 +162,7 @@ public class EditAddress extends Fragment {
                             // in this method the response status is having error and
                             // we are setting text to TextView as invalid pincode.
 //                            pinCodeDetailsTV.setText("Pin code is not valid.");
-                            Toast.makeText(getContext(), "Pincode is not valid", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Pincode is not valid", Toast.LENGTH_SHORT).show();
                         } else {
                             // if the status is success we are calling this method
                             // in which we are getting data from post office object
@@ -198,7 +173,7 @@ public class EditAddress extends Fragment {
                             // state and country from our data.
                             district = obj.getString("District");
                             state1 = obj.getString("State");
-                            Toast.makeText(getContext(), state1, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), state1, Toast.LENGTH_SHORT).show();
                             String country = obj.getString("Country");
 
                             // after getting all data we are setting this data in
@@ -211,7 +186,7 @@ public class EditAddress extends Fragment {
                         // will be printed in log cat.
                         e.printStackTrace();
 //                        pinCodeDetailsTV.setText("Pin code is not valid");
-                        Toast.makeText(getContext(), "Pincode is not valid", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Pincode is not valid", Toast.LENGTH_SHORT).show();
 
                     }
                 }
@@ -221,7 +196,7 @@ public class EditAddress extends Fragment {
                     // below method is called if we get
                     // any error while fetching data from API.
                     // below line is use to display an error message.
-                    Toast.makeText(getContext(), "Pin code is not valid.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Pin code is not valid.", Toast.LENGTH_SHORT).show();
 //                    pinCodeDetailsTV.setText("Pin code is not valid");
                 }
             });

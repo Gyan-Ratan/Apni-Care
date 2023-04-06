@@ -3,7 +3,7 @@ package com.example.apnicare.ModelResponses.Address;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Datum {
+public class User_Address {
     @SerializedName("id")
     @Expose
     private int id;

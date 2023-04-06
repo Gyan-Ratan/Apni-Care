@@ -129,33 +129,35 @@ public class searchMedicineAdapter extends RecyclerView.Adapter<searchMedicineAd
 
         @Override
         public void onClick(View view) {
-//            String id;
-//            id=Items.get(getAdapterPosition()).getSlug();
-            cartPref.saveItem(Items.get(getAdapterPosition()).getName(),1,Items.get(getAdapterPosition()).getSlug(),Items.get(getAdapterPosition()).getPrice(),Items.get(getAdapterPosition()).getMrp());
+            String id;
+            id=Items.get(getAdapterPosition()).getSlug();
+            addtocart(id);
+//            cartPref.saveItem(Items.get(getAdapterPosition()).getName(),1,Items.get(getAdapterPosition()).getSlug(),Items.get(getAdapterPosition()).getPrice(),Items.get(getAdapterPosition()).getMrp());
 
-            gotocart.setVisibility(View.VISIBLE);
-            add.setVisibility(View.INVISIBLE);
+
 
         }
+        private void addtocart(String id) {
+            Call<AddItemResponse> call= RetrofitClient.getInstance().getApi().additemtocart(id,1,"Bearer "+sharedPrefManager.getData().getAccessToken());
+            call.enqueue(new Callback<AddItemResponse>() {
+                @Override
+                public void onResponse(Call<AddItemResponse> call, Response<AddItemResponse> response) {
+//                Toast.makeText(context,response.toString(),Toast.LENGTH_SHORT).show();
+                    if (response.isSuccessful()){
+//                    Toast.makeText(context,"item added to cart",Toast.LENGTH_SHORT).show();
+                        gotocart.setVisibility(View.VISIBLE);
+                        add.setVisibility(View.INVISIBLE);
+                    }
+                }
 
+                @Override
+                public void onFailure(Call<AddItemResponse> call, Throwable t) {
+
+                }
+            });
+
+        }
     }
 
-    private void addtocart(String id) {
-        Call<AddItemResponse> call= RetrofitClient.getInstance().getApi().additemtocart(id,1,"Bearer "+sharedPrefManager.getData().getAccessToken());
-        call.enqueue(new Callback<AddItemResponse>() {
-            @Override
-            public void onResponse(Call<AddItemResponse> call, Response<AddItemResponse> response) {
-//                Toast.makeText(context,response.toString(),Toast.LENGTH_SHORT).show();
-                if (response.isSuccessful()){
-                    Toast.makeText(context,"item added to cart",Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<AddItemResponse> call, Throwable t) {
-
-            }
-        });
-
-    }// function to make api call
+    // function to make api call
 }
