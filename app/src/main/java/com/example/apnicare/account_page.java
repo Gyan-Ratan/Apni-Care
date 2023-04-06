@@ -91,8 +91,9 @@ public class account_page extends Fragment {
         });
 
         needhelp.setOnClickListener(view5 ->  {
-                Intent intent = new Intent(getActivity(), ContactUsActivity.class);
-                startActivity(intent);
+            Toast.makeText(getActivity(), "Working", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(getActivity(), ContactUsActivity.class);
+//                startActivity(intent);
         });
 
         logout.setOnClickListener(view6 -> {

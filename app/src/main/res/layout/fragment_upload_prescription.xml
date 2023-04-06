@@ -10,23 +10,24 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="300sp"
-        android:layout_marginTop="20dp"
+        android:layout_height="230sp"
+        android:layout_marginTop="50dp"
         app:srcCompat="@drawable/medical_prescription" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/upload"
+        style="@style/Widget.MaterialComponents.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:backgroundTint="@color/teal_500"
+        android:backgroundTint="@color/teal_A700"
         android:padding="12sp"
         android:text="Upload Prescription"
         app:cornerRadius="20dp" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="15sp"
+        android:layout_height="10sp"
         android:background="#D9D9D9"/>
 
     <TextView

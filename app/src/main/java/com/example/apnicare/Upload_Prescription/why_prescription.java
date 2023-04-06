@@ -72,7 +72,6 @@ public class why_prescription extends BottomSheetDialogFragment {
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
             }
         });
 
